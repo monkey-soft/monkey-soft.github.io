@@ -20,26 +20,32 @@ description: >- #
 baseurl: ""
 url: "https://monkey-soft.github.io"
 repository: monkey-soft
-# 输出
+# 文章链接格式
 permalink: /:short_year:i_month:i_day.html
 # permalink: /:year/:month/:day/:title
 paginate: 5
 paginate_path: /page:num
-# 目录结构
-source: .
 
-# MatJek specific configurations
+
+# 个人信息配置
 github_profile: "https://github.com/monkey-soft"
 user: "猴哥"
 user_email: "chanql123@163.com"
 #contact_url: "https://goo.gl/tVljbV"
+
+# 统计
+# Analytics settings
 google_tracking_id: "UA-49128543-2"
 google_site_verification: "UA-49128543-2"
+
+# 评论系统
 #disqus_shortname: ""
+
+# Gems
+plugins: [jekyll-paginate]
 
 # Build settings
 markdown: kramdown
-plugins: [jekyll-paginate]
 plugins:
   - jekyll-feed
   - jekyll-paginate
