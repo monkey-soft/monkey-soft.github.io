@@ -14,25 +14,33 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: 极客猴
-description: > 猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。
-baseurl: "/index.html"
+description: >- #
+  猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。
+  此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。
+baseurl: ""
 url: "https://monkey-soft.github.io"
-permalink: /:postid
-repository: monkey-soft/monkey-soft.github.io
+repository: monkey-soft
+# 输出
+permalink: /:short_year:i_month:i_day.html
+# permalink: /:year/:month/:day/:title
 paginate: 5
+paginate_path: /page:num
+# 目录结构
+source: .
 
 # MatJek specific configurations
 github_profile: "https://github.com/monkey-soft"
 user: "猴哥"
-#user_email: ""
+user_email: "chanql123@163.com"
 #contact_url: "https://goo.gl/tVljbV"
-google_tracking_id: ""
-google_site_verification: ""
+google_tracking_id: "UA-49128543-2"
+google_site_verification: "UA-49128543-2"
 #disqus_shortname: ""
 
 # Build settings
 markdown: kramdown
-gems:
+plugins: [jekyll-paginate]
+plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
