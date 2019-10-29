@@ -6,17 +6,22 @@ css: ["index.css"]
   {% for post in paginator.posts %}
   <div class="col s12">
     <div class="card hoverable">
+      <img class="card-img-top post-img" src="{{ site.baseurl }}/img/{{post.date | date: "%Y-%m-%d"}}.jpg" alt="Card image cap">
       <div class="card-content">
-        <span id="post-title" class="card-title">{{post.title}}</span>
-        <p id="post-date">
-          <i class="material-icons">date_range</i>
-          {{post.date | date: "%Y-%m-%d %H:%M"}}
-        </p>
-        <p id="post-content">{{post.excerpt | remove: '<p>' | remove: '</p>'}}</p>
+          <span id="post-title" class="card-title post-title-color">{{post.title}}</span>
+          <div id="post-date">
+              <i class="material-icons post-date-icon">date_range</i>
+              <span class="post-date-span">{{post.date | date: "%Y-%m-%d %H:%M"}}</span>
+              <i class="material-icons post-date-icon">person</i>
+              <span class="post-date-span">猴哥</span>
+<!--               <i class="material-icons post-date-icon">remove_red_eye</i>
+              <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"> </span><span class="post-date-span"> 次浏览</span></span> -->
+          </div>
+          <p id="post-content">{{post.excerpt | remove: '<p>' | remove: '</p>'}}</p>
       </div>
       <div class="card-action">
-        <a href="{{post.url | prepend: site.baseurl}}">
-          阅读全文
+        <a href="{{post.url | prepend: site.baseurl}}" class="btn btn-primary">
+          继续阅读
         </a>
       </div>
     </div>

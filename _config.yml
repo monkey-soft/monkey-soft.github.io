@@ -14,16 +14,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: 极客猴
+subtitle: 猴哥的个人博客
 description: >- #
   猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。
   此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。
 baseurl: ""
 url: "https://monkey-soft.github.io"
 repository: monkey-soft
-# 文章链接格式
+# 文章链接格式, 伪 /%post_id.html%/
 permalink: /:short_year:i_month:i_day.html
 # permalink: /:year/:month/:day/:title
-paginate: 5
+# 分页, 每页显示文章数
+paginate: 15
 paginate_path: /page:num
 
 
@@ -35,8 +37,8 @@ user_email: "chanql123@163.com"
 
 # 统计
 # Analytics settings
-google_tracking_id: "UA-49128543-2"
-google_site_verification: "UA-49128543-2"
+# google_tracking_id: ""
+# google_site_verification: ""
 
 # 评论系统
 #disqus_shortname: ""
