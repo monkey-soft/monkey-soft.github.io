@@ -28,7 +28,7 @@ permalink: /:short_year:i_month:i_day.html
 paginate: 15
 paginate_path: /page:num
 # 设置时区, 默认本地操作系统时间
-timezone: Asia/Shangha 
+timezone: Asia/Shanghai
 
 # 个人信息配置
 github_profile: "https://github.com/monkey-soft"
