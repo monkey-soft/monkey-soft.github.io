@@ -7,20 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>归档: 2016 - 极客猴</title>
+<title>常用Python标准库 - 极客猴</title>
 
 
-    <meta name="description" content="猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。">
-<meta name="keywords" content="Python, 网络爬虫, 数据分析, Web 开发, Django">
-<meta property="og:type" content="website">
-<meta property="og:title" content="极客猴">
-<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;archives&#x2F;2016&#x2F;index.html">
+    <meta name="description" content="众所周知，Python有庞大的库资源，有官方标准库以及第三方的扩展库。每个库都一把利器，能帮助我们快速处理某方面的问题。作为一名python的初学者，当把基本的语法、列表和元组、字典、迭代器、异常处理、I&#x2F;O操作、抽象等知识点学完之后。我建议把官方常用的标准库也随便学下来。讲真的，你知道这些库之后，你会有种相见恨晚的感觉。 接下来带大家走进python标准库的世界。PS： 使用Python的版本为">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用Python标准库">
+<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;123.html">
 <meta property="og:site_name" content="极客猴">
-<meta property="og:description" content="猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。">
+<meta property="og:description" content="众所周知，Python有庞大的库资源，有官方标准库以及第三方的扩展库。每个库都一把利器，能帮助我们快速处理某方面的问题。作为一名python的初学者，当把基本的语法、列表和元组、字典、迭代器、异常处理、I&#x2F;O操作、抽象等知识点学完之后。我建议把官方常用的标准库也随便学下来。讲真的，你知道这些库之后，你会有种相见恨晚的感觉。 接下来带大家走进python标准库的世界。PS： 使用Python的版本为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2016-12-05.jpg">
+<meta property="og:updated_time" content="2019-11-17T02:43:46.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2016-12-05.jpg">
 
 
 
@@ -95,7 +96,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="极客猴" height="28">
+                <img src="/images/logo.png" alt="常用Python标准库" height="28">
             
             </a>
         </div>
@@ -131,6 +132,10 @@ var _hmt = _hmt || [];
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
@@ -145,111 +150,217 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/cover/2016-12-05.jpg" alt="常用Python标准库">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>常用Python标准库
+            
+        </h1>
 
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        2016
-        </h3>
-        <div class="timeline">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2016-12-04T19:47:47.000Z">2016-12-05</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2016-12-05</span>
                 
-                <a href="/124.html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/images/cover/2016-12-21.jpg" alt="每逢佳节倍思亲">
-                    </p>
-                </a>
                 
-
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2016-12-21T00:14:01.000Z">2016-12-21</time>
-                        <!-- 文章更新时间 
-                        
-                            <i class="fas fa-calendar-check">&nbsp</i>
-                            <time class="level-item has-text-grey" datetime="2019-11-17T02:52:59.869Z">2019-11-17</time>
-                        
-                        -->
-                        <a href="/124.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">每逢佳节倍思亲</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Python%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python必知必会</a>
                 </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/123.html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/images/cover/2016-12-05.jpg" alt="常用Python标准库">
-                    </p>
-                </a>
                 
 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2016-12-04T19:47:47.000Z">2016-12-05</time>
-                        <!-- 文章更新时间 
-                        
-                            <i class="fas fa-calendar-check">&nbsp</i>
-                            <time class="level-item has-text-grey" datetime="2019-11-17T02:43:46.046Z">2019-11-17</time>
-                        
-                        -->
-                        <a href="/123.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">常用Python标准库</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Python%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python必知必会</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1621 个字)
+                </span>
                 
-                <a href="/111.html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/images/cover/2016-11-20.jpg" alt="深入理解HTTP">
-                    </p>
-                </a>
                 
-
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2016-11-20T14:35:13.000Z">2016-11-20</time>
-                        <!-- 文章更新时间 
-                        
-                            <i class="fas fa-calendar-check">&nbsp</i>
-                            <time class="level-item has-text-grey" datetime="2019-11-17T02:38:03.439Z">2019-11-17</time>
-                        
-                        -->
-                        <a href="/111.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">深入理解HTTP</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+            </div>
         </div>
+        
+
+        <br>
+        <div class="content">
+            <p>众所周知，Python有庞大的库资源，有官方标准库以及第三方的扩展库。每个库都一把利器，能帮助我们快速处理某方面的问题。作为一名python的初学者，当把基本的语法、列表和元组、字典、迭代器、异常处理、I/O操作、抽象等知识点学完之后。我建议把官方常用的标准库也随便学下来。讲真的，你知道这些库之后，你会有种相见恨晚的感觉。</p>
+<p>接下来带大家走进python标准库的世界。PS： 使用Python的版本为Python3</p>
+<a id="more"></a>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
+<li><code>re</code>: 正则表达式。用来判断字符串是否是你指定的特定字符串。在爬虫项目中，经常能捕获到它的身影。</li>
+<li><code>StringIO</code>: 提供以文件为保存形式来读和写字符串。还有个性能更加好的<code>cStringIO</code>版本</li>
+<li><code>struct</code>: 以二进制字节序列来解释字符串。可以通过格式化参数，指定类型、长度、字节序（大小端）、内存对齐等。</li>
+</ul>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><ul>
+<li><code>bisect</code>: 数组二分算法。提供支持按顺序对列表进行排序，而不必每次在列表中插入后再去排序。</li>
+<li><code>heapq</code>: 堆队列算法。最小堆：完全平衡二叉树， 所有节点都小于字节点。</li>
+<li><code>datetime</code>: 提供操作日期和时间的类。其中有两种日期和时间类型： <em>naive<em>和</em>aware</em> </li>
+<li><code>collections</code>: 高性能容器数据类型。实现了Python的通用内置容器、字典、列表、集合，和元组专门的数据类型提供替代品</li>
+<li><code>pprint</code>: 提供”整洁低打印”任意Python数据结构的能力。</li>
+</ul>
+<h4 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h4><ul>
+<li><code>random</code>: 各种分布的伪随机数的生成器</li>
+<li><code>math</code>: 数学函数。提供了由C标准的数学函数访问。该库的函数不适用于复数。</li>
+<li><code>cmath</code>: 为复数提供的数学函数。</li>
+<li><code>operator</code>: 提供了重载操作符</li>
+</ul>
+<h4 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a>文件和目录</h4><ul>
+<li><code>os.path</code>: 常用路径名操作。提供了操作路径名的常用的函数。</li>
+<li><code>filecmp</code>: 文件和目录的比较。提供了比较文件和目录的函数。</li>
+<li><code>shutil</code>: 高级的文件操作。提供了许多文件和文件集上的操作操作。尤其是提供支持文件复制和删除的函数。</li>
+</ul>
+<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><ul>
+<li><code>serialization</code>: Python专用的序列化算法，通常不建议用来存储自定义数据。</li>
+<li><code>pickle</code>: Python对象序列化。提供了一个基本但功能强大的Python对象序列化和反序列化算法。</li>
+<li><code>cPickle</code>: 比<code>pickle</code>快1000倍的对象序列化库， 和<code>pickle</code>可互相替换。</li>
+<li><code>shevle</code>: 将对象pickle序列化，然后保存到<em>anydbm</em>格式文件。<em>anydbm</em>是KV结构的数据库，可以保存多个序列化对象。</li>
+<li><code>sqlite3</code>: SQLite数据库DB-API 2.0接口。</li>
+</ul>
+<h4 id="数据压缩"><a href="#数据压缩" class="headerlink" title="数据压缩"></a>数据压缩</h4><ul>
+<li><code>zipfile</code>: 提供了ZIP文件个创建、读取、写入、最佳和列出zip文件的函数。</li>
+<li><code>tarfile</code>: 提供了tar文件的压缩和解压的函数。</li>
+</ul>
+<h4 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h4><ul>
+<li><code>csv</code>: 提供对CSV文件的读取和写入的函数。</li>
+</ul>
+<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><ul>
+<li><code>hashlib</code>: 安全哈希和消息摘要。实现了一个通用的接口来实现多个不同的安全哈希和消息摘要算法。包括 FIPS 安全哈希算法 SHA1、SHA224、SHA256、SHA384和 SHA512（定义在 FIPS 180-2），以及 RSA 的 MD5 算法（在互联网 RFC 1321中定义)。</li>
+<li><code>hmac</code>: 用于消息认证的加密哈希算法。实现了RFC 2104 中描述的HMAC 算法。</li>
+<li><code>md5</code>: 实现了MD5加密算法。</li>
+<li><code>sha</code>: 实现了sha1加密算法。</li>
+</ul>
+<h4 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h4><ul>
+<li><code>time</code>: 时间获取和转换。提供了各种与时间相关的函数。</li>
+<li><code>argparse</code>: 命令行选项、参数和子命令的解析器。使用该库使得编码用户友好的命令行接口非常容易。取代了之前的<code>optparse</code></li>
+<li><code>io</code>: 提供接口处理IO流。</li>
+<li><code>logging</code>: Python的日志工具。提供了日志记录的API。</li>
+<li><code>logging.config</code>: Python日志配置。用于配置日志模块的API。</li>
+<li><code>os</code>: 提供丰富的雨MAC，NT，Posix等操作系统进行交互的能力。这个模块允许程序独立的于操作系统环境。文件系统，用户数据库和权限进行交互。</li>
+<li><code>_thread</code>: 多线程控制。提供了一个底层、原始的操作 —— 多个控制线程共享全局数据空间。</li>
+<li><code>threading</code>: 高级线程接口。是基于<code>_thread</code>模块的，但是比<code>_thread</code>更加容易使用、更高层次的线程API。</li>
+<li><code>sys</code>: 提供访问和维护python解释器的能力。这包括了提示信息，版本，整数的最大值，可用模块，路径钩子，标准错误，标准输入输出的定位和解释器调用的命令行参数。</li>
+</ul>
+<h4 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h4><ul>
+<li><code>subprocess</code>: 管理子进程。允许用户产生新的进程，然后连接他们的输入/输出/错误/管道，并获取返回值。</li>
+<li><code>socket</code>: 底层网络接口。</li>
+<li><code>signal</code>: 设置异步时间处理handlers。信号是软中断，提供了一种异步事件通知机制。</li>
+</ul>
+<h4 id="网络数据处理"><a href="#网络数据处理" class="headerlink" title="网络数据处理"></a>网络数据处理</h4><ul>
+<li><code>json</code>: JSON格式的编码器和解码器。</li>
+<li><code>base64</code>: 提供依据RFC 3548的规定（Base16, Base32, Base64 ）进行数据编码和解码。</li>
+<li><code>htmllib</code>: 提供了一个HTML语法解析器。</li>
+<li><code>mimetypes</code>: 提供了判断给定的URL的MIME类型。</li>
+</ul>
+<h4 id="操作因特网网络协议"><a href="#操作因特网网络协议" class="headerlink" title="操作因特网网络协议"></a>操作因特网网络协议</h4><ul>
+<li><code>urllib</code>: 提供了用于获取万维网数据的高层接口。这个是Python2.7版本的，Python3已经将其拆分成多个模块<code>urllib.request</code>，<code>urllib.parse</code>和<code>urllib.error</code>。</li>
+<li><code>urlparse</code>: 提供了用于处理URL的函数，可以在URL和平台特定的文件名间相互转换。</li>
+<li><code>http.client</code>: HTTP协议客户端。</li>
+<li><code>telnetlib</code>: 提供了实现Telnet协议的Telnet类。</li>
+<li><code>poplib</code>: POP3协议客户端。</li>
+<li><code>ftplib</code>: FTP协议客户端。</li>
+<li><code>smtplib</code>: SMTP协议客户端。</li>
+<li><code>webbrowser</code>: 提供控制浏览器行为的函数。</li>
+</ul>
+
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+        <div>
+            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
+        </div>
+        
+
+        <!-- 增加版权说明 -->
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://geekmonkey.top/123.html">常用Python标准库</a></li>
+            <li><strong>本文作者：</strong><a href="http://geekmonkey.top">极客猴</a></li>
+            <li><strong>本文链接：</strong><a href="http://geekmonkey.top/123.html">http://geekmonkey.top/123.html</a></li>
+            <li><strong>发布时间：</strong>2016-12-05 03:47:47</li>
+            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        <br><img src="/images/official_accounts_qrcode.png" >
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Python/" rel="tag">Python</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- 屏蔽不用的分享图表 
+<div class="social-share"></div>-->
+<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/124.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">每逢佳节倍思亲</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/111.html">
+                <span class="level-item">深入理解HTTP</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
     </div>
 </div>
 
@@ -360,6 +471,69 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <!-- 目录粘性布局
+    <div class="card widget" id="toc">
+    -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#字符串">
+        <span class="has-mr-6">1</span>
+        <span>字符串</span>
+        </a></li><li>
+        <a class="is-flex" href="#数据类型">
+        <span class="has-mr-6">2</span>
+        <span>数据类型</span>
+        </a></li><li>
+        <a class="is-flex" href="#数学运算">
+        <span class="has-mr-6">3</span>
+        <span>数学运算</span>
+        </a></li><li>
+        <a class="is-flex" href="#文件和目录">
+        <span class="has-mr-6">4</span>
+        <span>文件和目录</span>
+        </a></li><li>
+        <a class="is-flex" href="#数据存储">
+        <span class="has-mr-6">5</span>
+        <span>数据存储</span>
+        </a></li><li>
+        <a class="is-flex" href="#数据压缩">
+        <span class="has-mr-6">6</span>
+        <span>数据压缩</span>
+        </a></li><li>
+        <a class="is-flex" href="#文件格式">
+        <span class="has-mr-6">7</span>
+        <span>文件格式</span>
+        </a></li><li>
+        <a class="is-flex" href="#加密">
+        <span class="has-mr-6">8</span>
+        <span>加密</span>
+        </a></li><li>
+        <a class="is-flex" href="#操作系统">
+        <span class="has-mr-6">9</span>
+        <span>操作系统</span>
+        </a></li><li>
+        <a class="is-flex" href="#进程通信">
+        <span class="has-mr-6">10</span>
+        <span>进程通信</span>
+        </a></li><li>
+        <a class="is-flex" href="#网络数据处理">
+        <span class="has-mr-6">11</span>
+        <span>网络数据处理</span>
+        </a></li><li>
+        <a class="is-flex" href="#操作因特网网络协议">
+        <span class="has-mr-6">12</span>
+        <span>操作因特网网络协议</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <!-- 优化移动端显示，隐藏 archive  -->
@@ -749,7 +923,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="极客猴" height="28">
+                    <img src="/images/logo.png" alt="常用Python标准库" height="28">
                 
                 </a>
                 <p class="is-size-7">
