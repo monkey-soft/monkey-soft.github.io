@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>爬虫实战二：爬取电影天堂的最新电影 - 极客猴</title>
+
+
+    <meta name="description" content="爬取电影天堂的最新电影">
+<meta name="keywords" content="Python,网络爬虫,电影天堂,电影,爬虫实战">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫实战二：爬取电影天堂的最新电影">
+<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;814.html">
+<meta property="og:site_name" content="极客猴">
+<meta property="og:description" content="爬取电影天堂的最新电影">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2017-08-23.jpg">
+<meta property="og:updated_time" content="2019-11-22T15:29:49.128Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2017-08-23.jpg">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49128543-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49128543-2');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?a6ccc4c73948c9c6e7395fb65d736f66";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- 文章页面内容有三栏布局修改为两栏布局
+<body class="is-3-column">  
+-->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="爬虫实战二：爬取电影天堂的最新电影" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">专栏</a>
+                
+                <a class="navbar-item"
+                href="/tags">热门标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/monkey-soft">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/cover/2017-08-23.jpg" alt="爬虫实战二：爬取电影天堂的最新电影">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>爬虫实战二：爬取电影天堂的最新电影
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-08-23T00:30:29.000Z">2017-08-23</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2017-08-23</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    20 分钟 读完 (大约 3036 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+
+        <br>
+        <div class="content">
+            <p>前面两篇文章介绍 requests 和 xpath 的用法。我们推崇学以致用，所以本文讲解利用这两个工具进行实战。</p>
+<a id="more"></a>
+<h2 id="爬取目标"><a href="#爬取目标" class="headerlink" title="爬取目标"></a>爬取目标</h2><p>本次爬取的站点选择电影天堂，网址是： <code>www.ydtt8.net</code>。爬取内容是整个站点的所有电影信息，包括电影名称，导演、主演、下载地址等。具体抓取信息如下图所示：</p>
+<p><img src="./images/img/37_1.jpg" alt></p>
+<h2 id="设计爬虫程序"><a href="#设计爬虫程序" class="headerlink" title="设计爬虫程序"></a>设计爬虫程序</h2><h3 id="确定爬取入口"><a href="#确定爬取入口" class="headerlink" title="确定爬取入口"></a>确定爬取入口</h3><p>电影天堂里面的电影数目成千上万，电影类型也是让人眼花缭乱。我们为了保证爬取的电影信息不重复， 所以要确定一个爬取方向。目前这情况真让人无从下手。但是，我们点击主页中的【最新电影】选项，跳进一个新的页面。蓦然有种柳暗花明又一村的感觉。</p>
+<p><img src="./images/img/37_2.png" alt></p>
+<p>由图可知道，电影天堂有 5 个电影栏目，分别为最新电影、日韩电影、欧美电影、国内电影、综合电影。每个栏目又有一定数量的分页，每个分页有 25 条电影信息。那么程序的入口可以有 5 个 url 地址。这 5 个地址分别对应每个栏目的首页链接。</p>
+<h3 id="爬取思路"><a href="#爬取思路" class="headerlink" title="爬取思路"></a>爬取思路</h3><p>知道爬取入口，后面的工作就容易多了。我通过测试发现这几个栏目除了页面的 url 地址不一样之外，其他例如提取信息的 xpath 路径是一样的。因此，我把 5 个栏目当做 1  个类，再该类进行遍历爬取。</p>
+<p>我这里“最新电影”为例说明爬取思路。<br>1）请求栏目的首页来获取到分页的总数，以及推测出每个分页的 url 地址；<br>2）将获取到的分页 url 存放到名为 floorQueue 队列中；<br>3）从 floorQueue 中依次取出分页 url，然后利用多线程发起请求；<br>4）将获取到的电影页面 url 存入到名为 middleQueue 的队列；<br>5）从 middleQueue 中依次取出电影页面 url，再利用多线程发起请求；<br>6）将请求结果使用 Xpath 解析并提取所需的电影信息；<br>7）将爬取到的电影信息存到名为 contentQueue 队列中；<br>8）从 contentQueue 队列中依次取出电影信息，然后存到数据库中。</p>
+<h3 id="设计爬虫架构"><a href="#设计爬虫架构" class="headerlink" title="设计爬虫架构"></a>设计爬虫架构</h3><p>根据爬取思路，我设计出爬虫架构。如下图所示：</p>
+<p><img src="./images/img/37_3.png" alt></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>主要阐述几个重要的类的代码</p>
+<ul>
+<li>main 类</li>
+</ul>
+<p>主要工作两个：第一，实例化出一个<code>dytt8Moive</code>对象，然后开始爬取信息。第二，等爬取结束，将数据插入到数据库中。</p>
+<p>处理爬虫的逻辑代码如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 截止到2017-08-08, 最新电影一共才有 164 个页面</span></span><br><span class="line">LASTEST_MOIVE_TOTAL_SUM = <span class="hljs-number">6</span> <span class="hljs-comment">#164</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 请求网络线程总数, 线程不要调太好, 不然会返回很多 400</span></span><br><span class="line">THREAD_SUM = <span class="hljs-number">5</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">startSpider</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-comment"># 实例化对象</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 获取【最新电影】有多少个页面</span></span><br><span class="line">    LASTEST_MOIVE_TOTAL_SUM = dytt_Lastest.getMaxsize()</span><br><span class="line">    print(<span class="hljs-string">'【最新电影】一共  '</span> + str(LASTEST_MOIVE_TOTAL_SUM) + <span class="hljs-string">'  有个页面'</span>)</span><br><span class="line">    dyttlastest = dytt_Lastest(LASTEST_MOIVE_TOTAL_SUM)</span><br><span class="line">    floorlist = dyttlastest.getPageUrlList()</span><br><span class="line"></span><br><span class="line">    floorQueue = TaskQueue.getFloorQueue()</span><br><span class="line">    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> floorlist:</span><br><span class="line">        floorQueue.put(item, <span class="hljs-number">3</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># print(floorQueue.qsize())</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(THREAD_SUM):</span><br><span class="line">        workthread = FloorWorkThread(floorQueue, i)</span><br><span class="line">        workthread.start()</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line">        <span class="hljs-keyword">if</span> TaskQueue.isFloorQueueEmpty():</span><br><span class="line">            <span class="hljs-keyword">break</span></span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(THREAD_SUM):</span><br><span class="line">        workthread = TopWorkThread(TaskQueue.getMiddleQueue(), i)</span><br><span class="line">        workthread.start()</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line">        <span class="hljs-keyword">if</span> TaskQueue.isMiddleQueueEmpty():</span><br><span class="line">            <span class="hljs-keyword">break</span></span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line">    insertData()</span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    startSpider()</span><br></pre></td></tr></table></figure>
+
+<p>创建数据库以及表，接着再把电影信息插入到数据库的代码如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insertData</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    DBName = <span class="hljs-string">'dytt.db'</span></span><br><span class="line">    db = sqlite3.connect(<span class="hljs-string">'./'</span> + DBName, <span class="hljs-number">10</span>)</span><br><span class="line">    conn = db.cursor()</span><br><span class="line"></span><br><span class="line">    SelectSql = <span class="hljs-string">'Select * from sqlite_master where type = "table" and name="lastest_moive";'</span></span><br><span class="line">    CreateTableSql = <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">        Create Table lastest_moive (</span></span><br><span class="line"><span class="hljs-string">            'm_id' INTEGER PRIMARY KEY,</span></span><br><span class="line"><span class="hljs-string">            'm_type' varchar(100),</span></span><br><span class="line"><span class="hljs-string">            'm_trans_name' varchar(200),</span></span><br><span class="line"><span class="hljs-string">            'm_name' varchar(100),</span></span><br><span class="line"><span class="hljs-string">            'm_decade' varchar(30),</span></span><br><span class="line"><span class="hljs-string">            'm_conutry' varchar(30),</span></span><br><span class="line"><span class="hljs-string">            'm_level' varchar(100),</span></span><br><span class="line"><span class="hljs-string">            'm_language' varchar(30),</span></span><br><span class="line"><span class="hljs-string">            'm_subtitles' varchar(100),</span></span><br><span class="line"><span class="hljs-string">            'm_publish' varchar(30),</span></span><br><span class="line"><span class="hljs-string">            'm_IMDB_socre' varchar(50),</span></span><br><span class="line"><span class="hljs-string">            'm_douban_score' varchar(50),</span></span><br><span class="line"><span class="hljs-string">            'm_format' varchar(20),</span></span><br><span class="line"><span class="hljs-string">            'm_resolution' varchar(20),</span></span><br><span class="line"><span class="hljs-string">            'm_size' varchar(10),</span></span><br><span class="line"><span class="hljs-string">            'm_duration' varchar(10),</span></span><br><span class="line"><span class="hljs-string">            'm_director' varchar(50),</span></span><br><span class="line"><span class="hljs-string">            'm_actors' varchar(1000),</span></span><br><span class="line"><span class="hljs-string">            'm_placard' varchar(200),</span></span><br><span class="line"><span class="hljs-string">            'm_screenshot' varchar(200),</span></span><br><span class="line"><span class="hljs-string">            'm_ftpurl' varchar(200),</span></span><br><span class="line"><span class="hljs-string">            'm_dytt8_url' varchar(200)</span></span><br><span class="line"><span class="hljs-string">        );</span></span><br><span class="line"><span class="hljs-string">    '''</span></span><br><span class="line"></span><br><span class="line">    InsertSql = <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">        Insert into lastest_moive(m_type, m_trans_name, m_name, m_decade, m_conutry, m_level, m_language, m_subtitles, m_publish, m_IMDB_socre, </span></span><br><span class="line"><span class="hljs-string">        m_douban_score, m_format, m_resolution, m_size, m_duration, m_director, m_actors, m_placard, m_screenshot, m_ftpurl,</span></span><br><span class="line"><span class="hljs-string">        m_dytt8_url)</span></span><br><span class="line"><span class="hljs-string">        values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);</span></span><br><span class="line"><span class="hljs-string">    '''</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> conn.execute(SelectSql).fetchone():</span><br><span class="line">        conn.execute(CreateTableSql)</span><br><span class="line">        db.commit()</span><br><span class="line">        print(<span class="hljs-string">'====  创建表成功  ===='</span>)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        print(<span class="hljs-string">'====  创建表失败, 表已经存在  ===='</span>)</span><br><span class="line"></span><br><span class="line">    count = <span class="hljs-number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> TaskQueue.isContentQueueEmpty():</span><br><span class="line">        item = TaskQueue.getContentQueue().get()</span><br><span class="line">        conn.execute(InsertSql, Utils.dirToList(item))</span><br><span class="line">        db.commit()</span><br><span class="line">        print(<span class="hljs-string">'插入第 '</span> + str(count) + <span class="hljs-string">' 条数据成功'</span>)</span><br><span class="line">        count = count + <span class="hljs-number">1</span></span><br><span class="line"></span><br><span class="line">    db.commit()</span><br><span class="line">    db.close()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>TaskQueue 类</li>
+</ul>
+<p>维护 floorQueue、middleQueue、contentQueue 三个队列的管理类。之所以选择队列的数据结构，是因为爬虫程序需要用到多线程，队列能够保证线程安全。</p>
+<ul>
+<li>dytt8Moive 类</li>
+</ul>
+<p>dytt8Moive 类是本程序的主心骨。程序最初的爬取目标是 5 个电影栏目，但是目前只现实了爬取最新栏目。如果你想爬取全部栏目电影，只需对 dytt8Moive 稍微改造下即可。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">dytt_Lastest</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 获取爬虫程序抓取入口</span></span><br><span class="line">    breakoutUrl = <span class="hljs-string">'http://www.dytt8.net/html/gndy/dyzz/index.html'</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, sum)</span>:</span></span><br><span class="line">        self.sum = sum</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 获取【最新电影】有多少个页面</span></span><br><span class="line">    <span class="hljs-comment"># 截止到2017-08-08, 最新电影一共才有 164 个页面</span></span><br><span class="line"><span class="hljs-meta">    @classmethod</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getMaxsize</span><span class="hljs-params">(cls)</span>:</span></span><br><span class="line">        response = requests.get(cls.breakoutUrl, headers=RequestModel.getHeaders(), proxies=RequestModel.getProxies(), timeout=<span class="hljs-number">3</span>)</span><br><span class="line">        <span class="hljs-comment"># 需将电影天堂的页面的编码改为 GBK, 不然会出现乱码的情况</span></span><br><span class="line">        response.encoding = <span class="hljs-string">'GBK'</span></span><br><span class="line"></span><br><span class="line">        selector = etree.HTML(response.text)</span><br><span class="line">        <span class="hljs-comment"># 提取信息</span></span><br><span class="line">        optionList = selector.xpath(<span class="hljs-string">"//select[@name='sldd']/text()"</span>)</span><br><span class="line">        <span class="hljs-keyword">return</span> len(optionList) - <span class="hljs-number">1</span>   <span class="hljs-comment"># 因首页重复, 所以要减1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getPageUrlList</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">        主要功能：目录页url取出，比如：http://www.dytt8.net/html/gndy/dyzz/list_23_'+ str(i) + '.html</span></span><br><span class="line"><span class="hljs-string">        '''</span></span><br><span class="line">        templist = []</span><br><span class="line">        request_url_prefix = <span class="hljs-string">'http://www.dytt8.net/html/gndy/dyzz/'</span></span><br><span class="line">        templist = [request_url_prefix + <span class="hljs-string">'index.html'</span>]</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>, self.sum + <span class="hljs-number">1</span>):</span><br><span class="line">            templist.append(request_url_prefix + <span class="hljs-string">'list_23_'</span> + str(i) + <span class="hljs-string">'.html'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> templist:</span><br><span class="line">            print(<span class="hljs-string">'request url is ###   '</span> + t + <span class="hljs-string">'    ###'</span>)</span><br><span class="line">        <span class="hljs-keyword">return</span> templist</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">    @classmethod</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getMoivePageUrlList</span><span class="hljs-params">(cls, html)</span>:</span></span><br><span class="line">        <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">        获取电影信息的网页链接</span></span><br><span class="line"><span class="hljs-string">        '''</span></span><br><span class="line">        selector = etree.HTML(html)</span><br><span class="line">        templist = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/td/table/tr/td/b/a/@href"</span>)</span><br><span class="line">        <span class="hljs-comment"># print(len(templist))</span></span><br><span class="line">        <span class="hljs-comment"># print(templist)</span></span><br><span class="line">        <span class="hljs-keyword">return</span> templist</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">    @classmethod</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getMoiveInforms</span><span class="hljs-params">(cls, url, html)</span>:</span></span><br><span class="line">        <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">        解析电影信息页面的内容, 具体如下：</span></span><br><span class="line"><span class="hljs-string">        类型        : 疾速特攻/疾速追杀2][BD-mkv.720p.中英双字][2017年高分惊悚动作]</span></span><br><span class="line"><span class="hljs-string">        ◎译名      : ◎译\u3000\u3000名\u3000疾速特攻/杀神John Wick 2(港)/捍卫任务2(台)/疾速追杀2/极速追杀：第二章/约翰·威克2</span></span><br><span class="line"><span class="hljs-string">        ◎片名      : ◎片\u3000\u3000名\u3000John Wick: Chapter Two</span></span><br><span class="line"><span class="hljs-string">        ◎年代　    : ◎年\u3000\u3000代\u30002017</span></span><br><span class="line"><span class="hljs-string">        ◎国家　    : ◎产\u3000\u3000地\u3000美国</span></span><br><span class="line"><span class="hljs-string">        ◎类别　    : ◎类\u3000\u3000别\u3000动作/犯罪/惊悚</span></span><br><span class="line"><span class="hljs-string">        ◎语言　    : ◎语\u3000\u3000言\u3000英语</span></span><br><span class="line"><span class="hljs-string">        ◎字幕　    : ◎字\u3000\u3000幕\u3000中英双字幕</span></span><br><span class="line"><span class="hljs-string">        ◎上映日期  ：◎上映日期\u30002017-02-10(美国)</span></span><br><span class="line"><span class="hljs-string">        ◎IMDb评分  : ◎IMDb评分\xa0 8.1/10 from 86,240 users</span></span><br><span class="line"><span class="hljs-string">        ◎豆瓣评分　 : ◎豆瓣评分\u30007.7/10 from 2,915 users</span></span><br><span class="line"><span class="hljs-string">        ◎文件格式   : ◎文件格式\u3000x264 + aac</span></span><br><span class="line"><span class="hljs-string">        ◎视频尺寸　 : ◎视频尺寸\u30001280 x 720</span></span><br><span class="line"><span class="hljs-string">        ◎文件大小　 : ◎文件大小\u30001CD</span></span><br><span class="line"><span class="hljs-string">        ◎片长　    : ◎片\u3000\u3000长\u3000122分钟</span></span><br><span class="line"><span class="hljs-string">        ◎导演　    : ◎导\u3000\u3000演\u3000查德·史塔赫斯基 Chad Stahelski</span></span><br><span class="line"><span class="hljs-string">        ◎主演　    :</span></span><br><span class="line"><span class="hljs-string">        ◎简介      : 暂不要该字段</span></span><br><span class="line"><span class="hljs-string">        ◎获奖情况   : 暂不要该字段</span></span><br><span class="line"><span class="hljs-string">        ◎海报</span></span><br><span class="line"><span class="hljs-string">        影片截图</span></span><br><span class="line"><span class="hljs-string">        下载地址</span></span><br><span class="line"><span class="hljs-string">        '''</span></span><br><span class="line">        <span class="hljs-comment"># print(html)</span></span><br><span class="line">        contentDir = &#123;</span><br><span class="line">            <span class="hljs-string">'type'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'trans_name'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'name'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'decade'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'conutry'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'level'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'language'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'subtitles'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'publish'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'IMDB_socre'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'douban_score'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'format'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'resolution'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'size'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'duration'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'director'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'actors'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'placard'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'screenshot'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'ftpurl'</span>: <span class="hljs-string">''</span>,</span><br><span class="line">            <span class="hljs-string">'dytt8_url'</span>: <span class="hljs-string">''</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        selector = etree.HTML(html)</span><br><span class="line">        content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/td/p/text()"</span>)</span><br><span class="line">        <span class="hljs-comment"># 匹配出来有两张图片, 第一张是海报, 第二张是电影画面截图</span></span><br><span class="line">        imgs = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/td/p/img/@src"</span>)</span><br><span class="line">        <span class="hljs-comment"># print(content)</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 为了兼容 2012 年前的页面</span></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(content):</span><br><span class="line">            content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/span/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 有些页面特殊, 需要用以下表达式来重新获取信息</span></span><br><span class="line">        <span class="hljs-comment"># 电影天堂页面好混乱啊~</span></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(content):</span><br><span class="line">            content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/td/div/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(content):</span><br><span class="line">            content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/p/font/text()"</span>)</span><br><span class="line">            <span class="hljs-keyword">if</span> len(content) &lt; <span class="hljs-number">5</span>:</span><br><span class="line">                content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/p/font/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(content):</span><br><span class="line">            content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/p/span/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(content):</span><br><span class="line">            content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/div/span/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(content):</span><br><span class="line">            content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/font/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(content):</span><br><span class="line">            content = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/p/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># print(content)</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 不同渲染页面要采取不同的抓取方式抓取图片</span></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(imgs):</span><br><span class="line">            imgs = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/img/@src"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(imgs):</span><br><span class="line">            imgs = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/p/img/@src"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(imgs):</span><br><span class="line">            imgs = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/div/img/@src"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(imgs):</span><br><span class="line">            imgs = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/td/div/img/@src"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 类型</span></span><br><span class="line">        <span class="hljs-keyword">if</span> content[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>:<span class="hljs-number">1</span>] != <span class="hljs-string">'◎'</span>:</span><br><span class="line">            contentDir[<span class="hljs-string">'type'</span>] = <span class="hljs-string">'['</span> + content[<span class="hljs-number">0</span>]</span><br><span class="line">        actor = <span class="hljs-string">''</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> content:</span><br><span class="line">            <span class="hljs-keyword">if</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎译\u3000\u3000名'</span>:</span><br><span class="line">                <span class="hljs-comment"># 译名 ◎译\u3000\u3000名\u3000  一共占居6位</span></span><br><span class="line">                contentDir[<span class="hljs-string">'trans_name'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎片\u3000\u3000名'</span>:</span><br><span class="line">                <span class="hljs-comment"># 片名</span></span><br><span class="line">                contentDir[<span class="hljs-string">'name'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎年\u3000\u3000代'</span>:</span><br><span class="line">                <span class="hljs-comment"># 年份</span></span><br><span class="line">                contentDir[<span class="hljs-string">'decade'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎产\u3000\u3000地'</span>:</span><br><span class="line">                <span class="hljs-comment"># 产地</span></span><br><span class="line">                contentDir[<span class="hljs-string">'conutry'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎类\u3000\u3000别'</span>:</span><br><span class="line">                <span class="hljs-comment"># 类别</span></span><br><span class="line">                contentDir[<span class="hljs-string">'level'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎语\u3000\u3000言'</span>:</span><br><span class="line">                <span class="hljs-comment"># 语言</span></span><br><span class="line">                contentDir[<span class="hljs-string">'language'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎字\u3000\u3000幕'</span>:</span><br><span class="line">                <span class="hljs-comment"># 字幕</span></span><br><span class="line">                contentDir[<span class="hljs-string">'subtitles'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎上映日期'</span>:</span><br><span class="line">                <span class="hljs-comment"># 上映日期</span></span><br><span class="line">                contentDir[<span class="hljs-string">'publish'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">7</span>] == <span class="hljs-string">'◎IMDb评分'</span>:</span><br><span class="line">                <span class="hljs-comment"># IMDb评分</span></span><br><span class="line">                contentDir[<span class="hljs-string">'IMDB_socre'</span>] = each[<span class="hljs-number">9</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎豆瓣评分'</span>:</span><br><span class="line">                <span class="hljs-comment"># 豆瓣评分</span></span><br><span class="line">                contentDir[<span class="hljs-string">'douban_score'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎文件格式'</span>:</span><br><span class="line">                <span class="hljs-comment"># 文件格式</span></span><br><span class="line">                contentDir[<span class="hljs-string">'format'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎视频尺寸'</span>:</span><br><span class="line">                <span class="hljs-comment"># 视频尺寸</span></span><br><span class="line">                contentDir[<span class="hljs-string">'resolution'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎文件大小'</span>:</span><br><span class="line">                <span class="hljs-comment"># 文件大小</span></span><br><span class="line">                contentDir[<span class="hljs-string">'size'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎片\u3000\u3000长'</span>:</span><br><span class="line">                <span class="hljs-comment"># 片长</span></span><br><span class="line">                contentDir[<span class="hljs-string">'duration'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎导\u3000\u3000演'</span>:</span><br><span class="line">                <span class="hljs-comment"># 导演</span></span><br><span class="line">                contentDir[<span class="hljs-string">'director'</span>] = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line">            <span class="hljs-keyword">elif</span> each[<span class="hljs-number">0</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">'◎主\u3000\u3000演'</span>:</span><br><span class="line">                <span class="hljs-comment"># 主演</span></span><br><span class="line">                actor = each[<span class="hljs-number">6</span>: len(each)]</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> content:</span><br><span class="line">            <span class="hljs-keyword">if</span> item[<span class="hljs-number">0</span>: <span class="hljs-number">4</span>] == <span class="hljs-string">'\u3000\u3000\u3000\u3000'</span>:</span><br><span class="line">                actor = actor + <span class="hljs-string">'\n'</span> + item[<span class="hljs-number">6</span>: len(item)]</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 主演</span></span><br><span class="line">        contentDir[<span class="hljs-string">'actors'</span>] = actor</span><br><span class="line">        <span class="hljs-comment"># 海报</span></span><br><span class="line">        <span class="hljs-keyword">if</span> imgs[<span class="hljs-number">0</span>] != <span class="hljs-literal">None</span>:</span><br><span class="line">            contentDir[<span class="hljs-string">'placard'</span>] = imgs[<span class="hljs-number">0</span>]</span><br><span class="line">        <span class="hljs-comment"># 影片截图</span></span><br><span class="line">        <span class="hljs-keyword">if</span> imgs[<span class="hljs-number">1</span>] != <span class="hljs-literal">None</span>:</span><br><span class="line">            contentDir[<span class="hljs-string">'screenshot'</span>] = imgs[<span class="hljs-number">1</span>]</span><br><span class="line">        <span class="hljs-comment"># 下载地址</span></span><br><span class="line">        ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/td/table/tbody/tr/td/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 为了兼容 2012 年前的页面</span></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/table/tbody/tr/td/font/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/table/tbody/tr/td/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/div/table/tbody/tr/td/font/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/td/div/table/tbody/tr/td/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/td/table/tbody/tr/td/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/p/span/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/div/div/table/tbody/tr/td/font/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/span/table/tbody/tr/td/font/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(ftp):</span><br><span class="line">            ftp = selector.xpath(<span class="hljs-string">"//div[@class='co_content8']/ul/tr/td/div/div/td/div/span/div/table/tbody/tr/td/font/a/text()"</span>)</span><br><span class="line"></span><br><span class="line">        contentDir[<span class="hljs-string">'ftpurl'</span>] = ftp[<span class="hljs-number">0</span>]</span><br><span class="line">        <span class="hljs-comment"># 页面链接</span></span><br><span class="line">        contentDir[<span class="hljs-string">'dytt8_url'</span>] = url</span><br><span class="line">        print(contentDir)</span><br><span class="line">        <span class="hljs-keyword">return</span> contentDir</span><br></pre></td></tr></table></figure>
+
+<p><code>getMoiveInforms</code> 方法是主要负责解析电影信息节点并将其封装成字典。在代码中，你看到 Xpath 的路径表达式不止一条。因为电影天堂的电影详情页面的排版参差不齐，所以单单一条内容提取表达式、海报和影片截图表达式、下载地址表达式远远无法满足。</p>
+<p>选择字典类型作为存储电影信息的数据结构，也是自己爬坑之后才决定的。这算是该站点另一个坑人的地方。电影详情页中有些内容节点是没有，例如类型、豆瓣评分，所以无法使用列表按顺序保存。</p>
+<h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><p>我这里展示自己爬取最新栏目中 4000 多条数据中前面部分数据。</p>
+<p><img src="./images/img/37_4.png" alt></p>
+<p>如果你想获取网站的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/MoivesSpider" target="_blank" rel="noopener">Github 仓库地址</a></p>
+
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+        <div>
+            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
+        </div>
+        
+
+        <!-- 增加版权说明 -->
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://geekmonkey.top/814.html">爬虫实战二：爬取电影天堂的最新电影</a></li>
+            <li><strong>本文作者：</strong><a href="http://geekmonkey.top">极客猴</a></li>
+            <li><strong>本文链接：</strong><a href="http://geekmonkey.top/814.html">http://geekmonkey.top/814.html</a></li>
+            <li><strong>发布时间：</strong>2017-08-23 08:30:29</li>
+            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        <br><img src="/images/official_accounts_qrcode.png" >
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Python/" rel="tag">Python</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="tag">爬虫实战</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%94%B5%E5%BD%B1/" rel="tag">电影</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- 屏蔽不用的分享图表 
+<div class="social-share"></div>-->
+<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/813.html">
+                <span class="level-item">干将莫邪” —— Xpath 与 lxml 库</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.png" alt="极客猴">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        极客猴
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        猴哥的个人博客
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>ShenZhen, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        14
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        专栏
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        5
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        18
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/monkey-soft">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/Geek_monkey/activities">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <!-- 目录粘性布局
+    <div class="card widget" id="toc">
+    -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#爬取目标">
+        <span class="has-mr-6">1</span>
+        <span>爬取目标</span>
+        </a></li><li>
+        <a class="is-flex" href="#设计爬虫程序">
+        <span class="has-mr-6">2</span>
+        <span>设计爬虫程序</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#确定爬取入口">
+        <span class="has-mr-6">2.1</span>
+        <span>确定爬取入口</span>
+        </a></li><li>
+        <a class="is-flex" href="#爬取思路">
+        <span class="has-mr-6">2.2</span>
+        <span>爬取思路</span>
+        </a></li><li>
+        <a class="is-flex" href="#设计爬虫架构">
+        <span class="has-mr-6">2.3</span>
+        <span>设计爬虫架构</span>
+        </a></li><li>
+        <a class="is-flex" href="#代码实现">
+        <span class="has-mr-6">2.4</span>
+        <span>代码实现</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#爬取结果">
+        <span class="has-mr-6">3</span>
+        <span>爬取结果</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+
+        <ul class="menu-list">
+        
+            <!-- 干掉原来的双行链接 
+            <li>
+                <a class="level is-mobile" href="http://python-online.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Python 编程时光</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">python-online.cn</span>
+                    </span>
+                </a>
+            </li>-->
+            <li>
+                <a class="level is-mobile" href="http://python-online.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
+                    </span>
+                </a>
+            </li>
+            
+        
+            <!-- 干掉原来的双行链接 
+            <li>
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">咸鱼自我满足的日常</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.xianyucoder.cn</span>
+                    </span>
+                </a>
+            </li>-->
+            <li>
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
+                    </span>
+                </a>
+            </li>
+            
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                专栏
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Python%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
+            <span class="level-start">
+                <span class="level-item">Python必知必会</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">
+            <span class="level-start">
+                <span class="level-item">思维与认知</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+            <span class="level-start">
+                <span class="level-item">网络爬虫</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+            <span class="level-start">
+                <span class="level-item">计算机网络</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/">
+            <span class="level-start">
+                <span class="level-item">随笔</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <!-- 优化移动端显示，隐藏 archive  -->
+    <div class="card-content is-hidden-mobile">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/814.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-08-23.jpg" alt="爬虫实战二：爬取电影天堂的最新电影">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-08-23T00:30:29.000Z">2017-08-23</time></div>
+                    <a href="/814.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">爬虫实战二：爬取电影天堂的最新电影</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/813.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-08-07.jpg" alt="干将莫邪” —— Xpath 与 lxml 库">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-08-07T06:55:51.000Z">2017-08-07</time></div>
+                    <a href="/813.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">干将莫邪” —— Xpath 与 lxml 库</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/812.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-08-05.jpg" alt="应该如何阅读？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-08-05T01:37:43.000Z">2017-08-05</time></div>
+                    <a href="/812.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">应该如何阅读？</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">思维与认知</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/711.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-07-26.jpg" alt="详解 Requests 库的用法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-26T08:08:04.000Z">2017-07-26</time></div>
+                    <a href="/711.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">详解 Requests 库的用法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/710.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-07-20.jpg" alt="Python 多进程与多线程">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-20T08:28:12.000Z">2017-07-20</time></div>
+                    <a href="/710.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 多进程与多线程</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Requests/">
+                        <span class="tag">Requests</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Xpath/">
+                        <span class="tag">Xpath</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/beautifulSoup/">
+                        <span class="tag">beautifulSoup</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lxml/">
+                        <span class="tag">lxml</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+                        <span class="tag">多进程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
+                        <span class="tag">当当</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
+                        <span class="tag">思念</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
+                        <span class="tag">方法论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
+                        <span class="tag">爬虫实战</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
+                        <span class="tag">电影</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                        <span class="tag">网络爬虫</span>
+                        <span class="tag is-grey">9</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
+                        <span class="tag">认知</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="tag">阅读</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
+                        <span class="tag">鸡汤</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/814.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-08-23.jpg" alt="爬虫实战二：爬取电影天堂的最新电影">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-08-23T00:30:29.000Z">2017-08-23</time></div>
+                    <a href="/814.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">爬虫实战二：爬取电影天堂的最新电影</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/813.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-08-07.jpg" alt="干将莫邪” —— Xpath 与 lxml 库">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-08-07T06:55:51.000Z">2017-08-07</time></div>
+                    <a href="/813.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">干将莫邪” —— Xpath 与 lxml 库</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/812.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-08-05.jpg" alt="应该如何阅读？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-08-05T01:37:43.000Z">2017-08-05</time></div>
+                    <a href="/812.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">应该如何阅读？</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">思维与认知</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/711.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-07-26.jpg" alt="详解 Requests 库的用法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-26T08:08:04.000Z">2017-07-26</time></div>
+                    <a href="/711.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">详解 Requests 库的用法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/710.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-07-20.jpg" alt="Python 多进程与多线程">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-20T08:28:12.000Z">2017-07-20</time></div>
+                    <a href="/710.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 多进程与多线程</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Requests/">
+                        <span class="tag">Requests</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Xpath/">
+                        <span class="tag">Xpath</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/beautifulSoup/">
+                        <span class="tag">beautifulSoup</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lxml/">
+                        <span class="tag">lxml</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+                        <span class="tag">多进程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
+                        <span class="tag">当当</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
+                        <span class="tag">思念</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
+                        <span class="tag">方法论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
+                        <span class="tag">爬虫实战</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
+                        <span class="tag">电影</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                        <span class="tag">网络爬虫</span>
+                        <span class="tag is-grey">9</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
+                        <span class="tag">认知</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="tag">阅读</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
+                        <span class="tag">鸡汤</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="爬虫实战二：爬取电影天堂的最新电影" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                极客猴 版权所有 | 
+                &copy; 2019 | 
+                基于 <a href="https://hexo.io/" target="_blank">Hexo</a> 构建 |
+                采用 <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> 主题
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
