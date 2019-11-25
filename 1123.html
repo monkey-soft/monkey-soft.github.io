@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Python 绘图,我只用 Matplotlib(二) - 极客猴</title>
+
+
+    <meta name="description" content="Python 绘图,我只用 Matplotlib(二)">
+<meta name="keywords" content="Python,数据分析,Matplotlib,数据可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 绘图,我只用 Matplotlib(二)">
+<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;1123.html">
+<meta property="og:site_name" content="极客猴">
+<meta property="og:description" content="Python 绘图,我只用 Matplotlib(二)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2017-11-07.jpg">
+<meta property="og:updated_time" content="2019-11-25T08:08:18.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2017-11-07.jpg">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49128543-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49128543-2');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?a6ccc4c73948c9c6e7395fb65d736f66";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- 文章页面内容有三栏布局修改为两栏布局
+<body class="is-3-column">  
+-->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="Python 绘图,我只用 Matplotlib(二)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">专栏</a>
+                
+                <a class="navbar-item"
+                href="/tags">热门标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/monkey-soft">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/cover/2017-11-07.jpg" alt="Python 绘图,我只用 Matplotlib(二)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>Python 绘图,我只用 Matplotlib(二)
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-11-06T21:34:31.000Z">2017-11-07</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2017-11-07</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2668 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+
+        <br>
+        <div class="content">
+            <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
+<a id="more"></a>
+
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>在学习绘制之前，先来了解下 Matplotlib 基础概念。</p>
+<h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><p>我们绘制图形主要用到两个库，<code>matplotlib.pyplot</code>和<code>numpy</code>。在编码过程中，这两个库的使用频率较高，而这两个库的名字较长。这难免会给我们带来不便。所以我们一般给其设置别名， 大大减少重复性工作量。具体如下代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt   <span class="hljs-comment"># 导入模块 matplotlib.pyplot，并简写成 plt </span></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np                <span class="hljs-comment"># 导入模块 numpy，并简写成 np</span></span><br></pre></td></tr></table></figure>
+<p>numpy 是 Python 用于数学运算的库，它是在安装 matplotlib 时候顺带安装的。pyplot 是 matplotlib 一个子模块，主要为底层的面向对象的绘图库提供状态机界面。状态机隐式地自动创建数字和坐标轴以实现所需的绘图。 matplotlib 中的所有内容都按照层次结果进行组织。顶层就是由 pyplot 提供的 matplotlib “状态机环境”。基于这个状态机环境，我们就可以创建图形。</p>
+<h3 id="图形组成标签"><a href="#图形组成标签" class="headerlink" title="图形组成标签"></a>图形组成标签</h3><p>我在 matplotlib 官网上找图像组件说明图并在上面增加中文翻译。通过这张图，我们对 matplotlib 整体地认识。</p>
+<p><img src="./images/img/47_1.jpg" alt></p>
+<p>接下来，我主要讲解 matplotlib 中几个重要的标签。</p>
+<ul>
+<li>Figure</li>
+</ul>
+<p>Figure 翻译成中文是图像窗口。Figure 是包裹 Axes、tiles、legends 等组件的最外层窗口。它其实是一个 Windows 应用窗口 。<br><img src="./images/img/47_2.png" alt><br>Figure 中最主要的元素是 Axes（子图）。一个 Figure 中可以有多个子图，但至少要有一个能够显示内容的子图。</p>
+<ul>
+<li>Axes </li>
+</ul>
+<p>Axes 翻译成中文是轴域/子图。Axes 是带有数据的图像区域。从上文可知，它是位于 Figure 里面。那它和 Figure 是什么关系？这里可能文字难以表述清楚，我以图说文。用两图带你彻底弄清它们的关系。</p>
+<p>在看运行结果之前，我先呈上代码给各位看官品尝。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()                      <span class="hljs-comment"># 创建一个没有 axes 的 figure</span></span><br><span class="line">fig.suptitle(<span class="hljs-string">'No axes on this figure'</span>)  <span class="hljs-comment"># 添加标题以便我们辨别</span></span><br><span class="line"></span><br><span class="line">fig, ax_lst = plt.subplots(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)        <span class="hljs-comment"># 创建一个以 axes 为单位的 2x2 网格的 figure </span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>根据运行结果图，我们不难看出。左图的 Figure1 中没有 axes，右图的 Figure2 中有 4 个 axes。因此，我们可以将 Axes 理解为面板，而面板是覆在窗口(Figure) 上。<br><img src="./images/img/47_3.png" alt></p>
+<ul>
+<li>Axis </li>
+</ul>
+<p>Axis 在中文的意思是轴。官网文档对 Axis 定义解释不清楚，让我们看得云里雾里的。如果你有留意前文的组成说明图，可以看到 X Axis 和 Y Axis 的字样。按照平常人的见识， 观察该图就能明白 Axis 是轴的意思。此外，Axis 和 Axes 以及 Figure 这三者关系，你看完下图，会恍然大悟。<br><img src="./images/img/47_4.png" alt></p>
+<h2 id="绘制第一张图"><a href="#绘制第一张图" class="headerlink" title="绘制第一张图"></a>绘制第一张图</h2><p>按照剧本发展，我接下来以绘制曲线并逐步美化它为例子，一步步讲解如何绘制图形。在这过程中，我也会逐一说明各个函数的作用。</p>
+<h3 id="初步绘制曲线"><a href="#初步绘制曲线" class="headerlink" title="初步绘制曲线"></a>初步绘制曲线</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>      <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x      <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line">plt.figure()    <span class="hljs-comment"># 定义一个图像窗口</span></span><br><span class="line">plt.plot(x, y1) <span class="hljs-comment"># 绘制曲线 y1</span></span><br><span class="line">plt.plot(x, y2) <span class="hljs-comment"># 绘制曲线 y2</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>调用<code>np.linspace</code>是创建一个 numpy 数组，并记作 x。x 包含了从 -2 到 6 之间等间隔的 50 个值。y1 和 y2 则分别是这 50 个值对应曲线的函数值组成的 numpy 数组。前面的操作还处于设置属性的阶段，还没有开始绘制图形。<code>plt.figure()</code> 函数才意味着开始执行绘图操作。最后别忘记调用<code>show()</code>函数将图形呈现出来。</p>
+<p><img src="./images/img/47_5.png" alt></p>
+<h3 id="简单修饰"><a href="#简单修饰" class="headerlink" title="简单修饰"></a>简单修饰</h3><p>我们已经绘制出两条直线，但样式比较简陋。所以我给两条曲线设置鲜艳的颜色、线条类型。同时，还给纵轴和横轴的设置上下限，增加可观性。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 创建一个点数为 8 x 6 的窗口, 并设置分辨率为 80像素/每英寸</span></span><br><span class="line">plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>), dpi=<span class="hljs-number">80</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 再创建一个规格为 1 x 1 的子图</span></span><br><span class="line">plt.subplot(<span class="hljs-number">1</span>，<span class="hljs-number">1</span>，<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>        <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x        <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 设置横轴的上下限</span></span><br><span class="line">plt.xlim(<span class="hljs-number">-1</span>, <span class="hljs-number">6</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴的上下限</span></span><br><span class="line">plt.ylim(<span class="hljs-number">-2</span>, <span class="hljs-number">10</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_6.png" alt></p>
+<h3 id="设置纵横轴标签"><a href="#设置纵横轴标签" class="headerlink" title="设置纵横轴标签"></a>设置纵横轴标签</h3><p>在图像中，我们不能一味地认为横轴就是 X 轴，纵轴就是 Y 轴。图形因内容数据不同，纵横轴标签往往也会不同。这也体现了给纵横轴设置标签说明的重要性。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴标签</span></span><br><span class="line">plt.xlabel(<span class="hljs-string">"X"</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴标签</span></span><br><span class="line">plt.ylabel(<span class="hljs-string">"Y"</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_7.png" alt></p>
+<h3 id="设置精准刻度"><a href="#设置精准刻度" class="headerlink" title="设置精准刻度"></a>设置精准刻度</h3><p>matplotlib 画图设置的刻度是由曲线以及窗口的像素点等因素决定。这些刻度精确度无法满足需求，我们需要手动添加刻度。上图中，纵轴只显示 2 的倍数的刻度，横轴只显示 1 的倍数的刻度。我们为其添加精准刻度，纵轴变成单位间隔为 1 的刻度，横轴变成单位间隔为 0.5 的刻度。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2.5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3.5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5.5</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>xticks() 和 yticks() 需要传入一个列表作为参数。</p>
+<p><img src="./images/img/47_8.png" alt></p>
+<p>该方法默认是将列表的值来设置刻度标签，如果你想重新设置刻度标签，则需要传入两个列表参数给 xticks() 和 yticks() 。第一个列表的值代表刻度，第二个列表的值代表刻度所显示的标签。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],</span><br><span class="line">           [<span class="hljs-string">"-1m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"1m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"3m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"5m"</span>, <span class="hljs-string">"6m"</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>],</span><br><span class="line">           [<span class="hljs-string">"-2m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"6m"</span>, <span class="hljs-string">"8m"</span>, <span class="hljs-string">"10m"</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_9.png" alt></p>
+<h3 id="添加图例"><a href="#添加图例" class="headerlink" title="添加图例"></a>添加图例</h3><p>如果需要在图的左上角添加一个图例。我们只需要在 plot() 函数里以「键 - 值」的形式增加一个参数。首先我们需要在绘制曲线的时候，增加一个 label 参数，然后再调用 plt.legend() 绘制出一个图例。plt.legend() 需要传入一个位置值。loc 的值可选如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">best</td>
+<td align="center">自动选择最佳位置，默认是左上</td>
+</tr>
+<tr>
+<td align="center">upper right</td>
+<td align="center">右上</td>
+</tr>
+<tr>
+<td align="center">upper left</td>
+<td align="center">左上</td>
+</tr>
+<tr>
+<td align="center">lower right</td>
+<td align="center">右下</td>
+</tr>
+<tr>
+<td align="center">lower left</td>
+<td align="center">左下</td>
+</tr>
+<tr>
+<td align="center">right</td>
+<td align="center">右边，默认是右上。如果因图形挡住右上，会自动往下选择空白地方绘制</td>
+</tr>
+<tr>
+<td align="center">center right</td>
+<td align="center">垂直居中且靠右</td>
+</tr>
+<tr>
+<td align="center">center left</td>
+<td align="center">垂直居中且靠左</td>
+</tr>
+<tr>
+<td align="center">lower center</td>
+<td align="center">垂直居中且靠底部</td>
+</tr>
+<tr>
+<td align="center">upper center</td>
+<td align="center">垂直居中且靠顶部</td>
+</tr>
+<tr>
+<td align="center">center</td>
+<td align="center">居中</td>
+</tr>
+</tbody></table>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line">plt.legend(loc=<span class="hljs-string">"upper left"</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_10.png" alt></p>
+<h3 id="注释特殊点位"><a href="#注释特殊点位" class="headerlink" title="注释特殊点位"></a>注释特殊点位</h3><p>有时某些数据点非常关键，需要突显出来。我们需要将改点绘制出来，即绘制散点图，再对其做注释。实现上述需求，我们要用到<code>scatter()</code>和<code>annotate()</code>函数。<code>scatter()</code> 是用于绘制散图，这里我们只是用其来绘制单个点。scatter() 用法，后续文章会详细对其用法做说明。<code>annotate()</code>则是添加标注 。</p>
+<p><code>scatter()</code> 函数必须传入两个参数 x 和 y。值得注意得是，它们的数据类型是列表。x 代表要标注点的横轴位置，y 代表要标注点的横轴位置。x 和 y 列表中下标相同的数据是对应的。例如 x 为 [3, 4]，y 为 [6, 8]，这表示会绘制点（3，6），（4， 8）。因此，x 和 y 长度要一样。</p>
+<p><code>annotate</code>函数同样也有两个必传参数，一个是标注内容，另一个是 xy。标注内容是一个字符串。xy 表示要在哪个位置（点）显示标注内容。xy 位置地选定。一般是在<code>scatter()</code> 绘制点附近，但不建议重合，这样会影响美观。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 6)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">6</span>], s=<span class="hljs-number">30</span>, color=<span class="hljs-string">"blue"</span>)      <span class="hljs-comment"># s 为点的 size</span></span><br><span class="line"><span class="hljs-comment"># 对(3, 6)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 6)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">5.5</span>),       <span class="hljs-comment"># 在(3.3, 5.5)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,         <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)  <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>),            <span class="hljs-comment"># 在(3.3, 0)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,          <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)    <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_11.png" alt></p>
+<p>点已经被标注出来了，如果你还想给点添加注释。这需要使用<code>text()</code>函数。text(x，y，s) 作用是在点(x，y) 上添加文本 s。matplotlib 目前好像对中午支持不是很友好， 中文均显示为乱码。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>, xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>))</span><br><span class="line">plt.text(<span class="hljs-number">4</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-string">"this point very important"</span>,</span><br><span class="line">         fontdict=&#123;<span class="hljs-string">'size'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'color'</span>: <span class="hljs-string">'green'</span>&#125;)  <span class="hljs-comment"># fontdict设置文本字体</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_12.png" alt></p>
+<p>到此为止，我们基本上完成了绘制直线所有工作。Matplotlib 能绘制种类繁多且绘图功能强大，所以我接下来的文章将单独对每种类型图做分享讲解。</p>
+
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+        <div>
+            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
+        </div>
+        
+
+        <!-- 增加版权说明 -->
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://geekmonkey.top/1123.html">Python 绘图,我只用 Matplotlib(二)</a></li>
+            <li><strong>本文作者：</strong><a href="http://geekmonkey.top">极客猴</a></li>
+            <li><strong>本文链接：</strong><a href="http://geekmonkey.top/1123.html">http://geekmonkey.top/1123.html</a></li>
+            <li><strong>发布时间：</strong>2017-11-07 05:34:31</li>
+            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        <br><img src="/images/official_accounts_qrcode.png" >
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Python/" rel="tag">Python</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- 屏蔽不用的分享图表 
+<div class="social-share"></div>-->
+<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/1124.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">彻底理解Iterable、Iterator、generator</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/1022.html">
+                <span class="level-item">Python 绘图,我只用 Matplotlib(一)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.png" alt="极客猴">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        极客猴
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        不日进则日退
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>ShenZhen, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        25
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        专栏
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        26
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/monkey-soft">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/Geek_monkey/activities">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <!-- 目录粘性布局
+    <div class="card widget" id="toc">
+    -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#基础知识">
+        <span class="has-mr-6">1</span>
+        <span>基础知识</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#库">
+        <span class="has-mr-6">1.1</span>
+        <span>库</span>
+        </a></li><li>
+        <a class="is-flex" href="#图形组成标签">
+        <span class="has-mr-6">1.2</span>
+        <span>图形组成标签</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#绘制第一张图">
+        <span class="has-mr-6">2</span>
+        <span>绘制第一张图</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#初步绘制曲线">
+        <span class="has-mr-6">2.1</span>
+        <span>初步绘制曲线</span>
+        </a></li><li>
+        <a class="is-flex" href="#简单修饰">
+        <span class="has-mr-6">2.2</span>
+        <span>简单修饰</span>
+        </a></li><li>
+        <a class="is-flex" href="#设置纵横轴标签">
+        <span class="has-mr-6">2.3</span>
+        <span>设置纵横轴标签</span>
+        </a></li><li>
+        <a class="is-flex" href="#设置精准刻度">
+        <span class="has-mr-6">2.4</span>
+        <span>设置精准刻度</span>
+        </a></li><li>
+        <a class="is-flex" href="#添加图例">
+        <span class="has-mr-6">2.5</span>
+        <span>添加图例</span>
+        </a></li><li>
+        <a class="is-flex" href="#注释特殊点位">
+        <span class="has-mr-6">2.6</span>
+        <span>注释特殊点位</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+
+        <ul class="menu-list">
+        
+            <!-- 干掉原来的双行链接 
+            <li>
+                <a class="level is-mobile" href="http://python-online.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Python 编程时光</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">python-online.cn</span>
+                    </span>
+                </a>
+            </li>-->
+            <li>
+                <a class="level is-mobile" href="http://python-online.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
+                    </span>
+                </a>
+            </li>
+            
+        
+            <!-- 干掉原来的双行链接 
+            <li>
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">咸鱼自我满足的日常</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.xianyucoder.cn</span>
+                    </span>
+                </a>
+            </li>-->
+            <li>
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
+                    </span>
+                </a>
+            </li>
+            
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                专栏
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Python%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
+            <span class="level-start">
+                <span class="level-item">Python必知必会</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">
+            <span class="level-start">
+                <span class="level-item">思维与认知</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+            <span class="level-start">
+                <span class="level-item">数据分析</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+            <span class="level-start">
+                <span class="level-item">网络爬虫</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">15</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+            <span class="level-start">
+                <span class="level-item">计算机网络</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/">
+            <span class="level-start">
+                <span class="level-item">随笔</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <!-- 优化移动端显示，隐藏 archive  -->
+    <div class="card-content is-hidden-mobile">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/1125.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-11-23.jpg" alt="Python 绘图,我只用 Matplotlib(三)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-11-23T03:07:19.000Z">2017-11-23</time></div>
+                    <a href="/1125.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 绘图,我只用 Matplotlib(三)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1124.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-11-21.jpg" alt="彻底理解Iterable、Iterator、generator">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-11-21T07:06:17.000Z">2017-11-21</time></div>
+                    <a href="/1124.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">彻底理解Iterable、Iterator、generator</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1123.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-11-07.jpg" alt="Python 绘图,我只用 Matplotlib(二)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-11-06T21:34:31.000Z">2017-11-07</time></div>
+                    <a href="/1123.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 绘图,我只用 Matplotlib(二)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1022.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-10-31.jpg" alt="Python 绘图,我只用 Matplotlib(一)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-10-31T03:04:54.000Z">2017-10-31</time></div>
+                    <a href="/1022.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 绘图,我只用 Matplotlib(一)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1021.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-10-09.jpg" alt="爬虫与反爬虫的博弈">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-10-09T09:23:49.000Z">2017-10-09</time></div>
+                    <a href="/1021.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">爬虫与反爬虫的博弈</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterable/">
+                        <span class="tag">Iterable</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterator/">
+                        <span class="tag">Iterator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Matplotlib/">
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">21</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Requests/">
+                        <span class="tag">Requests</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scrapy/">
+                        <span class="tag">Scrapy</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Xpath/">
+                        <span class="tag">Xpath</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/beautifulSoup/">
+                        <span class="tag">beautifulSoup</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/generator/">
+                        <span class="tag">generator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lxml/">
+                        <span class="tag">lxml</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
+                        <span class="tag">反爬虫</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+                        <span class="tag">多进程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
+                        <span class="tag">当当</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
+                        <span class="tag">思念</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="tag">数据分析</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
+                        <span class="tag">方法论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
+                        <span class="tag">爬虫实战</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
+                        <span class="tag">电影</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                        <span class="tag">网络爬虫</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
+                        <span class="tag">认知</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="tag">阅读</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
+                        <span class="tag">鸡汤</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/1125.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-11-23.jpg" alt="Python 绘图,我只用 Matplotlib(三)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-11-23T03:07:19.000Z">2017-11-23</time></div>
+                    <a href="/1125.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 绘图,我只用 Matplotlib(三)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1124.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-11-21.jpg" alt="彻底理解Iterable、Iterator、generator">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-11-21T07:06:17.000Z">2017-11-21</time></div>
+                    <a href="/1124.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">彻底理解Iterable、Iterator、generator</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1123.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-11-07.jpg" alt="Python 绘图,我只用 Matplotlib(二)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-11-06T21:34:31.000Z">2017-11-07</time></div>
+                    <a href="/1123.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 绘图,我只用 Matplotlib(二)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1022.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-10-31.jpg" alt="Python 绘图,我只用 Matplotlib(一)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-10-31T03:04:54.000Z">2017-10-31</time></div>
+                    <a href="/1022.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 绘图,我只用 Matplotlib(一)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1021.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-10-09.jpg" alt="爬虫与反爬虫的博弈">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-10-09T09:23:49.000Z">2017-10-09</time></div>
+                    <a href="/1021.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">爬虫与反爬虫的博弈</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterable/">
+                        <span class="tag">Iterable</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterator/">
+                        <span class="tag">Iterator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Matplotlib/">
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">21</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Requests/">
+                        <span class="tag">Requests</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scrapy/">
+                        <span class="tag">Scrapy</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Xpath/">
+                        <span class="tag">Xpath</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/beautifulSoup/">
+                        <span class="tag">beautifulSoup</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/generator/">
+                        <span class="tag">generator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lxml/">
+                        <span class="tag">lxml</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
+                        <span class="tag">反爬虫</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+                        <span class="tag">多进程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
+                        <span class="tag">当当</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
+                        <span class="tag">思念</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="tag">数据分析</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
+                        <span class="tag">方法论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
+                        <span class="tag">爬虫实战</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
+                        <span class="tag">电影</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                        <span class="tag">网络爬虫</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
+                        <span class="tag">认知</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="tag">阅读</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
+                        <span class="tag">鸡汤</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="Python 绘图,我只用 Matplotlib(二)" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                极客猴 版权所有 | 
+                &copy; 2019 | 
+                基于 <a href="https://hexo.io/" target="_blank">Hexo</a> 构建 |
+                采用 <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> 主题
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
