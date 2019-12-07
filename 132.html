@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Python 中各种时间类型的转换 - 极客猴</title>
+
+
+    <meta name="description" content="Python中各种时间类型的转换">
+<meta name="keywords" content="Python,时间转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 中各种时间类型的转换">
+<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;132.html">
+<meta property="og:site_name" content="极客猴">
+<meta property="og:description" content="Python中各种时间类型的转换">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2018-01-17.jpg">
+<meta property="og:updated_time" content="2019-12-07T13:42:41.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2018-01-17.jpg">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49128543-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49128543-2');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?a6ccc4c73948c9c6e7395fb65d736f66";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- 文章页面内容有三栏布局修改为两栏布局
+<body class="is-3-column">  
+-->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="Python 中各种时间类型的转换" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">专栏</a>
+                
+                <a class="navbar-item"
+                href="/tags">热门标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/monkey-soft">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/cover/2018-01-17.jpg" alt="Python 中各种时间类型的转换">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>Python 中各种时间类型的转换
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-01-17T03:18:23.000Z">2018-01-17</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2018-01-17</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 838 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+
+        <br>
+        <div class="content">
+            <p>我们编码过程中经常需要获取当前时间。当然， 这也离不开对时间类型进行转换运算。本文主要讲解 Python 各种时间类型之间的转换。</p>
+<a id="more"></a>
+<h2 id="处理时间的库"><a href="#处理时间的库" class="headerlink" title="处理时间的库"></a>处理时间的库</h2><p>Python 标准库中有两个处理时间的库。其中一个名为 <code>datetime</code>，另一个是<code>time</code>。</p>
+<p>在 Python 官网文档中，datetime 是被定义为数据类型(Data Types)。由此可见，datetime  是主要提供处理日期和时间的数据类型的模块。它其中有几个常用的类型，例如：datetime.datetime、datetime.time、datetime.date 等，其中最主要的类是<code>datetime.datetime</code>。因为它携带了 datetime.time 和 datetime.date 这两个所带的信息，能够比较齐全地输出，即能一次性就输出年、月、日、时、分、秒等日期和时间信息。</p>
+<p>time 模块是归属于通用操作系统服务（Generic Operating System Services）类目中。time 模块主要提供各种时间转换的函数。它服务于系统层次，Python 又是跨平台的，所以有些 API 只能在某些操作系统上使用。</p>
+<h2 id="时间类型对象"><a href="#时间类型对象" class="headerlink" title="时间类型对象"></a>时间类型对象</h2><p>在进行时间转换之前，我们要确认下时间对象是属于哪种数据类型。只有做到对症下药，根治病因。<br>在 Python 中，涉及时间对象有 4 种：<br>1）datetime<br>2）timestamp<br>3）time tuple<br>4）string</p>
+<h3 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h3><p>datetime 对象属于 datetime 模块。它的构造方式是 <code>datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)</code>。我们了解下它的构造方法即可，一般很少直接使用它的构造方法。我们一般使用它的 <code>now()</code> 函数来获取本地当前日期和时间。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">now = datetime.datetime.now()</span><br><span class="line">print(now)</span><br><span class="line">print(type(now))</span><br><span class="line"></span><br><span class="line">&gt;&gt;  <span class="hljs-number">2018</span><span class="hljs-number">-01</span><span class="hljs-number">-17</span> <span class="hljs-number">16</span>:<span class="hljs-number">49</span>:<span class="hljs-number">24.314323</span></span><br><span class="line">&gt;&gt;  &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> '<span class="hljs-title">datetime</span>.<span class="hljs-title">datetime</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>在某些场景，我们可能需要使用到字符串类型的时间。我们在 now() 函数的基础上再调用 <code>strftime()</code> 函数即可。strftime() 返回的是一个表示日期和时间的字符串。最后显示结果由指定样式的参数决定。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span><br><span class="line">now = datetime.datetime.now().strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S"</span>)</span><br><span class="line">print(now)</span><br><span class="line">print(type(now))</span><br><span class="line"></span><br><span class="line">&gt;&gt;  <span class="hljs-number">2018</span><span class="hljs-number">-01</span><span class="hljs-number">-17</span> <span class="hljs-number">17</span>:<span class="hljs-number">30</span>:<span class="hljs-number">45</span></span><br><span class="line">&gt;&gt;  &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> '<span class="hljs-title">str</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="timestamp"><a href="#timestamp" class="headerlink" title="timestamp"></a>timestamp</h3><p>timestamp 指的是 Unix 时间戳。它是格林威治时间 1970 年 01 月 01 日 00 时 00 分 00 秒(北京时间 1970 年 01 月 01 日 08 时 00 分 00 秒)起至现在的总秒数。我们使用 time 对象中的 <code>time()</code> 函数能获取到时间戳 。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"></span><br><span class="line">now = time.time()</span><br><span class="line">print(now)</span><br><span class="line">print(type(now))</span><br><span class="line"></span><br><span class="line">&gt;&gt;  <span class="hljs-number">1516179935.351417</span></span><br><span class="line">&gt;&gt;  &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> '<span class="hljs-title">float</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="time-tuple"><a href="#time-tuple" class="headerlink" title="time tuple"></a>time tuple</h3><p>time tuple 表示时间元组。time tuple 是 time.struct_time 对象类型。获取本地当前时间，一般是使用 time 中的 <code>localtime()</code> 函数。localtime() 返回的是将时间戳经过格式化的本地时间。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line">now = time.localtime()</span><br><span class="line">print(now)</span><br><span class="line">print(type(now))</span><br><span class="line"></span><br><span class="line">&gt;&gt;  time.struct_time(tm_year=<span class="hljs-number">2018</span>, tm_mon=<span class="hljs-number">1</span>, tm_mday=<span class="hljs-number">17</span>, tm_hour=<span class="hljs-number">17</span>, tm_min=<span class="hljs-number">20</span>, tm_sec=<span class="hljs-number">34</span>, tm_wday=<span class="hljs-number">2</span>, tm_yday=<span class="hljs-number">17</span>, tm_isdst=<span class="hljs-number">0</span>)</span><br><span class="line">&gt;&gt;  &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> '<span class="hljs-title">time</span>.<span class="hljs-title">struct_time</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="时间类型转换"><a href="#时间类型转换" class="headerlink" title="时间类型转换"></a>时间类型转换</h2><p>上述四种时间类型是如何转换，我本打算以代码的形式加以说明。当后来我看到互联网上已经有前辈整理的关系转换图，我意识到自己这种方式不够简洁明了。所以，我直接献上前辈的宝图。<br><img src="./images/img/58_1.jpg" alt></p>
+
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+        <div>
+            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
+        </div>
+        
+
+        <!-- 增加版权说明 -->
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://geekmonkey.top/132.html">Python 中各种时间类型的转换</a></li>
+            <li><strong>本文作者：</strong><a href="http://geekmonkey.top">极客猴</a></li>
+            <li><strong>本文链接：</strong><a href="http://geekmonkey.top/132.html">http://geekmonkey.top/132.html</a></li>
+            <li><strong>发布时间：</strong>2018-01-17 11:18:23</li>
+            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        <br><img src="/images/official_accounts_qrcode.png" >
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Python/" rel="tag">Python</a>,&nbsp;<a class="has-link-grey -link" href="/tags/datetime/" rel="tag">datetime</a>,&nbsp;<a class="has-link-grey -link" href="/tags/time/" rel="tag">time</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- 屏蔽不用的分享图表 
+<div class="social-share"></div>-->
+<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/133.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">几个Python编程小技巧</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/131.html">
+                <span class="level-item">pustil-获取系统信息库</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
+        app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
+        placeholder: '你有什么想说的？'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.png" alt="极客猴">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        极客猴
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        不日进则日退
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>ShenZhen, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        34
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        专栏
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        7
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        37
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/monkey-soft">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/Geek_monkey/activities">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <!-- 目录粘性布局
+    <div class="card widget" id="toc">
+    -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#处理时间的库">
+        <span class="has-mr-6">1</span>
+        <span>处理时间的库</span>
+        </a></li><li>
+        <a class="is-flex" href="#时间类型对象">
+        <span class="has-mr-6">2</span>
+        <span>时间类型对象</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#datetime">
+        <span class="has-mr-6">2.1</span>
+        <span>datetime</span>
+        </a></li><li>
+        <a class="is-flex" href="#string">
+        <span class="has-mr-6">2.2</span>
+        <span>string</span>
+        </a></li><li>
+        <a class="is-flex" href="#timestamp">
+        <span class="has-mr-6">2.3</span>
+        <span>timestamp</span>
+        </a></li><li>
+        <a class="is-flex" href="#time-tuple">
+        <span class="has-mr-6">2.4</span>
+        <span>time tuple</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#时间类型转换">
+        <span class="has-mr-6">3</span>
+        <span>时间类型转换</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+
+        <ul class="menu-list">
+        
+            <!-- 干掉原来的双行链接 
+            <li>
+                <a class="level is-mobile" href="http://python-online.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Python 编程时光</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">python-online.cn</span>
+                    </span>
+                </a>
+            </li>-->
+            <li>
+                <a class="level is-mobile" href="http://python-online.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
+                    </span>
+                </a>
+            </li>
+            
+        
+            <!-- 干掉原来的双行链接 
+            <li>
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">咸鱼自我满足的日常</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.xianyucoder.cn</span>
+                    </span>
+                </a>
+            </li>-->
+            <li>
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
+                    </span>
+                </a>
+            </li>
+            
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                专栏
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+            <span class="level-start">
+                <span class="level-item">Django 学习笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
+            <span class="level-start">
+                <span class="level-item">Python 必知必会</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">
+            <span class="level-start">
+                <span class="level-item">思维与认知</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+            <span class="level-start">
+                <span class="level-item">数据分析</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+            <span class="level-start">
+                <span class="level-item">网络爬虫</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">17</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+            <span class="level-start">
+                <span class="level-item">计算机网络</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/">
+            <span class="level-start">
+                <span class="level-item">随笔</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <!-- 优化移动端显示，隐藏 archive  -->
+    <div class="card-content is-hidden-mobile">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/134.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-01-27.jpg" alt="计划分享Python Web学习心得">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-27T07:29:44.000Z">2018-01-27</time></div>
+                    <a href="/134.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">计划分享Python Web学习心得</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/133.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-01-23.jpg" alt="几个Python编程小技巧">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-23T07:29:44.000Z">2018-01-23</time></div>
+                    <a href="/133.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">几个Python编程小技巧</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/132.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-01-17.jpg" alt="Python 中各种时间类型的转换">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T03:18:23.000Z">2018-01-17</time></div>
+                    <a href="/132.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 中各种时间类型的转换</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/131.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-01-09.jpg" alt="pustil-获取系统信息库">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-09T09:38:18.000Z">2018-01-09</time></div>
+                    <a href="/131.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">pustil-获取系统信息库</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1230.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-12-28.jpg" alt="回顾 2017,展望 2018">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-12-28T04:17:18.000Z">2017-12-28</time></div>
+                    <a href="/1230.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">回顾 2017,展望 2018</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/APScheduler/">
+                        <span class="tag">APScheduler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
+                        <span class="tag">IP代理池</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterable/">
+                        <span class="tag">Iterable</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterator/">
+                        <span class="tag">Iterator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Matplotlib/">
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OCR/">
+                        <span class="tag">OCR</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">30</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Requests/">
+                        <span class="tag">Requests</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scrapy/">
+                        <span class="tag">Scrapy</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Xpath/">
+                        <span class="tag">Xpath</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/beautifulSoup/">
+                        <span class="tag">beautifulSoup</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/datetime/">
+                        <span class="tag">datetime</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/generator/">
+                        <span class="tag">generator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lxml/">
+                        <span class="tag">lxml</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pustil/">
+                        <span class="tag">pustil</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sched/">
+                        <span class="tag">sched</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/time/">
+                        <span class="tag">time</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
+                        <span class="tag">反爬虫</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+                        <span class="tag">多进程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+                        <span class="tag">定时任务</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
+                        <span class="tag">当当</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
+                        <span class="tag">思念</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
+                        <span class="tag">技巧</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="tag">数据分析</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
+                        <span class="tag">方法论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
+                        <span class="tag">爬虫实战</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
+                        <span class="tag">电影</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                        <span class="tag">网络爬虫</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
+                        <span class="tag">认知</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="tag">阅读</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
+                        <span class="tag">验证码</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
+                        <span class="tag">鸡汤</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/134.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-01-27.jpg" alt="计划分享Python Web学习心得">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-27T07:29:44.000Z">2018-01-27</time></div>
+                    <a href="/134.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">计划分享Python Web学习心得</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/133.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-01-23.jpg" alt="几个Python编程小技巧">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-23T07:29:44.000Z">2018-01-23</time></div>
+                    <a href="/133.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">几个Python编程小技巧</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/132.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-01-17.jpg" alt="Python 中各种时间类型的转换">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T03:18:23.000Z">2018-01-17</time></div>
+                    <a href="/132.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 中各种时间类型的转换</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/131.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-01-09.jpg" alt="pustil-获取系统信息库">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-09T09:38:18.000Z">2018-01-09</time></div>
+                    <a href="/131.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">pustil-获取系统信息库</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/1230.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2017-12-28.jpg" alt="回顾 2017,展望 2018">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-12-28T04:17:18.000Z">2017-12-28</time></div>
+                    <a href="/1230.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">回顾 2017,展望 2018</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/APScheduler/">
+                        <span class="tag">APScheduler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
+                        <span class="tag">IP代理池</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterable/">
+                        <span class="tag">Iterable</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterator/">
+                        <span class="tag">Iterator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Matplotlib/">
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OCR/">
+                        <span class="tag">OCR</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">30</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Requests/">
+                        <span class="tag">Requests</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scrapy/">
+                        <span class="tag">Scrapy</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Xpath/">
+                        <span class="tag">Xpath</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/beautifulSoup/">
+                        <span class="tag">beautifulSoup</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/datetime/">
+                        <span class="tag">datetime</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/generator/">
+                        <span class="tag">generator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lxml/">
+                        <span class="tag">lxml</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pustil/">
+                        <span class="tag">pustil</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sched/">
+                        <span class="tag">sched</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/time/">
+                        <span class="tag">time</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
+                        <span class="tag">反爬虫</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+                        <span class="tag">多进程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+                        <span class="tag">定时任务</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
+                        <span class="tag">当当</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
+                        <span class="tag">思念</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
+                        <span class="tag">技巧</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="tag">数据分析</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
+                        <span class="tag">方法论</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
+                        <span class="tag">爬虫实战</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
+                        <span class="tag">电影</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                        <span class="tag">网络爬虫</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
+                        <span class="tag">认知</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="tag">阅读</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
+                        <span class="tag">验证码</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
+                        <span class="tag">鸡汤</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="Python 中各种时间类型的转换" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                极客猴 版权所有 | 
+                &copy; 2019 | 
+                基于 <a href="https://hexo.io/" target="_blank">Hexo</a> 构建 |
+                采用 <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> 主题
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
