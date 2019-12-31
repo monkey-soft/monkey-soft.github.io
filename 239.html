@@ -2,25 +2,28 @@
 <html  lang="zh">
 <head>
     <meta charset="utf-8" />
+<!百度站长工具验证>
+<meta name="baidu-site-verification" content="qTuO0D0JLD" />
 
 <meta name="generator" content="Hexo 4.0.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 思念 - 极客猴</title>
+<title>Django 学习笔记之模型(上) - 极客猴</title>
 
 
-    <meta name="description" content="猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。">
-<meta name="keywords" content="Python, 网络爬虫, 数据分析, Web 开发, Django">
-<meta property="og:type" content="website">
-<meta property="og:title" content="极客猴">
-<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;tags&#x2F;%E6%80%9D%E5%BF%B5&#x2F;index.html">
+    <meta name="description" content="Django 学习笔记之模型(上)">
+<meta name="keywords" content="Python,web,Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django 学习笔记之模型(上)">
+<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;239.html">
 <meta property="og:site_name" content="极客猴">
-<meta property="og:description" content="猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。">
+<meta property="og:description" content="Django 学习笔记之模型(上)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2018-02-14.jpg">
+<meta property="og:updated_time" content="2019-12-31T07:35:47.910Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2018-02-14.jpg">
 
 
 
@@ -55,45 +58,29 @@
 <link rel="stylesheet" href="/css/back-to-top.css">
 
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49128543-2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-49128543-2');
-</script>
-
     
-    <script>
-var _hmt = _hmt || [];
-(function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?a6ccc4c73948c9c6e7395fb65d736f66";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-</script>
+    
+    
     
     
     
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
     
 
 
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
-<body class="is-3-column">
+<body class="is-2-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="极客猴" height="28">
+                <img src="/images/logo.png" alt="Django 学习笔记之模型(上)" height="28">
             
             </a>
         </div>
@@ -129,6 +116,10 @@ var _hmt = _hmt || [];
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
@@ -142,31 +133,20 @@ var _hmt = _hmt || [];
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">思念</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-image">
-        <a href="/124.html" class="image is-7by1">
-            <img class="thumbnail" src="/images/cover/2016-12-21.jpg" alt="每逢佳节倍思亲">
-        </a>
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/cover/2018-02-14.jpg" alt="Django 学习笔记之模型(上)">
+        </span>
     </div>
     
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/124.html"><i class="fas fa-angle-double-right"></i>每逢佳节倍思亲</a>
+                <i class="fas fa-angle-double-right"></i>Django 学习笔记之模型(上)
             
         </h1>
 
@@ -174,13 +154,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2016-12-21T00:14:01.000Z">2016-12-21</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2016-12-21</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-02-14T06:48:41.000Z">2018-02-14</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2018-02-14</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
                 </div>
                 
 
@@ -189,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 136 个字)
+                    20 分钟 读完 (大约 3027 个字)
                 </span>
                 
                 
@@ -199,56 +179,227 @@ var _hmt = _hmt || [];
 
         <br>
         <div class="content">
-            <p>回忆童年<br>每逢冬至来临<br>外面寒风凛凛<br>屋内热气腾腾<br>全家人围在一起<br>吃汤圆<br>团团圆圆 </p>
+            <p>上片文章讲解模板。你本文将讲解 “MTV” 中 M 层次，即模型层（数据存取层）。模型这内容比较多，我将其拆分为 3 个部分来讲解。同时，文章也配套了例子，你可以通过 <strong>阅读原文</strong> 来查看。</p>
+<a id="more"></a>
+<h2 id="编程环境"><a href="#编程环境" class="headerlink" title="编程环境"></a>编程环境</h2><p>因为 Django 近期推出 Django 2.0 版本， 所以有必要再说明下。如果你是按照本系列来学习 Django 框架的话，按照前面安装 Django 的方式，你安装 Django 版本应该是最新版本，即 2.0。</p>
+<p>那么使用最新 Django 版本来学习可以吗？如果是学习的话，不用太在意版本。当然学习最新的较好，因为可以学习新的 API。同时，Django 2.0 不再兼容 Python 2 了，现在学习 Python 都建议采用 Python 3版本了。另外 Django 1.8 官方只维护到 2018 年的 4 月，1.11 是最后一个兼容 Python 2 的 Django版本。如果是项目需要升级 Django版本，需要兼容到 Python 2，那么要考虑用 1.11 版本了。</p>
+<p>顺便补充下本文用的一些工具的版本：Python 版本是 3.6，Mysql 版本是 5.5.</p>
+<h2 id="模型是什么"><a href="#模型是什么" class="headerlink" title="模型是什么"></a>模型是什么</h2><p>在 Web 应用中，数据一般存储到数据库中。Django 中的模型层是跟数据库打交道的层次。模型层中可能会有多个模型，每个模型（每个 app 中的 models.py 中每个类都是一个模型）都对应着数据库中的唯一一张表。</p>
+<h2 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h2><p>在我们探索 Django 的模型层之前，我们需要配置下数据库；告诉 Django 视野什么数据库以及如何连接数据库。这一步要确保配置无误，不然后面难以执行。我们找到新项目中的 setting.py, 里面有个 <strong>DATABASES</strong> 选项。Django 默认是使用 sqlite 数据库，所以你会看到里面 sqlite 数据库的配置信息。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">        <span class="hljs-string">'NAME'</span>: os.path.join(BASE_DIR, <span class="hljs-string">'db.sqlite3'</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中的 <strong>ENGINE</strong> 是选择哪个数据库引擎, <strong>NAME</strong> 是数据库的名字。至于选择哪种引擎，要看项目中使用了什么数据库。Django 目前支持以下这 MySQL、PostgreSQL、Oracle 等数据库，它们的数据库引擎设置如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">设置字段</th>
+<th align="left">数据库</th>
+<th align="left">设配器(驱动)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">postgresql</td>
+<td align="left">PostgreSQL</td>
+<td align="left">psycopg 1.x版</td>
+</tr>
+<tr>
+<td align="left">postgresql_psycopg2</td>
+<td align="left">PostgreSQL</td>
+<td align="left">psycopg 2.x版</td>
+</tr>
+<tr>
+<td align="left">mysql</td>
+<td align="left">MySQL</td>
+<td align="left">MySQLdb</td>
+</tr>
+<tr>
+<td align="left">sqlite3</td>
+<td align="left">SQLite</td>
+<td align="left">不需要</td>
+</tr>
+<tr>
+<td align="left">oracle</td>
+<td align="left">Oracle</td>
+<td align="left">cx_Oracle</td>
+</tr>
+</tbody></table>
+<p>其中设置字段是填充 ENGINE 的值。如果你使用的 MySQL 数据库，那么你需要填写 django.db.backends.mysql。数据库驱动表示需要使用 pip 安装该库。如果你使用的 MySQL 数据库，那么你需要安装 MySQLdb 设配器。</p>
+<p>但是这里有个坑，MySQLdb 在支持 Python 2 版本，不支持 Python 3 版本。所以你安装该设配器之后，运行项目会报出错误。Django 官网建议使用替代品 <strong>mysqlclient</strong>。mysqlclient 是 MySQLdb 的一个分支，最主要是它支持 Python 3。</p>
+<p>本文中使用到 Mysql 数据库，那么 DATABASES 的配置如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="hljs-string">'NAME'</span>: <span class="hljs-string">'django'</span>,</span><br><span class="line">        <span class="hljs-string">'HOST'</span>: <span class="hljs-string">'127.0.0.1'</span>,</span><br><span class="line">        <span class="hljs-string">'PORT'</span>: <span class="hljs-string">'3306'</span>,</span><br><span class="line">        <span class="hljs-string">'USER'</span>: <span class="hljs-string">'root'</span>,</span><br><span class="line">        <span class="hljs-string">'PASSWORD'</span>: <span class="hljs-string">'123456'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第一个模型"><a href="#第一个模型" class="headerlink" title="第一个模型"></a>第一个模型</h2><p>我们先新建名为 Django_demo 的 projeact, 再新建名为 demo 的 app。最后，别忘记在 setting.py 中将新创建的 app 激活。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Django 2.0 的初始配置内容</span></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="hljs-string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="hljs-string">'demo'</span>,  <span class="hljs-comment"># 我们新创建的 app</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h3><p>打开我们刚才创建的 app 中的 models.py 文件，我们以后就主要在这里编写模型。假设现在有个需求：某个作者创作了一本书，本书由出版社出版了。我们可以设定三者的字段以及关系。</p>
+<ul>
+<li>假设作者有姓名、Email 邮箱这两个数据属性。</li>
+<li>假设出版社有出版社名称、地址这两个属性。</li>
+<li>书籍有两四个属性：书名、出版日期、作者、出版社。有一个或多个作者（和作者是多对多的关联关系[many-to-many]）， 只有一个出版商（和出版商是一对多的关联关系[one-to-many]，也被称作外键[foreign key]）</li>
+</ul>
+<p>所以我们编写代码如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">40</span>)</span><br><span class="line">    email = models.EmailField()</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Publisher</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">30</span>)</span><br><span class="line">    address = models.CharField(max_length=<span class="hljs-number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="hljs-number">100</span>)</span><br><span class="line">    authors = models.ManyToManyField(Author)</span><br><span class="line">    <span class="hljs-comment"># publisher = models.ForeignKey(Publisher)</span></span><br><span class="line">    <span class="hljs-comment"># Django 2.0 需要加上 on_delete=models.CASCADE</span></span><br><span class="line">    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)</span><br><span class="line">    publication_date = models.DateField()</span><br></pre></td></tr></table></figure>
+
+
+<p>我们定义每个模型，即类（如 Author 和 Book）都需要继承 django.db.models.Model。Model 是 Django 做了一层包装以便我们更加方便地使用的类， 它其中包含了所有数据库交互的方法。上面代码中的每个类相当于单个数据库表，每个属性也是这个表中的一个字段。 属性名就是字段名，它的类型（例如 CharField ）相当于数据库的字段类型 （例如 varchar ）。例如， Publisher 模块等同于下面这张表</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">"Publisher"</span> (</span><br><span class="line">    <span class="hljs-string">"id"</span> <span class="hljs-built_in">serial</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line">    <span class="hljs-string">"name"</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">    <span class="hljs-string">"address"</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>所以我们在为属性命名的时候，要避免使用数据库的关键字。另外，我们只需要关心每个类的属性以及长度限制，不用关心怎么创建数据库表。Django 可以自动生成这些 CREATE TABLE 语句的。</p>
+<h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>我们上面的创建了几个模型还处于定义上，Django 还没有正真创建数据库中的表。<br>因此，我们需要执行两个命令来同步一下数据库。</p>
+<p>在我们刚才创建的工程 Django_demo 目录下，我们打开终端，执行以下命令：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br></pre></td></tr></table></figure>
+
+<p>运行成功效果图如下：</p>
+<p><img src="./images/img/65_1.png" alt></p>
+<p>这一步相当于 在该app下建立 migrations目录，并记录下你所有的关于modes.py的改动，比如0001_initial.py， 但是这个改动还没有作用到数据库文件</p>
+<p>第二步，在之前的终端上继续执行 migrate 命令。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<p>运行成功效果图如下：<br><img src="./images/img/65_2.png" alt></p>
+<p>这一步表示将该改动（当makemigrations之后产生了0001_initial.py 文件）作用到数据库文件，比如 create table 之类。</p>
+<p>如果你用到 Pycharm 的 Database 功能，你会看到我们刚才创建的定义的几个模型。<br><img src="./images/img/65_3.png" alt></p>
+<h3 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h3><p>在前面的例子中，我们需要对每个属性设置一个字段，例如 CharField。Django 内置了几十种内置字段类型。常用的类型如下：</p>
+<p>1) <strong>AutoField</strong>：一个根据实际ID自动增长的 IntegerField 。如果表中没有设置主键时，将会自动添加一个自增主键。</p>
+<p>2）<strong>IntegerField</strong>：一个整数。在 Django 所有支持的数据库中，-2147483648 到 2147483647 范围才是合法的。</p>
+<p>3）<strong>BigIntegerField</strong>：一个64位整数, 和 IntegerField 类似，不过它的范围比较大。</p>
+<p>4）<strong>BooleanField</strong>：一个 true/false 字段。这个字段的默认表单部件是 CheckboxInput。</p>
+<p>5）<strong>CharField</strong>：字符字段。对于比较大的文本内容,请使用 TextField 类型。这个字段的默认表单部件是 TextInput。它有个参数 max_length。max_length 表示字段允许的最大字符串长度。这将在数据库中和表单验证时生效</p>
+<p>6）<strong>TextField</strong>：大文本字段。默认的表单部件是一个 Textarea。</p>
+<p>7）<strong>DateField</strong>：日期。它带有两个可选参数：auto_now 和 auto_now_add。auto_now 表示当对象保存时，该字段会自动设置成当前时间。一般用于记录“修改时间” 。auto_now_add 记录字段首次被创建的时间。</p>
+<p>8）<strong>DateTimeField</strong>：时间和日期。它也带有两个可选参数，名字和用法跟 DateField 一样。</p>
+<p>9）<strong>TimeField</strong>：时间字段, 类似于Python datetime.time 实例. 和 DateField 具有相同的选项。</p>
+<p>10）<strong>URLField</strong>：一个 CharField 类型的URL，默认长度是200；默认的表单部件是一个 TextInput。</p>
+<p>11）<strong>EmailField</strong>：一个检查输入的email地址是否合法的 CharField 类型。</p>
+<p>12）<strong>FileField</strong>：上传文件字段。</p>
+<p>13）<strong>ImageField</strong>：图片字段，它继承了 FileField 所以属性和方法。</p>
+<h3 id="关系字段"><a href="#关系字段" class="headerlink" title="关系字段"></a>关系字段</h3><p>关系字段(Relationship fileds) 也是属于字段，只不过三个字段比较特殊，所以单独拿出来说。我们按照上述的创建模型的例子来继续讲解。它们三者之间的关系应该这样：一本书由一家出版社出版，一家出版社可以出版很多书。一本书由多个作者合写，一个作者可以写很多书。</p>
+<p>1）<em>ForeignKey</em><br>表示属于模型间关系中的多对一关系。在我们的范例模型中，一家出版社 publisher 可以出版很多书 Book。在数据库中, Django 使用 ForeignKey 字段名称＋ “_id” 做为数据库中的列名称。在上面的例子中, 书籍 model 对应的数据表中会有一个 publisher_id 列。你可以通过显式地指定 db_column 来改变该字段的列名称,不过，除非你想自定 义 SQL ，否则没必要更改数据库的列名称。</p>
+<p>它第一个参数必须传入该模型关联的类。on_delete 现在可以用作第二个位置参数(之前它通常只是作为一个关键字参数传递). 在Django 2.0中，这将是一个必传的参数。</p>
+<p>2）<em>OneToOneField</em><br>它属于 ForeignKey 中的特例。当 ForeignKey 中有个字段 unique 被设置为 True 时， 就表示一对一关系。</p>
+<p>3）<em>ManyToManyField</em><br>属于模型间关系中的多对多关系。在我们的范例模型中， Book 有一个 多对多字段 叫做 authors。因为他们的关系是一本书由多个作者合写，一个作者可以写很多书。在数据库中<br>Django 创建一个中间表来表示 ManyToManyField 关系。默认情况下，中间表的名称由两个关系表名结合而成。所以刚才我们创建数据库表的途中，会有四张表，而不是三表。</p>
+<h3 id="字段选项"><a href="#字段选项" class="headerlink" title="字段选项"></a>字段选项</h3><p>有些字段会有些特殊参数，但所有字段类型都又些通用的可选选项。先是常用的可选选项。<br>1）<strong>null</strong> ：如果该参数设置为 True，Django将会把数据库中的空值保存为 NULL。不填写就默认为 False。</p>
+<p>2）<strong>blank</strong>：如果为 True ，该字段允许为空值，不填写默认为 False。这个字段是用于处理表单数据输入验证。</p>
+<p>3）<strong>primary_key</strong>：如果为 True，那么这个字段就是模型的主键。</p>
+<p>4）<strong>unique</strong>：如果该值设置为 True, 这个数据字段在整张表中必须是唯一的。</p>
+<p>5）<strong>default</strong>：设置该字段的默认值。</p>
+<p>6）由二项元组构成的一个可迭代对象（列表或元组），用来给字段提供选择项。 如果设置了 <strong>choices</strong>，默认的表单将是一个选择框。具体使用例子如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    SHIRT_SIZES = (</span><br><span class="line">        (<span class="hljs-string">'S'</span>, <span class="hljs-string">'Small'</span>),</span><br><span class="line">        (<span class="hljs-string">'M'</span>, <span class="hljs-string">'Medium'</span>),</span><br><span class="line">        (<span class="hljs-string">'L'</span>, <span class="hljs-string">'Large'</span>),</span><br><span class="line">    )</span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">60</span>)</span><br><span class="line">    shirt_size = models.CharField(max_length=<span class="hljs-number">1</span>, choices=SHIRT_SIZES)</span><br></pre></td></tr></table></figure>
+
+<p>下篇文章，我们将讲解如果对这些模型（表）进行操作。</p>
+
         </div>
 
         <!-- 增加微信公众号首发说明 -->
         
+        <div>
+            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
+        </div>
+        
 
         <!-- 增加版权说明 -->
         
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://geekmonkey.top/239.html">Django 学习笔记之模型(上)</a></li>
+            <li><strong>本文作者：</strong><a href="http://geekmonkey.top">极客猴</a></li>
+            <li><strong>本文链接：</strong><a href="http://geekmonkey.top/239.html">http://geekmonkey.top/239.html</a></li>
+            <li><strong>发布时间：</strong>2018-02-14 14:48:41</li>
+            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        <br><img src="/images/official_accounts_qrcode.png" >
         
         
-        
-        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。
-        <div class="level is-mobile">
-        -->
         <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-                <div class="level-item is-size-7 is-uppercase">
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/%E6%80%9D%E5%BF%B5/" rel="tag">思念</a>
-                </div>
-                
-            </div>
-
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/124.html#more">阅读更多</a>
+                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Django/" rel="tag">Django</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Python/" rel="tag">Python</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Web/" rel="tag">Web</a>
                 </div>
             </div>
         </div>
         
+        
+        
+        <!-- 屏蔽不用的分享图表 
+<div class="social-share"></div>-->
+<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
         
     </div>
 </div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/238.html">
+                <span class="level-item">Django 学习笔记之模板</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
+        app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
+        placeholder: '你有什么想说的？'
+    });
+</script>
+
+    </div>
+</div>
 </div>
                 
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
     
         
 <div class="card widget">
@@ -286,7 +437,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        38
+                        39
                     </p>
                 </div>
             </div>
@@ -348,6 +499,57 @@ var _hmt = _hmt || [];
 </div>
     
         
+
+    <!-- 目录粘性布局
+    <div class="card widget" id="toc">
+    -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#编程环境">
+        <span class="has-mr-6">1</span>
+        <span>编程环境</span>
+        </a></li><li>
+        <a class="is-flex" href="#模型是什么">
+        <span class="has-mr-6">2</span>
+        <span>模型是什么</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置数据库">
+        <span class="has-mr-6">3</span>
+        <span>配置数据库</span>
+        </a></li><li>
+        <a class="is-flex" href="#第一个模型">
+        <span class="has-mr-6">4</span>
+        <span>第一个模型</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#创建模型">
+        <span class="has-mr-6">4.1</span>
+        <span>创建模型</span>
+        </a></li><li>
+        <a class="is-flex" href="#创建数据表">
+        <span class="has-mr-6">4.2</span>
+        <span>创建数据表</span>
+        </a></li><li>
+        <a class="is-flex" href="#字段类型">
+        <span class="has-mr-6">4.3</span>
+        <span>字段类型</span>
+        </a></li><li>
+        <a class="is-flex" href="#关系字段">
+        <span class="has-mr-6">4.4</span>
+        <span>关系字段</span>
+        </a></li><li>
+        <a class="is-flex" href="#字段选项">
+        <span class="has-mr-6">4.5</span>
+        <span>字段选项</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -418,7 +620,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Django 学习笔记</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
@@ -489,7 +691,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">二月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -624,13 +826,32 @@ var _hmt = _hmt || [];
         <!--
         <div class="column-right-shadow is-hidden-widescreen "> 
         -->
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/239.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-02-14.jpg" alt="Django 学习笔记之模型(上)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-14T06:48:41.000Z">2018-02-14</time></div>
+                    <a href="/239.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之模型(上)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -708,25 +929,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/134.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-01-27.jpg" alt="计划分享Python Web学习心得">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-27T07:29:44.000Z">2018-01-27</time></div>
-                    <a href="/134.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">计划分享Python Web学习心得</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -748,7 +950,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Django/">
                         <span class="tag">Django</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -797,7 +999,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Python/">
                         <span class="tag">Python</span>
-                        <span class="tag is-grey">34</span>
+                        <span class="tag is-grey">35</span>
                     </a>
                 </div>
                 
@@ -818,7 +1020,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Web/">
                         <span class="tag">Web</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1010,400 +1212,6 @@ var _hmt = _hmt || [];
 </div>
         
         </div>
-    
-</div>
-
-                
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/238.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-02-13.jpg" alt="Django 学习笔记之模板">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-13T06:48:08.000Z">2018-02-13</time></div>
-                    <a href="/238.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之模板</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/237.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-02-08.jpg" alt="Django 学习笔记之视图与URL配置">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-08T10:34:54.000Z">2018-02-08</time></div>
-                    <a href="/237.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之视图与URL配置</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/236.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-02-06.jpg" alt="Django 学习笔记之初识">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T04:52:36.000Z">2018-02-06</time></div>
-                    <a href="/236.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之初识</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/135.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-01-29.jpg" alt="Django 学习笔记之环境搭建">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-29T03:23:53.000Z">2018-01-29</time></div>
-                    <a href="/135.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之环境搭建</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/134.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-01-27.jpg" alt="计划分享Python Web学习心得">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-27T07:29:44.000Z">2018-01-27</time></div>
-                    <a href="/134.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">计划分享Python Web学习心得</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag">APScheduler</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag">Django</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag">HTTP</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag">IP代理池</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag">Iterable</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag">Iterator</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag">OCR</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag">Python</span>
-                        <span class="tag is-grey">34</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag">Requests</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag">Scrapy</span>
-                        <span class="tag is-grey">6</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag">Web</span>
-                        <span class="tag is-grey">5</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag">Xpath</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag">beautifulSoup</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag">datetime</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag">generator</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag">lxml</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag">pustil</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag">sched</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag">time</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag">反爬虫</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag">多线程</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag">多进程</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag">定时任务</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag">当当</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag">思念</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag">技巧</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag">数据分析</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag">数据结构</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag">方法论</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag">正则表达式</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag">爬虫实战</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag">电影</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag">网络爬虫</span>
-                        <span class="tag is-grey">15</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag">认知</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag">阅读</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag">验证码</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag">鸡汤</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
     
 </div>
 
@@ -1417,7 +1225,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="极客猴" height="28">
+                    <img src="/images/logo.png" alt="Django 学习笔记之模型(上)" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -1425,11 +1233,6 @@ var _hmt = _hmt || [];
                 &copy; 2019 | 
                 基于 <a href="https://hexo.io/" target="_blank">Hexo</a> 构建 |
                 采用 <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> 主题
-                
-                <br>
-                <span id="busuanzi_container_site_uv">
-                共<span id="busuanzi_value_site_uv">0</span>个访客
-                </span>
                 
                 </p>
             </div>
