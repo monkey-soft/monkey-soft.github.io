@@ -9,5 +9,5 @@ Disallow: /css/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://geekmonkey.top/sitemap.xml
-Sitemap: http://geekmonkey.top/baidusitemap.xml
+Sitemap: https://geekmonkey.top/sitemap.xml
+Sitemap: https://geekmonkey.top/baidusitemap.xml

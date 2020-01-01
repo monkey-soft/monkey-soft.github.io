@@ -574,3 +574,106 @@ figure.highlight .section {
   border-left: 3px solid #6f42c1;
   background-color: #f5f0fa;
 }
+/* ---------------------------------
+ *        底部字体样式
+ * --------------------------------- */
+.foot_detail {
+  font-size: 14px;
+  color: #999;
+}
+/* ---------------------------------
+ *        文章底部标签样式
+ * --------------------------------- */
+.nexmoe-post-meta {
+  margin-bottom: -10px;
+}
+.nexmoe-post-meta a {
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 3px;
+}
+.nexmoe-post-meta a .nexmoefont {
+  font-size: 14px;
+}
+.nexmoe-post-meta a:before,
+.nexmoe-post-meta i:before {
+  margin-right: 5px;
+}
+.nexmoe-post-meta a:nth-child(7n+1) {
+  background-color: #ff4e6a;
+}
+.nexmoe-post-meta a:nth-child(7n+2) {
+  background-color: #ffaa73;
+}
+.nexmoe-post-meta a:nth-child(7n+3) {
+  background-color: #fed466;
+}
+.nexmoe-post-meta a:nth-child(7n+4) {
+  background-color: #3cdc82;
+}
+.nexmoe-post-meta a:nth-child(7n+5) {
+  background-color: #64dcf0;
+}
+.nexmoe-post-meta a:nth-child(7n+6) {
+  background-color: #64b9ff;
+}
+.nexmoe-post-meta a:nth-child(7n+7) {
+  background-color: #b4b4ff;
+}
+/* ---------------------------------
+ *        标签栏样式
+ * --------------------------------- */
+.tagcloud a {
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  font-size: 0.75rem;
+  height: 2em;
+  justify-content: center;
+  display: inline-flex;
+  white-space: nowrap;
+}
+.tagcloud a:nth-child(7n+1) {
+  background-color: rgba(255,78,106,0.15);
+  color: rgba(255,78,106,0.8);
+}
+.tagcloud a:nth-child(7n+2) {
+  background-color: rgba(255,170,115,0.15);
+  color: #ffaa73;
+}
+.tagcloud a:nth-child(7n+3) {
+  background-color: rgba(254,212,102,0.15);
+  color: #fed466;
+}
+.tagcloud a:nth-child(7n+4) {
+  background-color: rgba(60,220,130,0.15);
+  color: #3cdc82;
+}
+.tagcloud a:nth-child(7n+5) {
+  background-color: rgba(100,220,240,0.15);
+  color: #64dcf0;
+}
+.tagcloud a:nth-child(7n+6) {
+  background-color: rgba(100,185,255,0.15);
+  color: #64b9ff;
+}
+.tagcloud a:nth-child(7n+7) {
+  background-color: rgba(180,180,255,0.15);
+  color: #b4b4ff;
+}
+.nexmoe-copyright {
+  padding: 0 30px;
+  text-align: right;
+  color: #777;
+  white-space: normal;
+  margin-bottom: 20px;
+}
+.nexmoe-copyright a {
+  color: rgba(255,78,106,0.8);
+}
