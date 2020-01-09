@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+<!百度站长工具验证>
+<meta name="baidu-site-verification" content="Cg06Zha1ae" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Django 学习笔记之模型高级用法(上) - 极客猴</title>
+
+
+    <meta name="description" content="Django 学习笔记之模型高级用法(上)">
+<meta name="keywords" content="Python,web,Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django 学习笔记之模型高级用法(上)">
+<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;449.html">
+<meta property="og:site_name" content="极客猴">
+<meta property="og:description" content="Django 学习笔记之模型高级用法(上)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2018-04-24.jpg">
+<meta property="og:updated_time" content="2020-01-09T15:22:25.066Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2018-04-24.jpg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49128543-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49128543-2');
+</script>
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?a6ccc4c73948c9c6e7395fb65d736f66";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<!-- 自动推送链接 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- 文章页面内容有三栏布局修改为两栏布局-->
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="Django 学习笔记之模型高级用法(上)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">专栏</a>
+                
+                <a class="navbar-item"
+                href="/tags">热门标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/monkey-soft">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/cover/2018-04-24.jpg" alt="Django 学习笔记之模型高级用法(上)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>Django 学习笔记之模型高级用法(上)
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-04-24T13:14:07.000Z">2018-04-24</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2018-04-24</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    17 分钟 读完 (大约 2486 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv">0</span> 次浏览
+                </span>
+                
+            </div>
+        </div>
+        
+
+        <br>
+        <div class="content">
+            <p>前面有两篇文章简单介绍 Django 的模型，这一部分算是基础知识。我自己近期也总做了下总结，将花大概两篇的篇幅来分享下模型的一些高级用法。</p>
+<a id="more"></a>
+<p>如果想熟悉 Django 的用法，我认为应该一开始要熟悉一些细节用法，后面再了解 Django 的实现原理。而细节用法往往体现在一些差别用法，难以理解的知识点上。</p>
+<h2 id="复杂的字段类型"><a href="#复杂的字段类型" class="headerlink" title="复杂的字段类型"></a>复杂的字段类型</h2><p>经过前面的学习，我们知道模型的字段类型一方面是指定数据库表的列名称和数据类型，另一方面决定 HTML 中的表单标签类型。</p>
+<h3 id="整数类型的区别"><a href="#整数类型的区别" class="headerlink" title="整数类型的区别"></a>整数类型的区别</h3><p>Django 的整数类型有三个，分别是 <strong>IntegerField</strong>、<strong>BigIntegerField</strong> 和 <strong>SmallIntegerField</strong>。这三个字段区别在于取值范围。IntegerField 在 Django 所有支持的数据库中，合法取值范围是 -2147483648 到 2147483647。而 BigIntegerField 是一个 64 位整数，它允许的值范围是 -9223372036854775808 到 9223372036854775807。所以在数据库迁移的时候，特别数据库中有 Sqlite 时，要更加注意数字的取值范围。SmallIntegerField 取值范围是 -32768 到 32767。</p>
+<h3 id="自增类型的区别"><a href="#自增类型的区别" class="headerlink" title="自增类型的区别"></a>自增类型的区别</h3><p><strong>AutoFiled</strong> 和 <strong>BigAutoFiled</strong> 都是自增类型，它们都是由整数类型演化而来。AutoFiled 是一个根据实际 ID 自动增长的 IntegerField。通常不需要直接使用它,如果表中没有设置主键时，Django 将会自动添加一个自增主键。BigAutoField 其实也是一个 BigIntegerField，但它支持 ID 自动增长。所以它的取值范围不能为负数和零了。</p>
+<h3 id="时间类型"><a href="#时间类型" class="headerlink" title="时间类型"></a>时间类型</h3><p>DateField 和 DateTimeField 中的两个重要属性 <strong>auto_now</strong> 和 <strong>auto_now_add</strong> 默认值都是 Flase。 设置 auto_now 或者 auto_now_add 的值为 True，间接给该字段设置了 editable=False 和 blank=True 。给参数赋值需要传递一个 datetime.date 对象。如果时间是一串字符串，则转化为 date 对象。</p>
+<p>DateField 支持输入值的形式如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="hljs-string">'%Y-%m-%d'</span>,      <span class="hljs-comment"># '2006-10-25'</span></span><br><span class="line"> <span class="hljs-string">'%m/%d/%Y'</span>,      <span class="hljs-comment"># '10/25/2006'</span></span><br><span class="line"> <span class="hljs-string">'%m/%d/%y'</span>]      <span class="hljs-comment"># '10/25/06'</span></span><br></pre></td></tr></table></figure>
+
+<p>DateTimeField 支持输入值的形式如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="hljs-string">'%b %d %Y'</span>,      <span class="hljs-comment"># 'Oct 25 2006'</span></span><br><span class="line"> <span class="hljs-string">'%b %d, %Y'</span>,     <span class="hljs-comment"># 'Oct 25, 2006'</span></span><br><span class="line"> <span class="hljs-string">'%d %b %Y'</span>,      <span class="hljs-comment"># '25 Oct 2006'</span></span><br><span class="line"> <span class="hljs-string">'%d %b, %Y'</span>,     <span class="hljs-comment"># '25 Oct, 2006'</span></span><br><span class="line"> <span class="hljs-string">'%B %d %Y'</span>,      <span class="hljs-comment"># 'October 25 2006'</span></span><br><span class="line"> <span class="hljs-string">'%B %d, %Y'</span>,     <span class="hljs-comment"># 'October 25, 2006'</span></span><br><span class="line"> <span class="hljs-string">'%d %B %Y'</span>,      <span class="hljs-comment"># '25 October 2006'</span></span><br><span class="line"> <span class="hljs-string">'%d %B, %Y'</span>]     <span class="hljs-comment"># '25 October, 2006'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="FilePathField"><a href="#FilePathField" class="headerlink" title="FilePathField"></a>FilePathField</h3><p>该字段是用于保存文件路径信息的。默认最大长度为 100，当可通过 max_length 参数自定义。它包含几个重要的参数：</p>
+<p><strong>path</strong>：必传参数。记录目录或者文件的绝对路径。例如：<code>/home/monkey</code><br><strong>match</strong>：可选参数，它是一个正则表达式，主要用于匹配过滤出文件名。<br><strong>recursive</strong>：可选参数，表示是否包含子目录。默认值为 Flase。<br><strong>allow_files</strong>：可选参数，表示是否将文件名包括在内，默认值为 True。<br><strong>allow_folders</strong>：可选参数，表示是否将目录名包括在内默认值为 Flase。</p>
+<p>Django 规定 allow_files 和 allow_folders 两者之间必须有一个值为 True。</p>
+<h3 id="FileField"><a href="#FileField" class="headerlink" title="FileField"></a>FileField</h3><p>上传文件字段，常见于表单中。一般而言，文件都是保存在服务器的硬盘中。因此，该字段在数据库中其实是一个字符串类型，默认最大长度100，可以通过max_length参数自定义。</p>
+<p>FileField 有两个重要的可选参数：<strong>upload_to</strong> 和 <strong>storage</strong></p>
+<ul>
+<li><p>upload_to<br>upload_to 是指定文件上传的目录。用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyModel</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    <span class="hljs-comment"># 文件上传到 MEDIA_ROOT/uploads</span></span><br><span class="line">    upload = models.FileField(upload_to=<span class="hljs-string">'uploads/'</span>)</span><br><span class="line">    <span class="hljs-comment"># 或者</span></span><br><span class="line">    <span class="hljs-comment"># 文件上传到 MEDIA_ROOT/uploads/2015/01/30</span></span><br><span class="line">    upload = models.FileField(upload_to=<span class="hljs-string">'uploads/%Y/%m/%d/'</span>)</span><br></pre></td></tr></table></figure>
+<p>其中 <strong>MEDIA_ROOT</strong> 是在 settings.py 中设置，表示上传文件的根目录。另外还需要设置 <strong>MEDIA_URL</strong>, 它表示上传文件对外能访问的 url 地址。</p>
+</li>
+<li><p>Storage<br>Storage 是一个文件操作对象。它提供 size(path)、open(path).read()、delete(path)、exists(path)等方法来操作文件。</p>
+</li>
+</ul>
+<h3 id="ImageField"><a href="#ImageField" class="headerlink" title="ImageField"></a>ImageField</h3><p>保存图像文件的字段。ImageField 用法跟 FileField 类似。除了需要在 seeting.py 中增加相关配置，还都拥有共同的 upload_to 字段选项。</p>
+<p>它还有额外的可选参数：一个是 <strong>height_field</strong>，表示保存图片的高度。 另一个是 <strong>width_field</strong>，表示保存图片的宽度。</p>
+<h2 id="关系字段"><a href="#关系字段" class="headerlink" title="关系字段"></a>关系字段</h2><p>之前文章讲了三种关系字段的类型、定义、作用。今天讲下其中的一些字段选项。</p>
+<h3 id="ForeignKey"><a href="#ForeignKey" class="headerlink" title="ForeignKey"></a>ForeignKey</h3><p>1） on_delete<br>在 Django 2.0 中，设置外键时需要添加一个 <strong>on_delete</strong> 选项。外键本身涉及到两个表的数据，况且外键在数据库中是有约束行为。所以 on_delete 参数是 Django 模拟 SQL 约束的行为。</p>
+<p>on_delete 有几个可选值：</p>
+<ul>
+<li><code>CASCADE</code>：这就是默认的选项，级联删除，你无需显性指定它。</li>
+<li><code>PROTECT</code>: 保护模式，如果采用该选项，删除的时候，会抛出 <code>ProtectedError</code> 错误。</li>
+<li><code>SET_NULL</code>: 置空模式，删除的时候，外键字段被设置为空，前提就是<code>blank=True, null=True</code>,定义该字段的时候，允许为空。</li>
+<li><code>SET_DEFAULT</code>: 置默认值，删除的时候，外键字段设置为默认值，所以定义外键的时候注意加上一个默认值。</li>
+<li><code>SET()</code>: 自定义对应的实体的值。</li>
+</ul>
+<p>2）limit_choices_to<br>该参数用于限制外键所能关联的对象，只能用于 Django 的 ModelForm（Django的表单模块）和 admin 后台，对其它场合无限制功能。该值接受是一个字典、返回一个字典的函数</p>
+<p>3) db_constraint<br>默认情况下，这个参数被设为 True，表示遵循数据库约束。如果设为 False，那么将无法保证数据的完整性和合法性。</p>
+<p>4） related_name<br>用于关联对象反向引用模型的名称。主要用于反向查询，即外键源模型实例通过管理器返回第一个模型的所有实例。</p>
+<p>默认情况下，这个管理器的名字为 foo_set，其中 foo 是源模型名字的小写。例如：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 在终端下使用 Django</span></span><br><span class="line">&gt;&gt;&gt;b = Book.objects.get(id=<span class="hljs-number">1</span>)</span><br><span class="line"><span class="hljs-comment"># 其中 entry_set 为默认的 related_name</span></span><br><span class="line">&gt;&gt;&gt;b.entry_set.all() </span><br><span class="line">&gt;&gt;&gt;b.entry_set.filter(headline__contains=<span class="hljs-string">'天龙八部'</span>)</span><br><span class="line">&gt;&gt;&gt;b.entry_set.count()</span><br></pre></td></tr></table></figure>
+
+<p>如果我们设置 related_name=’novels’，那么上面的代码将变为：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 在终端下使用 Django</span></span><br><span class="line">&gt;&gt;&gt;b = Book.objects.get(id=<span class="hljs-number">1</span>)</span><br><span class="line"><span class="hljs-comment"># 其中 entry_set 为默认的 related_name</span></span><br><span class="line">&gt;&gt;&gt;b.novels.all() </span><br><span class="line">&gt;&gt;&gt;b.novels.filter(headline__contains=<span class="hljs-string">'天龙八部'</span>)</span><br><span class="line">&gt;&gt;&gt;b.novels.count()</span><br></pre></td></tr></table></figure>
+
+<p>5）related_query_name<br>反向查询的关系查询集名称。用于从目标模型反向过滤模型对象的名称。具体用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tag</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    article = models.ForeignKey(</span><br><span class="line">        Article,</span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">        related_name=<span class="hljs-string">"tags"</span>,</span><br><span class="line">        related_query_name=<span class="hljs-string">"tag"</span>,</span><br><span class="line">    )</span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">255</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 现在可以使用 tag作为查询名</span></span><br><span class="line">Article.objects.filter(tag__name=<span class="hljs-string">"important"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="字段选项"><a href="#字段选项" class="headerlink" title="字段选项"></a>字段选项</h2><p>字段选项是给每个 Field 指定一些属性。</p>
+<p><strong>db_column</strong>： 指定当前数据库表中该字段的列名。如果没有指定，Django 默认将 Field 名作为字段名。</p>
+<p><strong>db_index</strong>： 如果赋值为 True, 将会为这个字段创建数据库索引。</p>
+<p><strong>db_tablespace</strong>：如果该字段已经设置了索引，db_tablespace 用于指定字段索引的数据库表空间的名字。另外还需要看使用的数据库支不支持表空间。如果不支持，该参数设置没有效果。</p>
+<p><strong>editable</strong>：设置该字段是否能被编辑，默认是 True。如果设为 False , 这个字段将不会出现在 admin 或者其他 ModelForm 中。 同时也会跳过 模型验证 。 </p>
+<p><strong>error_messages</strong>：用于自定义错误提示信息。参数接受的是字典类型的值。字典的 key 可以是 null, blank, invalid, invalid_choice, unique, 和 unique_for_dat 其中的一个。</p>
+<p><strong>help_text</strong>：用于前端页面上显示提示信息。要确保页面不存在 XXS 漏洞，需要使用django.utils.html.escape() 对内容进行转义。</p>
+<p><strong>unique_for_date</strong>：设置为 DateField 或者 DateTimeField 字段的名字，表示要求该字段对于相应的日期字段值是唯一的。例如，字段 title 设置了 unique_for_date=”pub_date” ，那么Django将不会允许在同一 pub_date 的两条记录的 title 相同。</p>
+<p><strong>unique_for_month</strong>：用法跟 unique_for_date 类似。</p>
+<p><strong>unique_for_year</strong>：用法跟 unique_for_date 类似。</p>
+<p><strong>verbose_name</strong>：为字段设置别名。对于每一个字段类型，除了 ForeignKey、ManyToManyField和 OneToOneField 这三个特殊的关系类型，其第一可选位置参数都是 verbose_name。如果用户没有定义该选项， Django会自动将自动创建，内容是该字段属性名中的下划线转换为空格的结果。</p>
+<p>比如这个例子中描述名是 <code>person&#39;s first name</code>:</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">first_name = models.CharField(<span class="hljs-string">"person's first name"</span>, max_length=<span class="hljs-number">30</span>)</span><br></pre></td></tr></table></figure>
+<p>而没有主动设置时，则是 <code>first name</code>:</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">first_name = models.CharField(max_length=<span class="hljs-number">30</span>)</span><br></pre></td></tr></table></figure>
+
+<p>对于外键、多对多和一对一字字段，由于第一个参数需要用来指定关联的模型。因此必须用关键字参数 verbose_name 来明确指定。如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">poll = models.ForeignKey(</span><br><span class="line">    Poll,</span><br><span class="line">    on_delete=models.CASCADE,</span><br><span class="line">    verbose_name=<span class="hljs-string">"the related poll"</span>,</span><br><span class="line">)</span><br><span class="line">sites = models.ManyToManyField(Site, verbose_name=<span class="hljs-string">"list of sites"</span>)</span><br><span class="line">place = models.OneToOneField(</span><br><span class="line">    Place,</span><br><span class="line">    on_delete=models.CASCADE,</span><br><span class="line">    verbose_name=<span class="hljs-string">"related place"</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>另外 verbose_name 不用大写首字母，在必要的时候 Django 会自动大写首字母。</p>
+<p><strong>validators</strong>：该字段将要运行的一个验证器的列表。例如 RegexValidator、EmailValidator。</p>
+
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+        <div>
+            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
+        </div>
+        
+
+        <!-- 增加版权说明 -->
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://geekmonkey.top/449.html">Django 学习笔记之模型高级用法(上)</a></li>
+            <li><strong>本文作者：</strong><a href="http://geekmonkey.top">极客猴</a></li>
+            <li><strong>本文链接：</strong><a href="http://geekmonkey.top/449.html">http://geekmonkey.top/449.html</a></li>
+            <li><strong>发布时间：</strong>2018-04-24 21:14:07</li>
+            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        <br><img src="/images/official_accounts_qrcode.png" >
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+
+        <!-- 文章底部示的文章标签 -->
+        <div class="level is-size-7">
+            <div class="level-start">
+                <div class="nexmoe-post-meta">
+                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="exmoefont icon-tag-fill-link" href="/tags/Django/" rel="tag">Django</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/Web/" rel="tag">Web</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- 屏蔽不用的分享图表 
+<div class="social-share"></div>-->
+<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/450.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Django 学习笔记之模型高级用法(下)</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/448.html">
+                <span class="level-item">想做 Python Web 开发，需要掌握哪些技能？</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
+        app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
+        placeholder: '你有什么想说的？'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.png" alt="极客猴">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        极客猴
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        不日进则日退
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>ShenZhen, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        51
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        专栏
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        7
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        45
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/monkey-soft">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/Geek_monkey/activities">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <!-- 目录粘性布局
+    <div class="card widget" id="toc">
+    -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#复杂的字段类型">
+        <span class="has-mr-6">1</span>
+        <span>复杂的字段类型</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#整数类型的区别">
+        <span class="has-mr-6">1.1</span>
+        <span>整数类型的区别</span>
+        </a></li><li>
+        <a class="is-flex" href="#自增类型的区别">
+        <span class="has-mr-6">1.2</span>
+        <span>自增类型的区别</span>
+        </a></li><li>
+        <a class="is-flex" href="#时间类型">
+        <span class="has-mr-6">1.3</span>
+        <span>时间类型</span>
+        </a></li><li>
+        <a class="is-flex" href="#FilePathField">
+        <span class="has-mr-6">1.4</span>
+        <span>FilePathField</span>
+        </a></li><li>
+        <a class="is-flex" href="#FileField">
+        <span class="has-mr-6">1.5</span>
+        <span>FileField</span>
+        </a></li><li>
+        <a class="is-flex" href="#ImageField">
+        <span class="has-mr-6">1.6</span>
+        <span>ImageField</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#关系字段">
+        <span class="has-mr-6">2</span>
+        <span>关系字段</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#ForeignKey">
+        <span class="has-mr-6">2.1</span>
+        <span>ForeignKey</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#字段选项">
+        <span class="has-mr-6">3</span>
+        <span>字段选项</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+
+        <ul class="menu-list">
+        
+            <!-- 干掉原来的双行链接 
+            <li>
+                <a class="level is-mobile" href="http://python-online.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Python 编程时光</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">python-online.cn</span>
+                    </span>
+                </a>
+            </li>-->
+            <li>
+                <a class="level is-mobile" href="http://python-online.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
+                    </span>
+                </a>
+            </li>
+            
+        
+            <!-- 干掉原来的双行链接 
+            <li>
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">咸鱼自我满足的日常</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.xianyucoder.cn</span>
+                    </span>
+                </a>
+            </li>-->
+            <li>
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
+                    </span>
+                </a>
+            </li>
+            
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                专栏
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+            <span class="level-start">
+                <span class="level-item">Django 学习笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">15</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
+            <span class="level-start">
+                <span class="level-item">Python 必知必会</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">
+            <span class="level-start">
+                <span class="level-item">思维与认知</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+            <span class="level-start">
+                <span class="level-item">数据分析</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+            <span class="level-start">
+                <span class="level-item">网络爬虫</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">17</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+            <span class="level-start">
+                <span class="level-item">计算机网络</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/">
+            <span class="level-start">
+                <span class="level-item">随笔</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <!-- 优化移动端显示，隐藏 archive  -->
+    <div class="card-content is-hidden-mobile">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <!--
+        <div class="column-right-shadow is-hidden-widescreen "> 
+        -->
+        <div class="column-right-shadow  ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/551.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-05-05.jpg" alt="Django 实现分页功能">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 " datetime="2018-05-05T06:10:03.000Z">2018-05-05</time></div>
+                    <a href="/551.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 实现分页功能</a>
+                    <p class="is-size-7 ">
+                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/450.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-04-27.jpg" alt="Django 学习笔记之模型高级用法(下)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 " datetime="2018-04-27T09:17:56.000Z">2018-04-27</time></div>
+                    <a href="/450.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之模型高级用法(下)</a>
+                    <p class="is-size-7 ">
+                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/449.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-04-24.jpg" alt="Django 学习笔记之模型高级用法(上)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 " datetime="2018-04-24T13:14:07.000Z">2018-04-24</time></div>
+                    <a href="/449.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之模型高级用法(上)</a>
+                    <p class="is-size-7 ">
+                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/448.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-04-20.jpg" alt="想做 Python Web 开发，需要掌握哪些技能？">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 " datetime="2018-04-20T13:27:38.000Z">2018-04-20</time></div>
+                    <a href="/448.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">想做 Python Web 开发，需要掌握哪些技能？</a>
+                    <p class="is-size-7 ">
+                        <a class="has-link-grey -link" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">思维与认知</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/447.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/cover/2018-04-17.jpg" alt="Python 编码规范">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 " datetime="2018-04-17T14:31:25.000Z">2018-04-17</time></div>
+                    <a href="/447.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Python 编码规范</a>
+                    <p class="is-size-7 ">
+                        <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/APScheduler/">
+                        <span class="tag">APScheduler</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Django/">
+                        <span class="tag">Django</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
+                        <span class="tag">IP代理池</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterable/">
+                        <span class="tag">Iterable</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Iterator/">
+                        <span class="tag">Iterator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Matplotlib/">
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OCR/">
+                        <span class="tag">OCR</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PEP/">
+                        <span class="tag">PEP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Python/">
+                        <span class="tag">Python</span>
+                        <span class="tag is-grey">47</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Requests/">
+                        <span class="tag">Requests</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scrapy/">
+                        <span class="tag">Scrapy</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Web/">
+                        <span class="tag">Web</span>
+                        <span class="tag is-grey">16</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Xpath/">
+                        <span class="tag">Xpath</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/beautifulSoup/">
+                        <span class="tag">beautifulSoup</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/datetime/">
+                        <span class="tag">datetime</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/generator/">
+                        <span class="tag">generator</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/lxml/">
+                        <span class="tag">lxml</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pustil/">
+                        <span class="tag">pustil</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sched/">
+                        <span class="tag">sched</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/time/">
+                        <span class="tag">time</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
+                        <span class="tag">反爬虫</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
+                        <span class="tag">后台</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+                        <span class="tag">多进程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+                        <span class="tag">定时任务</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
+                        <span class="tag">当当</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
+                        <span class="tag">思念</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
+                        <span class="tag">技巧</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="tag">数据分析</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="tag">数据库</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
+                        <span class="tag">方法论</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
+                        <span class="tag">爬虫实战</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
+                        <span class="tag">电影</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
+                        <span class="tag">社工库</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
+                        <span class="tag">编码规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+                        <span class="tag">网络爬虫</span>
+                        <span class="tag is-grey">15</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
+                        <span class="tag">自学</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
+                        <span class="tag">认知</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
+                        <span class="tag">阅读</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
+                        <span class="tag">验证码</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
+                        <span class="tag">鸡汤</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="Django 学习笔记之模型高级用法(上)" height="28">
+                
+                </a>
+                <p class="foot_detail">
+                极客猴 版权所有 &copy; 2019-2020 <br>
+                基于 <a href="https://hexo.io/" target="_blank">Hexo</a> 构建 |
+                采用 <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> 主题
+                
+                <br>
+                <span id="busuanzi_container_site_pv">
+                本站总访问量 <span id="busuanzi_value_site_pv">0</span> 次
+                </span> |
+                <span id="busuanzi_container_site_uv">
+                有 <span id="busuanzi_value_site_uv">0</span> 人访问过我的博客
+                </span> 
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
