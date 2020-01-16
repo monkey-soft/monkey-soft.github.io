@@ -9,20 +9,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>归档: 2018/5 - 极客猴</title>
+<title>Django 使用会话(sessions)功能 - 极客猴</title>
 
 
-    <meta name="description" content="猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。">
-<meta name="keywords" content="Python, 网络爬虫, 数据分析, Web 开发, Django">
-<meta property="og:type" content="website">
-<meta property="og:title" content="极客猴">
-<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;archives&#x2F;2018&#x2F;05&#x2F;index.html">
+    <meta name="description" content="Django 使用会话(sessions)功能">
+<meta name="keywords" content="Python,web,Django,session">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django 使用会话(sessions)功能">
+<meta property="og:url" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;552.html">
 <meta property="og:site_name" content="极客猴">
-<meta property="og:description" content="猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。">
+<meta property="og:description" content="Django 使用会话(sessions)功能">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2018-05-07.jpg">
+<meta property="og:updated_time" content="2020-01-16T15:27:23.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;geekmonkey.top&#x2F;images&#x2F;cover&#x2F;2018-05-07.jpg">
 
 
 
@@ -91,13 +92,13 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
-<body class="is-3-column">
+<body class="is-2-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="极客猴" height="28">
+                <img src="/images/logo.png" alt="Django 使用会话(sessions)功能" height="28">
             
             </a>
         </div>
@@ -133,6 +134,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
@@ -146,91 +151,207 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/cover/2018-05-07.jpg" alt="Django 使用会话(sessions)功能">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <i class="fas fa-angle-double-right"></i>Django 使用会话(sessions)功能
+            
+        </h1>
 
-<div class="card widget">
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-05-07T14:49:58.000Z">2018-05-07</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2018-05-07</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1303 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv">0</span> 次浏览
+                </span>
+                
+            </div>
+        </div>
+        
+
+        <br>
+        <div class="content">
+            <p>淘宝、天猫、京东等电商网站的出现，让我们足不出户就能购物。在这些网站中，都有一个“购物车”的功能。当我们在不同商品页面将商品加入购物车，然后关闭浏览器。等下次浏览该网站时，我们会依然发现购物车的商品还在。这是怎么实现的了？类似这种场景，一般都是采用 Cookie + Session 方式来实现。</p>
+<a id="more"></a>
+<h2 id="Cookie-机制"><a href="#Cookie-机制" class="headerlink" title="Cookie 机制"></a>Cookie 机制</h2><p>HTTP 协议是<strong>无状态</strong>的。所以服务器无法根据 HTTP 协议来辨别多个 HTTP 请求来自哪个用户。在实际场景中，服务器经常需要追踪客户端的状态。为了解决这个问题， Cookie 技术应运而生。</p>
+<p>cookie 一开始是服务器产生的一段随机字符串。它的主要内容包括：名字，值，过期时间，路径与域等信息。然后服务器将其发送给客户端。在后续的请求中，cookie 会附在请求资源的 HTTP 请求头上，发送给服务器。</p>
+<h2 id="Session-机制"><a href="#Session-机制" class="headerlink" title="Session 机制"></a>Session 机制</h2><p>如果不涉及用户登录等敏感信息时，Cookie 能够满足大部分的场景需求。<strong>而客户端（如浏览器）会将 Cookie 是保存在硬盘中</strong>。如果用户登录敏感信息保存到 cookie 中，会存在安全性问题。因为当 HTTP 请求被黑客拦截，然后劫持 cookie 信息。黑客就可以凭借该 cookie 登录对应的网站。</p>
+<p>Session 的出现很好地解决的这个问题。Session 机制是一个服务器端的机制。<strong>它会将信息保存服务器端，跟客户端通信只需要一个随机的字符串 session_id</strong>。如果客户端没有禁止 Cookie 功能，session_id 通常是保存在 Cookie中 的。如果 Cookie 被禁用，它则可能通过为 url 加上query string 来添加 session_id。</p>
+<h2 id="在-Django-中的应用"><a href="#在-Django-中的应用" class="headerlink" title="在 Django 中的应用"></a>在 Django 中的应用</h2><p>Django 为我们提供了一个通用的 Session 框架。使用 Django 2.X 版本创建新项目的时，Django 默认会帮我们启用该功能。</p>
+<p>Django 默认 Session 数据保存到数据库中，可以在 settings.py 中看到配置信息项目。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="hljs-comment"># 启用 sessions 应用</span></span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions'</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="hljs-comment"># 启用 Session 中间层</span></span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>然后我们在将自带组件的模型同步到数据库中。如果你还不熟悉这块内容，可以阅读《Django 学习笔记之模型（上）》这篇文章。我们之后会看到数据库中有个 <code>django_session</code> 表：</p>
+<p><img src="./images/img/82_1.png" alt></p>
+<p>除了上述的基于数据库的会话，Django 还提供另外三种方法：<br><strong>1）保存到缓存中</strong><br>如果你的场景需要快速存储会话，可以选择该方案。使用之前，需要配置下 Django 的缓存框架。在 settings.py 中增加 <strong>SESSION_ENGINE</strong> 配置。</p>
+<p>这其中也是有两种保存数据的方案，具体配置如下：</p>
+<ul>
+<li>方案一</li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'django.contrib.sessions.backends.cache'</span></span><br></pre></td></tr></table></figure>
+
+<p>这种配置方案 Django 只是简单保存会话。同时，这种方案持久性不好。因为当缓存数据存满时将清除部分数据，或者遇到缓存服务器重启时数据将丢失。</p>
+<ul>
+<li>方案二</li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'django.contrib.sessions.backends.cached_db'</span></span><br></pre></td></tr></table></figure>
+
+<p>这种方案既保证快速存储会话数据，又保证数据持久性。因为该使用方案， Session 在保存到缓存的同时还会被保存到数据库中，当 Django 在缓存中找不到Session 时，会从数据库中找到。因此，这种方案的性能开销会比方案一大。</p>
+<p><strong>如果我们在工程中同时配置了数据库会话和缓存会话，Django 默认优秀选择缓存会话。</strong></p>
+<p><strong>2）保存到文件中</strong></p>
+<p>这种方案是保存数据到本地磁盘中。因为磁盘的 I/O 瓶颈问题，导致这种方案存储数据效率不是很高。如果要使用这种方案，在 settings.py 中增加 <strong>SESSION_ENGINE</strong> 配置。具体配置如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'django.contrib.sessions.backends.file'</span></span><br><span class="line"><span class="hljs-comment"># 可选配置</span></span><br><span class="line">SESSION_FILE_PATH = <span class="hljs-string">'/monkey/www/'</span></span><br></pre></td></tr></table></figure>
+
+<p>SESSION_FILE_PATH 默认使用 tempfile.gettempdir() 方法的返回值，就像 /tmp目录。如果你想更新文件的保存路径，可以手动指定。另外需确保你的文件存储目录，以及 Web 服务器对该目录具有读写权限。</p>
+<p><strong>3）保存到 cookie 中</strong></p>
+<p>这种方案将数据保存到 cookie 中。这种方案适用于对数据保密性不严格的场景。如果要使用这种方案，在 settings.py 中增加 <strong>SESSION_ENGINE</strong> 配置。具体配置如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'jango.contrib.sessions.backends.signed_cookies'</span></span><br><span class="line"><span class="hljs-comment"># 建议配置，阻止 javascript 对会话数据的访问，提高安全性。</span></span><br><span class="line">SESSION_COOKIE_HTTPONLY= <span class="hljs-literal">True</span></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+        <div>
+            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
+        </div>
+        
+
+        <!-- 增加版权说明 -->
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://geekmonkey.top/552.html">Django 使用会话(sessions)功能</a></li>
+            <li><strong>本文作者：</strong><a href="http://geekmonkey.top">极客猴</a></li>
+            <li><strong>本文链接：</strong><a href="http://geekmonkey.top/552.html">http://geekmonkey.top/552.html</a></li>
+            <li><strong>发布时间：</strong>2018-05-07 22:49:58</li>
+            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+        
+        <br><img src="/images/official_accounts_qrcode.png" >
+        
+        
+        <hr style="height:1px;margin:1rem 0"/>
+
+        <!-- 文章底部示的文章标签 -->
+        <div class="level is-size-7">
+            <div class="level-start">
+                <div class="nexmoe-post-meta">
+                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="exmoefont icon-tag-fill-link" href="/tags/Django/" rel="tag">Django</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/Web/" rel="tag">Web</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/session/" rel="tag">session</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- 屏蔽不用的分享图表 
+<div class="social-share"></div>-->
+<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        五月 2018
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
+        <div class="buttons is-centered">
+            
                 
-                <a href="/552.html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/images/cover/2018-05-07.jpg" alt="Django 使用会话(sessions)功能">
-                    </p>
-                </a>
-                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
+</a>
 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2018-05-07T14:49:58.000Z">2018-05-07</time>
-                        <!-- 文章更新时间 
-                        
-                            <i class="fas fa-calendar-check">&nbsp</i>
-                            <time class="level-item has-text-grey" datetime="2020-01-16T15:27:23.565Z">2020-01-16</time>
-                        
-                        -->
-                        <a href="/552.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 使用会话(sessions)功能</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <a href="/551.html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/images/cover/2018-05-05.jpg" alt="Django 实现分页功能">
-                    </p>
-                </a>
-                
-
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2018-05-05T06:10:03.000Z">2018-05-05</time>
-                        <!-- 文章更新时间 
-                        
-                            <i class="fas fa-calendar-check">&nbsp</i>
-                            <time class="level-item has-text-grey" datetime="2020-01-09T15:46:38.841Z">2020-01-09</time>
-                        
-                        -->
-                        <a href="/551.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 实现分页功能</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
 
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/551.html">
+                <span class="level-item">Django 实现分页功能</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
+        app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
+        placeholder: '你有什么想说的？'
+    });
+</script>
+
+    </div>
+</div>
 </div>
                 
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
     
         
 <div class="card widget">
@@ -330,6 +451,33 @@
 </div>
     
         
+
+    <!-- 目录粘性布局
+    <div class="card widget" id="toc">
+    -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Cookie-机制">
+        <span class="has-mr-6">1</span>
+        <span>Cookie 机制</span>
+        </a></li><li>
+        <a class="is-flex" href="#Session-机制">
+        <span class="has-mr-6">2</span>
+        <span>Session 机制</span>
+        </a></li><li>
+        <a class="is-flex" href="#在-Django-中的应用">
+        <span class="has-mr-6">3</span>
+        <span>在 Django 中的应用</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -639,7 +787,7 @@
         <!--
         <div class="column-right-shadow is-hidden-widescreen "> 
         -->
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow  ">
         
             <div class="card widget">
     <div class="card-content">
@@ -1082,457 +1230,6 @@
 
         
         </div>
-    
-</div>
-
-                
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/552.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-05-07.jpg" alt="Django 使用会话(sessions)功能">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 " datetime="2018-05-07T14:49:58.000Z">2018-05-07</time></div>
-                    <a href="/552.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 使用会话(sessions)功能</a>
-                    <p class="is-size-7 ">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/551.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-05-05.jpg" alt="Django 实现分页功能">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 " datetime="2018-05-05T06:10:03.000Z">2018-05-05</time></div>
-                    <a href="/551.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 实现分页功能</a>
-                    <p class="is-size-7 ">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/450.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-04-27.jpg" alt="Django 学习笔记之模型高级用法(下)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 " datetime="2018-04-27T09:17:56.000Z">2018-04-27</time></div>
-                    <a href="/450.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之模型高级用法(下)</a>
-                    <p class="is-size-7 ">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/449.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-04-24.jpg" alt="Django 学习笔记之模型高级用法(上)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 " datetime="2018-04-24T13:14:07.000Z">2018-04-24</time></div>
-                    <a href="/449.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Django 学习笔记之模型高级用法(上)</a>
-                    <p class="is-size-7 ">
-                        <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/448.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/cover/2018-04-20.jpg" alt="想做 Python Web 开发，需要掌握哪些技能？">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 " datetime="2018-04-20T13:27:38.000Z">2018-04-20</time></div>
-                    <a href="/448.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">想做 Python Web 开发，需要掌握哪些技能？</a>
-                    <p class="is-size-7 ">
-                        <a class="has-link-grey -link" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">思维与认知</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag">APScheduler</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag">Django</span>
-                        <span class="tag is-grey">16</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag">HTTP</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag">IP代理池</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag">Iterable</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag">Iterator</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag">Linux</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag">OCR</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/PEP/">
-                        <span class="tag">PEP</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag">Python</span>
-                        <span class="tag is-grey">48</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag">Requests</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag">Scrapy</span>
-                        <span class="tag is-grey">6</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag">Web</span>
-                        <span class="tag is-grey">17</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag">Xpath</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag">beautifulSoup</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag">datetime</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag">generator</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag">lxml</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag">pustil</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag">sched</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/session/">
-                        <span class="tag">session</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag">time</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag">反爬虫</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
-                        <span class="tag">后台</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag">多线程</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag">多进程</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag">定时任务</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag">当当</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag">思念</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag">技巧</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag">数据分析</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="tag">数据库</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag">数据结构</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag">方法论</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag">正则表达式</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag">爬虫实战</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag">电影</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
-                        <span class="tag">社工库</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
-                        <span class="tag">编码规范</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag">网络爬虫</span>
-                        <span class="tag is-grey">15</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="tag">自学</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag">认知</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag">阅读</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag">验证码</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag">鸡汤</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-    
     
 </div>
 
@@ -1546,7 +1243,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="极客猴" height="28">
+                    <img src="/images/logo.png" alt="Django 使用会话(sessions)功能" height="28">
                 
                 </a>
                 <p class="foot_detail">
