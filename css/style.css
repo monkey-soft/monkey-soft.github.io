@@ -114,11 +114,13 @@ img.thumbnail {
 .navbar-main .navbar-item {
   display: flex;
   align-items: center;
-  padding: 1.25rem 0.75rem;
+/**设置宽高padding: 1.25rem 0.75rem*/
+  padding: 1.15rem 0.95rem;
 }
 .navbar-main .navbar-item.is-active {
   color: #3273dc;
   background-color: transparent;
+  font-weight: bold;
 }
 @media screen and (max-width: 1087px) {
   .navbar-main .navbar-menu {
@@ -133,7 +135,26 @@ img.thumbnail {
   }
 }
 .footer {
-  background: #fff;
+/*白色backgroud: #565a5f*/
+  background: #232323;
+  padding: 20px 0;
+  color: #565a5f;
+  font-size: 14px;
+  text-align: center;
+}
+.footer .outer {
+  margin-bottom: 0;
+  color: #888;
+}
+.footer a {
+  border-bottom: 0;
+  color: #38b7ea;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #38b7ea;
+  border-bottom-color: #222;
+  text-decoration: underline;
 }
 .footer .field .button {
   background: transparent;
@@ -557,7 +578,7 @@ figure.highlight .section {
   all: initial;
 }
 /* ---------------------------------
- *        自定义样式
+ *        文章底部版权样式
  * --------------------------------- */
 .post-copyright {
   margin: 2em 0 0;
@@ -573,13 +594,6 @@ figure.highlight .section {
   padding: 0.5em 1em;
   border-left: 3px solid #6f42c1;
   background-color: #f5f0fa;
-}
-/* ---------------------------------
- *        底部字体样式
- * --------------------------------- */
-.foot_detail {
-  font-size: 14px;
-  color: #999;
 }
 /* ---------------------------------
  *        文章底部标签样式
@@ -625,7 +639,7 @@ figure.highlight .section {
   background-color: #b4b4ff;
 }
 /* ---------------------------------
- *        标签栏样式
+ *        标签栏样式, 还没有用
  * --------------------------------- */
 .tagcloud a {
   align-items: center;
@@ -667,13 +681,22 @@ figure.highlight .section {
   background-color: rgba(180,180,255,0.15);
   color: #b4b4ff;
 }
-.nexmoe-copyright {
-  padding: 0 30px;
-  text-align: right;
-  color: #777;
-  white-space: normal;
-  margin-bottom: 20px;
-}
-.nexmoe-copyright a {
-  color: rgba(255,78,106,0.8);
+/* ---------------------------------
+ *        首页[阅读更多]样式
+ * --------------------------------- */
+.read_more {
+  background-color: #38b7ea;
+  border-color: transparent;
+  color: #fff;
+  border-width: 1px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  justify-content: center;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: calc(0.5em - 1px);
+  text-align: center;
+  white-space: nowrap;
 }
