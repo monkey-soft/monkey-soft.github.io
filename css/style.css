@@ -700,3 +700,54 @@ figure.highlight .section {
   text-align: center;
   white-space: nowrap;
 }
+/* ---------------------------------
+ *        专栏 Weight 列表样式
+ * --------------------------------- */
+.category-list-item {
+  align-items: center;
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.category-list-count {
+  align-items: center;
+  background-color: rgba(255,78,106,0.8);
+  border-radius: 100%;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  white-space: nowrap;
+}
+/* ---------------------------------
+ *        归档 Weight 列表样式
+ * --------------------------------- */
+.archive-list-item {
+  align-items: center;
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.archive-list-count {
+  align-items: center;
+  background-color: rgba(60,220,130,0.8);
+  border-radius: 100%;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  white-space: nowrap;
+}
+/* ---------------------------------
+ *        follow 二维码 列表样式
+ * --------------------------------- */
