@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://geekmonkey.top/friends/index.html</loc>
+    
+    <lastmod>2020-03-27T06:17:03.990Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://geekmonkey.top/about/index.html</loc>
+    
+    <lastmod>2020-03-27T06:11:27.060Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://geekmonkey.top/treasure/index.html</loc>
     
-    <lastmod>2020-03-22T15:52:06.547Z</lastmod>
+    <lastmod>2020-03-27T06:02:35.381Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://geekmonkey.top/treasure/about.html</loc>
     
-    <lastmod>2020-03-22T10:09:00.260Z</lastmod>
+    <lastmod>2020-03-27T05:36:11.742Z</lastmod>
     
   </url>
   
@@ -362,13 +376,6 @@
     <loc>https://geekmonkey.top/661.html</loc>
     
     <lastmod>2020-01-27T02:48:07.973Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://geekmonkey.top/about/index.html</loc>
-    
-    <lastmod>2020-01-26T13:15:03.384Z</lastmod>
     
   </url>
   
