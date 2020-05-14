@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html  lang="zh">
+<html lang="zh">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 <!百度站长工具验证>
-<meta name="baidu-site-verification" content="Cg06Zha1ae" />
+<meta name="baidu-site-verification" content="Cg06Zha1ae">
 
-<meta name="generator" content="Hexo 4.0.0" />
+<meta name="generator" content="Hexo 4.0.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <title>Django 学习笔记之表单 - 极客猴</title>
 
 
     <meta name="description" content="Django 学习笔记之表单">
-<meta name="keywords" content="Python,web,Django">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django 学习笔记之表单">
 <meta property="og:url" content="https:&#x2F;&#x2F;geekmonkey.top&#x2F;342.html">
@@ -60,32 +59,16 @@
 <link rel="stylesheet" href="/css/back-to-top.css">
 
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49128543-2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-49128543-2');
-</script>
-
     
-    <script>
-var _hmt = _hmt || [];
-(function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?a6ccc4c73948c9c6e7395fb65d736f66";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-</script>
+    
+    
     
     
     
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -122,26 +105,19 @@ var _hmt = _hmt || [];
             
             <div class="navbar-start">
                 
-                <a class="navbar-item"
-                href="/">主页</a>
+                <a class="navbar-item" href="/">主页</a>
                 
-                <a class="navbar-item"
-                href="/archives">归档</a>
+                <a class="navbar-item" href="/archives">归档</a>
                 
-                <a class="navbar-item"
-                href="/categories">专栏</a>
+                <a class="navbar-item" href="/categories">专栏</a>
                 
-                <a class="navbar-item"
-                href="/tags">热门标签</a>
+                <a class="navbar-item" href="/tags">热门标签</a>
                 
-                <a class="navbar-item"
-                href="/treasure">藏宝阁</a>
+                <a class="navbar-item" href="/treasure">藏宝阁</a>
                 
-                <a class="navbar-item"
-                href="/friends">友情</a>
+                <a class="navbar-item" href="/friends">友情</a>
                 
-                <a class="navbar-item"
-                href="/about">关于我</a>
+                <a class="navbar-item" href="/about">关于我</a>
                 
             </div>
             
@@ -166,11 +142,11 @@ var _hmt = _hmt || [];
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
+        <span class="image is-7by1">
             <img class="thumbnail" src="/images/cover/2018-03-28.jpg" alt="Django 学习笔记之表单">
         </span>
     </div>
@@ -188,7 +164,7 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <!-- 增加了icon-->
                 <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-03-28T03:29:46.000Z">2018-03-28</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey" >2018-03-28</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-03-28</span>
                 
                 
                 <div class="level-item">
@@ -257,13 +233,13 @@ var _hmt = _hmt || [];
 <p>我在 url.py 定义表单的路径是：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin</span><br><span class="line"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> demo_form <span class="hljs-keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="hljs-string">'admin/'</span>, admin.site.urls),</span><br><span class="line">    path(<span class="hljs-string">'forms/'</span>, views.formView),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<p>所以使用浏览器访问 <strong><a href="http://127.0.0.1:8000/forms/" target="_blank" rel="noopener">http://127.0.0.1:8000/forms/</a></strong>， 你会发现页面会自动渲染出表单的信息。<br><img src="./images/img/70_2.png" alt></p>
+<p>所以使用浏览器访问 <strong><a href="http://127.0.0.1:8000/forms/" target="_blank" rel="external nofollow noopener noreferrer">http://127.0.0.1:8000/forms/</a></strong>， 你会发现页面会自动渲染出表单的信息。<br><img src="./images/img/70_2.png" alt></p>
 <h3 id="美化模板"><a href="#美化模板" class="headerlink" title="美化模板"></a>美化模板</h3><p>我们虽然成功把表单内容渲染到页面上，但是页面有点丑陋。你可能会无法忍受，想把页面修改得美观一点，顺便也秀秀自己的 Bootstrap 知识。</p>
 <p>Django 默认提供几种显示表单的方式。例如 <strong>form.as_p</strong>、<strong>form.as_table</strong>、<strong>form.as_ul</strong>，在 html 文件中会被渲染成 <strong>p 标签</strong>，<strong>table 标签</strong>和 <strong>ul 标签</strong>。除此之外，还可以 form 还支持自定义。具体实现是你获取到 form 中每个属性，然后逐一渲染指定样式。</p>
 <p>所以 author.html 经过调整之后的代码如下：</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>author 表单<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">'/forms/'</span> <span class="hljs-attr">method</span>=<span class="hljs-string">'POST'</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.name.errors &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>姓名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.name &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.email.errors &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span>邮箱：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.email &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.information.errors &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"information"</span>&gt;</span>个人信息：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.information &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"提交"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Django_demo" target="_blank" rel="noopener">Github 仓库地址</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Django_demo" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
 
         </div>
 
@@ -282,14 +258,14 @@ var _hmt = _hmt || [];
             <li><strong>本文链接：</strong><a href="https://geekmonkey.top/342.html">https://geekmonkey.top/342.html</a></li>
             <li><strong>发布时间：</strong>2018-03-28 11:29:46</li>
             <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
-            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
         
-        <br><img src="/images/official_accounts_qrcode.png" >
+        <br><img src="/images/official_accounts_qrcode.png">
         
         
-        <hr style="height:1px;margin:1rem 0"/>
+        <hr style="height:1px;margin:1rem 0">
 
         <!-- 文章底部显示的文章标签 -->
         <div class="level is-size-7">
@@ -365,7 +341,7 @@ var _hmt = _hmt || [];
         
 <div id="valine-thread" class="content"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#valine-thread' ,
@@ -450,7 +426,7 @@ var _hmt = _hmt || [];
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank">
+            <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank" rel="external nofollow noopener noreferrer">
                 关注我</a>
             <div clas="level" id="knowledge-qrcode" style="display: none; height: 330px; padding: 0px; margin: 0px; width: 242px; opacity: 1;">
                 <img src="/images/index_qrcode.png" alt="极客猴的公众号" width="100%">
@@ -461,22 +437,19 @@ var _hmt = _hmt || [];
         
         <div class="level is-mobile">
             
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Github" href="https://github.com/monkey-soft">
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/monkey-soft" rel="external nofollow noopener noreferrer">
                 
                 <i class="fab fa-github"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="知乎" href="https://www.zhihu.com/people/Geek_monkey/activities">
+            <a class="level-item button is-white is-marginless" target="_blank" title="知乎" href="https://www.zhihu.com/people/Geek_monkey/activities" rel="external nofollow noopener noreferrer">
                 
                 <i class="fab fa-zhihu"></i>
                 
             </a>
             
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="RSS" href="/">
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
                 
                 <i class="fas fa-rss"></i>
                 
@@ -1019,7 +992,7 @@ var _hmt = _hmt || [];
         <ul class="menu-list">
         
             <li>
-                <a class="level is-mobile" href="https://python。iswbm.com/" target="_blank">
+                <a class="level is-mobile" href="https://python。iswbm.com/" target="_blank" rel="external nofollow noopener noreferrer">
                     <span class="level-left">
                         <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
                     </span>
@@ -1028,7 +1001,7 @@ var _hmt = _hmt || [];
             
         
             <li>
-                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank">
+                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank" rel="external nofollow noopener noreferrer">
                     <span class="level-left">
                         <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
                     </span>
@@ -1037,7 +1010,7 @@ var _hmt = _hmt || [];
             
         
             <li>
-                <a class="level is-mobile" href="https://dp2px.com/" target="_blank">
+                <a class="level is-mobile" href="https://dp2px.com/" target="_blank" rel="external nofollow noopener noreferrer">
                     <span class="level-left">
                         <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;水寒的博客</span>
                     </span>
@@ -1046,7 +1019,7 @@ var _hmt = _hmt || [];
             
         
             <li>
-                <a class="level is-mobile" href="http://www.gcowsec.com/" target="_blank">
+                <a class="level is-mobile" href="http://www.gcowsec.com/" target="_blank" rel="external nofollow noopener noreferrer">
                     <span class="level-left">
                         <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Gcow 安全团队</span>
                     </span>
@@ -2111,10 +2084,10 @@ var _hmt = _hmt || [];
     <footer class="footer">
     <div class="container">
         <div class="outer has-text-centered-mobile">
-            <p class="">
+            <p class>
                 &copy; 极客猴 版权所有. 2019-2020<br>
-                由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动. 
-                Theme by <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> v2.6.0.
+                由 <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> 强力驱动. 
+                Theme by <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a> v2.6.0.
                 <a href="/sitemap.xml" target="_blank">站点地图</a>.
                 
                 <br>
@@ -2184,7 +2157,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="external nofollow noopener noreferrer">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -2248,7 +2221,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
