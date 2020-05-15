@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 学习笔记之表单">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBxJ7n.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:14:11.412Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsXDZd.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:10:50.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBxJ7n.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsXDZd.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBxJ7n.jpg" alt="Django 学习笔记之表单">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Django 学习笔记之表单
+                <span class="card-title-color">Django 学习笔记之表单</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>本文是自己 Django 学习笔记系列中第 8 篇，算是基础知识篇章中最后一篇笔记。后续的笔记内容会相对比较综合。所以建议大家要把前面的内容，包括本篇笔记掌握。而本篇内容主要是讲解表单。</p>
-<a id="more"></a>
-<h2 id="表单是什么？"><a href="#表单是什么？" class="headerlink" title="表单是什么？"></a>表单是什么？</h2><p>表单英文单词是 Froms, 它其实属于 HTML 的知识范畴。HTML 表单可以实现用户和 Web 站点之间数据交互。表单允许用户将数据发送到 Web 站点。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>本文是自己 Django 学习笔记系列中第 8 篇，算是基础知识篇章中最后一篇笔记。后续的笔记内容会相对比较综合。所以建议大家要把前面的内容，包括本篇笔记掌握。而本篇内容主要是讲解表单。</p>
+<h2 id="表单是什么？"><a href="#表单是什么？" class="headerlink" title="表单是什么？"></a>表单是什么？</h2><p>表单英文单词是 Froms, 它其实属于 HTML 的知识范畴。<a id="more"></a>HTML 表单可以实现用户和 Web 站点之间数据交互。表单允许用户将数据发送到 Web 站点。</p>
 <p>但在大多数情况下，Froms 携带的数据发送到 Web 服务器，Web  页面会将其拦截并自己使用它。举个栗子，用户使用浏览器访问一个页面，在页面的搜索框中输入图书的名称，想获取所有销售该图书的商店。Web 站点需要获取图书名称的信息作为数据库查询条件，所以将数据拦截并获取图书的名称。然后通关查询数据库，最后将查询到的所有商店信息返回给浏览器进行渲染显示。另外，博客系统中的评论模块也是这个原理。因此，在一些站点上会爆出 XSS 漏洞。原因可能是编码者没有对用户提交的数据进行过滤或者过滤不严，直接存储到数据库中。</p>
 <h2 id="HTML-表单"><a href="#HTML-表单" class="headerlink" title="HTML 表单"></a>HTML 表单</h2><p>这部分是给不熟悉 HTML 表单同学准备的，如果你已经掌握这部分知识。可以选择直接跳过。</p>
 <p>HTML 表单在页面中表现是一个可以填写数据的区域。表单中会根据页面显示需求，采用不同的表单元素来呈现，比如：文本域(textarea)、下拉列表、单选框(radio-buttons)、复选框(checkboxes)等等</p>
@@ -257,6 +262,54 @@ var _hmt = _hmt || [];
 
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Django_demo" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
 
+                </div>             
+            
+            <!-- <p>本文是自己 Django 学习笔记系列中第 8 篇，算是基础知识篇章中最后一篇笔记。后续的笔记内容会相对比较综合。所以建议大家要把前面的内容，包括本篇笔记掌握。而本篇内容主要是讲解表单。</p>
+<h2 id="表单是什么？"><a href="#表单是什么？" class="headerlink" title="表单是什么？"></a>表单是什么？</h2><p>表单英文单词是 Froms, 它其实属于 HTML 的知识范畴。<a id="more"></a>HTML 表单可以实现用户和 Web 站点之间数据交互。表单允许用户将数据发送到 Web 站点。</p>
+<p>但在大多数情况下，Froms 携带的数据发送到 Web 服务器，Web  页面会将其拦截并自己使用它。举个栗子，用户使用浏览器访问一个页面，在页面的搜索框中输入图书的名称，想获取所有销售该图书的商店。Web 站点需要获取图书名称的信息作为数据库查询条件，所以将数据拦截并获取图书的名称。然后通关查询数据库，最后将查询到的所有商店信息返回给浏览器进行渲染显示。另外，博客系统中的评论模块也是这个原理。因此，在一些站点上会爆出 XSS 漏洞。原因可能是编码者没有对用户提交的数据进行过滤或者过滤不严，直接存储到数据库中。</p>
+<h2 id="HTML-表单"><a href="#HTML-表单" class="headerlink" title="HTML 表单"></a>HTML 表单</h2><p>这部分是给不熟悉 HTML 表单同学准备的，如果你已经掌握这部分知识。可以选择直接跳过。</p>
+<p>HTML 表单在页面中表现是一个可以填写数据的区域。表单中会根据页面显示需求，采用不同的表单元素来呈现，比如：文本域(textarea)、下拉列表、单选框(radio-buttons)、复选框(checkboxes)等等</p>
+<p>它可能长得这个样子</p>
+<p><img src="./images/img/70_1.png" alt></p>
+<p>表单使用标签 <strong>form</strong> 来设置区域范围，它携带常用的属性如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"search.html"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"GET"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> &gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- </span></span><br><span class="line"><span class="hljs-comment">    ...</span></span><br><span class="line"><span class="hljs-comment">    表单元素</span></span><br><span class="line"><span class="hljs-comment">    --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>action 属性</strong>：指定表单数据提交到哪个页面。例子中是提交到 search.html 页面，这个也会跳转到 search.html 页面。如果你想把数据提交到原来的页面，action 的值为空就行，即 <strong>action=””</strong></p>
+<p><strong>method 属性</strong>：规定提交表单时所用的 HTTP 方法，一般选择** GET 或者 POST**。</p>
+<p><strong>target 属性</strong>：规定 action 属性中地址的目标（默认：_self）。如果填写值** _blank** ，当点击按钮提交数据时，在新窗口中打开新的页面。</p>
+<p>常用表单元素有以下这些：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form action=&quot;&quot; method=&quot;GET&quot; &gt;</span><br><span class="line">        &lt;!-- label 标签用于显示内容，不可以输入 --&gt;</span><br><span class="line">        &lt;label &gt;我是 label 标签&lt;/label&gt;&lt;br&gt;</span><br><span class="line">        &lt;!-- input 元素 --&gt;</span><br><span class="line">        &lt;!-- 单行的文本输入框 --&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;&lt;br&gt;</span><br><span class="line">        &lt;!-- 单选按钮 --&gt;</span><br><span class="line">        &lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot;&gt;female&lt;br&gt;</span><br><span class="line">        &lt;!-- 提交按钮, 用于提交表单数据 --&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;</span><br><span class="line">        &lt;!-- 还有其他的表单元素, 就不一一列举 --&gt;</span><br><span class="line">    &lt;/form&gt; </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>对于每个输入字段 ，必须设置一个 <strong>name 属性</strong>，数据才会被正确提交。<strong>因为页面是通过 name 属性中的值来获取用户输入的内容的。以 GET 方式请求为例，有个单行输入框定义 **name=”q”</strong>。当你在输入框中填写值 moneky 然后提交。你会发现浏览器地址发生变化了，从之前的 <code>127.0.0.1:8000</code> 变为 <code>127.0.0.1:8000/?q=monkey</code></p>
+<h2 id="Django-Form"><a href="#Django-Form" class="headerlink" title="Django Form"></a>Django Form</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>Django 的表单针对 HTML 表单实现了一层封装，这使得 Django 的 Form 表单功能更加强大。它具有以下功能：<br>1）自动生成HTML表单元素<br>2）检查表单数据的合法性<br>3）如果验证错误，重新显示表单（数据不会重置）<br>4）数据类型转换（字符类型的数据转换成相应的Python类型）</p>
+<h3 id="Form-对象"><a href="#Form-对象" class="headerlink" title="Form 对象"></a>Form 对象</h3><p>Objects Form对象封装了一系列 Field 和验证规则，Form 类都必须直接或间接继承自 <code>django.forms.Form</code>，定义 Form 有两种方式：</p>
+<p>方法一：根据 Model 自动生成 Form<br>如果你的需求比较简单，只想将模型的字段全部以表单的形式展示出来，你可以采用这种方法。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django <span class="hljs-keyword">import</span> forms</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AuthorFormOne</span><span class="hljs-params">(forms.Form)</span>:</span></span><br><span class="line">    name = forms.CharField(max_length=<span class="hljs-number">40</span>,label=<span class="hljs-string">'名称'</span>)</span><br><span class="line">    email = form.EmailField()</span><br><span class="line">    message = form.CharField(widget=forms.TextInput)</span><br></pre></td></tr></table></figure>
+
+<p>Form 表单除了定义属性跟模型差不多，它还具有一些特有的属性。</p>
+<p>1) <strong>Widget</strong><br>用来渲染成 HTML 元素的工具，如：forms.TextInput 对应 HTML中的 <strong>input标签</strong><br>2) <strong>Form</strong><br>一系列 Field 对象的集合，负责验证和显示 HTML 元素。<br>3) <strong>Form Media</strong><br>用来渲染表单的 CSS 和 JavaScript 资源。</p>
+<p>方法二：自定义 Form<br>自定义表单是比较高级用法，有时候通过 Model 自动创建的 Form 无法满足自己需求。譬如：Model 中的某些属性我不需要显示在页面上，或数据处理方式比较复杂，这个时候你就需要自定义 Form。自定义 Form 是直接继承 Form</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 在 models.py 定义模型 Author</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">40</span>)</span><br><span class="line">    email = models.EmailField()</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 新建 forms.py 文件, 用于定义 Form</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AuthorFormTwo</span><span class="hljs-params">(ModelForm)</span>:</span></span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span></span><br><span class="line">        model = Author</span><br><span class="line">        fields = (<span class="hljs-string">'name'</span>,)  <span class="hljs-comment"># 只显示 model 中指定的字段</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="视图层的处理"><a href="#视图层的处理" class="headerlink" title="视图层的处理"></a>视图层的处理</h3><p>在视图文件 view.py 中， 可以获取、过滤到用户提交的数据。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Create your views here.</span></span><br><span class="line"><span class="hljs-keyword">from</span> demo_form.form.forms <span class="hljs-keyword">import</span> AuthorFormOne</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">formView</span><span class="hljs-params">(request)</span>:</span></span><br><span class="line">    <span class="hljs-comment"># 过滤 POST 方法的请求</span></span><br><span class="line">    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">"POST"</span>:</span><br><span class="line">        form = AuthorFormOne(request.POST)</span><br><span class="line">        <span class="hljs-comment"># 验证表单</span></span><br><span class="line">        <span class="hljs-keyword">if</span> form.is_valid():</span><br><span class="line">            <span class="hljs-comment"># 一般过滤数据</span></span><br><span class="line">            name = form.cleaned_data[<span class="hljs-string">'name'</span>]</span><br><span class="line">            email = form.cleaned_data[<span class="hljs-string">'email'</span>]</span><br><span class="line">            information = form.cleaned_data[<span class="hljs-string">'information'</span>]</span><br><span class="line">            <span class="hljs-comment"># 处理业务, 如查询数据库信息</span></span><br><span class="line">            <span class="hljs-keyword">return</span> HttpResponseRedirect(<span class="hljs-string">'/'</span>)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-comment"># 不是 GET 请求则显示表单</span></span><br><span class="line">        form = AuthorFormOne()</span><br><span class="line"></span><br><span class="line">    templateView = <span class="hljs-string">'author.html'</span></span><br><span class="line">    <span class="hljs-keyword">return</span> render(request, templateView, &#123;<span class="hljs-string">'form'</span>:form&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>form.is_valid() 返回 true 后，表单数据都被存储在 form.cleaned_data 对象中（字典类型，意为经过清洗的数据）。而且数据会被自动转换为 Python 对象，如：在 form 中定义了 DateTimeField ，那么该字段将被转换为 datetime 类型。</p>
+<p>而模板文件内容则比较简单，使用几个 HTML 标签以及模板标签就轻松搞定。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>author 表单<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">'/forms/'</span> <span class="hljs-attr">method</span>=<span class="hljs-string">'POST'</span>&gt;</span></span><br><span class="line">        &#123;% csrf_token %&#125;</span><br><span class="line">        &#123;&#123; form &#125;&#125;</span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"提交"</span> /&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我在 url.py 定义表单的路径是：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin</span><br><span class="line"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> demo_form <span class="hljs-keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="hljs-string">'admin/'</span>, admin.site.urls),</span><br><span class="line">    path(<span class="hljs-string">'forms/'</span>, views.formView),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>所以使用浏览器访问 <strong><a href="http://127.0.0.1:8000/forms/" target="_blank" rel="external nofollow noopener noreferrer">http://127.0.0.1:8000/forms/</a></strong>， 你会发现页面会自动渲染出表单的信息。<br><img src="./images/img/70_2.png" alt></p>
+<h3 id="美化模板"><a href="#美化模板" class="headerlink" title="美化模板"></a>美化模板</h3><p>我们虽然成功把表单内容渲染到页面上，但是页面有点丑陋。你可能会无法忍受，想把页面修改得美观一点，顺便也秀秀自己的 Bootstrap 知识。</p>
+<p>Django 默认提供几种显示表单的方式。例如 <strong>form.as_p</strong>、<strong>form.as_table</strong>、<strong>form.as_ul</strong>，在 html 文件中会被渲染成 <strong>p 标签</strong>，<strong>table 标签</strong>和 <strong>ul 标签</strong>。除此之外，还可以 form 还支持自定义。具体实现是你获取到 form 中每个属性，然后逐一渲染指定样式。</p>
+<p>所以 author.html 经过调整之后的代码如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>author 表单<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">'/forms/'</span> <span class="hljs-attr">method</span>=<span class="hljs-string">'POST'</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.name.errors &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>姓名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.name &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.email.errors &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span>邮箱：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.email &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.information.errors &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"information"</span>&gt;</span>个人信息：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">            &#123;&#123; form.information &#125;&#125;</span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"提交"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Django_demo" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -361,7 +414,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2068,7 +2121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

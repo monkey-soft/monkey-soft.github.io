@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="爬取《Five Hundred Miles》在网易云音乐的所有评论">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDAdaD.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:18:56.013Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YymtYV.jpg">
+<meta property="og:updated_time" content="2020-05-15T13:39:47.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDAdaD.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YymtYV.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDAdaD.jpg" alt="爬取《Five Hundred Miles》在网易云音乐的所有评论">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>爬取《Five Hundred Miles》在网易云音乐的所有评论
+                <span class="card-title-color">爬取《Five Hundred Miles》在网易云音乐的所有评论</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>在使用 Ajax 技术加载数据的网站中， JavaScript 发起的 HTTP 请求通常需要带上参数，而且参数的值都是经过加密的。如果我们想利用网站的 REST API 来爬取数据，就必须知道其使用的加密方式。破解过程需要抓包，阅读并分析网站的 js 代码。这整个过程可能会花费一天甚至更长的时间。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>在使用 Ajax 技术加载数据的网站中， JavaScript 发起的 HTTP 请求通常需要带上参数，而且参数的值都是经过加密的。如果我们想利用网站的 REST API 来爬取数据，就必须知道其使用的加密方式。破解过程需要抓包，阅读并分析网站的 js 代码。这整个过程可能会花费一天甚至更长的时间。</p>
 <a id="more"></a>
 <blockquote>
 <p>问：那么是否有办法绕过这机制，直接获取网站数据？<br>答：有的。使用 Selenium 库模拟浏览器行为来抓取网站数据，达到事半功倍的效果。</p>
@@ -269,6 +275,67 @@ var _hmt = _hmt || [];
 <p>我们访问普通网站的整个过程：<br><img src="./images/img/91_3.png" alt></p>
 <p>我们访问使用 Ajax 加载数据的网站的整个过程：<br><img src="./images/img/91_4.png" alt></p>
 
+                </div>             
+            
+            <!-- <p>在使用 Ajax 技术加载数据的网站中， JavaScript 发起的 HTTP 请求通常需要带上参数，而且参数的值都是经过加密的。如果我们想利用网站的 REST API 来爬取数据，就必须知道其使用的加密方式。破解过程需要抓包，阅读并分析网站的 js 代码。这整个过程可能会花费一天甚至更长的时间。</p>
+<a id="more"></a>
+<blockquote>
+<p>问：那么是否有办法绕过这机制，直接获取网站数据？<br>答：有的。使用 Selenium 库模拟浏览器行为来抓取网站数据，达到事半功倍的效果。</p>
+</blockquote>
+<p>本文内容是利用 Selenium 爬取网易云音乐中的歌曲 <strong>《Five Hundred Miles》</strong> 的所有评论，然后存储到 Mongo 数据库。</p>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>本文中所用到的工具比较多，所以我将其列举出来。</p>
+<ul>
+<li>Selenium</li>
+</ul>
+<p>Selenium 是一个 Web 应用程序自动化测试的工具。它能够模拟浏览器进行网页加载。所以使用其来帮助我们解决 JavaScript 渲染问题。</p>
+<p>接下来就是安装 selenium, 使用 pip 安装是最方便的。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install selenium</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Chrome 浏览器</li>
+</ul>
+<p>在爬取数据过程中, 需要启动浏览器来显示页面。因此，电脑中需要一款浏览器。这里推荐使用 Chrome 浏览器。推荐使用 59 版本以上的 Chrome，当然能使用最新版本那最好不过，目前最新版本是 68。</p>
+<ul>
+<li>Webdriver</li>
+</ul>
+<p>Webdriver 是浏览器驱动。selenium 通过 Webdriver 来操作浏览器。因为我们使用的浏览器是 Chrome，所以需要下载 Chrome 浏览器对应的驱动。</p>
+<p>下载地址：<a href="http://chromedriver.chromium.org/downloads" target="_blank" rel="external nofollow noopener noreferrer">http://chromedriver.chromium.org/downloads</a></p>
+<p>webdriver 下载解压完成之后，将其放到 Python 目录下的 Script 文件夹中。<br><img src="./images/img/91_1.png" alt></p>
+<ul>
+<li>MongoDB</li>
+</ul>
+<p>网易云音乐的评论数据总数都很大，十几万条数据比比皆是，甚至还有上百万条数据。所以需要将数据存储到数据库中，我选用的是 MongoDB。</p>
+<ul>
+<li>pymongo</li>
+</ul>
+<p>pymongo 是 Python 操作 MongoDB 的库。同样使用 pip 进行安装。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pymongo</span><br></pre></td></tr></table></figure>
+
+<h2 id="爬取思路"><a href="#爬取思路" class="headerlink" title="爬取思路"></a>爬取思路</h2><p>1）使用 Selenium 驱动 Chrome 浏览器打开需要爬取的页面。<br>2）获取页面中 <strong>最新评论</strong> 标签后面的评论总数，计算出一共有多少个分页， 方便统计。利用总评论数除以 20（每个页面显示 20 条评论），然后对结果进行向上取整。<br>3）爬取第一页面的评论的数据，然后存储到数据库中。<br>4）利用 Selenium 模拟点击<strong>下一页</strong>按钮，再继续爬取该页面的评论数据，并存储到数据库中。<br>5）一直循环点击，直到所有分页的数据都被爬取完成。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>我们要爬取的歌曲是 <strong>《Five Hundred Miles》</strong>，先找到其 url 地址，然后调用爬取函数。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    url = <span class="hljs-string">'http://music.163.com/#/song?id=27759600'</span>  <span class="hljs-comment"># Five Hundred Miles</span></span><br><span class="line">    start_spider(url)</span><br></pre></td></tr></table></figure>
+
+<p>使用 selenium 启动 Chrome 浏览器。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_spider</span><span class="hljs-params">(url)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 启动 Chrome 浏览器访问页面 """</span></span><br><span class="line">    <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">    # 从 Chrome 59 版本, 支持 Headless 模式(无界面模式), 即不会弹出浏览器</span></span><br><span class="line"><span class="hljs-string">    chrome_options = webdriver.ChromeOptions()</span></span><br><span class="line"><span class="hljs-string">    chrome_options.add_argument('--headless')</span></span><br><span class="line"><span class="hljs-string">    brower = webdriver.Chrome(chrome_options=chrome_options)</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    brower = webdriver.Chrome()</span><br><span class="line">    brower.get(url)</span><br><span class="line">    <span class="hljs-comment"># 等待 5 秒, 让评论数据加载完成</span></span><br><span class="line">    time.sleep(<span class="hljs-number">5</span>)</span><br><span class="line">    <span class="hljs-comment"># 页面嵌套一层 iframe, 必须切换到 iframe, 才能定位的到 iframe 里面的元素</span></span><br><span class="line">    iframe = brower.find_element_by_class_name(<span class="hljs-string">'g-iframe'</span>)</span><br><span class="line">    brower.switch_to.frame(iframe)</span><br><span class="line">    <span class="hljs-comment"># 获取【最新评论】总数</span></span><br><span class="line">    new_comments = brower.find_elements(By.XPATH, <span class="hljs-string">"//h3[@class='u-hd4']"</span>)[<span class="hljs-number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<p>根据评论总数计算出总分页数。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># start_spider(url)</span></span><br><span class="line">max_page = get_max_page(new_comments.text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_max_page</span><span class="hljs-params">(new_comments)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 根据评论总数, 计算出总分页数 """</span></span><br><span class="line">    print(<span class="hljs-string">'=== '</span> + new_comments + <span class="hljs-string">' ==='</span>)</span><br><span class="line">    max_page = new_comments.split(<span class="hljs-string">'('</span>)[<span class="hljs-number">1</span>].split(<span class="hljs-string">')'</span>)[<span class="hljs-number">0</span>]</span><br><span class="line">    <span class="hljs-comment"># 每页显示 20 条最新评论</span></span><br><span class="line">    offset = <span class="hljs-number">20</span></span><br><span class="line">    max_page = ceil(int(max_page) / offset)</span><br><span class="line">    print(<span class="hljs-string">'一共有'</span>, max_page, <span class="hljs-string">'个分页'</span>)</span><br><span class="line">    <span class="hljs-keyword">return</span> max_page</span><br></pre></td></tr></table></figure>
+
+<p>接着循环抓取评论数据，首先抓取第 1 页的评论数据。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># start_spider(url)</span></span><br><span class="line">current = <span class="hljs-number">1</span></span><br><span class="line">is_first = <span class="hljs-literal">True</span></span><br><span class="line"><span class="hljs-keyword">while</span> current &lt;= max_page:</span><br><span class="line">    print(<span class="hljs-string">'正在爬取第'</span>, current, <span class="hljs-string">'页的数据'</span>)</span><br><span class="line">    <span class="hljs-keyword">if</span> current == <span class="hljs-number">1</span>:</span><br><span class="line">        is_first = <span class="hljs-literal">True</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        is_first = <span class="hljs-literal">False</span></span><br><span class="line">    data_list = get_comments(is_first, brower)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_comments</span><span class="hljs-params">(is_first, brower)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 获取评论数据 """</span></span><br><span class="line">    items = brower.find_elements(By.XPATH, <span class="hljs-string">"//div[@class='cmmts j-flag']/div[@class='itm']"</span>)</span><br><span class="line">    <span class="hljs-comment"># 首页的数据中包含 15 条精彩评论, 20 条最新评论, 只保留最新评论</span></span><br><span class="line">    <span class="hljs-keyword">if</span> is_first:</span><br><span class="line">        items = items[<span class="hljs-number">15</span>: len(items)]</span><br><span class="line"></span><br><span class="line">    data_list = []</span><br><span class="line">    data = &#123;&#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> items:</span><br><span class="line">        <span class="hljs-comment"># 用户 id</span></span><br><span class="line">        userId = each.find_elements_by_xpath(<span class="hljs-string">"./div[@class='head']/a"</span>)[<span class="hljs-number">0</span>]</span><br><span class="line">        userId = userId.get_attribute(<span class="hljs-string">'href'</span>).split(<span class="hljs-string">'='</span>)[<span class="hljs-number">1</span>]</span><br><span class="line">        <span class="hljs-comment"># 用户昵称</span></span><br><span class="line">        nickname = each.find_elements_by_xpath(<span class="hljs-string">"./div[@class='cntwrap']/div[1]/div[1]/a"</span>)[<span class="hljs-number">0</span>]</span><br><span class="line">        nickname = nickname.text</span><br><span class="line">        <span class="hljs-comment"># 评论内容</span></span><br><span class="line">        content = each.find_elements_by_xpath(<span class="hljs-string">"./div[@class='cntwrap']/div[1]/div[1]"</span>)[<span class="hljs-number">0</span>]</span><br><span class="line">        content = content.text.split(<span class="hljs-string">'：'</span>)[<span class="hljs-number">1</span>]  <span class="hljs-comment"># 中文冒号</span></span><br><span class="line">        <span class="hljs-comment"># 点赞数</span></span><br><span class="line">        like = each.find_elements_by_xpath(<span class="hljs-string">"./div[@class='cntwrap']/div[@class='rp']/a[1]"</span>)[<span class="hljs-number">0</span>]</span><br><span class="line">        like = like.text</span><br><span class="line">        <span class="hljs-keyword">if</span> like:</span><br><span class="line">            like = like.strip().split(<span class="hljs-string">'('</span>)[<span class="hljs-number">1</span>].split(<span class="hljs-string">')'</span>)[<span class="hljs-number">0</span>]</span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            like = <span class="hljs-string">'0'</span></span><br><span class="line">        <span class="hljs-comment"># 头像地址</span></span><br><span class="line">        avatar = each.find_elements_by_xpath(<span class="hljs-string">"./div[@class='head']/a/img"</span>)[<span class="hljs-number">0</span>]</span><br><span class="line">        avatar = avatar.get_attribute(<span class="hljs-string">'src'</span>)</span><br><span class="line"></span><br><span class="line">        data[<span class="hljs-string">'userId'</span>] = userId</span><br><span class="line">        data[<span class="hljs-string">'nickname'</span>] = nickname</span><br><span class="line">        data[<span class="hljs-string">'content'</span>] = content</span><br><span class="line">        data[<span class="hljs-string">'like'</span>] = like</span><br><span class="line">        data[<span class="hljs-string">'avatar'</span>] = avatar</span><br><span class="line">        print(data)</span><br><span class="line">        data_list.append(data)</span><br><span class="line">        data = &#123;&#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> data_list</span><br></pre></td></tr></table></figure>
+
+<p>将第 1 页评论数据存储到 Mongo 数据库中。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># start_spider(url)</span></span><br><span class="line">save_data_to_mongo(data_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save_data_to_mongo</span><span class="hljs-params">(data_list)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 一次性插入 20 条评论。</span></span><br><span class="line"><span class="hljs-string">        插入效率高, 降低数据丢失风险</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    collection = db_manager[MONGO_COLLECTION]</span><br><span class="line">    <span class="hljs-keyword">try</span>:</span><br><span class="line">        <span class="hljs-keyword">if</span> collection.insert_many(data_list):</span><br><span class="line">            print(<span class="hljs-string">'成功插入'</span>, len(data_list), <span class="hljs-string">'条数据'</span>)</span><br><span class="line">    <span class="hljs-keyword">except</span> Exception:</span><br><span class="line">        print(<span class="hljs-string">'插入数据出现异常'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>模拟点击“下一页”按钮。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># start_spider(url)</span></span><br><span class="line">time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">go_nextpage(brower)</span><br><span class="line"><span class="hljs-comment"># 模拟人为浏览</span></span><br><span class="line">time.sleep(random.randint(<span class="hljs-number">8</span>, <span class="hljs-number">12</span>))</span><br><span class="line">current += <span class="hljs-number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">go_nextpage</span><span class="hljs-params">(brower)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 模拟人为操作, 点击【下一页】 """</span></span><br><span class="line">    next_button = brower.find_elements(By.XPATH, <span class="hljs-string">"//div[@class='m-cmmt']/div[3]/div[1]/a"</span>)[<span class="hljs-number">-1</span>]</span><br><span class="line">    <span class="hljs-keyword">if</span> next_button.text == <span class="hljs-string">'下一页'</span>:</span><br><span class="line">        next_button.click()</span><br></pre></td></tr></table></figure>
+
+<p>最后就一直循环爬取评论。</p>
+<h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><p>评论总数大概有 23W 条, 我又在代码中增加延时操作。所以爬取所有评论大概需要 69 个小时。目前我只跑了 9 个小时，我贴下暂时爬取的结果。<br><img src="./images/img/91_2.png" alt></p>
+<h2 id="扩展知识"><a href="#扩展知识" class="headerlink" title="扩展知识"></a>扩展知识</h2><p>这部分内容跟上述内容联系不大, 属于服务器技术范畴。如果你不感兴趣的话，可以直接跳过。另外，这部分内容是自己的理解。如果有讲错的地方，还请多多指出。</p>
+<p>我们访问普通网站的整个过程：<br><img src="./images/img/91_3.png" alt></p>
+<p>我们访问使用 Ajax 加载数据的网站的整个过程：<br><img src="./images/img/91_4.png" alt></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -373,7 +440,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2068,7 +2135,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

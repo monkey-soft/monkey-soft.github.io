@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/555.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDSql8.jpg" alt="数据库种类那么多，该如何选择？">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/555.html"><i class="fas fa-angle-double-right"></i>数据库种类那么多，该如何选择？</a>
+                <a class="card-title-color" href="/555.html">数据库种类那么多，该如何选择？</a>
             
         </h1>
 
@@ -210,8 +208,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>技术真的是日新月异，Web 网站已经脱离之前的静态网站的体系，转而使用动态语言搭建的动态网站。这也衍生出一个问题：该如何存储数据了？数据库就应运而生，它的作用是提供存储数据的容器。方便 web 网站进行存储、查询、更新等。数据库种类也很多，有成熟且稳定的 MySql 数据库，有后起之秀的 MangoDB 数据库，也有新时代宠儿 Redis 数据库。除此之外，还有其他一些数据库，例如 Sqlite、Oracle 等。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/555.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsjBlT.jpg" alt="数据库种类那么多，该如何选择？">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>技术真的是日新月异，Web 网站已经脱离之前的静态网站的体系，转而使用动态语言搭建的动态网站。这也衍生出一个问题：该如何存储数据了？数据库就应运而生，它的作用是提供存储数据的容器。方便 web 网站进行存储、查询、更新等。数据库种类也很多，有成熟且稳定的 MySql 数据库，有后起之秀的 MangoDB 数据库，也有新时代宠儿 Redis 数据库。除此之外，还有其他一些数据库，例如 Sqlite、Oracle 等。</p>
+                </div>
+            
+            <!-- <p>技术真的是日新月异，Web 网站已经脱离之前的静态网站的体系，转而使用动态语言搭建的动态网站。这也衍生出一个问题：该如何存储数据了？数据库就应运而生，它的作用是提供存储数据的容器。方便 web 网站进行存储、查询、更新等。数据库种类也很多，有成熟且稳定的 MySql 数据库，有后起之秀的 MangoDB 数据库，也有新时代宠儿 Redis 数据库。除此之外，还有其他一些数据库，例如 Sqlite、Oracle 等。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2822,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

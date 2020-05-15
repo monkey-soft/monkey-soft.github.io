@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="利用 Github+Jeklly 搭建个人博客网站">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDZKVf.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:34:31.347Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Yy113t.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:31:36.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDZKVf.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Yy113t.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDZKVf.jpg" alt="利用 Github+Jeklly 搭建个人博客网站">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>利用 Github+Jeklly 搭建个人博客网站
+                <span class="card-title-color">利用 Github+Jeklly 搭建个人博客网站</span>
             
         </h1>
 
@@ -209,10 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>在上篇文章<a href="https://geekmonkey.top/10110.html">《个人博客如何选型？》</a>中讲到，可以利用 Github Pages 来搭建个人博客网站，本文主要讲解其中的各种细节。</p>
-<a id="more"></a>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>在上篇文章<a href="https://geekmonkey.top/10110.html">《个人博客如何选型？》</a>中讲到，可以利用 Github Pages 来搭建个人博客网站，本文主要讲解其中的各种细节。</p>
 <h2 id="评估-Github-Pages-方案"><a href="#评估-Github-Pages-方案" class="headerlink" title="评估 Github Pages 方案"></a>评估 Github Pages 方案</h2><p>前面说到几种博客方案，我都玩过，可以说是各有各的特点与优势。在你考虑选择是否 Github Pages 方案之前，可以先了解其优缺点，然后根据自己情况加一判定。</p>
+<a id="more"></a>
 <ul>
 <li>优点：</li>
 </ul>
@@ -295,6 +301,93 @@ var _hmt = _hmt || [];
 <p>当一切工作完成就绪，我们就可以使用 Github 客户端将内容推送到远程仓库。</p>
 <p>剧透一下，下篇分享 Github Pages 结合 Hexo 搭建博客网站方案。</p>
 
+                </div>             
+            
+            <!-- <p>在上篇文章<a href="https://geekmonkey.top/10110.html">《个人博客如何选型？》</a>中讲到，可以利用 Github Pages 来搭建个人博客网站，本文主要讲解其中的各种细节。</p>
+<h2 id="评估-Github-Pages-方案"><a href="#评估-Github-Pages-方案" class="headerlink" title="评估 Github Pages 方案"></a>评估 Github Pages 方案</h2><p>前面说到几种博客方案，我都玩过，可以说是各有各的特点与优势。在你考虑选择是否 Github Pages 方案之前，可以先了解其优缺点，然后根据自己情况加一判定。</p>
+<a id="more"></a>
+<ul>
+<li>优点：</li>
+</ul>
+<ol>
+<li>完全免费。因为它本质上是一个 Github 仓库，只不过 Github 官方提供网页寄存服务。</li>
+<li>简单省心。无须自己购买云服务，也不需要关系环境搭建、系统维护等，我们只需专注写作。</li>
+<li>带宽够用。在使用的时候项目和网站的大小不要超过 1GB，也不要过于频繁的更新网站的内容（每小时不超过 10 个版本），每个月的也要注意带宽使用上限为 100GB。这些对于个人网站其实是够用。</li>
+</ol>
+<ul>
+<li>缺点：</li>
+</ul>
+<ol>
+<li>它是静态网站，无法支持数据库，涉及一些数据存储的操作需要自己找其他解决方案。例如页面浏览的阅读人数统计、点赞数等。</li>
+<li>访问速度比较慢。我们的网站是寄托在 Github 网站上，Github 服务器节点是在美国，所以访问速度没有国内主机快。</li>
+</ol>
+<p>以上是我对于 Github Pages 方案的理解。如果你已经确认选择 Github Pages 方案，继续跟着猴哥的思路，一步步搭建属于自己的博客。</p>
+<h2 id="创建简单页面"><a href="#创建简单页面" class="headerlink" title="创建简单页面"></a>创建简单页面</h2><p>首先需要注册一个 GitHub 账号，然后到个人主界面里面，创建一个新的 Repository。</p>
+<p><img src="./images/img/155_1.jpg" alt></p>
+<p>进入创建新仓库页面后，在 Repository name 的位置填写域名，格式是 <code>username.GitHub.io</code>。我的 Github 的 id 是 monkey-soft，所以域名如下图所示。</p>
+<p><img src="./images/img/155_2.jpg" alt></p>
+<p>创建成功后，点击 settings 栏目。</p>
+<p><img src="./images/img/155_3.jpg" alt></p>
+<p>接着找到 GitHub Pages，然后随便选择 Github 提供的默认主题。</p>
+<p><img src="./images/img/155_4.jpg" alt></p>
+<p><img src="./images/img/155_5.jpg" alt></p>
+<p>最后，我们通过浏览器访问仓库的域名（monkey.github.io）就能看到系统创建的默认网页。</p>
+<h2 id="Jekyll-主题选择"><a href="#Jekyll-主题选择" class="headerlink" title="Jekyll 主题选择"></a>Jekyll 主题选择</h2><p>上文讲到选择默认的主题，这里都是 Jekyll 主题。那什么是 Jeklly呢？它是一个简单静态站点生成器，能将纯文本的(一般是 Markdown 文件)转化为静态页面。有趣的是，Jeklly 是由 GitHub 的联合创始人 Tom Preston-Werner 基于 Ruby 语言编写的。因此，GitHub 官方默认采用 Jeklly 来生成网页内容。</p>
+<p>原生的 Jeklly 主题过于简单，如果自己想进行改造，工作量还蛮大的。通常比较方便的做法是利用其他作者制作的主题。猴哥找到三个 Jeklly 主题网站，分别是：</p>
+<ul>
+<li><a href="http://jekyllthemes.org" target="_blank" rel="external nofollow noopener noreferrer">http://jekyllthemes.org</a></li>
+<li><a href="https://jekyllthemes.io" target="_blank" rel="external nofollow noopener noreferrer">https://jekyllthemes.io</a></li>
+<li><a href="http://themes.jekyllrc.org" target="_blank" rel="external nofollow noopener noreferrer">http://themes.jekyllrc.org</a></li>
+</ul>
+<p>你可以根据个人喜好选择适合的主题。我找到一款名为 MatJek 的主题，将主题压缩包下载到本地。</p>
+<p><img src="./images/img/155_6.jpg" alt></p>
+<p>主题下载之后，我们需要把主题文件同步到我们的网站，也就是远程的 Github 仓库。如果你熟悉 Git 用法，可以使用 clone 命令将 Github 仓库下载到本地。</p>
+<p>如果你没有任何 Git 的基础，也不想进行一些繁琐的配置，那么推荐使用桌面客户端的形式进行管理。我们需要下载 <strong>GitHub 桌面客户端</strong>，然后登录自己 Github 账号，接着将仓库拉取到本地。注意的是，存储路径不能有中文。</p>
+<p><img src="./images/img/155_7.jpg" alt></p>
+<p>找到仓库存放的文件夹，将之前所有文件全部删除，把刚才下载的主题文件复制到当前文件夹中。</p>
+<p><img src="./images/img/155_8.jpg" alt></p>
+<p>我们还需要修改配置文件。<strong>_config.yml</strong> 是 Jekyll 的全局配置文件。里面记录着网站的名字，网站的域名，网站的链接格式等等。</p>
+<p>我对于原来的 MatJek 主题进行一些定制化需求，整合起来更像是一个博客网站。这里我以自己修改主题的配置文件为例。如果你使用其他主题，根据作者的要求，修改 _config.yml 的内容即可。</p>
+<p><img src="./images/img/155_9.jpg" alt></p>
+<p>最后一步，我们将刚才修改的内容同步到 Github 远程仓库。</p>
+<p><img src="./images/img/155_10.jpg" alt></p>
+<p>完成以上操作，我们可以打开浏览器，输入我们仓库地址访问我们的网站。</p>
+<p><img src="./images/img/155_11.jpg" alt></p>
+<p>该主题是猴哥基于 MatJek 主题进行修改，同时也修复几个缺陷。如果你想获取猴哥同款主题，在公众号后台回复『主题』即可获取。</p>
+<h2 id="Jekyll-本地环境搭建"><a href="#Jekyll-本地环境搭建" class="headerlink" title="Jekyll 本地环境搭建"></a>Jekyll 本地环境搭建</h2><p>如果我们想对主题界面进行修改，每次预览界面需要将文件同步到 Github 仓库，这样操作不太方便。因此，我们可以本地搭建个 Jeklly 环境，方便我们调试。</p>
+<p>因为 Jeklly 是基于 Ruby 语言编写的，所以我们需要安装 Ruby 环境。我以 Windows 环境下安装为例，Mac 环境比较简单，可以执行搜索搞定。</p>
+<p>首先，我们到 Ruby 下载安装包，最好下载带有包管理工具 devkit，方便后续安装各种组件。</p>
+<p>安装 Ruby 之后，会弹出提示安装 MSYS。MSYS 是 Windows 上模拟 GUN 环境的组件。这里选择*<em>选项 3 *</em>进行安装。</p>
+<p><img src="./images/img/155_12.jpg" alt></p>
+<p>进入到本地项目文件中，启动终端，依次执行以下命令。</p>
+<p><img src="./images/img/155_13.jpg" alt></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~ $ gem install jekyll bundler</span><br><span class="line">~ $ bundle install</span><br><span class="line">~ $ bundle exec jekyll serve  # 启动本地服务器</span><br></pre></td></tr></table></figure>
+
+<p>然后打开浏览器，访问 <a href="http://localhost:4000" target="_blank" rel="external nofollow noopener noreferrer">http://localhost:4000</a> 就能预览本地网站的界面效果。</p>
+<h2 id="SEO-优化"><a href="#SEO-优化" class="headerlink" title="SEO 优化"></a>SEO 优化</h2><p>该主题已经集成用于 SEO 优化的 jekyll-seo-tag 插件，我们简单修改 _config.yml 里面的这几个字段。</p>
+<ul>
+<li>title（博客主题）</li>
+<li>subtitle（博客副标题）</li>
+<li>description（网站描述，尽量增加跟网站内容的关键字）</li>
+</ul>
+<p>接着是优化网站文章的 URL 链接。默认 Jeklly 的 URL 的 Path 路径是 <code>/:year/:month/:day/:title</code>，显示效果如<code>/2019/11/12/我的第一篇文章.html</code>。这种固定链接不太理想。</p>
+<p>猴哥总结 URL 地址的 SEO 优化三个原则：</p>
+<p><strong>1.日期需要出现在固定链接中。</strong><br>这基于两个方面的考虑。一是如果数字出现在固定链接里面，等于提醒搜索引擎，这是很旧的内容了，没必要再爬一遍了。另外一个原因是，假如你要修改文章的日期重新发布的话，链接地址就变了，也就是意味着你的反向链接，PR 等等都没有了。</p>
+<p><strong>2.链接的层次不要太深</strong><br>默认的固定链接是 /年/月/日/文章名。这种层次过深，不方便搜索引擎爬虫的抓取，对搜索引擎的收录不太友好。</p>
+<p><strong>3.链接中不要出现中文</strong><br>虽然现在的搜索引擎已经能识别URL地址里面的中文字符，<br>但无论是从美观上，以及中文字符会被转义的角度上看，都是非常差的。</p>
+<p>猴哥推荐两种固定链接方案。一种是 <code>/postname/</code>，基于文章的英文单词翻译；另一种是 <code>/post_id/</code>，基于文章发布的 ID 号。</p>
+<p>因为是静态网站，所以必须按照 Jeklly 的规范来设置 URL，第一种方式也就被排除，只能选择第二种方案。Jeklly 提供的路径变量只有几个，不够灵活。最后我花费九牛二虎之力，翻阅 Jeklly 中文网站，找到一个伪 postid 的方案。Path 路径设置为 <strong>/:short_year:i_month:i_day.html</strong>, 即利用日期的部分字段来拼凑。</p>
+<p>这里我进行讲解下。比如一篇文章于 2017-06-25 发布的，Jeklly 会将年前面两位去掉；月份如果是10月之前去掉数字 0，没有则直接保留月份；日跟月份一样会去掉数字 0；因此，最后的  Path 路径是 17625.html。</p>
+<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><p>网站主题搭建工作完成之后，我们就能往博客上填充内容。文章一般是用 Markdown 语法编写的，存放在 _posts 文件中。</p>
+<p><img src="./images/img/155_14.jpg" alt></p>
+<p>文件的命名规则是：<strong>年-月-日-文章标题.md</strong>。</p>
+<p><img src="./images/img/155_15.jpg" alt></p>
+<p>在 md 文件中，必须带上头部信息才能被识别出来，其中信息有文章标题、编写时间、分类、标签等。</p>
+<p><img src="./images/img/155_16.jpg" alt></p>
+<p>我的设想是在首先展示文章时会显示封面图片，我在文件中创建一个名为 img 文件夹来存放封面图片，图片命名须方式是以日期的形式。</p>
+<p>当一切工作完成就绪，我们就可以使用 Github 客户端将内容推送到远程仓库。</p>
+<p>剧透一下，下篇分享 Github Pages 结合 Hexo 搭建博客网站方案。</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -399,7 +492,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2098,7 +2191,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

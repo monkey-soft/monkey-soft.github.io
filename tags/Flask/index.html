@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/1290.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDVNND.jpg" alt="阅读优秀代码是提升技术的最佳途径">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/1290.html"><i class="fas fa-angle-double-right"></i>阅读优秀代码是提升技术的最佳途径</a>
+                <a class="card-title-color" href="/1290.html">阅读优秀代码是提升技术的最佳途径</a>
             
         </h1>
 
@@ -210,8 +208,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>在之前的一篇文章中，我讲到如何爬取必胜客官网中全国各大城市餐厅的信息。虽然餐厅数据信息被抓取下来，但是数据一直在硬盘中“躺尸”。不曾记得，自己已经第 n 次这么做了。说到这里，要追溯到自己的大学时光。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1290.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YyQUsS.jpg" alt="阅读优秀代码是提升技术的最佳途径">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>在之前的一篇文章中，我讲到如何爬取必胜客官网中全国各大城市餐厅的信息。虽然餐厅数据信息被抓取下来，但是数据一直在硬盘中“躺尸”。不曾记得，自己已经第 n 次这么做了。说到这里，要追溯到自己的大学时光。</p>
+<p>在互联网行业，技术更新迭代太快了。我们身在行业中，要不断地学习提高自己的能力。有一种不错的方式来提高自己的技术实力。那就是阅读别人优秀的代码。</p>
+                </div>
+            
+            <!-- <p>在之前的一篇文章中，我讲到如何爬取必胜客官网中全国各大城市餐厅的信息。虽然餐厅数据信息被抓取下来，但是数据一直在硬盘中“躺尸”。不曾记得，自己已经第 n 次这么做了。说到这里，要追溯到自己的大学时光。</p>
+<p>在互联网行业，技术更新迭代太快了。我们身在行业中，要不断地学习提高自己的能力。有一种不错的方式来提高自己的技术实力。那就是阅读别人优秀的代码。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

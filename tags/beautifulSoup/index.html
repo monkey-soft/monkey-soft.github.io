@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/78.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBqIn1.jpg" alt="内容提取神器 beautifulSoup 的用法">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/78.html"><i class="fas fa-angle-double-right"></i>内容提取神器 beautifulSoup 的用法</a>
+                <a class="card-title-color" href="/78.html">内容提取神器 beautifulSoup 的用法</a>
             
         </h1>
 
@@ -210,8 +208,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>上篇文章只是简单讲述正则表达式如何读懂以及 re 常见的函数的用法。我们可能读懂别人的正则表达式，但是要自己写起正则表达式的话，可能会陷入如何写的困境。正则表达式写起来费劲又出错率高，那么有没有替代方案呢？俗话说得好，条条道路通罗马。目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/78.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsHMWD.jpg" alt="内容提取神器 beautifulSoup 的用法">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>上篇文章只是简单讲述正则表达式如何读懂以及 re 常见的函数的用法。我们可能读懂别人的正则表达式，但是要自己写起正则表达式的话，可能会陷入如何写的困境。正则表达式写起来费劲又出错率高，那么有没有替代方案呢？俗话说得好，条条道路通罗马。目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。</p>
+                </div>
+            
+            <!-- <p>上篇文章只是简单讲述正则表达式如何读懂以及 re 常见的函数的用法。我们可能读懂别人的正则表达式，但是要自己写起正则表达式的话，可能会陷入如何写的困境。正则表达式写起来费劲又出错率高，那么有没有替代方案呢？俗话说得好，条条道路通罗马。目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2822,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 2.1 版本已经来袭">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEGFg.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:23:23.524Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKjXD.jpg">
+<meta property="og:updated_time" content="2020-05-15T13:57:54.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEGFg.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKjXD.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDEGFg.jpg" alt="Django 2.1 版本已经来袭">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Django 2.1 版本已经来袭
+                <span class="card-title-color">Django 2.1 版本已经来袭</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>一个备受关注、很多人都在使用的软件，软件开发团队会定期发布新版本。其主要目的是修复之前一些 Bug 以及新增一些新特性。Django 作为主流的 Python Web 开发框架，当然也不例外。在几天前，即 8 月 1 号，Django 官方团队发布 Django 2.1 版本。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>一个备受关注、很多人都在使用的软件，软件开发团队会定期发布新版本。其主要目的是修复之前一些 Bug 以及新增一些新特性。Django 作为主流的 Python Web 开发框架，当然也不例外。在几天前，即 8 月 1 号，Django 官方团队发布 Django 2.1 版本。</p>
 <a id="more"></a>
 <p>新版本发布，我们可以不用急于更新替换，但要关注新版本的发布内容。我看了下官方的发布公告，总结几个重要的点。</p>
 <h2 id="Python-版本支持"><a href="#Python-版本支持" class="headerlink" title="Python 版本支持"></a>Python 版本支持</h2><p><strong>Django 2.1 将不再支持 Python 3.4</strong>，最低要求 Python 版本是 3.5。这也意味着 Django 2.0 是最后一个支持 Python 3.4 的版本。</p>
@@ -235,6 +241,33 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 
+                </div>             
+            
+            <!-- <p>一个备受关注、很多人都在使用的软件，软件开发团队会定期发布新版本。其主要目的是修复之前一些 Bug 以及新增一些新特性。Django 作为主流的 Python Web 开发框架，当然也不例外。在几天前，即 8 月 1 号，Django 官方团队发布 Django 2.1 版本。</p>
+<a id="more"></a>
+<p>新版本发布，我们可以不用急于更新替换，但要关注新版本的发布内容。我看了下官方的发布公告，总结几个重要的点。</p>
+<h2 id="Python-版本支持"><a href="#Python-版本支持" class="headerlink" title="Python 版本支持"></a>Python 版本支持</h2><p><strong>Django 2.1 将不再支持 Python 3.4</strong>，最低要求 Python 版本是 3.5。这也意味着 Django 2.0 是最后一个支持 Python 3.4 的版本。</p>
+<h2 id="模型新增查看权限"><a href="#模型新增查看权限" class="headerlink" title="模型新增查看权限"></a>模型新增查看权限</h2><p>这个功能，很多开发者都期待了很久。盼星星盼月亮，终于盼来了。</p>
+<p>在以前的版本中，模型（Model）只有“增删改”权限。新版本增加查看（View）权限。这也意味着在 Model 的 Meta 配置选项中， <strong>default_permissions</strong> 属性默认值变为 <strong>(‘add’, ‘change’, ‘delete’, ‘view’)</strong>。</p>
+<p>此外，官方团队考虑到向前兼容性。在旧版本中，如果用户取得修改（change）权限。更新到新版本，用户会自动获得查看（View）权限。</p>
+<p>View 权限同样也适用于 admin，它可以给用户指定只读权限。这里是通过 <strong>ModelAdmin.has_view_permission(request, obj=None)</strong> 来设置。如果希望一个 obj 被设置成只读属性，那么要返回 True。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>新版本的 Model 类也一些特性，我也列举出比较重要的点。</p>
+<ul>
+<li>Model 模型类支持 <strong><strong>init_subclass</strong></strong> 重写</li>
+<li>查询表达式终于支持<strong>负号查询</strong>了。</li>
+<li>在模型的表单中，<strong>BinaryField</strong> 可以被设置为 <strong>editable=True</strong>。</li>
+</ul>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p>表单（Forms）中的 ImageField 组件新增 <strong>accept=”image/*”</strong> 属性。</p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>基于内存缓存（local-memory cache backend）采用<strong>最近最少使用（LRU）</strong>筛选策略，以替换之前随机数的策略。</p>
+<h2 id="数据库版本支持"><a href="#数据库版本支持" class="headerlink" title="数据库版本支持"></a>数据库版本支持</h2><ul>
+<li><p>MySQL 数据库<br>Django 2.1 不再支持 MySQL 5.5 以及以下版本，只能选择 5.6 或者更高版本。</p>
+</li>
+<li><p>PostgreSQL 数据库<br>Django 2.1 支持 PostgreSQL 最低版本为 9.4.</p>
+</li>
+<li><p>SQLite 数据库<br>新版本不再支持 &lt; 3.7.15 版本的 SQLite。</p>
+</li>
+</ul>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -339,7 +372,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2038,7 +2071,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

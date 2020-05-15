@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -156,18 +161,11 @@ var _hmt = _hmt || [];
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/663.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDAWdS.jpg" alt="总结是成长的秘方">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/663.html"><i class="fas fa-angle-double-right"></i>总结是成长的秘方</a>
+                <a class="card-title-color" href="/1227.html">Python 定时任务(下)</a>
             
         </h1>
 
@@ -175,13 +173,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-06-26T13:15:55.000Z">2018-06-26</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-06-26</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-12-08T11:45:35.000Z">2017-12-08</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-12-08</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">思维与认知</a>
+                <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
                 </div>
                 
 
@@ -190,7 +188,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 527 个字)
+                    14 分钟 读完 (大约 2134 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -200,8 +198,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>时光荏苒，2018 年已经过去半年。你年初制定新年计划，不知现在完成的进度是多少了？不管怎样，应该好好总结下。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1227.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsqqzD.jpg" alt="Python 定时任务(下)">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是<code>APScheduler</code>。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>APScheduler</code>的全称是<code>Advanced Python Scheduler</code>。它是一个轻量级的 Python 定时任务调度框架。APScheduler 支持三种调度任务：</p>
+                </div>
+            
+            <!-- <p>上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是<code>APScheduler</code>。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>APScheduler</code>的全称是<code>Advanced Python Scheduler</code>。它是一个轻量级的 Python 定时任务调度框架。APScheduler 支持三种调度任务：</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -220,14 +239,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">方法论</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E8%AE%A4%E7%9F%A5/" rel="tag">认知</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/APScheduler/" rel="tag">APScheduler</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="tag">定时任务</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/663.html#more">阅读更多</a>
+                <a class="read_more" href="/1227.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -245,18 +264,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/662.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDAgqf.jpg" alt="多线程爬取 unsplash 图库">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/662.html"><i class="fas fa-angle-double-right"></i>多线程爬取 unsplash 图库</a>
+                <a class="card-title-color" href="/1226.html">Python 定时任务(上)</a>
             
         </h1>
 
@@ -264,8 +276,533 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-06-20T11:53:59.000Z">2018-06-20</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-06-20</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-12-05T13:27:59.000Z">2017-12-05</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-12-05</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 982 个字)
+                </span>
+                
+                <!-- 浏览量
+                 -->
+            </div>
+        </div>
+        
+
+        <br>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1226.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsqhL9.jpg" alt="Python 定时任务(上)">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <blockquote>
+<p>在项目中，我们可能遇到有定时任务的需求。其一：定时执行任务。例如每天早上 8 点定时推送早报。其二：每隔一个时间段就执行任务。比如：每隔一个小时提醒自己起来走动走动，避免长时间坐着。今天，我跟大家分享下 Python 定时任务的实现方法。</p>
+</blockquote>
+<h2 id><a href="#" class="headerlink" title></a></h2><p>第一种办法是最简单又最暴力。那就是在一个死循环中，使用线程睡眠函数 sleep()。</p>
+                </div>
+            
+            <!-- <blockquote>
+<p>在项目中，我们可能遇到有定时任务的需求。其一：定时执行任务。例如每天早上 8 点定时推送早报。其二：每隔一个时间段就执行任务。比如：每隔一个小时提醒自己起来走动走动，避免长时间坐着。今天，我跟大家分享下 Python 定时任务的实现方法。</p>
+</blockquote>
+<h2 id><a href="#" class="headerlink" title></a></h2><p>第一种办法是最简单又最暴力。那就是在一个死循环中，使用线程睡眠函数 sleep()。</p>  -->
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+
+        <!-- 增加版权说明 -->
+        
+        
+        
+        
+        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。-->
+        <hr style="height:1px;margin:1rem 0">
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <!-- 首页显示的文章标签 -->
+                <div class="nexmoe-post-meta">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/sched/" rel="tag">sched</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="tag">定时任务</a>
+                </div>
+                
+            </div>
+
+            <div class="level-start">
+                <div class="level-item">
+                <a class="read_more" href="/1226.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="card-title-color" href="/1125.html">Python 绘图,我只用 Matplotlib(三)</a>
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-11-23T03:07:19.000Z">2017-11-23</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-11-23</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1362 个字)
+                </span>
+                
+                <!-- 浏览量
+                 -->
+            </div>
+        </div>
+        
+
+        <br>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1125.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/Ysq2zF.jpg" alt="Python 绘图,我只用 Matplotlib(三)">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>上篇文章，我已经讲解绘制图像大致步骤，接下来的系列文章将分别对各种图形做讲解。其实就是了解各个图种的绘图 API。文章就讲解第一种图形，柱状图。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>绘制柱状图，我们主要用到<code>bar()</code>函数。只要将该函数理解透彻，我们就能绘制各种类型的柱状图。</p>
+                </div>
+            
+            <!-- <p>上篇文章，我已经讲解绘制图像大致步骤，接下来的系列文章将分别对各种图形做讲解。其实就是了解各个图种的绘图 API。文章就讲解第一种图形，柱状图。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>绘制柱状图，我们主要用到<code>bar()</code>函数。只要将该函数理解透彻，我们就能绘制各种类型的柱状图。</p>  -->
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+
+        <!-- 增加版权说明 -->
+        
+        
+        
+        
+        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。-->
+        <hr style="height:1px;margin:1rem 0">
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <!-- 首页显示的文章标签 -->
+                <div class="nexmoe-post-meta">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a>
+                </div>
+                
+            </div>
+
+            <div class="level-start">
+                <div class="level-item">
+                <a class="read_more" href="/1125.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="card-title-color" href="/1124.html">彻底理解 Iterable、Iterator、generator</a>
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-11-21T07:06:17.000Z">2017-11-21</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-11-21</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1066 个字)
+                </span>
+                
+                <!-- 浏览量
+                 -->
+            </div>
+        </div>
+        
+
+        <br>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1124.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/Ysq6iV.jpg" alt="彻底理解 Iterable、Iterator、generator">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>本文介绍猴哥对于Python中的Iterable、Iterator、generator的理解。
+﻿</p>
+<h2 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h2><p>我们一般称<code>Iterable</code>为<code>可迭代对象</code>。Python 中任意的对象，只要它定义了可以返回一个迭代器的<code>__iter__</code>方法，或者定义了可以支持下标索引的<code>__getitem__</code>方法，那么它就是一个可迭代对象。我们常用到的集合数据类型都是 Iterable。</p>
+                </div>
+            
+            <!-- <p>本文介绍猴哥对于Python中的Iterable、Iterator、generator的理解。
+﻿</p>
+<h2 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h2><p>我们一般称<code>Iterable</code>为<code>可迭代对象</code>。Python 中任意的对象，只要它定义了可以返回一个迭代器的<code>__iter__</code>方法，或者定义了可以支持下标索引的<code>__getitem__</code>方法，那么它就是一个可迭代对象。我们常用到的集合数据类型都是 Iterable。</p>  -->
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+
+        <!-- 增加版权说明 -->
+        
+        
+        
+        
+        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。-->
+        <hr style="height:1px;margin:1rem 0">
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <!-- 首页显示的文章标签 -->
+                <div class="nexmoe-post-meta">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Iterable/" rel="tag">Iterable</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Iterator/" rel="tag">Iterator</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/generator/" rel="tag">generator</a>
+                </div>
+                
+            </div>
+
+            <div class="level-start">
+                <div class="level-item">
+                <a class="read_more" href="/1124.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="card-title-color" href="/1123.html">Python 绘图,我只用 Matplotlib(二)</a>
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-11-06T21:34:31.000Z">2017-11-07</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-11-07</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2668 个字)
+                </span>
+                
+                <!-- 浏览量
+                 -->
+            </div>
+        </div>
+        
+
+        <br>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1123.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/Ysqraq.jpg" alt="Python 绘图,我只用 Matplotlib(二)">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>在学习绘制之前，先来了解下 Matplotlib 基础概念。</p>
+                </div>
+            
+            <!-- <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>在学习绘制之前，先来了解下 Matplotlib 基础概念。</p>  -->
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+
+        <!-- 增加版权说明 -->
+        
+        
+        
+        
+        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。-->
+        <hr style="height:1px;margin:1rem 0">
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <!-- 首页显示的文章标签 -->
+                <div class="nexmoe-post-meta">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a>
+                </div>
+                
+            </div>
+
+            <div class="level-start">
+                <div class="level-item">
+                <a class="read_more" href="/1123.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="card-title-color" href="/1022.html">Python 绘图,我只用 Matplotlib(一)</a>
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-10-31T03:04:54.000Z">2017-10-31</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-10-31</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1016 个字)
+                </span>
+                
+                <!-- 浏览量
+                 -->
+            </div>
+        </div>
+        
+
+        <br>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1022.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/Ysq0qs.jpg" alt="Python 绘图,我只用 Matplotlib(一)">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <blockquote>
+<p>当我们的爬虫程序已经完成使命，帮我们抓取大量的数据。你内心也许会空落落的。或许你会疑惑，自己抓取这些数据有啥用？如果要拿去分析，那要怎么分析呢？</p>
+</blockquote>
+<p>说到数据分析，Python 完全能够胜任这方面的工作。Python 究竟如何在数据分析领域做到游刃有余？因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib 是画图工具，NumPy 是矩阵运算库，SciPy 是数学运算工具，Pandas 是数据处理的工具。</p>
+                </div>
+            
+            <!-- <blockquote>
+<p>当我们的爬虫程序已经完成使命，帮我们抓取大量的数据。你内心也许会空落落的。或许你会疑惑，自己抓取这些数据有啥用？如果要拿去分析，那要怎么分析呢？</p>
+</blockquote>
+<p>说到数据分析，Python 完全能够胜任这方面的工作。Python 究竟如何在数据分析领域做到游刃有余？因为它有“四板斧”，分别是Matplotlib、NumPy、SciPy/Pandas。Matplotlib 是画图工具，NumPy 是矩阵运算库，SciPy 是数学运算工具，Pandas 是数据处理的工具。</p>  -->
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+
+        <!-- 增加版权说明 -->
+        
+        
+        
+        
+        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。-->
+        <hr style="height:1px;margin:1rem 0">
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <!-- 首页显示的文章标签 -->
+                <div class="nexmoe-post-meta">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a>
+                </div>
+                
+            </div>
+
+            <div class="level-start">
+                <div class="level-item">
+                <a class="read_more" href="/1022.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="card-title-color" href="/1021.html">爬虫与反爬虫的博弈</a>
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-10-09T09:23:49.000Z">2017-10-09</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-10-09</span>
                 
                 
                 <div class="level-item">
@@ -279,7 +816,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1633 个字)
+                    9 分钟 读完 (大约 1322 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -289,8 +826,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>我公众号文章的封面配图都在 Unsplash 上找的。因为 Unsplash 是一个完全免费的、无版权的高清图片资源网站。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1021.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsqNRS.jpg" alt="爬虫与反爬虫的博弈">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>今天猴哥给大家说说爬虫与反爬虫的博弈。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近来这两三个月，我陆续将自己学到的爬虫技术分享出来。以标准网络库 urllib 的用法起笔，接着介绍各种内容提供工具，再到后续的 scrapy 爬虫框架系列。我的爬虫分享之旅已经接近尾声了。本文就来聊聊如何防止爬虫被 ban 以及如何限制爬虫。</p>
+                </div>
+            
+            <!-- <p>今天猴哥给大家说说爬虫与反爬虫的博弈。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近来这两三个月，我陆续将自己学到的爬虫技术分享出来。以标准网络库 urllib 的用法起笔，接着介绍各种内容提供工具，再到后续的 scrapy 爬虫框架系列。我的爬虫分享之旅已经接近尾声了。本文就来聊聊如何防止爬虫被 ban 以及如何限制爬虫。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -309,14 +867,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/unsplash/" rel="tag">unsplash</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="tag">爬虫实战</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="tag">项目实战</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/" rel="tag">反爬虫</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/662.html#more">阅读更多</a>
+                <a class="read_more" href="/1021.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -334,18 +892,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/661.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDAwIe.jpg" alt="安利两个 MongoDB 可视化工具">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/661.html"><i class="fas fa-angle-double-right"></i>安利两个 MongoDB 可视化工具</a>
+                <a class="card-title-color" href="/1020.html">学会运用爬虫框架 Scrapy (五)  —— 部署爬虫</a>
             
         </h1>
 
@@ -353,97 +904,8 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-06-15T13:53:08.000Z">2018-06-15</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-06-15</span>
-                
-                
-                <div class="level-item">
-                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-                </div>
-                
-
-                 
-                <i class="far fa-clock"></i>&nbsp;&nbsp;
-                <span class="level-item has-text-grey">
-                    
-                    
-                    6 分钟 读完 (大约 852 个字)
-                </span>
-                
-                <!-- 浏览量
-                 -->
-            </div>
-        </div>
-        
-
-        <br>
-        <div class="content">
-            <p>MongoDB 是一种 NoSQL 数据库。NoSQL(Not Only SQL )，意即”不仅仅是SQL”, 泛指非关系型的数据库。这两种类型差别之一是存储方式。关系数据库以键值对存储，它的结构不固定。而关系型数据库以行和列的二维表格形式来存储数据。所以非关系型数据库（如 MongoDB）不支持标准的 SQL 的语法。</p>
-        </div>
-
-        <!-- 增加微信公众号首发说明 -->
-        
-
-        <!-- 增加版权说明 -->
-        
-        
-        
-        
-        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。-->
-        <hr style="height:1px;margin:1rem 0">
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-                <!-- 首页显示的文章标签 -->
-                <div class="nexmoe-post-meta">
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/MangoDB/" rel="tag">MangoDB</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Mongo-Plugin/" rel="tag">Mongo Plugin</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Nosqlclient/" rel="tag">Nosqlclient</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a>
-                </div>
-                
-            </div>
-
-            <div class="level-start">
-                <div class="level-item">
-                <a class="read_more" href="/661.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/660.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDAdaD.jpg" alt="爬取《Five Hundred Miles》在网易云音乐的所有评论">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        <!-- 标题移动到文章信息上方 -->
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/660.html"><i class="fas fa-angle-double-right"></i>爬取《Five Hundred Miles》在网易云音乐的所有评论</a>
-            
-        </h1>
-
-        
-        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-06-12T11:26:37.000Z">2018-06-12</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-06-12</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-10-02T02:39:20.000Z">2017-10-02</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-10-02</span>
                 
                 
                 <div class="level-item">
@@ -457,7 +919,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1653 个字)
+                    9 分钟 读完 (大约 1357 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -467,8 +929,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>在使用 Ajax 技术加载数据的网站中， JavaScript 发起的 HTTP 请求通常需要带上参数，而且参数的值都是经过加密的。如果我们想利用网站的 REST API 来爬取数据，就必须知道其使用的加密方式。破解过程需要抓包，阅读并分析网站的 js 代码。这整个过程可能会花费一天甚至更长的时间。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1020.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsbuBn.jpg" alt="学会运用爬虫框架 Scrapy (五)  —— 部署爬虫">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>本文是 Scrapy 爬虫系列的最后一篇文章。主要讲述如何将我们编写的爬虫程序部署到生产环境中。我们使用由 scrapy 官方提供的爬虫管理工具 scrapyd 来部署爬虫程序。</p>
+<h2 id="为什么使用-scrapyd"><a href="#为什么使用-scrapyd" class="headerlink" title="为什么使用 scrapyd?"></a>为什么使用 scrapyd?</h2><p>一是它由 scrapy 官方提供的，二是我们使用它可以非常方便地运用 JSON API来部署爬虫、控制爬虫以及查看运行日志。</p>
+                </div>
+            
+            <!-- <p>本文是 Scrapy 爬虫系列的最后一篇文章。主要讲述如何将我们编写的爬虫程序部署到生产环境中。我们使用由 scrapy 官方提供的爬虫管理工具 scrapyd 来部署爬虫程序。</p>
+<h2 id="为什么使用-scrapyd"><a href="#为什么使用-scrapyd" class="headerlink" title="为什么使用 scrapyd?"></a>为什么使用 scrapyd?</h2><p>一是它由 scrapy 官方提供的，二是我们使用它可以非常方便地运用 JSON API来部署爬虫、控制爬虫以及查看运行日志。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -487,14 +970,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Selenium/" rel="tag">Selenium</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="tag">爬虫实战</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/" rel="tag">网易云音乐</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="tag">项目实战</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Scrapy/" rel="tag">Scrapy</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/660.html#more">阅读更多</a>
+                <a class="read_more" href="/1020.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -512,18 +995,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/659.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YD9aVJ.jpg" alt="爬取网易云音乐精彩评论">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/659.html"><i class="fas fa-angle-double-right"></i>爬取网易云音乐精彩评论</a>
+                <a class="card-title-color" href="/919.html">学会运用爬虫框架 Scrapy (四)  —— 高效下载图片</a>
             
         </h1>
 
@@ -531,8 +1007,8 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-06-07T14:41:25.000Z">2018-06-07</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-06-07</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-09-26T15:03:35.000Z">2017-09-26</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-09-26</span>
                 
                 
                 <div class="level-item">
@@ -546,7 +1022,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1443 个字)
+                    12 分钟 读完 (大约 1871 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -556,8 +1032,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>(一)<br>故事的小黄花<br>从出生那年就飘着<br>童年的荡秋千<br>随记忆一直晃到现在<br>Re So So Si Do Si La<br>So La Si Si Si Si La Si La So<br>吹着前奏望着天空<br>我想起花瓣试着掉落<br>……</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/919.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsbeXj.jpg" alt="学会运用爬虫框架 Scrapy (四)  —— 高效下载图片">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>爬虫程序爬取的目标通常不仅仅是文字资源，经常也会爬取图片资源。这就涉及如何高效下载图片的问题。这里高效下载指的是既能把图片完整下载到本地又不会对网站服务器造成压力。也许你会这么做，在 pipeline 中自己实现下载图片逻辑。但 Scrapy 提供了图片管道<code>ImagesPipeline</code>，方便我们操作下载图片。</p>
+<h2 id="为什么要选用-ImagesPipeline-？"><a href="#为什么要选用-ImagesPipeline-？" class="headerlink" title="为什么要选用 ImagesPipeline ？"></a>为什么要选用 ImagesPipeline ？</h2><p><code>ImagesPipeline</code> 具有以下特点：</p>
+                </div>
+            
+            <!-- <p>爬虫程序爬取的目标通常不仅仅是文字资源，经常也会爬取图片资源。这就涉及如何高效下载图片的问题。这里高效下载指的是既能把图片完整下载到本地又不会对网站服务器造成压力。也许你会这么做，在 pipeline 中自己实现下载图片逻辑。但 Scrapy 提供了图片管道<code>ImagesPipeline</code>，方便我们操作下载图片。</p>
+<h2 id="为什么要选用-ImagesPipeline-？"><a href="#为什么要选用-ImagesPipeline-？" class="headerlink" title="为什么要选用 ImagesPipeline ？"></a>为什么要选用 ImagesPipeline ？</h2><p><code>ImagesPipeline</code> 具有以下特点：</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -576,14 +1073,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="tag">爬虫实战</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/" rel="tag">网易云音乐</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="tag">项目实战</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Scrapy/" rel="tag">Scrapy</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="tag">爬虫实战</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="tag">项目实战</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/659.html#more">阅读更多</a>
+                <a class="read_more" href="/919.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -601,18 +1098,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/558.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDpSkn.jpg" alt="618 购物节买什么？当然是书">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/558.html"><i class="fas fa-angle-double-right"></i>618 购物节买什么？当然是书</a>
+                <a class="card-title-color" href="/918.html">学会运用爬虫框架 Scrapy (三)</a>
             
         </h1>
 
@@ -620,13 +1110,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-05-30T14:24:33.000Z">2018-05-30</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-05-30</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-09-15T02:16:07.000Z">2017-09-15</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-09-15</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
                 </div>
                 
 
@@ -635,7 +1125,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 909 个字)
+                    14 分钟 读完 (大约 2099 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -645,8 +1135,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>时光荏苒，2018年已经过半。又到一年一度的<br>的”618”购物节，是时候来一波”买买买”。如果你目前想改变下自己，为自己的未来奋斗。可以少买一两件衣服，少买一两箱零食，腾出一两百块钱来买几本书。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/918.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/Ysbkh8.jpg" alt="学会运用爬虫框架 Scrapy (三)">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>上篇文章介绍 Scrapy 框架爬取网站的基本用法。但是爬虫程序比较粗糙，很多细节还需打磨。本文主要是讲解 Scrapy 一些小技巧，能让爬虫程序更加完善。</p>
+<h2 id="设置-User-agent"><a href="#设置-User-agent" class="headerlink" title="设置 User-agent"></a>设置 User-agent</h2><p>Scrapy 官方建议使用 User-Agent 池, 轮流选择其中一个常用浏览器的 User-Agent来作为 User-Agent。scrapy 发起的 http 请求中 headers 部分中 User-Agent 字段的默认值是<code>Scrapy/VERSION (+http://scrapy.org)</code>，我们需要修改该字段伪装成</p>
+                </div>
+            
+            <!-- <p>上篇文章介绍 Scrapy 框架爬取网站的基本用法。但是爬虫程序比较粗糙，很多细节还需打磨。本文主要是讲解 Scrapy 一些小技巧，能让爬虫程序更加完善。</p>
+<h2 id="设置-User-agent"><a href="#设置-User-agent" class="headerlink" title="设置 User-agent"></a>设置 User-agent</h2><p>Scrapy 官方建议使用 User-Agent 池, 轮流选择其中一个常用浏览器的 User-Agent来作为 User-Agent。scrapy 发起的 http 请求中 headers 部分中 User-Agent 字段的默认值是<code>Scrapy/VERSION (+http://scrapy.org)</code>，我们需要修改该字段伪装成</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -665,14 +1176,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/" rel="tag">开发进阶</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/" rel="tag">编程入门</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Scrapy/" rel="tag">Scrapy</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/558.html#more">阅读更多</a>
+                <a class="read_more" href="/918.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -710,9 +1221,7 @@ var _hmt = _hmt || [];
             
             <li><a class="pagination-link has-text-black-ter" href="/page/11/">11</a></li>
             
-            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/page/20/">20</a></li>
+            <li><a class="pagination-link has-text-black-ter" href="/page/12/">12</a></li>
             
         </ul>
     </nav>
@@ -2369,7 +2878,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

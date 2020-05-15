@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/556.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDSOOg.jpg" alt="使用 Python 将数据写到 CSV 文件">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/556.html"><i class="fas fa-angle-double-right"></i>使用 Python 将数据写到 CSV 文件</a>
+                <a class="card-title-color" href="/556.html">使用 Python 将数据写到 CSV 文件</a>
             
         </h1>
 
@@ -210,8 +208,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>我们从网上爬取数据，最后一步会考虑如何存储数据。如果数据量不大，往往不会选择存储到数据库，而是选择存储到文件中，例如文本文件、CSV 文件、xls 文件等。因为文件具备携带方便、查阅直观。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/556.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsjD6U.jpg" alt="使用 Python 将数据写到 CSV 文件">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>我们从网上爬取数据，最后一步会考虑如何存储数据。如果数据量不大，往往不会选择存储到数据库，而是选择存储到文件中，例如文本文件、CSV 文件、xls 文件等。因为文件具备携带方便、查阅直观。</p>
+<p>Python 作为胶水语言，搞定这些当然不在话下。但在写数据过程中，经常因数据源中带有中文汉字而报错。最让人头皮发麻的编码问题。</p>
+                </div>
+            
+            <!-- <p>我们从网上爬取数据，最后一步会考虑如何存储数据。如果数据量不大，往往不会选择存储到数据库，而是选择存储到文件中，例如文本文件、CSV 文件、xls 文件等。因为文件具备携带方便、查阅直观。</p>
+<p>Python 作为胶水语言，搞定这些当然不在话下。但在写数据过程中，经常因数据源中带有中文汉字而报错。最让人头皮发麻的编码问题。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

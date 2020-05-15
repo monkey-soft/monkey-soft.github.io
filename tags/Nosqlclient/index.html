@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/661.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDAwIe.jpg" alt="安利两个 MongoDB 可视化工具">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/661.html"><i class="fas fa-angle-double-right"></i>安利两个 MongoDB 可视化工具</a>
+                <a class="card-title-color" href="/661.html">安利两个 MongoDB 可视化工具</a>
             
         </h1>
 
@@ -210,8 +208,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>MongoDB 是一种 NoSQL 数据库。NoSQL(Not Only SQL )，意即”不仅仅是SQL”, 泛指非关系型的数据库。这两种类型差别之一是存储方式。关系数据库以键值对存储，它的结构不固定。而关系型数据库以行和列的二维表格形式来存储数据。所以非关系型数据库（如 MongoDB）不支持标准的 SQL 的语法。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/661.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YyKEw9.jpg" alt="安利两个 MongoDB 可视化工具">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>MongoDB 是一种 NoSQL 数据库。NoSQL(Not Only SQL )，意即”不仅仅是SQL”, 泛指非关系型的数据库。这两种类型差别之一是存储方式。关系数据库以键值对存储，它的结构不固定。而关系型数据库以行和列的二维表格形式来存储数据。所以非关系型数据库（如 MongoDB）不支持标准的 SQL 的语法。</p>
+                </div>
+            
+            <!-- <p>MongoDB 是一种 NoSQL 数据库。NoSQL(Not Only SQL )，意即”不仅仅是SQL”, 泛指非关系型的数据库。这两种类型差别之一是存储方式。关系数据库以键值对存储，它的结构不固定。而关系型数据库以行和列的二维表格形式来存储数据。所以非关系型数据库（如 MongoDB）不支持标准的 SQL 的语法。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2822,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

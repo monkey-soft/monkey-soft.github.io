@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 中“is”和“==”的区别">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDAIRs.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:20:54.700Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKaSf.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:17:22.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDAIRs.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKaSf.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDAIRs.jpg" alt="Python 中“is”和“==”的区别">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Python 中“is”和“==”的区别
+                <span class="card-title-color">Python 中“is”和“==”的区别</span>
             
         </h1>
 
@@ -209,10 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>相比 C/C++ 、Java 等强类型语言, Python 定义变量的方式就简单多了。我们只需要给变量起个变量名，而不需要给变量指定类型。</p>
-<a id="more"></a>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>相比 C/C++ 、Java 等强类型语言, Python 定义变量的方式就简单多了。我们只需要给变量起个变量名，而不需要给变量指定类型。</p>
 <p>正因为 Python 弱化类型这一概念，所以我们能随意给变量赋值。值可以是整数，浮点数，字符串，列表等。</p>
+<a id="more"></a>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-number">1</span></span><br><span class="line">a = <span class="hljs-number">3.33</span></span><br><span class="line">a = <span class="hljs-string">'monkey'</span></span><br><span class="line">a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</span><br></pre></td></tr></table></figure>
 
 <p>凡事都有正反两面。使用弱类型语言编程，我们可以不需要定义变量类型，可以随意转换类型，代码看起来很简介。但是在变量判断是否相等时候，会给我们造成一定困惑。</p>
@@ -228,6 +234,26 @@ var _hmt = _hmt || [];
 
 <p>is 则是用来判断两个变量的 id 是否相等，当两个变量的 id 相等时，说明这两个变量指向的地址是相同的，那么这两个变量的一切属性(包括：类型、值)都相同。同时，<strong>Python 也规定 None, False, 空字符串””, 0, 空列表[], 空字典{}, 空元组()都相当于 False</strong>。所以我们可以使用 is 来判断变量是否为空。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="hljs-string">""</span></span><br><span class="line">print(str <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>)</span><br><span class="line">&gt;&gt; <span class="hljs-literal">False</span></span><br><span class="line">print(str <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>)</span><br><span class="line">&gt;&gt; <span class="hljs-literal">True</span></span><br></pre></td></tr></table></figure>
+                </div>             
+            
+            <!-- <p>相比 C/C++ 、Java 等强类型语言, Python 定义变量的方式就简单多了。我们只需要给变量起个变量名，而不需要给变量指定类型。</p>
+<p>正因为 Python 弱化类型这一概念，所以我们能随意给变量赋值。值可以是整数，浮点数，字符串，列表等。</p>
+<a id="more"></a>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-number">1</span></span><br><span class="line">a = <span class="hljs-number">3.33</span></span><br><span class="line">a = <span class="hljs-string">'monkey'</span></span><br><span class="line">a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<p>凡事都有正反两面。使用弱类型语言编程，我们可以不需要定义变量类型，可以随意转换类型，代码看起来很简介。但是在变量判断是否相等时候，会给我们造成一定困惑。</p>
+<p>判断值相等，是选择 “is” 还是 “==” 了？</p>
+<p>当你了解 Python 的语言特性之后，这个问题就会迎刃而解。<strong>在 Python 中，万物皆为对象。</strong> 每个对象有 3 个属性。分别是：id，type，value。</p>
+<ul>
+<li>id 就是对象的内存地址，可以通过内置函数 <strong>id()</strong> 查看对象引用的地址。</li>
+<li>type 表示对象的类型。Python 也是有类型的概念。对于编译器或者解释器而言，类型可以协助确保上面那些电荷、字节在程序的运行中始终如一地被理解。我们可以通过内置函数 type() 查看对象的类型。</li>
+<li>value 就是对象的值。</li>
+</ul>
+<p>综上所述：<br><strong>如果我们要判断两个变量的值是否相等，需要使用 “==”。一般运用在判断数值和字符串是否相等。</strong></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-string">'123'</span></span><br><span class="line">b = <span class="hljs-string">'123'</span></span><br><span class="line">print(a=b)</span><br><span class="line">&gt;&gt; <span class="hljs-literal">True</span></span><br><span class="line"></span><br><span class="line">c = <span class="hljs-number">1</span></span><br><span class="line">d = <span class="hljs-number">2</span></span><br><span class="line">print(c==d)</span><br><span class="line">&gt;&gt; <span class="hljs-literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>is 则是用来判断两个变量的 id 是否相等，当两个变量的 id 相等时，说明这两个变量指向的地址是相同的，那么这两个变量的一切属性(包括：类型、值)都相同。同时，<strong>Python 也规定 None, False, 空字符串””, 0, 空列表[], 空字典{}, 空元组()都相当于 False</strong>。所以我们可以使用 is 来判断变量是否为空。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="hljs-string">""</span></span><br><span class="line">print(str <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>)</span><br><span class="line">&gt;&gt; <span class="hljs-literal">False</span></span><br><span class="line">print(str <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>)</span><br><span class="line">&gt;&gt; <span class="hljs-literal">True</span></span><br></pre></td></tr></table></figure>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -332,7 +358,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -1995,7 +2021,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

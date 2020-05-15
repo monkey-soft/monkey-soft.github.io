@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/79.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBqvjA.jpg" alt="爬虫实战一：爬取当当网所有 Python 书籍">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/79.html"><i class="fas fa-angle-double-right"></i>爬虫实战一：爬取当当网所有 Python 书籍</a>
+                <a class="card-title-color" href="/79.html">爬虫实战一：爬取当当网所有 Python 书籍</a>
             
         </h1>
 
@@ -210,8 +208,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>我们已经学习 urllib、re、BeautifulSoup 这三个库的用法。但只是停留在理论层面上，还需实践来检验学习成果。因此，本文主要讲解如何利用我们刚才的几个库去实战。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/79.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsH3yd.jpg" alt="爬虫实战一：爬取当当网所有 Python 书籍">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>我们已经学习 urllib、re、BeautifulSoup 这三个库的用法。但只是停留在理论层面上，还需实践来检验学习成果。因此，本文主要讲解如何利用我们刚才的几个库去实战。</p>
+<h2 id="确定爬取目标"><a href="#确定爬取目标" class="headerlink" title="确定爬取目标"></a>确定爬取目标</h2><p>任何网站皆可爬取，就看你要不要爬取而已。本次选取的爬取目标是当当网，爬取内容是 以 Python 为关键字搜索出来的页面中所有书籍的信息。具体如下图所示：</p>
+                </div>
+            
+            <!-- <p>我们已经学习 urllib、re、BeautifulSoup 这三个库的用法。但只是停留在理论层面上，还需实践来检验学习成果。因此，本文主要讲解如何利用我们刚才的几个库去实战。</p>
+<h2 id="确定爬取目标"><a href="#确定爬取目标" class="headerlink" title="确定爬取目标"></a>确定爬取目标</h2><p>任何网站皆可爬取，就看你要不要爬取而已。本次选取的爬取目标是当当网，爬取内容是 以 Python 为关键字搜索出来的页面中所有书籍的信息。具体如下图所示：</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

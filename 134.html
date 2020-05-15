@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="计划分享Python Web学习心得">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXs0I.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:03:54.020Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsL2kt.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:07:42.170Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXs0I.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsL2kt.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBXs0I.jpg" alt="计划分享Python Web学习心得">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>计划分享Python Web学习心得
+                <span class="card-title-color">计划分享Python Web学习心得</span>
             
         </h1>
 
@@ -209,10 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>前段时间，有个读者留言跟我说，有空出使用 Python 实现 RESTful API 的教程。我一看，这正合我意。自己很早就想学习 Python web。之前有简单过了解些 Django 框架基础知识。但对于 Python Web，我还是研究不够深入。</p>
-<a id="more"></a>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>前段时间，有个读者留言跟我说，有空出使用 Python 实现 RESTful API 的教程。我一看，这正合我意。自己很早就想学习 Python web。之前有简单过了解些 Django 框架基础知识。但对于 Python Web，我还是研究不够深入。</p>
 <p>因此，打算接下来一段时间。自己学习 Python Web，并将学习心得分享出来。自己在 Web 方面是只菜鸟，所以请老鸟轻喷。</p>
+<a id="more"></a>
 <p>回到刚才话题，RESTful API 是个什么东西呢？不妨我们先看下平常的网页是怎么回事。我们平时浏览的网站，一般分为前端和后端。我们用浏览器观看页面的内容就是前端的工作。前端采用 Html + CSS + JavaScript 技术来呈现页面内容以及页面效果。后端主要负责维护数据库并返回前端请求数据库的数据。如果我们有个需求，不需要那么华丽、炫酷的页面，只需要后端返回的数据。我们把这样的网络请求称为 RESTful API。再者，REST 描述的是在网络中 Client（PC 浏览器、手机 APP 等） 和 Server的一种交互形式；REST本身不实用，实用的是 RESTful API（REST 风格的网络接口）。</p>
 <p>后端已经比较成熟的 Web 框架，我们没有必要重复造轮子。Python Web 主流框架有 Flask、Django、Tornado等</p>
 <ul>
@@ -225,6 +231,23 @@ var _hmt = _hmt || [];
 </ul>
 <p>所以，综合以上几点，我就决定深入学习 Django。朋友们，敬请期待我的分享吧。</p>
 
+                </div>             
+            
+            <!-- <p>前段时间，有个读者留言跟我说，有空出使用 Python 实现 RESTful API 的教程。我一看，这正合我意。自己很早就想学习 Python web。之前有简单过了解些 Django 框架基础知识。但对于 Python Web，我还是研究不够深入。</p>
+<p>因此，打算接下来一段时间。自己学习 Python Web，并将学习心得分享出来。自己在 Web 方面是只菜鸟，所以请老鸟轻喷。</p>
+<a id="more"></a>
+<p>回到刚才话题，RESTful API 是个什么东西呢？不妨我们先看下平常的网页是怎么回事。我们平时浏览的网站，一般分为前端和后端。我们用浏览器观看页面的内容就是前端的工作。前端采用 Html + CSS + JavaScript 技术来呈现页面内容以及页面效果。后端主要负责维护数据库并返回前端请求数据库的数据。如果我们有个需求，不需要那么华丽、炫酷的页面，只需要后端返回的数据。我们把这样的网络请求称为 RESTful API。再者，REST 描述的是在网络中 Client（PC 浏览器、手机 APP 等） 和 Server的一种交互形式；REST本身不实用，实用的是 RESTful API（REST 风格的网络接口）。</p>
+<p>后端已经比较成熟的 Web 框架，我们没有必要重复造轮子。Python Web 主流框架有 Flask、Django、Tornado等</p>
+<ul>
+<li><p>Flask<br>Flask 是一个使用 Python 编写的轻量级 Web 应用框架。它基于 Werkzeug WSGI 工具箱和 Jinja2 模板引擎。Flask 学习成本比较低，花很少的时间成本就能开发出一个简单的博客网站。如果你时间比较充裕，又想学习 Web 开发。可以学习 Flask ，再以 Flask 做跳板学习其他 Web 框架。</p>
+</li>
+<li><p>Django<br>Django 是以 Python 编写的高级，MVC 风格的开源库。 Django 也被称为“完美主义者的最后框架”。它最初是为新闻网站设计的，并且允许开发人员编写数据库驱动 Web 应用程序。它算是一个全能型框架。它内置了很多模块，能快速解决大量 Web 痛点问题。另外再加上云平台的支持，这使Django 成为 Web 开发者最受欢迎的选择。大名鼎鼎的 Instagram 网站就是基于 Django 开发的。</p>
+</li>
+<li><p>Tornado<br>Tornado 是传说中性能高高的框架。它支持异步处理的功能，这是它的优势。因为其他框架不具备该功能。但 Tornado 也有致命缺点，那就是扩展库资源比较少。Tornado 除了提供了网站基本需要使用的模块外，剩下的则需要开发者自己进行扩展。</p>
+</li>
+</ul>
+<p>所以，综合以上几点，我就决定深入学习 Django。朋友们，敬请期待我的分享吧。</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -329,7 +352,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -1992,7 +2015,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

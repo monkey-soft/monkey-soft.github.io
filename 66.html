@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="详解 python3 urllib">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBbRsI.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:45:21.127Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsHedx.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:10:44.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBbRsI.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsHedx.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBbRsI.jpg" alt="详解 python3 urllib">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>详解 python3 urllib
+                <span class="card-title-color">详解 python3 urllib</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>本文是爬虫系列文章的第一篇，主要讲解 Python 3 中的 urllib 库的用法。urllib 是 Python 标准库中用于网络请求的库。该库有四个模块，分别是<code>urllib.request</code>，<code>urllib.error</code>，<code>urllib.parse</code>，<code>urllib.robotparser</code>。其中<code>urllib.request</code>，<code>urllib.error</code>两个库在爬虫程序中应用比较频繁。那我们就开门见山，直接讲解这两个模块的用法。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>本文是爬虫系列文章的第一篇，主要讲解 Python 3 中的 urllib 库的用法。urllib 是 Python 标准库中用于网络请求的库。该库有四个模块，分别是<code>urllib.request</code>，<code>urllib.error</code>，<code>urllib.parse</code>，<code>urllib.robotparser</code>。其中<code>urllib.request</code>，<code>urllib.error</code>两个库在爬虫程序中应用比较频繁。那我们就开门见山，直接讲解这两个模块的用法。</p>
 <a id="more"></a>
 <h2 id="发起请求"><a href="#发起请求" class="headerlink" title="发起请求"></a>发起请求</h2><p>模拟浏览器发起一个 HTTP 请求，我们需要用到 urllib.request 模块。urllib.request 的作用不仅仅是发起请求， 还能获取请求返回结果。发起请求，单靠 <code>urlopen()</code> 方法就可以叱咤风云。我们先看下 urlopen() 的 API</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib.request.urlopen(url, data=<span class="hljs-literal">None</span>, [timeout, ]*, cafile=<span class="hljs-literal">None</span>, capath=<span class="hljs-literal">None</span>, cadefault=<span class="hljs-literal">False</span>, context=<span class="hljs-literal">None</span>)</span><br></pre></td></tr></table></figure>
@@ -286,6 +292,84 @@ HTTPError 是 UEKRrror 的子类，专门处理 HTTP 和 HTTPS 请求的错误�
 </ul>
 <p>获取 HTTP 异常的示例代码, 输出了错误状态码、错误原因、服务器响应头</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"><span class="hljs-keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://www.google.com"</span></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    response = request.urlopen(url)</span><br><span class="line"><span class="hljs-keyword">except</span> error.HTTPError <span class="hljs-keyword">as</span> e:</span><br><span class="line">   print(<span class="hljs-string">'code: '</span> + e.code + <span class="hljs-string">'\n'</span>)</span><br><span class="line">   print(<span class="hljs-string">'reason: '</span> + e.reason + <span class="hljs-string">'\n'</span>)</span><br><span class="line">   print(<span class="hljs-string">'headers: '</span> + e.headers + <span class="hljs-string">'\n'</span>)</span><br></pre></td></tr></table></figure>
+                </div>             
+            
+            <!-- <p>本文是爬虫系列文章的第一篇，主要讲解 Python 3 中的 urllib 库的用法。urllib 是 Python 标准库中用于网络请求的库。该库有四个模块，分别是<code>urllib.request</code>，<code>urllib.error</code>，<code>urllib.parse</code>，<code>urllib.robotparser</code>。其中<code>urllib.request</code>，<code>urllib.error</code>两个库在爬虫程序中应用比较频繁。那我们就开门见山，直接讲解这两个模块的用法。</p>
+<a id="more"></a>
+<h2 id="发起请求"><a href="#发起请求" class="headerlink" title="发起请求"></a>发起请求</h2><p>模拟浏览器发起一个 HTTP 请求，我们需要用到 urllib.request 模块。urllib.request 的作用不仅仅是发起请求， 还能获取请求返回结果。发起请求，单靠 <code>urlopen()</code> 方法就可以叱咤风云。我们先看下 urlopen() 的 API</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib.request.urlopen(url, data=<span class="hljs-literal">None</span>, [timeout, ]*, cafile=<span class="hljs-literal">None</span>, capath=<span class="hljs-literal">None</span>, cadefault=<span class="hljs-literal">False</span>, context=<span class="hljs-literal">None</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个参数 String 类型的地址或者</li>
+<li><code>data</code> 是 bytes 类型的内容，可通过 bytes()函数转为化字节流。它也是可选参数。使用 data 参数，请求方式变成以 POST 方式提交表单。使用标准格式是<code>application/x-www-form-urlencoded</code></li>
+<li><code>timeout</code> 参数是用于设置请求超时时间。单位是秒。</li>
+<li><code>cafile</code>和<code>capath</code>代表 CA 证书和 CA 证书的路径。如果使用<code>HTTPS</code>则需要用到。</li>
+<li><code>context</code>参数必须是<code>ssl.SSLContext</code>类型，用来指定<code>SSL</code>设置</li>
+<li><code>cadefault</code>参数已经被弃用，可以不用管了。</li>
+<li>该方法也可以单独传入<code>urllib.request.Request</code>对象</li>
+<li>该函数返回结果是一个<code>http.client.HTTPResponse</code>对象。</li>
+</ul>
+<h3 id="简单抓取网页"><a href="#简单抓取网页" class="headerlink" title="简单抓取网页"></a>简单抓取网页</h3><p>我们使用 urllib.request.urlopen() 去请求百度贴吧，并获取到它页面的源代码。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://tieba.baidu.com"</span></span><br><span class="line">response = urllib.request.urlopen(url)</span><br><span class="line">html = response.read()         <span class="hljs-comment"># 获取到页面的源代码</span></span><br><span class="line">print(html.decode(<span class="hljs-string">'utf-8'</span>))    <span class="hljs-comment"># 转化为 utf-8 编码</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置请求超时"><a href="#设置请求超时" class="headerlink" title="设置请求超时"></a>设置请求超时</h3><p>有些请求可能因为网络原因无法得到响应。因此，我们可以手动设置超时时间。当请求超时，我们可以采取进一步措施，例如选择直接丢弃该请求或者再请求一次。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://tieba.baidu.com"</span></span><br><span class="line">response = urllib.request.urlopen(url, timeout=<span class="hljs-number">1</span>)</span><br><span class="line">print(response.read().decode(<span class="hljs-string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-data-参数提交数据"><a href="#使用-data-参数提交数据" class="headerlink" title="使用 data 参数提交数据"></a>使用 data 参数提交数据</h3><p>在请求某些网页时需要携带一些数据，我们就需要使用到 data 参数。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urilib.parse</span><br><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://127.0.0.1:8000/book"</span></span><br><span class="line">params = &#123;</span><br><span class="line">  <span class="hljs-string">'name'</span>:<span class="hljs-string">'浮生六记'</span>,</span><br><span class="line">  <span class="hljs-string">'author'</span>:<span class="hljs-string">'沈复'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = bytes(urllib.parse.urlencode(params), encoding=<span class="hljs-string">'utf8'</span>)</span><br><span class="line">response = urllib.request.urlopen(url, data=data)</span><br><span class="line">print(response.read().decode(<span class="hljs-string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+<p>params 需要被转码成字节流。而 params 是一个字典。我们需要使用 urllib.parse.urlencode() 将字典转化为字符串。再使用 bytes() 转为字节流。最后使用 urlopen() 发起请求，请求是模拟用 POST 方式提交表单数据。</p>
+<h3 id="使用-Request"><a href="#使用-Request" class="headerlink" title="使用 Request"></a>使用 Request</h3><p>由上我们知道利用 urlopen() 方法可以发起简单的请求。但这几个简单的参数并不足以构建一个完整的请求，如果请求中需要加入headers（请求头）、指定请求方式等信息，我们就可以利用更强大的Request类来构建一个请求。<br>按照国际惯例，先看下 Request 的构造方法：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib.request.Request(url, data=<span class="hljs-literal">None</span>, headers=&#123;&#125;, origin_req_host=<span class="hljs-literal">None</span>, unverifiable=<span class="hljs-literal">False</span>, method=<span class="hljs-literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>url 参数</code>是请求链接，这个是必传参数，其他的都是可选参数。</li>
+<li><code>data 参数</code>跟 urlopen() 中的 data 参数用法相同。</li>
+<li><code>headers 参数</code>是指定发起的 HTTP 请求的头部信息。headers 是一个字典。它除了在 Request 中添加，还可以通过调用 Reques t实例的 add_header() 方法来添加请求头。</li>
+<li><code>origin_req_host 参数</code>指的是请求方的 host 名称或者 IP 地址。</li>
+<li><code>unverifiable 参数</code>表示这个请求是否是无法验证的，默认值是False。意思就是说用户没有足够权限来选择接收这个请求的结果。例如我们请求一个HTML文档中的图片，但是我们没有自动抓取图像的权限，我们就要将 unverifiable 的值设置成 True。</li>
+<li><code>method 参数</code>指的是发起的 HTTP 请求的方式，有 GET、POST、DELETE、PUT等</li>
+</ul>
+<h4 id="简单使用-Request"><a href="#简单使用-Request" class="headerlink" title="简单使用 Request"></a>简单使用 Request</h4><p>使用 Request 伪装成浏览器发起 HTTP 请求。如果不设置 headers 中的 User-Agent，默认的<code>User-Agent</code>是<code>Python-urllib/3.5</code>。可能一些网站会将该请求拦截，所以需要伪装成浏览器发起请求。我使用的 User-Agent 是 Chrome 浏览器。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://tieba.baidu.com/"</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'</span></span><br><span class="line">&#125;</span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line">print(response.read().decode(<span class="hljs-string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="Request-高级用法"><a href="#Request-高级用法" class="headerlink" title="Request 高级用法"></a>Request 高级用法</h4><p>如果我们需要在请求中添加代理、处理请求的 Cookies，我们需要用到<code>Handler</code>和<code>OpenerDirector</code>。</p>
+<p>1） <code>Handler</code><br>Handler 的中文意思是处理者、处理器。 Handler 能处理请求（HTTP、HTTPS、FTP等）中的各种事情。它的具体实现是这个类 <code>urllib.request.BaseHandler</code>。它是所有的 Handler 的基类，其提供了最基本的Handler的方法，例如default_open()、protocol_request()等。<br>继承 BaseHandler 有很多个，我就列举几个比较常见的类：</p>
+<ul>
+<li><code>ProxyHandler</code>：为请求设置代理</li>
+<li><code>HTTPCookieProcessor</code>：处理 HTTP 请求中的 Cookies</li>
+<li><code>HTTPDefaultErrorHandler</code>：处理 HTTP 响应错误。</li>
+<li><code>HTTPRedirectHandler</code>：处理 HTTP 重定向。</li>
+<li><code>HTTPPasswordMgr</code>：用于管理密码，它维护了用户名密码的表。</li>
+<li><code>HTTPBasicAuthHandler</code>：用于登录认证，一般和 <code>HTTPPasswordMgr</code> 结合使用。</li>
+</ul>
+<p>2） <code>OpenerDirector</code><br>对于 OpenerDirector，我们可以称之为 Opener。我们之前用过 urlopen() 这个方法，实际上它就是 urllib 为我们提供的一个Opener。那 Opener 和 Handler 又有什么关系？opener 对象是由 build_opener(handler) 方法来创建出来 。我们需要创建自定义的 opener，就需要使用 <code>install_opener(opener)</code>方法。值得注意的是，install_opener 实例化会得到一个全局的 OpenerDirector 对象。</p>
+<h3 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h3><p>我们已经了解了 opener 和 handler，接下来我们就通过示例来深入学习。第一个例子是为 HTTP 请求设置代理<br>有些网站做了浏览频率限制。如果我们请求该网站频率过高。该网站会被封 IP，禁止我们的访问。所以我们需要使用代理来突破这“枷锁”。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://tieba.baidu.com/"</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">proxy_handler = urllib.request.ProxyHandler(&#123;</span><br><span class="line">    <span class="hljs-string">'http'</span>: <span class="hljs-string">'web-proxy.oa.com:8080'</span>,</span><br><span class="line">    <span class="hljs-string">'https'</span>: <span class="hljs-string">'web-proxy.oa.com:8080'</span></span><br><span class="line">&#125;)</span><br><span class="line">opener = urllib.request.build_opener(proxy_handler)</span><br><span class="line">urllib.request.install_opener(opener)</span><br><span class="line"></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line">print(response.read().decode(<span class="hljs-string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="认证登录"><a href="#认证登录" class="headerlink" title="认证登录"></a>认证登录</h3><p>有些网站需要携带账号和密码进行登录之后才能继续浏览网页。碰到这样的网站，我们需要用到认证登录。我们首先需要使用 HTTPPasswordMgrWithDefaultRealm() 实例化一个账号密码管理对象；然后使用 add_password() 函数添加账号和密码；接着使用 HTTPBasicAuthHandler() 得到 hander；再使用 build_opener() 获取 opener 对象；最后使用 opener 的 open() 函数发起请求。</p>
+<p>第二个例子是携带账号和密码请求登录百度贴吧，代码如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://tieba.baidu.com/"</span></span><br><span class="line">user = <span class="hljs-string">'user'</span></span><br><span class="line">password = <span class="hljs-string">'password'</span></span><br><span class="line">pwdmgr = urllib.request.HTTPPasswordMgrWithDefaultRealm()</span><br><span class="line">pwdmgr.add_password(<span class="hljs-literal">None</span>，url ，user ，password)</span><br><span class="line"></span><br><span class="line">auth_handler = urllib.request.HTTPBasicAuthHandler(pwdmgr)</span><br><span class="line">opener = urllib.request.build_opener(auth_handler)</span><br><span class="line">response = opener.open(url)</span><br><span class="line">print(response.read().decode(<span class="hljs-string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cookies设置"><a href="#Cookies设置" class="headerlink" title="Cookies设置"></a>Cookies设置</h3><p>如果请求的页面每次需要身份验证，我们可以使用 Cookies 来自动登录，免去重复登录验证的操作。获取 Cookies 需要使用 http.cookiejar.CookieJar() 实例化一个 Cookies 对象。再用 urllib.request.HTTPCookieProcessor 构建出 handler 对象。最后使用 opener 的 open() 函数即可。</p>
+<p>第三个例子是获取请求百度贴吧的 Cookies 并保存到文件中，代码如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> http.cookiejar</span><br><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://tieba.baidu.com/"</span></span><br><span class="line">fileName = <span class="hljs-string">'cookie.txt'</span></span><br><span class="line"></span><br><span class="line">cookie = http.cookiejar.CookieJar()</span><br><span class="line">handler = urllib.request.HTTPCookieProcessor(cookie)</span><br><span class="line">opener = urllib.request.build_opener(handler)</span><br><span class="line">response = opener.open(url)</span><br><span class="line"></span><br><span class="line">f = open(fileName,<span class="hljs-string">'a'</span>)</span><br><span class="line"><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> cookie:</span><br><span class="line">    f.write(item.name+<span class="hljs-string">" = "</span>+item.value+<span class="hljs-string">'\n'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTPResponse"><a href="#HTTPResponse" class="headerlink" title="HTTPResponse"></a>HTTPResponse</h3><p>从上面的例子可知， 使用 urllib.request.urlopen() 或者 opener.open(url) 返回结果是一个 http.client.HTTPResponse 对象。它具有 msg、version、status、reason、debuglevel、closed等属性以及read()、readinto()、getheader(name)、getheaders()、fileno()等函数。</p>
+<h2 id="错误解析"><a href="#错误解析" class="headerlink" title="错误解析"></a>错误解析</h2><p>发起请求难免会出现各种异常，我们需要对异常进行处理，这样会使得程序比较人性化。<br>异常处理主要用到两个类，<code>urllib.error.URLError</code>和<code>urllib.error.HTTPError</code>。</p>
+<ul>
+<li><code>URLError</code><br>URLError 是 urllib.error 异常类的基类, 可以捕获由urllib.request 产生的异常。<br>它具有一个属性<code>reason</code>，即返回错误的原因。</li>
+</ul>
+<p>捕获 URL 异常的示例代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"><span class="hljs-keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://www.google.com"</span></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    response = request.urlopen(url)</span><br><span class="line"><span class="hljs-keyword">except</span> error.URLError <span class="hljs-keyword">as</span> e:</span><br><span class="line">    print(e.reason)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>HTTPError
+HTTPError 是 UEKRrror 的子类，专门处理 HTTP 和 HTTPS 请求的错误。它具有三个属性。
+1)</code>code<code>：HTTP 请求返回的状态码。
+1)</code>renson<code>：与父类用法一样，表示返回错误的原因。
+1)</code>headers`：HTTP 请求返回的响应头信息。</li>
+</ul>
+<p>获取 HTTP 异常的示例代码, 输出了错误状态码、错误原因、服务器响应头</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> urllib.request</span><br><span class="line"><span class="hljs-keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://www.google.com"</span></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    response = request.urlopen(url)</span><br><span class="line"><span class="hljs-keyword">except</span> error.HTTPError <span class="hljs-keyword">as</span> e:</span><br><span class="line">   print(<span class="hljs-string">'code: '</span> + e.code + <span class="hljs-string">'\n'</span>)</span><br><span class="line">   print(<span class="hljs-string">'reason: '</span> + e.reason + <span class="hljs-string">'\n'</span>)</span><br><span class="line">   print(<span class="hljs-string">'headers: '</span> + e.headers + <span class="hljs-string">'\n'</span>)</span><br></pre></td></tr></table></figure>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -390,7 +474,7 @@ HTTPError 是 UEKRrror 的子类，专门处理 HTTP 和 HTTPS 请求的错误�
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2113,7 +2197,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

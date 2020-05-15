@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 正则表达式用法总结">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBb5o8.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:49:18.710Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsHmo6.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:11:00.858Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBb5o8.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsHmo6.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBb5o8.jpg" alt="Python 正则表达式">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Python 正则表达式
+                <span class="card-title-color">Python 正则表达式</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>我们能够使用 urllib 向网页请求并获取其网页数据。但是抓取信息数据量比较大，我们可能需要其中一小部分数据。对付刚才的难题，就需要正则表达式出马了。正则表达式能帮助我们匹配过滤到我们需要的数据，但它学习起来非常枯燥无味。你可能会说，我还没有开始想学习正则表达式，你就来打击我？  莫慌！层层递进地学习，一步一个脚印地学习，很快就会学会了。对于爬虫，我觉得学会最基本的符号就差不多了。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>我们能够使用 urllib 向网页请求并获取其网页数据。但是抓取信息数据量比较大，我们可能需要其中一小部分数据。对付刚才的难题，就需要正则表达式出马了。正则表达式能帮助我们匹配过滤到我们需要的数据，但它学习起来非常枯燥无味。你可能会说，我还没有开始想学习正则表达式，你就来打击我？  莫慌！层层递进地学习，一步一个脚印地学习，很快就会学会了。对于爬虫，我觉得学会最基本的符号就差不多了。</p>
 <a id="more"></a>
 <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>下面是一张关于正则表达式字符的图，图片资料来自CSDN。先把图中字符了解清楚，基本上算是入门。<br><img src="./images/img/30_re.jpg" alt></p>
 <h2 id="re-模块"><a href="#re-模块" class="headerlink" title="re 模块"></a>re 模块</h2><p>Python 自 1.5 版本起通过新增 re （Regular Expression 正则表达式）模块来提供对正则表达式的支持。使用 re 模块先将正则表达式填充到 Pattern 对象中，再把 Pattern 对象作为参数使用 match 方法去匹配的字符串文本。match 方法会返回一个 Match 对象，再通过 Match 对象会得到我们的信息并进行操作。下面介绍几个 re 常用的函数。</p>
@@ -278,6 +284,76 @@ var _hmt = _hmt || [];
 <p>参数用法以及返回结果跟<code>match</code>函数用法相同。</p>
 <p><code>findall</code> 函数用法的示例代码：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pattern = re.compile(<span class="hljs-string">'\d+'</span>)</span><br><span class="line">text = <span class="hljs-string">'one1two2three3four4'</span></span><br><span class="line">list = re.findall(pattern, text)</span><br><span class="line"><span class="hljs-keyword">if</span> list:</span><br><span class="line">    print(list)</span><br><span class="line"><span class="hljs-keyword">else</span>:</span><br><span class="line">    print(<span class="hljs-string">'没有匹配'</span>)</span><br></pre></td></tr></table></figure>
+                </div>             
+            
+            <!-- <p>我们能够使用 urllib 向网页请求并获取其网页数据。但是抓取信息数据量比较大，我们可能需要其中一小部分数据。对付刚才的难题，就需要正则表达式出马了。正则表达式能帮助我们匹配过滤到我们需要的数据，但它学习起来非常枯燥无味。你可能会说，我还没有开始想学习正则表达式，你就来打击我？  莫慌！层层递进地学习，一步一个脚印地学习，很快就会学会了。对于爬虫，我觉得学会最基本的符号就差不多了。</p>
+<a id="more"></a>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>下面是一张关于正则表达式字符的图，图片资料来自CSDN。先把图中字符了解清楚，基本上算是入门。<br><img src="./images/img/30_re.jpg" alt></p>
+<h2 id="re-模块"><a href="#re-模块" class="headerlink" title="re 模块"></a>re 模块</h2><p>Python 自 1.5 版本起通过新增 re （Regular Expression 正则表达式）模块来提供对正则表达式的支持。使用 re 模块先将正则表达式填充到 Pattern 对象中，再把 Pattern 对象作为参数使用 match 方法去匹配的字符串文本。match 方法会返回一个 Match 对象，再通过 Match 对象会得到我们的信息并进行操作。下面介绍几个 re 常用的函数。</p>
+<h3 id="compile-函数"><a href="#compile-函数" class="headerlink" title="compile 函数"></a>compile 函数</h3><p><code>compile</code> 是把正则表达式的模式和标识转化成正则表达式对象，供 match() 和 search() 这两个函数使用。它的函数语法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.compile(pattern[, flags])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个参数是<code>pattern</code>，指的正则表达式。</li>
+<li>第二个参数<code>flags</code>是匹配模式，是个可选参数。可以使用按位或’|’表示同时生效，也可以在正则表达式字符串中指定。匹配模式有以下几种：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">flag</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">re.I(全拼：IGNORECASE)</td>
+<td align="center">忽略大小写（括号内是完整写法，下同）</td>
+</tr>
+<tr>
+<td align="center">re.M(全拼：MULTILINE)</td>
+<td align="center">多行模式，改变’^’和’$’的行为（参见上图）</td>
+</tr>
+<tr>
+<td align="center">re.S(全拼：DOTALL)</td>
+<td align="center">点任意匹配模式，改变’.’的行为</td>
+</tr>
+<tr>
+<td align="center">re.L(全拼：LOCALE)</td>
+<td align="center">使预定字符类 \w \W \b \B \s \S 取决于当前区域设定</td>
+</tr>
+<tr>
+<td align="center">re.U(全拼：UNICODE)</td>
+<td align="center">使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性</td>
+</tr>
+<tr>
+<td align="center">re.X(全拼：VERBOSE)</td>
+<td align="center">详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>该方法返回的结果是一个 Pattern 对象。</li>
+</ul>
+<h3 id="match-函数"><a href="#match-函数" class="headerlink" title="match 函数"></a>match 函数</h3><p><code>match()</code>函数只在字符串的开始位置尝试匹配正则表达式，也就是说只有在 0 位置匹配成功的话才有返回。如果不是开始位置匹配成功的话，match() 就返回 none。它的函数语法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.match(pattern, string[, flags])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一个参数：匹配的正则表达式</li>
+<li>第二个参数：要被匹配的字符串</li>
+<li>flags 是可选参数，跟 compile 用法相似</li>
+<li>匹配成功 re.match 方法返回一个匹配的对象，否则返回None。要想获得匹配结果，既可以使用<code>groups()</code>函数获取一个包含所有字符串的元组（从 1 到 所含的小组号），也可以使用<code>group(组号)</code>函数获取某个组号的字符串。</li>
+</ul>
+<p><code>match</code> 函数用法的示例代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pattern = re.compile(<span class="hljs-string">'Python'</span>)</span><br><span class="line">text = <span class="hljs-string">'Python python pythonn'</span></span><br><span class="line">match = re.search(pattern, text)</span><br><span class="line"><span class="hljs-keyword">if</span> match:</span><br><span class="line">    print(match.group())</span><br><span class="line"><span class="hljs-keyword">else</span>:</span><br><span class="line">    print(<span class="hljs-string">'没有匹配'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="search-函数"><a href="#search-函数" class="headerlink" title="search 函数"></a>search 函数</h3><p> <code>search()</code> 函数是扫描整个字符串来查找匹配，它返回结果是第一个成功匹配的字符串。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.search(pattern, string[, flags])</span><br></pre></td></tr></table></figure>
+<p>参数用法以及返回结果跟<code>match</code>函数用法相同。</p>
+<p><code>search</code> 函数用法的示例代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pattern = re.compile(<span class="hljs-string">'Python'</span>)</span><br><span class="line">text = <span class="hljs-string">'welcome to Python world!'</span></span><br><span class="line">match = re.search(pattern, text)</span><br><span class="line"><span class="hljs-keyword">if</span> match:</span><br><span class="line">    print(match.group())</span><br><span class="line"><span class="hljs-keyword">else</span>:</span><br><span class="line">    print(<span class="hljs-string">'没有匹配'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="findall-函数"><a href="#findall-函数" class="headerlink" title="findall 函数"></a>findall 函数</h3><p><code>findall</code>函数在字符串中搜索子串，并以列表形式返回全部能匹配的所有子串。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.findall(pattern, string[, flags])</span><br></pre></td></tr></table></figure>
+<p>参数用法以及返回结果跟<code>match</code>函数用法相同。</p>
+<p><code>findall</code> 函数用法的示例代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pattern = re.compile(<span class="hljs-string">'\d+'</span>)</span><br><span class="line">text = <span class="hljs-string">'one1two2three3four4'</span></span><br><span class="line">list = re.findall(pattern, text)</span><br><span class="line"><span class="hljs-keyword">if</span> list:</span><br><span class="line">    print(list)</span><br><span class="line"><span class="hljs-keyword">else</span>:</span><br><span class="line">    print(<span class="hljs-string">'没有匹配'</span>)</span><br></pre></td></tr></table></figure>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -382,7 +458,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2081,7 +2157,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

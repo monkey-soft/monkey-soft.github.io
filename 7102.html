@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="说说近期自己的感悟">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDVX8J.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:32:11.003Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Yyliy8.jpg">
+<meta property="og:updated_time" content="2020-05-15T14:08:17.887Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDVX8J.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Yyliy8.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDVX8J.jpg" alt="如何快速上手熟悉业务？">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>如何快速上手熟悉业务？
+                <span class="card-title-color">如何快速上手熟悉业务？</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>也许你会有这样的经历，刚跳槽到新公司，开始接手新的项目，熟悉业务。当你发现代码易读性不高，注释也是简单几句；这确实是一个不小的挑战。硬着头皮去啃代码，然后来熟悉业务。这方法看似乎可行，但缺会消耗大量的时间和精力，故此策是下策。那何为上策？上述的方式是以点线去摸索整个面。那我们可以换种思考方式，从整体的角度去看到业务，再逐步去熟知各个部分细节。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>也许你会有这样的经历，刚跳槽到新公司，开始接手新的项目，熟悉业务。当你发现代码易读性不高，注释也是简单几句；这确实是一个不小的挑战。硬着头皮去啃代码，然后来熟悉业务。这方法看似乎可行，但缺会消耗大量的时间和精力，故此策是下策。那何为上策？上述的方式是以点线去摸索整个面。那我们可以换种思考方式，从整体的角度去看到业务，再逐步去熟知各个部分细节。</p>
 <a id="more"></a>
 <h2 id="先以产品功能角度分析"><a href="#先以产品功能角度分析" class="headerlink" title="先以产品功能角度分析"></a>先以产品功能角度分析</h2><p>产品从面向客户群体可以分为 ToC 产品和 ToB 产品。ToB 产品，B 是表示 Business，即 ToB 产品则是面向企业的产品。ToC 产品是 To Consumer 的缩写，即面向消费者的产品。但无论是 ToC 还是 ToB 产品，都是给客户使用的。</p>
 <p>ToC 产品的范畴有类似 12306 购票网站、类似微信 APP 等。这类产品功能比较具体化，所以给用户感觉很直观，容易理解。而 ToB 产品更多是以接口、解决方案等方式提供，会比较抽象，如微信开放平台、淘宝卖家平台、网络安全解决方案、电商业务解决方案。</p>
@@ -238,6 +244,36 @@ var _hmt = _hmt || [];
 <p>技术层级是逻辑概念，指将业务进行分层。有句流行语挺有意思的。在软件行业中，如果分层无法搞定，那就再分一层。这也是我们常说的设计模式。例如常见的 MVC、MVP、MVVM 设计模式。目的是解决界面 UI 呈现和业务逻辑代码分离，所以拆分为视图、业务处理层、数据存储层。</p>
 <h2 id="最后研究技术方案"><a href="#最后研究技术方案" class="headerlink" title="最后研究技术方案"></a>最后研究技术方案</h2><p>技术方案是各个抽象出来的需求和功能转为化一行行代码的指令。也可以简单理解为实现方式。举个栗子，有个业务功能需要客户端向服务器获取数据，采用 HTTP 短链接方式不停去请求服务器？还是 WebSocket 长链接去轮询？</p>
 
+                </div>             
+            
+            <!-- <p>也许你会有这样的经历，刚跳槽到新公司，开始接手新的项目，熟悉业务。当你发现代码易读性不高，注释也是简单几句；这确实是一个不小的挑战。硬着头皮去啃代码，然后来熟悉业务。这方法看似乎可行，但缺会消耗大量的时间和精力，故此策是下策。那何为上策？上述的方式是以点线去摸索整个面。那我们可以换种思考方式，从整体的角度去看到业务，再逐步去熟知各个部分细节。</p>
+<a id="more"></a>
+<h2 id="先以产品功能角度分析"><a href="#先以产品功能角度分析" class="headerlink" title="先以产品功能角度分析"></a>先以产品功能角度分析</h2><p>产品从面向客户群体可以分为 ToC 产品和 ToB 产品。ToB 产品，B 是表示 Business，即 ToB 产品则是面向企业的产品。ToC 产品是 To Consumer 的缩写，即面向消费者的产品。但无论是 ToC 还是 ToB 产品，都是给客户使用的。</p>
+<p>ToC 产品的范畴有类似 12306 购票网站、类似微信 APP 等。这类产品功能比较具体化，所以给用户感觉很直观，容易理解。而 ToB 产品更多是以接口、解决方案等方式提供，会比较抽象，如微信开放平台、淘宝卖家平台、网络安全解决方案、电商业务解决方案。</p>
+<p><strong>拆分业务最直接的方式是体验。以使用者的角度入手，遍历产品个各个功能项，然后进行分类工作和绘制思维导图。</strong></p>
+<p><strong>分类可以从功能关联性、用户使用率、时序逻辑等不同角度来进行</strong>。</p>
+<ul>
+<li><p>功能关联性指功能之间存在某种联系。如购票网站的注册功能和登录功能存在依赖关系，如果是新用户就需要先注册后才能去登录。</p>
+</li>
+<li><p>用户使用率可以通过统计使用功能的频率。</p>
+</li>
+<li><p>如果时序逻辑角度入手，重点关注是整个流程。如：分享一篇微信公众号文章到朋友圈，流程是浏览文章 -&gt; 点击分享 -&gt; 填写分享内容（可省略）-&gt; 确认分享。</p>
+</li>
+</ul>
+<p>最后一步就是绘制产品功能项的思维导图，<strong>绘制产品功能的思维导图，导图的目的不是为了单纯列举功能项，是为了找到产品的核心竞争力</strong>。一个产品如果各项功能之间都是分散的，只能叫工具箱。绘制思维导图按照产品四个功能维度去划分。</p>
+<p><img src="./images/img/142_1.jpg" alt></p>
+<ul>
+<li>核心功能<br>  必不可少的核心痛点功能，缺了就不能构成产品的基本能力。例如：社交软件的用户沟通功能，12306 网站的购买车票，文本编辑器能处理文本。</li>
+<li>附加功能<br>  比不可少的痒点功能，但不能带来收益。例如：闹钟支持更换响铃，浏览器附带下载管理。</li>
+<li>增值功能<br>  痒点功能，能够带来收益的功能。例如：腾讯视频VIP，百度网盘会员，MS Office 365订阅</li>
+<li>非必须功能<br>  并不是必然要实现的功能（有不有都无所谓的功能）。例如：iOS 低电量警告音，车载中控的游戏功能，短信骚扰拦截后通知。</li>
+</ul>
+<h2 id="再看技术实现"><a href="#再看技术实现" class="headerlink" title="再看技术实现"></a>再看技术实现</h2><p>通过将产品拆分为各个功能模块，我们已经对其从整体上的有了大概认识。但这些还远达不到拆分业务的要求，需要我们从技术实现角度往深入去剖析。<strong>技术实现层面可以分为产品架构、技术层级两个方面</strong>。</p>
+<p>一款产品在一开始设计架构时，往往是花费时间。产品的架构相当于整座高楼大厦的钢筋骨骼。架构设计好的话，产品稳定，可扩展性强，可维护性高。产品架构分析是描述各个业务模块之间的关系。因此，同样也通过绘制产品的架构图加深理解。我在谷歌官网找到 Android 系统整体架构图。</p>
+<p><img src="./images/img/142_2.png" alt></p>
+<p>技术层级是逻辑概念，指将业务进行分层。有句流行语挺有意思的。在软件行业中，如果分层无法搞定，那就再分一层。这也是我们常说的设计模式。例如常见的 MVC、MVP、MVVM 设计模式。目的是解决界面 UI 呈现和业务逻辑代码分离，所以拆分为视图、业务处理层、数据存储层。</p>
+<h2 id="最后研究技术方案"><a href="#最后研究技术方案" class="headerlink" title="最后研究技术方案"></a>最后研究技术方案</h2><p>技术方案是各个抽象出来的需求和功能转为化一行行代码的指令。也可以简单理解为实现方式。举个栗子，有个业务功能需要客户端向服务器获取数据，采用 HTTP 短链接方式不停去请求服务器？还是 WebSocket 长链接去轮询？</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -342,7 +378,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2029,7 +2065,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

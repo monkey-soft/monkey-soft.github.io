@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/1292.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDV0gA.jpg" alt="账号认证那些事">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/1292.html"><i class="fas fa-angle-double-right"></i>账号认证那些事</a>
+                <a class="card-title-color" href="/1292.html">账号认证那些事</a>
             
         </h1>
 
@@ -210,8 +208,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>QQ 承载着我们一代人的青春和记忆，一个账号和密码就能体验 QQ 各种功能。而微信作为一款国民级应用，是每个人手机必安装的软件，同样也需要一个账号登陆才能使用。纵观各种社交应用、网站，往往都是离不开账号体系。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1292.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YyQrin.jpg" alt="账号认证那些事">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>QQ 承载着我们一代人的青春和记忆，一个账号和密码就能体验 QQ 各种功能。而微信作为一款国民级应用，是每个人手机必安装的软件，同样也需要一个账号登陆才能使用。纵观各种社交应用、网站，往往都是离不开账号体系。</p>
+<p>账号体系中有个重要的功能是账号登录，账号登录涉及到身份认证方法。我们在模拟登录网站去进行数据采集时，经常需要跟网站的身份认证“斗智斗勇”。</p>
+                </div>
+            
+            <!-- <p>QQ 承载着我们一代人的青春和记忆，一个账号和密码就能体验 QQ 各种功能。而微信作为一款国民级应用，是每个人手机必安装的软件，同样也需要一个账号登陆才能使用。纵观各种社交应用、网站，往往都是离不开账号体系。</p>
+<p>账号体系中有个重要的功能是账号登录，账号登录涉及到身份认证方法。我们在模拟登录网站去进行数据采集时，经常需要跟网站的身份认证“斗智斗勇”。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -2857,7 +2876,13 @@ document.addEventListener('DOMContentLoaded', function () {
 <link rel="stylesheet" href="/css/insight.css">
     
 </body>
-</html>ntById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+</html>); hnum = Math.floor(hours); 
+                        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                        document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
+                        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
                     } 
                     setInterval("createtime()",250);
                 </script>
@@ -2941,7 +2966,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

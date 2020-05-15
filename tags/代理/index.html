@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/978.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDE0mV.jpg" alt="带你了解代理 IP 那些事">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/978.html"><i class="fas fa-angle-double-right"></i>带你了解代理 IP 那些事</a>
+                <a class="card-title-color" href="/978.html">带你了解代理 IP 那些事</a>
             
         </h1>
 
@@ -210,8 +208,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>因为 Python 语法简介以及强大的第三方库，所以我们使用它来制作网络爬虫程序。网络爬虫的用途是进行数据采集，也就是将互联网中的数据采集过来。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/978.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YyM7Dg.jpg" alt="带你了解代理 IP 那些事">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>因为 Python 语法简介以及强大的第三方库，所以我们使用它来制作网络爬虫程序。网络爬虫的用途是进行数据采集，也就是将互联网中的数据采集过来。</p>
+<p>在爬取某些网站时，我们经常会设置代理 IP 来避免爬虫程序被封。我们获取代理 IP 地址方式通常提取国内的知名 IP 代理商（如西刺代理，快代理，无忧代理等）的免费代理。这些代理商一般都会提供透明代理，匿名代理，高匿代理。那么这几种代理的区别是什么？</p>
+                </div>
+            
+            <!-- <p>因为 Python 语法简介以及强大的第三方库，所以我们使用它来制作网络爬虫程序。网络爬虫的用途是进行数据采集，也就是将互联网中的数据采集过来。</p>
+<p>在爬取某些网站时，我们经常会设置代理 IP 来避免爬虫程序被封。我们获取代理 IP 地址方式通常提取国内的知名 IP 代理商（如西刺代理，快代理，无忧代理等）的免费代理。这些代理商一般都会提供透明代理，匿名代理，高匿代理。那么这几种代理的区别是什么？</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

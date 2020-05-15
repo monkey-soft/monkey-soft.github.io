@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/446.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBxW9K.jpg" alt="该如何学习 Python？">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/446.html"><i class="fas fa-angle-double-right"></i>该如何学习 Python？</a>
+                <a class="card-title-color" href="/446.html">该如何学习 Python？</a>
             
         </h1>
 
@@ -210,8 +208,35 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>在我的 QQ 学习交流群中，有位读者问我一个很有代表性的问题，在这里和大家分享下。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/446.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsXbWV.jpg" alt="该如何学习 Python？">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>在我的 QQ 学习交流群中，有位读者问我一个很有代表性的问题，在这里和大家分享下。</p>
+<blockquote>
+<p>猴哥，能说下自学的学习经验吗？我都自学 Python 一个月了。</p>
+</blockquote>
+<p>在我看来，这个问题的本质就是找到属于自己的学习方法。我把自己的经验分享给大家，希望对你们有帮助。在这之前，我要先说下学习效率的问题。</p>
+                </div>
+            
+            <!-- <p>在我的 QQ 学习交流群中，有位读者问我一个很有代表性的问题，在这里和大家分享下。</p>
+<blockquote>
+<p>猴哥，能说下自学的学习经验吗？我都自学 Python 一个月了。</p>
+</blockquote>
+<p>在我看来，这个问题的本质就是找到属于自己的学习方法。我把自己的经验分享给大家，希望对你们有帮助。在这之前，我要先说下学习效率的问题。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2830,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

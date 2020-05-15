@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 学习笔记之使用旧数据库">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBxdpT.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:14:24.947Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsXrdA.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:11:40.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBxdpT.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsXrdA.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBxdpT.jpg" alt="Django 学习笔记之使用旧数据库">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Django 学习笔记之使用旧数据库
+                <span class="card-title-color">Django 学习笔记之使用旧数据库</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>如果你按照顺序，从第一篇文章读到本文。恭喜你，你已经将 Django 大部分基础知识掌握了。后续的文章是在之前的基础上添砖加瓦或常用的应用。本文将的内容是一个场景应用，新项目使用旧数据库。</p>
-<a id="more"></a>
-<p>可能以前项目是使用其他语言，如 Java 或 PHP 开发的<br>，后面迁移到 Python 上。虽然应用程序改变了，但是数据缺不是丢弃。因此，存在这样的问题。那就是使用 Django 开发的 Web 应用程序如何使用旧的数据库？</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>如果你按照顺序，从第一篇文章读到本文。恭喜你，你已经将 Django 大部分基础知识掌握了。后续的文章是在之前的基础上添砖加瓦或常用的应用。本文将的内容是一个场景应用，新项目使用旧数据库。</p>
+<p>可能以前项目是使用其他语言，如 Java 或 PHP 开发的，后面迁移到 Python 上。虽然应用程序改变了，但是数据缺不是丢弃。因此，存在这样的问题。那就是使用<a id="more"></a> Django 开发的 Web 应用程序如何使用旧的数据库？</p>
 <p>我就使用旧的 SqLite 数据库作为例子进行讲解，MySQL 等其他数据库也是操作类似。</p>
 <h2 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h2><p>旧的数据库名为 MyDataBase.db, 我将其导入到新项目的 db 目录。<br><img src="./images/img/71_1.png" alt></p>
 <p>然后将 settings.py 文件中的数据库名称修改下。</p>
@@ -241,6 +246,38 @@ var _hmt = _hmt || [];
 
 <p>保存修改之后，重新执行同步数据库命令即可。</p>
 
+                </div>             
+            
+            <!-- <p>如果你按照顺序，从第一篇文章读到本文。恭喜你，你已经将 Django 大部分基础知识掌握了。后续的文章是在之前的基础上添砖加瓦或常用的应用。本文将的内容是一个场景应用，新项目使用旧数据库。</p>
+<p>可能以前项目是使用其他语言，如 Java 或 PHP 开发的，后面迁移到 Python 上。虽然应用程序改变了，但是数据缺不是丢弃。因此，存在这样的问题。那就是使用<a id="more"></a> Django 开发的 Web 应用程序如何使用旧的数据库？</p>
+<p>我就使用旧的 SqLite 数据库作为例子进行讲解，MySQL 等其他数据库也是操作类似。</p>
+<h2 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h2><p>旧的数据库名为 MyDataBase.db, 我将其导入到新项目的 db 目录。<br><img src="./images/img/71_1.png" alt></p>
+<p>然后将 settings.py 文件中的数据库名称修改下。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">        <span class="hljs-comment"># 系统自动生成</span></span><br><span class="line">        <span class="hljs-comment"># 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),</span></span><br><span class="line">        <span class="hljs-string">'NAME'</span>: os.path.join(BASE_DIR, <span class="hljs-string">'./db/MyDataBase.db'</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h2><p>我们知道 Models 层是跟数据库打交道的层次，需要创建数据库表对应的 models。但对应使用旧数据库，我们不需要手动创建，可以使用 Django 提供的 API 反向生成 models。</p>
+<p>假设数据有一张表，其创建表的 SQL 语句如下：</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">Create</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">exists</span> <span class="hljs-string">`Users`</span> (</span><br><span class="line">     <span class="hljs-string">`id`</span> <span class="hljs-built_in">INTEGER</span> PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line">     <span class="hljs-string">`username`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">64</span>),</span><br><span class="line">     <span class="hljs-string">`password`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">64</span>),</span><br><span class="line">     <span class="hljs-string">`email`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">64</span>) ,</span><br><span class="line">     <span class="hljs-string">`QQ`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">15</span>) ,</span><br><span class="line">     <span class="hljs-string">`weibo`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">300</span>),</span><br><span class="line">     <span class="hljs-string">`cell_phone`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">20</span>),</span><br><span class="line">     <span class="hljs-string">`college`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">60</span>),</span><br><span class="line">     <span class="hljs-string">`living_place`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">200</span>),</span><br><span class="line">     <span class="hljs-string">`remarks`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">400</span>)</span><br><span class="line">     );</span><br></pre></td></tr></table></figure>
+
+
+<p>我们进入到项目的目录下，打开终端，执行以下命令：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py inspectdb</span><br></pre></td></tr></table></figure>
+
+<p>目的是针对已有数据库自省生成新的 models。<br><img src="./images/img/71_2.png" alt></p>
+<p>然后执行导出命令，将模型导出到 models.py 文件中。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py inspectdb &gt; models.py</span><br></pre></td></tr></table></figure>
+
+<p>你会看到项目根目录下多了一个名为 models.py 文件。<br><img src="./images/img/71_3.png" alt></p>
+<p>将其内容迁移到 app 的 models.py 中。默认配置下生成不可修改或删除的 models，所以我们修改 meta class 中的 managed 属性。如果 managed 被设置为 True，则告诉 Django 可以对数据库进行操作。</p>
+<p>最后一步，同步 model 的改动到数据库中。在项目目录下，使用终端执行以下命令。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<p>如果没有报错的话，证明成功导入。有时候可能会报出以下的错误：<br><img src="./images/img/71_4.png" alt></p>
+<p>原因是表中定义了 id 字段，同时这个字段被设定为主键。具体的解决方式是：修改 model.py 中 id 字段的定义; 将其中的 <strong>null=True</strong> 修改为 <strong>primary_key=True</strong>。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 修改前</span></span><br><span class="line">id = models.IntegerField(blank=<span class="hljs-literal">True</span>, null=<span class="hljs-literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 修改后</span></span><br><span class="line">id = models.IntegerField(blank=<span class="hljs-literal">True</span>, primary_key=<span class="hljs-literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>保存修改之后，重新执行同步数据库命令即可。</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -345,7 +382,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2028,7 +2065,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

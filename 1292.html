@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="账号认证那些事">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDV0gA.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:28:52.244Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQrin.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:27:58.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDV0gA.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQrin.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDV0gA.jpg" alt="账号认证那些事">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>账号认证那些事
+                <span class="card-title-color">账号认证那些事</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>QQ 承载着我们一代人的青春和记忆，一个账号和密码就能体验 QQ 各种功能。而微信作为一款国民级应用，是每个人手机必安装的软件，同样也需要一个账号登陆才能使用。纵观各种社交应用、网站，往往都是离不开账号体系。</p>
-<a id="more"></a>
-<p>账号体系中有个重要的功能是账号登录，账号登录涉及到身份认证方法。我们在模拟登录网站去进行数据采集时，经常需要跟网站的身份认证“斗智斗勇”。因此，让我们来扒一扒其中的一些原理。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>QQ 承载着我们一代人的青春和记忆，一个账号和密码就能体验 QQ 各种功能。而微信作为一款国民级应用，是每个人手机必安装的软件，同样也需要一个账号登陆才能使用。纵观各种社交应用、网站，往往都是离不开账号体系。</p>
+<p>账号体系中有个重要的功能是账号登录，账号登录涉及到身份认证方法。我们在模拟登录网站去进行数据采集时，经常需要跟网站的身份认证“斗智斗勇”。<a id="more"></a>因此，让我们来扒一扒其中的一些原理。</p>
 <h2 id="基本身份验证"><a href="#基本身份验证" class="headerlink" title="基本身份验证"></a>基本身份验证</h2><p>我们写的爬虫都是采用 HTTP/HTTPS 协议。HTTP 协议中有种名为 Basic Authentication（基本身份验证）的验证方式。这种认证方式在 HTTP/1.0 就定义了。</p>
 <p>它的原理是在请求的 Headers 中增加 <strong>Authorization</strong> 字段，该字段的值是将“用户名：密码”的经过 Base64 编码之后的字符串；然后将其发送给服务器端做校验。</p>
 <p>我们进一步理解 HTTP 基本认证的过程：</p>
@@ -246,6 +251,43 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 
+                </div>             
+            
+            <!-- <p>QQ 承载着我们一代人的青春和记忆，一个账号和密码就能体验 QQ 各种功能。而微信作为一款国民级应用，是每个人手机必安装的软件，同样也需要一个账号登陆才能使用。纵观各种社交应用、网站，往往都是离不开账号体系。</p>
+<p>账号体系中有个重要的功能是账号登录，账号登录涉及到身份认证方法。我们在模拟登录网站去进行数据采集时，经常需要跟网站的身份认证“斗智斗勇”。<a id="more"></a>因此，让我们来扒一扒其中的一些原理。</p>
+<h2 id="基本身份验证"><a href="#基本身份验证" class="headerlink" title="基本身份验证"></a>基本身份验证</h2><p>我们写的爬虫都是采用 HTTP/HTTPS 协议。HTTP 协议中有种名为 Basic Authentication（基本身份验证）的验证方式。这种认证方式在 HTTP/1.0 就定义了。</p>
+<p>它的原理是在请求的 Headers 中增加 <strong>Authorization</strong> 字段，该字段的值是将“用户名：密码”的经过 Base64 编码之后的字符串；然后将其发送给服务器端做校验。</p>
+<p>我们进一步理解 HTTP 基本认证的过程：</p>
+<ol>
+<li>客户端发送 Request 给服务端。</li>
+<li>因为 Request 的 Headers 中没有包含 Authorization 字段，服务器会返回一个 401 错误给客户端。</li>
+<li>客户端把用户名和密码用 base64 编码之后，放在 Authorization header 中发送给服务器进行验证。</li>
+<li>服务端将 Authorization header 中的用户名和密码取出来，进行验证，如果验证通过将根据需求发送资源给客户端。</li>
+</ol>
+<h2 id="基于-Session-的认证"><a href="#基于-Session-的认证" class="headerlink" title="基于 Session 的认证"></a>基于 Session 的认证</h2><p>因为 HTTP 协议是无状态的，所以有人提出 Session 机制来维护服务器和用户之间的状态。</p>
+<p>如果需要验证身份，那么在服务端生成用户相关的 Session 数据，然后发给客户端 Session_id 存放到 Cookies 中。客户端下次请求时带上 Session_id 就可以验证服务器端是否存在 Session 数据，以此完成用户认证。这种 Session 认证是网站平常用的比较多。</p>
+<p>这种认证方式，可以更好的在服务端对会话进行控制，安全性比较高(Session_id 随机），但是服务端需要存储 Session 数据(如内存或数据库）。</p>
+<h2 id="基于-Token-的认证"><a href="#基于-Token-的认证" class="headerlink" title="基于 Token 的认证"></a>基于 Token 的认证</h2><p>基于 Token（令牌）的认证已经变得更加普遍最近随着 RESTful API 的应用，单页应用程序和微服务的兴起。怎么理解 token 呢？当发出HTTP请求时， token 是验证用户是否有资格访问资源的凭证。</p>
+<p>基于令牌的认证流程如下：</p>
+<ol>
+<li>用户输入账号和密码。</li>
+<li>服务器验证信息是否正确；如果正确则返回已签名的 token。</li>
+<li>token 储在客户端，最常见的是存储在 local storage 中，但也可以存储在 Session 或 Cookies 中。</li>
+<li>后面每次 HTTP 请求都在 Header 中带上 token。</li>
+<li>服务端收到 token 通过验证后即可确认用户身，并且如果令牌有效，则接受请求。</li>
+<li>一旦用户注销，令牌将在客户端被销毁。</li>
+</ol>
+<p>基于 token 的用户认证是一种服务端无状态的认证方式，服务端不用存放 token 数据或当前 Session 的记录。这种方式相对 Cookies 的认证方式就简单一些，服务端不用存储认证数据，易维护扩展性强， token 存在 localStorage 可避免 CSRF ， web 和 app 应用这用接口都比较简单。不过这种方式在加密或解密的时候会有一些性能开销。</p>
+<p>说到基于 Token 的认证，就不得不说下 JWT。JWT 全称是“JSON Web Token”，它是一种基于 Token 的认证标准。</p>
+<h2 id="OAuth"><a href="#OAuth" class="headerlink" title="OAuth"></a>OAuth</h2><p>OAuth 是一种认证协议，允许用户对没有密码的服务器执行认证。 OAuth 存在很多版本，OAuth 1.0，OAuth 1.0a 和 OAuth 2.0。OAuth 认证也是很好理解，就是一些网站或者应用支持第三方登录（QQ、微信、微博等）。</p>
+<h2 id="OpenID"><a href="#OpenID" class="headerlink" title="OpenID"></a>OpenID</h2><p>OpenId 是另一种不需要密码的身份验证协议（类似于OAuth）。它们两者的区别是 ：</p>
+<ul>
+<li><p>OpenID 强调 <strong>验证 Authentication</strong><br>例如使用 QQ 方式登录知乎。最开始是要请求认证，用户输入 QQ 号和密码，点击登录。腾讯会先进行验证该用户是否为腾讯 QQ 的用户；如果是我的用户，那么腾讯 QQ 会通知知乎说“刚才登录是我腾讯 QQ 的用户，验证没有问题，可以你知乎社区”，这个过程就是认证（Authentication）。</p>
+</li>
+<li><p>OAuth 强调 <strong>授权 Authorization</strong><br>微信一开始是支持 QQ 方式登录，登录时微信会乎会询问允许获取你的 QQ 昵称、头像、性别等信息。这个就是授权（Authorization）。</p>
+</li>
+</ul>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -350,7 +392,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2045,7 +2087,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

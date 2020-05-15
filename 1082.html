@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="详解 Scrapy 中间键的用法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDE2lR.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:26:07.684Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQpKU.jpg">
+<meta property="og:updated_time" content="2020-05-15T14:02:12.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDE2lR.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQpKU.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDE2lR.jpg" alt="详解 Scrapy 中间键的用法">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>详解 Scrapy 中间键的用法
+                <span class="card-title-color">详解 Scrapy 中间键的用法</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>Scrapy 爬虫框架的出现，确实能让我们更加专注于数据抓取。同时，我们借助 Scrapy 框架来爬取整个站点数据也显得更加容易。虽然 Scarpy 负责 url 调度、网络请求、页面数据下载等工作，但是它的扩展性很高，其中就支持自定义中间件(Middleware)。本文主要讲解中间件(Middleware)的用法。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>Scrapy 爬虫框架的出现，确实能让我们更加专注于数据抓取。同时，我们借助 Scrapy 框架来爬取整个站点数据也显得更加容易。虽然 Scarpy 负责 url 调度、网络请求、页面数据下载等工作，但是它的扩展性很高，其中就支持自定义中间件(Middleware)。本文主要讲解中间件(Middleware)的用法。</p>
 <a id="more"></a>
 <h2 id="什么是中间件"><a href="#什么是中间件" class="headerlink" title="什么是中间件"></a>什么是中间件</h2><p>中间件的运用比较广泛，如果直接从定义的角度去理解中间件会有点乱，我以分布式系统为例子进行说明。在上篇文章，我讲到目前后台服务架构基本都是往分布式发展。其实分布式系统也算是一个中间件。</p>
 <p>那什么是分布式系统？分布式系统是由一组通过网络进行通信、为了完成共同的任务而协调工作的计算机节点组成的系统。我们从下图中可得知，分布式系统是介于操作系统和用户应用之间的软件。</p>
@@ -254,6 +260,52 @@ var _hmt = _hmt || [];
 <p><strong>2) 在 setting.py 启用中间件</strong><br>我们已经实现了中间件，最后一步需要启用该中间件。我们将定义的中间件添加到 settings.py 文件。如果你是重载系统中间件，还需要将系统的中间件的值设置为 None。我前面定义的代理中间件，是需要对 HTTP 请求做操作。所以重载了 HttpProxyMiddleware 中间件。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#  中间件填写规则</span></span><br><span class="line"><span class="hljs-comment">#  yourproject.myMiddlewares(文件名).middleware类</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 设置代理</span></span><br><span class="line"><span class="hljs-string">'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware'</span>: <span class="hljs-literal">None</span>,</span><br><span class="line"><span class="hljs-string">'scrapydemo.middlewares.ProxyMiddleware'</span>: <span class="hljs-number">100</span>,</span><br></pre></td></tr></table></figure>
 
+                </div>             
+            
+            <!-- <p>Scrapy 爬虫框架的出现，确实能让我们更加专注于数据抓取。同时，我们借助 Scrapy 框架来爬取整个站点数据也显得更加容易。虽然 Scarpy 负责 url 调度、网络请求、页面数据下载等工作，但是它的扩展性很高，其中就支持自定义中间件(Middleware)。本文主要讲解中间件(Middleware)的用法。</p>
+<a id="more"></a>
+<h2 id="什么是中间件"><a href="#什么是中间件" class="headerlink" title="什么是中间件"></a>什么是中间件</h2><p>中间件的运用比较广泛，如果直接从定义的角度去理解中间件会有点乱，我以分布式系统为例子进行说明。在上篇文章，我讲到目前后台服务架构基本都是往分布式发展。其实分布式系统也算是一个中间件。</p>
+<p>那什么是分布式系统？分布式系统是由一组通过网络进行通信、为了完成共同的任务而协调工作的计算机节点组成的系统。我们从下图中可得知，分布式系统是介于操作系统和用户应用之间的软件。</p>
+<p><img src="./images/img/115_1.png" alt></p>
+<p>那么不妨我们进一步拓展下思维去理解中间件。可知，中间件(middleware)是基础软件的一大类，属于可复用软件的范畴。顾名思义，中间件处于操作系统软件与用户的应用软件的中间。</p>
+<h2 id="中间件在-Scrapy-框架中的作用"><a href="#中间件在-Scrapy-框架中的作用" class="headerlink" title="中间件在 Scrapy 框架中的作用"></a>中间件在 Scrapy 框架中的作用</h2><p>我们先通过一张图了解下 Scrapy 架构。</p>
+<p><img src="./images/img/39_5.png" alt></p>
+<p>我们可以看到 Scrapy 框架是有两个中间件。<br>一个是 Downloader 中间件，它是 Engine 和 Downloader 的枢纽。主要负责处理 Downloader 传递给 Engine 的 responses；</p>
+<p>另一个是 Spider 中间件，它Spider 中间件是 Engine 和 Spider 的连接桥梁；它主要是处理 Spider 的输入(responses) 以及输出 item 和 requests 给 Engine；</p>
+<h2 id="实现自己的中间件"><a href="#实现自己的中间件" class="headerlink" title="实现自己的中间件"></a>实现自己的中间件</h2><p>在 Scrapy 框架中，Downloader 中间件和 Spider 中间件都是支持自定义扩展。在实际应用中，我们经常需要对 Downloader 中间件进行制定化。例如实现一个 User-Agent 中间件给每个 HTTP 请求的头部增加随机筛选的 User-Agent 属性；或者实现一个代理中间件给每个 HTTP 请求设置随机选择的代理地址。</p>
+<p>接下来，让我们学习如何实现 Scrapy 的 Downloader 中间件。<br><strong>1) 定义中间件</strong><br>在 Scrapy 项目中，找到 middlewares.py 文件，在文件中创建自己的中间件类。例如，我创建一个代理中间件：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProxyMiddleware</span><span class="hljs-params">(object)</span>:</span></span><br></pre></td></tr></table></figure>
+
+<p>每个中间件一共有三个方法，分别是：</p>
+<ul>
+<li>process_request(request,spider)</li>
+</ul>
+<p>当每个 request 通过下载中间件时，该方法被调用。该方法必须返回以下三种中的任意一种：None，返回一个 Response 对象，返回一个 Request 对象或 raise IgnoreRequest。每种返回值的作用是不同的。</p>
+<p>None: Scrapy 将会继续处理该 request，执行其他的中间件的相应方法，直到合适的下载器处理函数( download handler )被调用,该 request 被执行(其 response被下载)。<strong>如果有多个中间件，其他的中间件可以通过返回 Null，然后指定对应的中间件去处理 request</strong></p>
+<p>Request 对象：Scrapy 则停止调用 process_request 方法并重新调度返回的 request。<strong>简单来说是拒绝该 Request 的 HTTP 请求。</strong></p>
+<p>Response 对象：直接返回结果。</p>
+<p>raise IgnoreRequest 异常：抛出异常，然后会被中间件的 process_exception() 方法会被调用。</p>
+<ul>
+<li><strong>process_response(request, response, spider)</strong></li>
+</ul>
+<p>process_response 的返回值也是有三种：Response 对象，Request对象，或者 raise 一个 IgnoreRequest 异常。</p>
+<p>如果返回的结果是 Response， 该 response 会被在链中的其他中间件的 process_response() 方法处理。</p>
+<p>如果的结果是 Request 对象，则中间件链停止，request 会被重新调度下载。</p>
+<p>raise IgnoreRequest 异常: 抛出异常，然后会被中间件的 process_exception() 方法会被调用。。</p>
+<ul>
+<li><strong>process_exception(request, exception, spider)</strong></li>
+</ul>
+<p>当下载处理器(download handler)或 process_request() (下载中间件)抛出异常(包括 IgnoreRequest 异常)时，Scrapy 调用 process_exception()。</p>
+<p>process_exception() 的返回结果同样也是有三个: None、Response 对象、Request 对象。</p>
+<p>如果其返回 None ，Scrapy 将会继续处理该异常，接着调用已安装的其他中间件的 process_exception() 方法，直到所有中间件都被调用完毕。</p>
+<p>如果其返回一个 Response 对象，则其他中间件链的 process_response() 方法被调用，之后 Scrap y将不会调用其他中间件的 process_exception() 方法。</p>
+<p>如果其返回一个 Request 对象， 则返回的request将会被重新调用下载。这将停止中间件的 process_exception() 方法执行，就如返回一个 response 的那样。<strong>如果 HTTP 请求失败，我们可以在这里对 HTTP 请求进行重试。例如我们频繁爬取访问一个网站导致被封 IP，就可以在这里设置增加代理继续访问。</strong></p>
+<p>我们可以不用实现全部方法，只需要根据需求实现对应的方法即可。例如，我想给每个 HTTP 请求都添加代理地址， 我实现 process_request() 即可。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProxyMiddleware</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-comment"># overwrite process request</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_request</span><span class="hljs-params">(self, request, spider)</span>:</span></span><br><span class="line">        <span class="hljs-comment"># 从数据库中随机读取一个代理地址</span></span><br><span class="line">        proxy_address = proxy_pool.random_select_proxy()</span><br><span class="line">        logging.debug(<span class="hljs-string">"=====  ProxyMiddleware get a random_proxy:【 &#123;&#125; 】 ====="</span>.format(proxy_address))</span><br><span class="line">        request.meta[<span class="hljs-string">'proxy'</span>] = proxy_address</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2) 在 setting.py 启用中间件</strong><br>我们已经实现了中间件，最后一步需要启用该中间件。我们将定义的中间件添加到 settings.py 文件。如果你是重载系统中间件，还需要将系统的中间件的值设置为 None。我前面定义的代理中间件，是需要对 HTTP 请求做操作。所以重载了 HttpProxyMiddleware 中间件。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#  中间件填写规则</span></span><br><span class="line"><span class="hljs-comment">#  yourproject.myMiddlewares(文件名).middleware类</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 设置代理</span></span><br><span class="line"><span class="hljs-string">'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware'</span>: <span class="hljs-literal">None</span>,</span><br><span class="line"><span class="hljs-string">'scrapydemo.middlewares.ProxyMiddleware'</span>: <span class="hljs-number">100</span>,</span><br></pre></td></tr></table></figure>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -358,7 +410,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2045,7 +2097,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

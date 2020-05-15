@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="分享一个爬取网站的小技巧">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEVFe.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:22:07.661Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKI0J.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:18:31.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEVFe.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKI0J.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDEVFe.jpg" alt="分享一个爬取网站的小技巧">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>分享一个爬取网站的小技巧
+                <span class="card-title-color">分享一个爬取网站的小技巧</span>
             
         </h1>
 
@@ -209,16 +207,33 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>有时候，我们很想爬取一个网站的数据。如果 PC 端的网页的反爬机制太强，我们可以换个思路。现在很多网站为了满足手机浏览器能正常访问的需求，都会推出手机版的网页。PC 端抓取数据有难度，我们可以从手机端入手。</p>
-<a id="more"></a>
-<p>你也许听说过，抓取手机 App 端数据就需要搭建手机抓包环境。那么我们就要屁颠屁颠去抓包搭建？哈哈，显然不用。我给大家分享一个小技巧，可以节省搭建环境的时间。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>有时候，我们很想爬取一个网站的数据。如果 PC 端的网页的反爬机制太强，我们可以换个思路。现在很多网站为了满足手机浏览器能正常访问的需求，都会推出手机版的网页。PC 端抓取数据有难度，我们可以从手机端入手。</p>
+<p>你也许听说过，抓取手机 App 端数据就需要搭建手机抓包环境。那么我们就要屁颠屁颠去抓包搭建？哈哈，显然不用。我给大家分享一个小技巧，<a id="more"></a>可以节省搭建环境的时间。</p>
 <p>我们的抓取目标是 Web 手机端页面数据，而不是 App 端内的数据。因此，我们只要使用 PC 浏览器访问手机 Web 页面，就能继续使用 PC 浏览器进行抓包分析。</p>
 <p>举个栗子，假如我要抓取淘宝首页的数据。我先用手机浏览器访问淘宝网站。<br><img src="./images/img/99_1.png" alt></p>
 <p>然后获取到手机端淘宝首页的 url 地址。<br><img src="./images/img/99_2.png" alt></p>
 <p>从图中，我们可知淘宝 web 手机端首页地址是：<code>https://h5.m.taobao.com/</code>。接着我们再用 PC 浏览器访问。<br><img src="./images/img/99_3.png" alt></p>
 <p>PC 端浏览器能正常访问，说明我们能使用浏览器自带的开发者工具来进行抓包分析。<br><img src="./images/img/99_4.png" alt></p>
 
+                </div>             
+            
+            <!-- <p>有时候，我们很想爬取一个网站的数据。如果 PC 端的网页的反爬机制太强，我们可以换个思路。现在很多网站为了满足手机浏览器能正常访问的需求，都会推出手机版的网页。PC 端抓取数据有难度，我们可以从手机端入手。</p>
+<p>你也许听说过，抓取手机 App 端数据就需要搭建手机抓包环境。那么我们就要屁颠屁颠去抓包搭建？哈哈，显然不用。我给大家分享一个小技巧，<a id="more"></a>可以节省搭建环境的时间。</p>
+<p>我们的抓取目标是 Web 手机端页面数据，而不是 App 端内的数据。因此，我们只要使用 PC 浏览器访问手机 Web 页面，就能继续使用 PC 浏览器进行抓包分析。</p>
+<p>举个栗子，假如我要抓取淘宝首页的数据。我先用手机浏览器访问淘宝网站。<br><img src="./images/img/99_1.png" alt></p>
+<p>然后获取到手机端淘宝首页的 url 地址。<br><img src="./images/img/99_2.png" alt></p>
+<p>从图中，我们可知淘宝 web 手机端首页地址是：<code>https://h5.m.taobao.com/</code>。接着我们再用 PC 浏览器访问。<br><img src="./images/img/99_3.png" alt></p>
+<p>PC 端浏览器能正常访问，说明我们能使用浏览器自带的开发者工具来进行抓包分析。<br><img src="./images/img/99_4.png" alt></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -323,7 +338,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -1986,7 +2001,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

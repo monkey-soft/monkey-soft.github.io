@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/558.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDpSkn.jpg" alt="618 购物节买什么？当然是书">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/558.html"><i class="fas fa-angle-double-right"></i>618 购物节买什么？当然是书</a>
+                <a class="card-title-color" href="/558.html">618 购物节买什么？当然是书</a>
             
         </h1>
 
@@ -210,8 +208,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>时光荏苒，2018年已经过半。又到一年一度的<br>的”618”购物节，是时候来一波”买买买”。如果你目前想改变下自己，为自己的未来奋斗。可以少买一两件衣服，少买一两箱零食，腾出一两百块钱来买几本书。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/558.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/Ysjj9P.jpg" alt="618 购物节买什么？当然是书">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>时光荏苒，2018年已经过半。又到一年一度的<br>的”618”购物节，是时候来一波”买买买”。如果你目前想改变下自己，为自己的未来奋斗。可以少买一两件衣服，少买一两箱零食，腾出一两百块钱来买几本书。</p>
+<p>当当，京东正好有图书满减活动。当当网的优惠还是相当大的，满200减100，满400减200，等同打 5 折。如果书籍满足满减要求，就能优惠。</p>
+                </div>
+            
+            <!-- <p>时光荏苒，2018年已经过半。又到一年一度的<br>的”618”购物节，是时候来一波”买买买”。如果你目前想改变下自己，为自己的未来奋斗。可以少买一两件衣服，少买一两箱零食，腾出一两百块钱来买几本书。</p>
+<p>当当，京东正好有图书满减活动。当当网的优惠还是相当大的，满200减100，满400减200，等同打 5 折。如果书籍满足满减要求，就能优惠。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

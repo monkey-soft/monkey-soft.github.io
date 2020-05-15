@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="爬取网易云音乐精彩评论, 晴天、七里香、理想三旬、成都">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YD9aVJ.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:35:56.705Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsvFNn.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:16:18.313Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YD9aVJ.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsvFNn.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YD9aVJ.jpg" alt="爬取网易云音乐精彩评论">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>爬取网易云音乐精彩评论
+                <span class="card-title-color">爬取网易云音乐精彩评论</span>
             
         </h1>
 
@@ -209,9 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>(一)<br>故事的小黄花<br>从出生那年就飘着<br>童年的荡秋千<br>随记忆一直晃到现在<br>Re So So Si Do Si La<br>So La Si Si Si Si La Si La So<br>吹着前奏望着天空<br>我想起花瓣试着掉落<br>……</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>(一)<br>故事的小黄花<br>从出生那年就飘着<br>童年的荡秋千<br>随记忆一直晃到现在</p>
 <a id="more"></a>
+<p>Re So So Si Do Si La<br>So La Si Si Si Si La Si La So<br>吹着前奏望着天空<br>我想起花瓣试着掉落<br>……</p>
 <p>小编猴哥有个爱好，喜欢一边听着熟悉的旋律，一边看着网易云音乐歌曲中的评论，特别是精彩评论。</p>
 <p>评论内容，让人泫然流涕的故事，就是让人深思的段子。</p>
 <p>（二）<br>某天，猴哥突发奇想，想将自己平时喜欢听的歌曲的精彩评论爬取下来。以后就可以直接阅读这些评论，无须打开网页。</p>
@@ -246,6 +253,45 @@ var _hmt = _hmt || [];
 <p>哈哈，这里请允许我贴下爬取结果。</p>
 <p><img src="./images/img/90_6.png" alt></p>
 
+                </div>             
+            
+            <!-- <p>(一)<br>故事的小黄花<br>从出生那年就飘着<br>童年的荡秋千<br>随记忆一直晃到现在</p>
+<a id="more"></a>
+<p>Re So So Si Do Si La<br>So La Si Si Si Si La Si La So<br>吹着前奏望着天空<br>我想起花瓣试着掉落<br>……</p>
+<p>小编猴哥有个爱好，喜欢一边听着熟悉的旋律，一边看着网易云音乐歌曲中的评论，特别是精彩评论。</p>
+<p>评论内容，让人泫然流涕的故事，就是让人深思的段子。</p>
+<p>（二）<br>某天，猴哥突发奇想，想将自己平时喜欢听的歌曲的精彩评论爬取下来。以后就可以直接阅读这些评论，无须打开网页。</p>
+<p>说干就干。猴哥打开浏览器访问网易云音乐，随便点击某个歌曲页面。现在大多数网站都采用 Ajax 技术来获取数据。所以需要先判断网页是否采用该技术。</p>
+<p>有个谷歌浏览器插件名为 <strong>Toggle JavaScript</strong>，它能控制页面中 javascript 启用或者禁用。</p>
+<p>正常的页面长这样：<br><img src="./images/img/90_1.png" alt></p>
+<p>当禁用页面 JavaScript 脚本之后，正常显示数据页面会变成一个空白页面。<br><img src="./images/img/90_2.png" alt></p>
+<p>因此，可以断定网易云音乐加载数据方式采用 Ajax。</p>
+<p><strong>Ajax 技术可以在不刷新页面的情况下，利用嵌在 HTML 文档中的 JavaScript 脚本向服务器请求数据，然后更新到页面。想进一步确认数据来源，需要知道请求域名以及请求参数。</strong></p>
+<p>这就需要借助浏览器的开发者工具(一般按 F12 键会显示)，根据抓取数据包进行分析。因为我们已经确定网站采用 Ajax ，所以直接在选择 <strong>XHR</strong> 过滤器过滤出所有请求。<br><img src="./images/img/90_3.png" alt></p>
+<p>然后依次对每个 url 链接的 HTTP 请求进行分析，着重观察 <strong>Headers</strong>，<strong>Preview</strong> 选项。最后，猴哥发现 <strong>R_SO_4_186001?csrf_token=</strong> 请求中有我们需要的信息。<strong>Preview</strong> 中有字段跟精彩评论中用户名一致。<br><img src="./images/img/90_4.png" alt></p>
+<p>继续切换到 <strong>Headers</strong> 确认请求域名以及请求需要携带的参数。<br><img src="./images/img/90_5.png" alt></p>
+<p>那么爬取思路是：使用 POST 方式携带参数 <strong>params</strong> 和 <strong>encSecKey</strong> 向该地址 <strong><a href="http://music.163.com/weapi/v1/resource/comments/R_SO_4_186001?csrf_token=" target="_blank" rel="external nofollow noopener noreferrer">http://music.163.com/weapi/v1/resource/comments/R_SO_4_186001?csrf_token=</a></strong> 发起HTTP 请求。返回结果中的 Json 数据就是用户评论数据。</p>
+<p>（三）<br>既然思路明确，编写代码就是容易多了。</p>
+<p>这里，猴哥使用列表来保存想爬取精彩评论的歌曲。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">songs_url_list = [</span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=186016'</span>,  <span class="hljs-comment"># 晴天</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=186001'</span>,  <span class="hljs-comment"># 七里香</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=27876900'</span>,  <span class="hljs-comment"># Here We Are Again 《喜剧之王》电影插曲</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=439915614'</span>,  <span class="hljs-comment"># 刚好遇见你</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=139774'</span>,  <span class="hljs-comment"># The truth that you leave</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=29567189'</span>,  <span class="hljs-comment"># 理想</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=308353'</span>,  <span class="hljs-comment"># 钟无艳</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=31445772'</span>,  <span class="hljs-comment"># 理想三旬</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=439915614'</span>,  <span class="hljs-comment"># 刚好遇见你</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=28815250'</span>,  <span class="hljs-comment"># 平凡之路</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=25706282'</span>,  <span class="hljs-comment"># 夜空中最亮的星</span></span><br><span class="line">    <span class="hljs-string">'http://music.163.com/#/song?id=436514312'</span>,  <span class="hljs-comment"># 成都</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>然后截取每个链接中 id 字段的值。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_song_id</span><span class="hljs-params">(url)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 从 url 中截取歌曲的 id """</span></span><br><span class="line">    song_id = url.split(<span class="hljs-string">'='</span>)[<span class="hljs-number">1</span>]</span><br><span class="line">    <span class="hljs-keyword">return</span> song_id</span><br></pre></td></tr></table></figure>
+
+<p>接着根据 id 拼接处请求的 url 地址，再使用 requests 发起 HTTP 请求。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> songs_url_list:</span><br><span class="line">    start_spider(get_song_id(each))</span><br><span class="line">    time.sleep(random.randint(<span class="hljs-number">5</span>, <span class="hljs-number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_spider</span><span class="hljs-params">(song_id)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 评论数据采用 AJAX 技术获得, 下面才是获取评论的请求地址 """</span></span><br><span class="line">    url = <span class="hljs-string">'http://music.163.com/weapi/v1/resource/comments/R_SO_4_&#123;&#125;?csrf_token='</span>.format(song_id)</span><br><span class="line"></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="hljs-string">'User-agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.3964.2 Safari/537.36'</span>,</span><br><span class="line">        <span class="hljs-string">'Origin'</span>: <span class="hljs-string">'http://music.163.com'</span>,</span><br><span class="line">        <span class="hljs-string">'Referer'</span>: <span class="hljs-string">'http://music.163.com/song?id=&#123;&#125;'</span>.format(song_id),</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    formdata = &#123;</span><br><span class="line">        <span class="hljs-string">'params'</span>: <span class="hljs-string">'57Wh2mgebLOOPQVBc+B2wz4sCCH/nXZFEoTc/XNySiqT0V7ZxUADzDNgTXXhYgAJ5BNMryMgxhdwNzF1GyxDZo3iR9/YYbWgCAQHC5DCDuObqvxNcOcnQDaRqJCrqQcrEABW1SwKitfbD3wMEyB4tJu+rU8goSwg2FP/PBBLs9DVs1iWdWGjV6CdrocA36Rs'</span>,</span><br><span class="line">        <span class="hljs-string">'encSecKey'</span>: <span class="hljs-string">'63774137ba4f5cc60d1b6a3bc14985a9563a7bfdec4f3e74297ffc07514adf18f90620933a01c2db4ca989cc4e1dfc49789981424c294a34e48c2cbe7aa51533a5cc5b5776a9e499cd08770bc596655dbe8e001d1ed5fd47a27dd195128480820cc67a799d341f95d447e3522851f2b64ad1cb8350e2015b265b9e684179351c'</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    response = requests.post(url, headers=headers, data=formdata)</span><br><span class="line">    print(<span class="hljs-string">'请求 [ '</span> + url + <span class="hljs-string">' ], 状态码为 '</span>)</span><br><span class="line">    print(response.status_code)</span><br><span class="line">    <span class="hljs-comment"># get_hot_comments(response.text)</span></span><br><span class="line">    <span class="hljs-comment"># 将数据写到 CSV 文件中</span></span><br><span class="line">    write_to_file(get_hot_comments(response.text))</span><br></pre></td></tr></table></figure>
+
+<p>因为请求返回结果是 Json 数据，我们只需要精彩评论(HotComments)内容，所以需要对数据进行处理下。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_hot_comments</span><span class="hljs-params">(response)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 获取精彩评论</span></span><br><span class="line"><span class="hljs-string">    请求返回结果是 Json 数据格式, 使用 json.loads(response) 将其转化为字典类型, 就可以使用 key-value 形式获取值</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    data_list = []</span><br><span class="line">    data = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> comment <span class="hljs-keyword">in</span> json.loads(response)[<span class="hljs-string">'hotComments'</span>]:</span><br><span class="line">        data[<span class="hljs-string">'userId'</span>] = comment[<span class="hljs-string">'user'</span>][<span class="hljs-string">'userId'</span>]</span><br><span class="line">        data[<span class="hljs-string">'nickname'</span>] = comment[<span class="hljs-string">'user'</span>][<span class="hljs-string">'nickname'</span>]</span><br><span class="line">        data[<span class="hljs-string">'content'</span>] = comment[<span class="hljs-string">'content'</span>]</span><br><span class="line">        data[<span class="hljs-string">'likedCount'</span>] = comment[<span class="hljs-string">'likedCount'</span>]</span><br><span class="line">        data_list.append(data)</span><br><span class="line">        data = &#123;&#125;</span><br><span class="line">    <span class="hljs-comment"># print(data_list)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> data_list</span><br></pre></td></tr></table></figure>
+
+
+<p>最后将数据保存到 CSV 文件中。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">write_to_file</span><span class="hljs-params">(datalist)</span>:</span></span><br><span class="line">    print(<span class="hljs-string">'开始将数据持久化……'</span>)</span><br><span class="line">    file_name = <span class="hljs-string">'网易云音乐精彩评论.csv'</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">with</span> codecs.open(file_name, <span class="hljs-string">'a+'</span>, <span class="hljs-string">'GBK'</span>) <span class="hljs-keyword">as</span> csvfile:</span><br><span class="line">        filednames = [<span class="hljs-string">'用户Id'</span>, <span class="hljs-string">'昵称'</span>, <span class="hljs-string">'评论内容'</span>, <span class="hljs-string">'点赞数'</span>]</span><br><span class="line">        writer = csv.DictWriter(csvfile, fieldnames=filednames)</span><br><span class="line"></span><br><span class="line">        writer.writeheader()</span><br><span class="line">        <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> datalist:</span><br><span class="line">            print(data)</span><br><span class="line">            <span class="hljs-keyword">try</span>:</span><br><span class="line">                writer.writerow(&#123;filednames[<span class="hljs-number">0</span>]: data[<span class="hljs-string">'userId'</span>],</span><br><span class="line">                                 filednames[<span class="hljs-number">1</span>]: data[<span class="hljs-string">'nickname'</span>],</span><br><span class="line">                                 filednames[<span class="hljs-number">2</span>]: data[<span class="hljs-string">'content'</span>],</span><br><span class="line">                                 filednames[<span class="hljs-number">3</span>]: data[<span class="hljs-string">'likedCount'</span>]&#125;)</span><br><span class="line">            <span class="hljs-keyword">except</span> UnicodeEncodeError:</span><br><span class="line">                print(<span class="hljs-string">"编码错误, 该数据无法写到文件中, 直接忽略该数据"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>写到这里，小伙伴们应该了解如何爬取运用 Ajax 技术加载数据的网站了。可能某些网站的请求携带的参数只能使用一次，那就进一步数据包中 js 代码。推断出加密方式，自己再用代码还原。</p>
+<p>哈哈，这里请允许我贴下爬取结果。</p>
+<p><img src="./images/img/90_6.png" alt></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -350,7 +396,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2013,7 +2059,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 学习笔记之后台管理">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBx1XQ.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:13:56.484Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsX0qH.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:32:40.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBx1XQ.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsX0qH.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBx1XQ.jpg" alt="Django 学习笔记之后台管理">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Django 学习笔记之后台管理
+                <span class="card-title-color">Django 学习笔记之后台管理</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>本文是 Django 学习笔记系列的第七篇。前面 6 篇文章，我们已经了解了 Django MTV 模型中三个层的内容。这部分内容算是最基础，也是最重要。本文的内容相对简单，阅读起来会比较轻松些。主要是介绍下 Django 默认管理后台以及一些实用后台管理系统的第三方应用。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>本文是 Django 学习笔记系列的第七篇。前面 6 篇文章，我们已经了解了 Django MTV 模型中三个层的内容。这部分内容算是最基础，也是最重要。本文的内容相对简单，阅读起来会比较轻松些。主要是介绍下 Django 默认管理后台以及一些实用后台管理系统的第三方应用。</p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每个网站无论大小，大型电商网站也好，个人博客也罢，它们都是一个管理后台。管理后台可以看做一个窗口，管理员通过它来管理以及维护网站。 Django 作为一个全能型的框架，当然也自带了一个后台管理系统。登录后台管理希望能对前端或者数据库数据进行增加、修改、删除等工作。我们现在就激动该系统来学习。</p>
 <h2 id="激活管理界面"><a href="#激活管理界面" class="headerlink" title="激活管理界面"></a>激活管理界面</h2><p>其实 Django 默认帮我们激活 admin 管理后台。不知你还记得上次的操作？ 当新建创建应用的，需要将刚创建的 app 加入到 setting.py 文件中。在 setting.py 文件中，你会看到前面有很多应用。</p>
@@ -247,6 +253,45 @@ var _hmt = _hmt || [];
 <p>django-admin-bootstrap 是一个能自动隐藏侧面菜单栏的响应式管理后台。它跟 Xadmin 一样，都是基于 bootstrap 开发的。个人觉得比较适合初学者来学习和研究。</p>
 <p>推荐指数：3 星<br>github 地址：<a href="https://github.com/douglasmiranda/django-admin-bootstrap" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
 
+                </div>             
+            
+            <!-- <p>本文是 Django 学习笔记系列的第七篇。前面 6 篇文章，我们已经了解了 Django MTV 模型中三个层的内容。这部分内容算是最基础，也是最重要。本文的内容相对简单，阅读起来会比较轻松些。主要是介绍下 Django 默认管理后台以及一些实用后台管理系统的第三方应用。</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每个网站无论大小，大型电商网站也好，个人博客也罢，它们都是一个管理后台。管理后台可以看做一个窗口，管理员通过它来管理以及维护网站。 Django 作为一个全能型的框架，当然也自带了一个后台管理系统。登录后台管理希望能对前端或者数据库数据进行增加、修改、删除等工作。我们现在就激动该系统来学习。</p>
+<h2 id="激活管理界面"><a href="#激活管理界面" class="headerlink" title="激活管理界面"></a>激活管理界面</h2><p>其实 Django 默认帮我们激活 admin 管理后台。不知你还记得上次的操作？ 当新建创建应用的，需要将刚创建的 app 加入到 setting.py 文件中。在 setting.py 文件中，你会看到前面有很多应用。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="hljs-string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="hljs-string">'demo'</span>,  <span class="hljs-comment"># 我们新创建的 app</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>其中 django.contrib.admin 就是管理后台。因此，我们可以知道 admin 其实也是一个应用，只不过它是 Django 自带的。</p>
+<p>我们只需要做一件事，那就是创建用户。在项目目录下，打开终端，执行以下命令来创建超级管理员。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+
+<p>打开终端之后，依次输入用户名，邮箱和密码即可创建。成功创建换管理员结果如下：<br><img src="./images/img/68_1.png" alt></p>
+<p>Django 在密码校验这块做的还不错。我使用弱密码 ‘admin’和’1234678’，Django 都不让我通过。</p>
+<p>成功创建超级用户之后，使用浏览器访问后台管理系统： 127.0.0.1:8000/admin。<br><img src="./images/img/68_2.png" alt></p>
+<p>输入用户名和密码并进行登录，会看到以下界面。因为是空项目，所以没有数据，只有显示用户账号的信息。你可以对 admin 进行二次开发，这样你就能在后台对数据库数据进行操作。<br><img src="./images/img/68_3.png" alt></p>
+<h2 id="常用的-admin-应用"><a href="#常用的-admin-应用" class="headerlink" title="常用的 admin 应用"></a>常用的 admin 应用</h2><p>我推荐这几个应用都是第三方开源项目，都支持 Django 2.0 版本。具体安装方法可以阅读各个插件的 Github 仓库地址。</p>
+<ul>
+<li>1) <code>Xadmin</code></li>
+</ul>
+<p>Xadmin 在 Django 后台管理系统应用库中算是名声显赫。它算是一款内置功能比较丰富的框架，提供了基本的CRUD功能，还内置了丰富的插件功能；还包括数据导出、书签、图表、数据添加向导及图片相册等多种扩展功能。</p>
+<p>最重要的是，它使用起来非常方便。我们只需要定义数据的字段等信息，即可获取一个功能全面的管理系统。</p>
+<p>推荐指数：5 星<br>github 地址: <a href="https://github.com/sshwsfc/xadmin/" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
+<ul>
+<li>2) <code>django-grappelli</code></li>
+</ul>
+<p>django-grappelli 可以算是一个功能强大的应用。它使用网格状的形式来呈现数据，这个给人简洁大方的感觉。因此，django-grappelli 更加适合需要对数据频繁操作的场景。</p>
+<p>推荐指数：4 星<br>github 地址：<a href="https://github.com/sehmaschine/django-grappelli/" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
+<ul>
+<li>3) <code>django-material</code></li>
+</ul>
+<p>django-material 是采用谷歌 Material Design 来设置 UI 。自己比较喜欢 MD 这种风格的界面，所以推荐给大家。</p>
+<p>推荐指数：3 星半<br>github 地址：<a href="https://github.com/viewflow/django-material" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
+<ul>
+<li>4) <code>django-admin-bootstrap</code></li>
+</ul>
+<p>django-admin-bootstrap 是一个能自动隐藏侧面菜单栏的响应式管理后台。它跟 Xadmin 一样，都是基于 bootstrap 开发的。个人觉得比较适合初学者来学习和研究。</p>
+<p>推荐指数：3 星<br>github 地址：<a href="https://github.com/douglasmiranda/django-admin-bootstrap" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -351,7 +396,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2038,7 +2083,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

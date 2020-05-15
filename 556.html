@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="使用 Python 将数据写到 CSV 文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDSOOg.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:24:57.715Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsjD6U.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:15:39.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDSOOg.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsjD6U.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDSOOg.jpg" alt="使用 Python 将数据写到 CSV 文件">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>使用 Python 将数据写到 CSV 文件
+                <span class="card-title-color">使用 Python 将数据写到 CSV 文件</span>
             
         </h1>
 
@@ -209,10 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>我们从网上爬取数据，最后一步会考虑如何存储数据。如果数据量不大，往往不会选择存储到数据库，而是选择存储到文件中，例如文本文件、CSV 文件、xls 文件等。因为文件具备携带方便、查阅直观。</p>
-<a id="more"></a>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>我们从网上爬取数据，最后一步会考虑如何存储数据。如果数据量不大，往往不会选择存储到数据库，而是选择存储到文件中，例如文本文件、CSV 文件、xls 文件等。因为文件具备携带方便、查阅直观。</p>
 <p>Python 作为胶水语言，搞定这些当然不在话下。但在写数据过程中，经常因数据源中带有中文汉字而报错。最让人头皮发麻的编码问题。</p>
+<a id="more"></a>
 <p>我先说下编码相关的知识。编码方式有很多种：UTF-8, GBK, ASCII 等。</p>
 <p>ASCII 码是美国在上个世纪 60 年代制定的一套字符编码。主要是规范英语字符和二进制位之间的关系。英语词汇组成简单，由 26 个字母构成。<strong>使用一个字节就能表示一个字母符号。外加各种符号，使用 128 个字符就满足编码要求</strong>。</p>
 <p>不同国家有不同语言文字。同时，文字组成部分的数量相比英语字母要多很多。根据不完全统计，汉字的数量大约将近 10 万个，日常所使用的汉字有 3000 个。显然，ASCII 编码无法满足需求。<strong>所以汉字采用 GBK 编码，使用两个字节表示一个汉字</strong>。简体中文的编码方式是 GBK2312。</p>
@@ -228,6 +234,26 @@ var _hmt = _hmt || [];
 <p>使用 pandas 批量写数据的用法如下：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">fileName = <span class="hljs-string">'PythonBook.csv'</span></span><br><span class="line">number = <span class="hljs-number">1</span></span><br><span class="line"></span><br><span class="line">books = []</span><br><span class="line">book = &#123;</span><br><span class="line">    <span class="hljs-string">'title'</span>: <span class="hljs-string">'笑傲江湖'</span>,</span><br><span class="line">    <span class="hljs-string">'author'</span>: <span class="hljs-string">'金庸'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment"># 如果 book 条数足够多的话，pandas 会每次往文件中写 50 条数据。</span></span><br><span class="line">books.append(book)</span><br><span class="line"></span><br><span class="line">data = pd.DataFrame(books)</span><br><span class="line"><span class="hljs-comment"># 写入csv文件,'a+'是追加模式</span></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    <span class="hljs-keyword">if</span> number == <span class="hljs-number">1</span>:</span><br><span class="line">        csv_headers = [<span class="hljs-string">'书名'</span>, <span class="hljs-string">'作者'</span>]</span><br><span class="line">        data.to_csv(fileName, header=csv_headers, index=<span class="hljs-literal">False</span>, mode=<span class="hljs-string">'a+'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        data.to_csv(<span class="hljs-string">'fileName, header=False, index=False, mode='</span>a+<span class="hljs-string">', encoding='</span>utf<span class="hljs-number">-8</span><span class="hljs-string">')</span></span><br><span class="line"><span class="hljs-string">        number = number + 1</span></span><br><span class="line"><span class="hljs-string">except UnicodeEncodeError:</span></span><br><span class="line"><span class="hljs-string">    print("编码错误, 该数据无法写到文件中, 直接忽略该数据")</span></span><br></pre></td></tr></table></figure>
 
+                </div>             
+            
+            <!-- <p>我们从网上爬取数据，最后一步会考虑如何存储数据。如果数据量不大，往往不会选择存储到数据库，而是选择存储到文件中，例如文本文件、CSV 文件、xls 文件等。因为文件具备携带方便、查阅直观。</p>
+<p>Python 作为胶水语言，搞定这些当然不在话下。但在写数据过程中，经常因数据源中带有中文汉字而报错。最让人头皮发麻的编码问题。</p>
+<a id="more"></a>
+<p>我先说下编码相关的知识。编码方式有很多种：UTF-8, GBK, ASCII 等。</p>
+<p>ASCII 码是美国在上个世纪 60 年代制定的一套字符编码。主要是规范英语字符和二进制位之间的关系。英语词汇组成简单，由 26 个字母构成。<strong>使用一个字节就能表示一个字母符号。外加各种符号，使用 128 个字符就满足编码要求</strong>。</p>
+<p>不同国家有不同语言文字。同时，文字组成部分的数量相比英语字母要多很多。根据不完全统计，汉字的数量大约将近 10 万个，日常所使用的汉字有 3000 个。显然，ASCII 编码无法满足需求。<strong>所以汉字采用 GBK 编码，使用两个字节表示一个汉字</strong>。简体中文的编码方式是 GBK2312。</p>
+<p>那 UTF-8 又是什么编码？这要先说 Unicode 了。Unicode 目的是为了统一各种编码。因为各国都各自的编码方式。如果使用一种编码编码，使用另一种编码解码。这会造成出现乱码的情况。但 Unicode 只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。<strong>UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式</strong>。</p>
+<p>因此，<strong>如果我们要写数据到文件中，最好指定编码形式为 UTF-8</strong>。</p>
+<p>Python 标准库中，有个名为 <strong>csv</strong> 的库，专门处理 csv 的读写操作。具体使用实例如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> csv</span><br><span class="line"><span class="hljs-keyword">import</span> codecs</span><br><span class="line"><span class="hljs-comment"># codecs 是自然语言编码转换模块</span></span><br><span class="line"></span><br><span class="line">fileName = <span class="hljs-string">'PythonBook.csv'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 指定编码为 utf-8, 避免写 csv 文件出现中文乱码</span></span><br><span class="line"><span class="hljs-keyword">with</span> codecs.open(fileName, <span class="hljs-string">'w'</span>, <span class="hljs-string">'utf-8'</span>) <span class="hljs-keyword">as</span> csvfile:</span><br><span class="line">    <span class="hljs-comment"># 指定 csv 文件的头部显示项</span></span><br><span class="line">    filednames = [<span class="hljs-string">'书名'</span>, <span class="hljs-string">'作者'</span>]</span><br><span class="line">    writer = csv.DictWriter(csvfile, fieldnames=filednames)</span><br><span class="line"></span><br><span class="line">    books = []</span><br><span class="line">    book = &#123;</span><br><span class="line">        <span class="hljs-string">'title'</span>: <span class="hljs-string">'笑傲江湖'</span>,</span><br><span class="line">        <span class="hljs-string">'author'</span>: <span class="hljs-string">'金庸'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    books.append(book)</span><br><span class="line"></span><br><span class="line">    writer.writeheader()</span><br><span class="line">    <span class="hljs-keyword">for</span> book <span class="hljs-keyword">in</span> books:</span><br><span class="line">        <span class="hljs-keyword">try</span>:</span><br><span class="line">            writer.writerow(&#123;<span class="hljs-string">'书名'</span>:book[<span class="hljs-string">'title'</span>], <span class="hljs-string">'作者'</span>:book[<span class="hljs-string">'author'</span>]&#125;)</span><br><span class="line">        <span class="hljs-keyword">except</span> UnicodeEncodeError:</span><br><span class="line">            print(<span class="hljs-string">"编码错误, 该数据无法写到文件中, 直接忽略该数据"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这种方式是逐行往 CSV 文件中写数据， 所以效率会比较低。如果想批量将数据写到 CSV 文件中，需要用到 <strong>pandas</strong> 库。</p>
+<p>pandas 是第三方库，所以使用之前需要安装。通过 pip 方式安装是最简单、最方便的。</p>
+<figure class="highlight cmd hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pandas</span><br></pre></td></tr></table></figure>
+
+<p>使用 pandas 批量写数据的用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">fileName = <span class="hljs-string">'PythonBook.csv'</span></span><br><span class="line">number = <span class="hljs-number">1</span></span><br><span class="line"></span><br><span class="line">books = []</span><br><span class="line">book = &#123;</span><br><span class="line">    <span class="hljs-string">'title'</span>: <span class="hljs-string">'笑傲江湖'</span>,</span><br><span class="line">    <span class="hljs-string">'author'</span>: <span class="hljs-string">'金庸'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment"># 如果 book 条数足够多的话，pandas 会每次往文件中写 50 条数据。</span></span><br><span class="line">books.append(book)</span><br><span class="line"></span><br><span class="line">data = pd.DataFrame(books)</span><br><span class="line"><span class="hljs-comment"># 写入csv文件,'a+'是追加模式</span></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    <span class="hljs-keyword">if</span> number == <span class="hljs-number">1</span>:</span><br><span class="line">        csv_headers = [<span class="hljs-string">'书名'</span>, <span class="hljs-string">'作者'</span>]</span><br><span class="line">        data.to_csv(fileName, header=csv_headers, index=<span class="hljs-literal">False</span>, mode=<span class="hljs-string">'a+'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        data.to_csv(<span class="hljs-string">'fileName, header=False, index=False, mode='</span>a+<span class="hljs-string">', encoding='</span>utf<span class="hljs-number">-8</span><span class="hljs-string">')</span></span><br><span class="line"><span class="hljs-string">        number = number + 1</span></span><br><span class="line"><span class="hljs-string">except UnicodeEncodeError:</span></span><br><span class="line"><span class="hljs-string">    print("编码错误, 该数据无法写到文件中, 直接忽略该数据")</span></span><br></pre></td></tr></table></figure>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -332,7 +358,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -1995,7 +2021,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

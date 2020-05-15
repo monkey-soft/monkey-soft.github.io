@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python中各种时间类型的转换">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXtk6.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:03:23.484Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLYwR.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:07:01.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXtk6.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLYwR.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBXtk6.jpg" alt="Python 中各种时间类型的转换">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Python 中各种时间类型的转换
+                <span class="card-title-color">Python 中各种时间类型的转换</span>
             
         </h1>
 
@@ -209,10 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>我们编码过程中经常需要获取当前时间。当然， 这也离不开对时间类型进行转换运算。本文主要讲解 Python 各种时间类型之间的转换。</p>
-<a id="more"></a>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>我们编码过程中经常需要获取当前时间。当然， 这也离不开对时间类型进行转换运算。本文主要讲解 Python 各种时间类型之间的转换。</p>
 <h2 id="处理时间的库"><a href="#处理时间的库" class="headerlink" title="处理时间的库"></a>处理时间的库</h2><p>Python 标准库中有两个处理时间的库。其中一个名为 <code>datetime</code>，另一个是<code>time</code>。</p>
+<a id="more"></a>
 <p>在 Python 官网文档中，datetime 是被定义为数据类型(Data Types)。由此可见，datetime  是主要提供处理日期和时间的数据类型的模块。它其中有几个常用的类型，例如：datetime.datetime、datetime.time、datetime.date 等，其中最主要的类是<code>datetime.datetime</code>。因为它携带了 datetime.time 和 datetime.date 这两个所带的信息，能够比较齐全地输出，即能一次性就输出年、月、日、时、分、秒等日期和时间信息。</p>
 <p>time 模块是归属于通用操作系统服务（Generic Operating System Services）类目中。time 模块主要提供各种时间转换的函数。它服务于系统层次，Python 又是跨平台的，所以有些 API 只能在某些操作系统上使用。</p>
 <h2 id="时间类型对象"><a href="#时间类型对象" class="headerlink" title="时间类型对象"></a>时间类型对象</h2><p>在进行时间转换之前，我们要确认下时间对象是属于哪种数据类型。只有做到对症下药，根治病因。<br>在 Python 中，涉及时间对象有 4 种：<br>1）datetime<br>2）timestamp<br>3）time tuple<br>4）string</p>
@@ -230,6 +236,28 @@ var _hmt = _hmt || [];
 
 <h2 id="时间类型转换"><a href="#时间类型转换" class="headerlink" title="时间类型转换"></a>时间类型转换</h2><p>上述四种时间类型是如何转换，我本打算以代码的形式加以说明。当后来我看到互联网上已经有前辈整理的关系转换图，我意识到自己这种方式不够简洁明了。所以，我直接献上前辈的宝图。<br><img src="./images/img/58_1.jpg" alt></p>
 
+                </div>             
+            
+            <!-- <p>我们编码过程中经常需要获取当前时间。当然， 这也离不开对时间类型进行转换运算。本文主要讲解 Python 各种时间类型之间的转换。</p>
+<h2 id="处理时间的库"><a href="#处理时间的库" class="headerlink" title="处理时间的库"></a>处理时间的库</h2><p>Python 标准库中有两个处理时间的库。其中一个名为 <code>datetime</code>，另一个是<code>time</code>。</p>
+<a id="more"></a>
+<p>在 Python 官网文档中，datetime 是被定义为数据类型(Data Types)。由此可见，datetime  是主要提供处理日期和时间的数据类型的模块。它其中有几个常用的类型，例如：datetime.datetime、datetime.time、datetime.date 等，其中最主要的类是<code>datetime.datetime</code>。因为它携带了 datetime.time 和 datetime.date 这两个所带的信息，能够比较齐全地输出，即能一次性就输出年、月、日、时、分、秒等日期和时间信息。</p>
+<p>time 模块是归属于通用操作系统服务（Generic Operating System Services）类目中。time 模块主要提供各种时间转换的函数。它服务于系统层次，Python 又是跨平台的，所以有些 API 只能在某些操作系统上使用。</p>
+<h2 id="时间类型对象"><a href="#时间类型对象" class="headerlink" title="时间类型对象"></a>时间类型对象</h2><p>在进行时间转换之前，我们要确认下时间对象是属于哪种数据类型。只有做到对症下药，根治病因。<br>在 Python 中，涉及时间对象有 4 种：<br>1）datetime<br>2）timestamp<br>3）time tuple<br>4）string</p>
+<h3 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h3><p>datetime 对象属于 datetime 模块。它的构造方式是 <code>datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)</code>。我们了解下它的构造方法即可，一般很少直接使用它的构造方法。我们一般使用它的 <code>now()</code> 函数来获取本地当前日期和时间。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">now = datetime.datetime.now()</span><br><span class="line">print(now)</span><br><span class="line">print(type(now))</span><br><span class="line"></span><br><span class="line">&gt;&gt;  <span class="hljs-number">2018</span><span class="hljs-number">-01</span><span class="hljs-number">-17</span> <span class="hljs-number">16</span>:<span class="hljs-number">49</span>:<span class="hljs-number">24.314323</span></span><br><span class="line">&gt;&gt;  &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> '<span class="hljs-title">datetime</span>.<span class="hljs-title">datetime</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>在某些场景，我们可能需要使用到字符串类型的时间。我们在 now() 函数的基础上再调用 <code>strftime()</code> 函数即可。strftime() 返回的是一个表示日期和时间的字符串。最后显示结果由指定样式的参数决定。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span><br><span class="line">now = datetime.datetime.now().strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S"</span>)</span><br><span class="line">print(now)</span><br><span class="line">print(type(now))</span><br><span class="line"></span><br><span class="line">&gt;&gt;  <span class="hljs-number">2018</span><span class="hljs-number">-01</span><span class="hljs-number">-17</span> <span class="hljs-number">17</span>:<span class="hljs-number">30</span>:<span class="hljs-number">45</span></span><br><span class="line">&gt;&gt;  &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> '<span class="hljs-title">str</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="timestamp"><a href="#timestamp" class="headerlink" title="timestamp"></a>timestamp</h3><p>timestamp 指的是 Unix 时间戳。它是格林威治时间 1970 年 01 月 01 日 00 时 00 分 00 秒(北京时间 1970 年 01 月 01 日 08 时 00 分 00 秒)起至现在的总秒数。我们使用 time 对象中的 <code>time()</code> 函数能获取到时间戳 。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"></span><br><span class="line">now = time.time()</span><br><span class="line">print(now)</span><br><span class="line">print(type(now))</span><br><span class="line"></span><br><span class="line">&gt;&gt;  <span class="hljs-number">1516179935.351417</span></span><br><span class="line">&gt;&gt;  &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> '<span class="hljs-title">float</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="time-tuple"><a href="#time-tuple" class="headerlink" title="time tuple"></a>time tuple</h3><p>time tuple 表示时间元组。time tuple 是 time.struct_time 对象类型。获取本地当前时间，一般是使用 time 中的 <code>localtime()</code> 函数。localtime() 返回的是将时间戳经过格式化的本地时间。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line">now = time.localtime()</span><br><span class="line">print(now)</span><br><span class="line">print(type(now))</span><br><span class="line"></span><br><span class="line">&gt;&gt;  time.struct_time(tm_year=<span class="hljs-number">2018</span>, tm_mon=<span class="hljs-number">1</span>, tm_mday=<span class="hljs-number">17</span>, tm_hour=<span class="hljs-number">17</span>, tm_min=<span class="hljs-number">20</span>, tm_sec=<span class="hljs-number">34</span>, tm_wday=<span class="hljs-number">2</span>, tm_yday=<span class="hljs-number">17</span>, tm_isdst=<span class="hljs-number">0</span>)</span><br><span class="line">&gt;&gt;  &lt;<span class="hljs-class"><span class="hljs-keyword">class</span> '<span class="hljs-title">time</span>.<span class="hljs-title">struct_time</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="时间类型转换"><a href="#时间类型转换" class="headerlink" title="时间类型转换"></a>时间类型转换</h2><p>上述四种时间类型是如何转换，我本打算以代码的形式加以说明。当后来我看到互联网上已经有前辈整理的关系转换图，我意识到自己这种方式不够简洁明了。所以，我直接献上前辈的宝图。<br><img src="./images/img/58_1.jpg" alt></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -334,7 +362,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2037,7 +2065,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

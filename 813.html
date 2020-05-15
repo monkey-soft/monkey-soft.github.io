@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="详解“干将莫邪” —— Xpath 与 lxml 库的用法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBLKEV.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:52:13.550Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsH4l4.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:12:40.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBLKEV.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsH4l4.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBLKEV.jpg" alt="干将莫邪” —— Xpath 与 lxml 库">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>干将莫邪” —— Xpath 与 lxml 库
+                <span class="card-title-color">干将莫邪” —— Xpath 与 lxml 库</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>前面的文章，我们已经学会正则表达式以及 BeautifulSoup库的用法。我们领教了正则表达式的便捷，感受 beautifulSoup 的高效。本文介绍也是内容提取的工具 —— Xpath，它一般和 lxml 库搭配使用。所以，我称这两者为“干将莫邪”。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>前面的文章，我们已经学会正则表达式以及 BeautifulSoup库的用法。我们领教了正则表达式的便捷，感受 beautifulSoup 的高效。本文介绍也是内容提取的工具 —— Xpath，它一般和 lxml 库搭配使用。所以，我称这两者为“干将莫邪”。</p>
 <a id="more"></a>
 
 <h2 id="Xpath-和-lxml"><a href="#Xpath-和-lxml" class="headerlink" title="Xpath 和 lxml"></a>Xpath 和 lxml</h2><ul>
@@ -451,6 +457,249 @@ var _hmt = _hmt || [];
 
 <p>没错，就这短短几行代码即可完成信息提取。<br>值得注意的是：xpath 查找匹配返回的类型有可能是一个值，也有可能是一个存放多个值的列表。这个取决于你的路径表达式是如何编写的。</p>
 
+                </div>             
+            
+            <!-- <p>前面的文章，我们已经学会正则表达式以及 BeautifulSoup库的用法。我们领教了正则表达式的便捷，感受 beautifulSoup 的高效。本文介绍也是内容提取的工具 —— Xpath，它一般和 lxml 库搭配使用。所以，我称这两者为“干将莫邪”。</p>
+<a id="more"></a>
+
+<h2 id="Xpath-和-lxml"><a href="#Xpath-和-lxml" class="headerlink" title="Xpath 和 lxml"></a>Xpath 和 lxml</h2><ul>
+<li>Xpath</li>
+</ul>
+<p>XPath即为XML路径语言，它是一种用来确定XML（标准通用标记语言的子集）文档中某部分位置的语言。XPath 基于 XML 的树状结构，提供在数据结构树中找寻节点的能力。</p>
+<p>Xpath 原本是用于选取 XML 文档节点信息。XPath 是于 1999 年 11 月 16 日 成为 W3C 标准。因其既简单方便又容易，所以它逐渐被人说熟知。</p>
+<ul>
+<li>lxml </li>
+</ul>
+<p>lxml 是功能丰富又简单易用的，专门处理 XML 和 HTML 的 Python 官网标准库。</p>
+<h2 id="Xpath-的语法"><a href="#Xpath-的语法" class="headerlink" title="Xpath 的语法"></a>Xpath 的语法</h2><p>正则表达式的枯燥无味又学习成本高，Xpath 可以说是不及其万分之一。所以只要花上 10 分钟，掌握 Xpath 不在话下。Xpath 的语言以及如何从 HTML dom 树中提取信息，我将其归纳为“主干 - 树支 - 绿叶”。</p>
+<h3 id="“主干”-——-选取节点"><a href="#“主干”-——-选取节点" class="headerlink" title="“主干” —— 选取节点"></a>“主干” —— 选取节点</h3><p>抓取信息，我们需知道要从哪里开始抓取。因此，需要找个起始节点。Xpath 选择起始节点有以下可选：</p>
+<table>
+<thead>
+<tr>
+<th align="left">表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">nodename</td>
+<td align="left">选取标签节点的所有子节点。</td>
+</tr>
+<tr>
+<td align="left">/</td>
+<td align="left">从根节点选取，html DOM 树的节点就是 html。</td>
+</tr>
+<tr>
+<td align="left">//</td>
+<td align="left">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">选择当前节点，一般用于二级提取。</td>
+</tr>
+<tr>
+<td align="left">..</td>
+<td align="left">选取当前节点的父节点，在二级提取时用到。</td>
+</tr>
+<tr>
+<td align="left">@</td>
+<td align="left">选取属性。</td>
+</tr>
+</tbody></table>
+<p>我们通过以下实例来了解其用法：</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">xpath(‘//div’)</td>
+<td align="left">选取 div 元素的所有子节点。</td>
+</tr>
+<tr>
+<td align="left">xpath(‘/div’)</td>
+<td align="left">选取 div 元素作为根节点。如果同级有多个 div ，那么所有 div 都会被选为根节点。</td>
+</tr>
+<tr>
+<td align="left">xpath(‘/div/span’)</td>
+<td align="left">选取属于 div 元素<strong><font color="red">下</font></strong>所有 span 元素节点。如果 span 有多个，也会被选中。</td>
+</tr>
+<tr>
+<td align="left">xpath(‘//div’)</td>
+<td align="left">选取所有 div 元素节点，不管它们在文档的位置。</td>
+</tr>
+<tr>
+<td align="left">xpath(‘//div/span’)</td>
+<td align="left">选取 div 元素<strong><font color="red">下</font></strong>的所有 span 元素节点，不管位于 div 之下的什么位置</td>
+</tr>
+<tr>
+<td align="left">xpath(“//@[class=’content’]”)</td>
+<td align="left">选取包含属性 class 的值为 content 的节点，不管是 div 元素还是其他元素</td>
+</tr>
+<tr>
+<td align="left">xpath(“//@[id=’center’]”)</td>
+<td align="left">选取属性 id 的值为 center 的节点，不管是 div 元素还是其他元素</td>
+</tr>
+</tbody></table>
+<p>如果你对于提取节点没有头绪的时候，可以使用通配符来暂时替代。等查看输出内容之后再进一步确认。</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">xpath(‘/div/*’)</td>
+<td align="left">选取 div 元素节点<strong><font color="red">下</font></strong>的所有节点</td>
+</tr>
+<tr>
+<td align="left">xpath(‘/div[@*]’)</td>
+<td align="left">选取所有带属性的 div 元素节点</td>
+</tr>
+</tbody></table>
+<h3 id="“分支”-——-关系节点与谓语"><a href="#“分支”-——-关系节点与谓语" class="headerlink" title="“分支” —— 关系节点与谓语"></a>“分支” —— 关系节点与谓语</h3><p>这一步的过程其实是通过起点一步步来寻找最终包含我们所需内容的节点。我们有时需要使用到相邻节点信息。因此，我们需要了解关系节点或者谓语。</p>
+<ul>
+<li>关系节点</li>
+</ul>
+<p>一般而言，DOM 树中一个普通节点具有父节点、兄弟节点、子节点。当然也有例外的情况。这些有些节点比较特殊，可能没有父节点，如根节点；也有可能是没有子节点，如深度最大的节点。Xpath 也是有支持获取关系节点的语法。</p>
+<table>
+<thead>
+<tr>
+<th align="left">关系</th>
+<th align="left">路径表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">parent（父）</td>
+<td align="left">xpath(‘./parent::*’)</td>
+<td align="left">选取当前节点的父节点</td>
+</tr>
+<tr>
+<td align="left">ancestor（先辈）</td>
+<td align="left">xpath(‘./ancestor::*’)</td>
+<td align="left">选取当前节点的所有先辈节点，包括父、祖父等</td>
+</tr>
+<tr>
+<td align="left">ancestor-or-self（先辈及本身）</td>
+<td align="left">xpath(‘./ancestor-or-self::*’)</td>
+<td align="left">选取当前节点的所有先辈节点以及节点本身</td>
+</tr>
+<tr>
+<td align="left">child（子）</td>
+<td align="left">xpath(‘./child::*’)</td>
+<td align="left">选取当前节点的所有子节点</td>
+</tr>
+<tr>
+<td align="left">descendant（后代）</td>
+<td align="left">xpath(‘./descendant::*’)</td>
+<td align="left">选取当前节点的所有后代节点，包括子节点、孙节点等</td>
+</tr>
+<tr>
+<td align="left">following</td>
+<td align="left">xpath(‘./following ::*’)</td>
+<td align="left">选取当前节点结束标签后的所有节点</td>
+</tr>
+<tr>
+<td align="left">following-sibing</td>
+<td align="left">xpath(‘./following-sibing::*’)</td>
+<td align="left">选取当前节点之后的兄弟节点</td>
+</tr>
+<tr>
+<td align="left">preceding</td>
+<td align="left">xpath(‘./preceding::*’)</td>
+<td align="left">选取当前节点开始标签前的所有节点</td>
+</tr>
+<tr>
+<td align="left">preceding-sibling</td>
+<td align="left">xpath(‘./parent::*’)</td>
+<td align="left">选取当前节点之前的兄弟节点</td>
+</tr>
+<tr>
+<td align="left">self（本身）</td>
+<td align="left">xpath(‘./self::*’)</td>
+<td align="left">选取当前节点本身</td>
+</tr>
+</tbody></table>
+<ul>
+<li>谓语</li>
+</ul>
+<p>谓语用来查找某个特定的节点或者包含某个指定的值的节点。同时，它是被嵌在方括号中的。</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">xpath(‘./body/div[1]’)</td>
+<td align="left">选取 body 元素节点<strong><font color="red">下</font></strong>的第一个 div 子节。</td>
+</tr>
+<tr>
+<td align="left">xpath(‘./body/div[last()]’)</td>
+<td align="left">选取 body 元素节点<strong><font color="red">下</font></strong>的最后一个 div 子节。</td>
+</tr>
+<tr>
+<td align="left">xpath(‘./body/div[last()-1]’)</td>
+<td align="left">选取 body 元素节点<strong><font color="red">下</font></strong>的倒数第二个 div 子节。</td>
+</tr>
+<tr>
+<td align="left">xpath(‘./body/div[position()-3]’)</td>
+<td align="left">选取 body 元素节点<strong><font color="red">下</font></strong>的前二个 div 子节。</td>
+</tr>
+<tr>
+<td align="left">xpath(‘./body/div[@class]’)</td>
+<td align="left">选取 body 元素节点<strong><font color="red">下</font></strong>的所有带有 class 属性的 div 子节。</td>
+</tr>
+<tr>
+<td align="left">xpath(“./body/div[@class=’content’]”)</td>
+<td align="left">选取 body 元素节点<strong><font color="red">下</font></strong>的 class 属性值为 centent 的 div 子节。</td>
+</tr>
+</tbody></table>
+<h3 id="“绿叶”-——-节点内容以及属性"><a href="#“绿叶”-——-节点内容以及属性" class="headerlink" title="“绿叶” —— 节点内容以及属性"></a>“绿叶” —— 节点内容以及属性</h3><p>到了这一步，我们已经找到所需内容的节点了。接下来就是获取该节点中的内容了。Xpath 语法提供了提供节点的文本内容以及属性内容的功能。</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">text()</td>
+<td align="left">获取节点的本文内容</td>
+</tr>
+<tr>
+<td align="left">@属性</td>
+<td align="left">获取节点的属性内容</td>
+</tr>
+</tbody></table>
+<p>具体用法见以下实例：</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">xpath(‘./a/text()’)</td>
+<td align="left">获取当前节点<strong><font color="purple">中</font></strong> a 元素节点<strong><font color="red">中</font></strong>的本文内容</td>
+</tr>
+<tr>
+<td align="left">xpath(‘./a/@href’)</td>
+<td align="left">获取当前节点<strong><font color="purple">中</font></strong> a 元素节点<strong><font color="red">中</font></strong>的 href 属性的内容</td>
+</tr>
+</tbody></table>
+<h2 id="lxml-的用法"><a href="#lxml-的用法" class="headerlink" title="lxml 的用法"></a>lxml 的用法</h2><h3 id="安装-lxml"><a href="#安装-lxml" class="headerlink" title="安装 lxml"></a>安装 lxml</h3><p>pip 是安装库文件的最简便的方法，具体命令如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install lxml</span><br><span class="line"><span class="hljs-comment"># 如果出现因下载失败导致安装不上的情况，可以先启动 ss 再执行安装命令</span></span><br><span class="line"><span class="hljs-comment"># 或者在终端中使用代理</span></span><br><span class="line">pip --proxy http://代理ip:端口 install lxml</span><br></pre></td></tr></table></figure>
+<h3 id="使用-lxml"><a href="#使用-lxml" class="headerlink" title="使用 lxml"></a>使用 lxml</h3><p>lxml 使用起来是比较简单的。我们首先要使用 lxml 的 etree 将 html 页面进行初始化，然后丢给 Xpath 匹配即可。具体用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">html = requests.get(url)           <span class="hljs-comment"># 使用 requests 请求网页</span></span><br><span class="line">selector = etree.HTML(html.text)</span><br><span class="line">content = selector.xpath(<span class="hljs-string">'//a/text()'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>没错，就这短短几行代码即可完成信息提取。<br>值得注意的是：xpath 查找匹配返回的类型有可能是一个值，也有可能是一个存放多个值的列表。这个取决于你的路径表达式是如何编写的。</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -555,7 +804,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2262,7 +2511,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 使用会话(sessions)功能">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDSsF1.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:24:00.010Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsjKYt.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:35:45.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDSsF1.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsjKYt.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDSsF1.jpg" alt="Django 使用会话(sessions)功能">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Django 使用会话(sessions)功能
+                <span class="card-title-color">Django 使用会话(sessions)功能</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>淘宝、天猫、京东等电商网站的出现，让我们足不出户就能购物。在这些网站中，都有一个“购物车”的功能。当我们在不同商品页面将商品加入购物车，然后关闭浏览器。等下次浏览该网站时，我们会依然发现购物车的商品还在。这是怎么实现的了？类似这种场景，一般都是采用 Cookie + Session 方式来实现。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>淘宝、天猫、京东等电商网站的出现，让我们足不出户就能购物。在这些网站中，都有一个“购物车”的功能。当我们在不同商品页面将商品加入购物车，然后关闭浏览器。等下次浏览该网站时，我们会依然发现购物车的商品还在。这是怎么实现的了？类似这种场景，一般都是采用 Cookie + Session 方式来实现。</p>
 <a id="more"></a>
 <h2 id="Cookie-机制"><a href="#Cookie-机制" class="headerlink" title="Cookie 机制"></a>Cookie 机制</h2><p>HTTP 协议是<strong>无状态</strong>的。所以服务器无法根据 HTTP 协议来辨别多个 HTTP 请求来自哪个用户。在实际场景中，服务器经常需要追踪客户端的状态。为了解决这个问题， Cookie 技术应运而生。</p>
 <p>cookie 一开始是服务器产生的一段随机字符串。它的主要内容包括：名字，值，过期时间，路径与域等信息。然后服务器将其发送给客户端。在后续的请求中，cookie 会附在请求资源的 HTTP 请求头上，发送给服务器。</p>
@@ -246,6 +252,44 @@ var _hmt = _hmt || [];
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'jango.contrib.sessions.backends.signed_cookies'</span></span><br><span class="line"><span class="hljs-comment"># 建议配置，阻止 javascript 对会话数据的访问，提高安全性。</span></span><br><span class="line">SESSION_COOKIE_HTTPONLY= <span class="hljs-literal">True</span></span><br></pre></td></tr></table></figure>
 
 
+                </div>             
+            
+            <!-- <p>淘宝、天猫、京东等电商网站的出现，让我们足不出户就能购物。在这些网站中，都有一个“购物车”的功能。当我们在不同商品页面将商品加入购物车，然后关闭浏览器。等下次浏览该网站时，我们会依然发现购物车的商品还在。这是怎么实现的了？类似这种场景，一般都是采用 Cookie + Session 方式来实现。</p>
+<a id="more"></a>
+<h2 id="Cookie-机制"><a href="#Cookie-机制" class="headerlink" title="Cookie 机制"></a>Cookie 机制</h2><p>HTTP 协议是<strong>无状态</strong>的。所以服务器无法根据 HTTP 协议来辨别多个 HTTP 请求来自哪个用户。在实际场景中，服务器经常需要追踪客户端的状态。为了解决这个问题， Cookie 技术应运而生。</p>
+<p>cookie 一开始是服务器产生的一段随机字符串。它的主要内容包括：名字，值，过期时间，路径与域等信息。然后服务器将其发送给客户端。在后续的请求中，cookie 会附在请求资源的 HTTP 请求头上，发送给服务器。</p>
+<h2 id="Session-机制"><a href="#Session-机制" class="headerlink" title="Session 机制"></a>Session 机制</h2><p>如果不涉及用户登录等敏感信息时，Cookie 能够满足大部分的场景需求。<strong>而客户端（如浏览器）会将 Cookie 是保存在硬盘中</strong>。如果用户登录敏感信息保存到 cookie 中，会存在安全性问题。因为当 HTTP 请求被黑客拦截，然后劫持 cookie 信息。黑客就可以凭借该 cookie 登录对应的网站。</p>
+<p>Session 的出现很好地解决的这个问题。Session 机制是一个服务器端的机制。<strong>它会将信息保存服务器端，跟客户端通信只需要一个随机的字符串 session_id</strong>。如果客户端没有禁止 Cookie 功能，session_id 通常是保存在 Cookie中 的。如果 Cookie 被禁用，它则可能通过为 url 加上query string 来添加 session_id。</p>
+<h2 id="在-Django-中的应用"><a href="#在-Django-中的应用" class="headerlink" title="在 Django 中的应用"></a>在 Django 中的应用</h2><p>Django 为我们提供了一个通用的 Session 框架。使用 Django 2.X 版本创建新项目的时，Django 默认会帮我们启用该功能。</p>
+<p>Django 默认 Session 数据保存到数据库中，可以在 settings.py 中看到配置信息项目。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="hljs-comment"># 启用 sessions 应用</span></span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions'</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="hljs-comment"># 启用 Session 中间层</span></span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>然后我们在将自带组件的模型同步到数据库中。如果你还不熟悉这块内容，可以阅读《Django 学习笔记之模型（上）》这篇文章。我们之后会看到数据库中有个 <code>django_session</code> 表：</p>
+<p><img src="./images/img/82_1.png" alt></p>
+<p>除了上述的基于数据库的会话，Django 还提供另外三种方法：<br><strong>1）保存到缓存中</strong><br>如果你的场景需要快速存储会话，可以选择该方案。使用之前，需要配置下 Django 的缓存框架。在 settings.py 中增加 <strong>SESSION_ENGINE</strong> 配置。</p>
+<p>这其中也是有两种保存数据的方案，具体配置如下：</p>
+<ul>
+<li>方案一</li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'django.contrib.sessions.backends.cache'</span></span><br></pre></td></tr></table></figure>
+
+<p>这种配置方案 Django 只是简单保存会话。同时，这种方案持久性不好。因为当缓存数据存满时将清除部分数据，或者遇到缓存服务器重启时数据将丢失。</p>
+<ul>
+<li>方案二</li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'django.contrib.sessions.backends.cached_db'</span></span><br></pre></td></tr></table></figure>
+
+<p>这种方案既保证快速存储会话数据，又保证数据持久性。因为该使用方案， Session 在保存到缓存的同时还会被保存到数据库中，当 Django 在缓存中找不到Session 时，会从数据库中找到。因此，这种方案的性能开销会比方案一大。</p>
+<p><strong>如果我们在工程中同时配置了数据库会话和缓存会话，Django 默认优秀选择缓存会话。</strong></p>
+<p><strong>2）保存到文件中</strong></p>
+<p>这种方案是保存数据到本地磁盘中。因为磁盘的 I/O 瓶颈问题，导致这种方案存储数据效率不是很高。如果要使用这种方案，在 settings.py 中增加 <strong>SESSION_ENGINE</strong> 配置。具体配置如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'django.contrib.sessions.backends.file'</span></span><br><span class="line"><span class="hljs-comment"># 可选配置</span></span><br><span class="line">SESSION_FILE_PATH = <span class="hljs-string">'/monkey/www/'</span></span><br></pre></td></tr></table></figure>
+
+<p>SESSION_FILE_PATH 默认使用 tempfile.gettempdir() 方法的返回值，就像 /tmp目录。如果你想更新文件的保存路径，可以手动指定。另外需确保你的文件存储目录，以及 Web 服务器对该目录具有读写权限。</p>
+<p><strong>3）保存到 cookie 中</strong></p>
+<p>这种方案将数据保存到 cookie 中。这种方案适用于对数据保密性不严格的场景。如果要使用这种方案，在 settings.py 中增加 <strong>SESSION_ENGINE</strong> 配置。具体配置如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SESSION_ENGINE = <span class="hljs-string">'jango.contrib.sessions.backends.signed_cookies'</span></span><br><span class="line"><span class="hljs-comment"># 建议配置，阻止 javascript 对会话数据的访问，提高安全性。</span></span><br><span class="line">SESSION_COOKIE_HTTPONLY= <span class="hljs-literal">True</span></span><br></pre></td></tr></table></figure>
+
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -350,7 +394,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2037,7 +2081,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 代码性能优化技巧">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDVd9H.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:28:37.243Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQwZQ.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:27:38.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDVd9H.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQwZQ.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDVd9H.jpg" alt="Python 代码性能优化技巧">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Python 代码性能优化技巧
+                <span class="card-title-color">Python 代码性能优化技巧</span>
             
         </h1>
 
@@ -209,10 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>众所周知，程序的性能好坏影响着用户体验。所以性能是留住用户很重要的一环。Python 语言虽然能做很多事情，但是有一个不足之处，那就是执行效率和性能不够理想。</p>
-<a id="more"></a>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>众所周知，程序的性能好坏影响着用户体验。所以性能是留住用户很重要的一环。Python 语言虽然能做很多事情，但是有一个不足之处，那就是执行效率和性能不够理想。</p>
 <p>因此，更有必要进行一定的代码优化来提高 Python 程序的执行效率。本文章主要是输出自己在 Python 程序优化的经验。</p>
+<a id="more"></a>
 <h2 id="尽量使用内置函数"><a href="#尽量使用内置函数" class="headerlink" title="尽量使用内置函数"></a>尽量使用内置函数</h2><p>Python 的标准库中有很多内置函数，它们的运行效率都很高。因为很多标准库是使用 C 语言编写的。Pyhton 的内置函数有：</p>
 <p><img src="./images/img/127_1.png" alt></p>
 <p>原图比较大，排版原因可能导致字体看不清。在公众号后台中，回复【内置函数】即可获取高清图片。</p>
@@ -256,6 +262,54 @@ var _hmt = _hmt || [];
 
 <h2 id="尽量使用局部变量"><a href="#尽量使用局部变量" class="headerlink" title="尽量使用局部变量"></a>尽量使用局部变量</h2><p>Python 检索局部变量比检索全局变量快。因此, 尽量少用 “global” 关键字。</p>
 
+                </div>             
+            
+            <!-- <p>众所周知，程序的性能好坏影响着用户体验。所以性能是留住用户很重要的一环。Python 语言虽然能做很多事情，但是有一个不足之处，那就是执行效率和性能不够理想。</p>
+<p>因此，更有必要进行一定的代码优化来提高 Python 程序的执行效率。本文章主要是输出自己在 Python 程序优化的经验。</p>
+<a id="more"></a>
+<h2 id="尽量使用内置函数"><a href="#尽量使用内置函数" class="headerlink" title="尽量使用内置函数"></a>尽量使用内置函数</h2><p>Python 的标准库中有很多内置函数，它们的运行效率都很高。因为很多标准库是使用 C 语言编写的。Pyhton 的内置函数有：</p>
+<p><img src="./images/img/127_1.png" alt></p>
+<p>原图比较大，排版原因可能导致字体看不清。在公众号后台中，回复【内置函数】即可获取高清图片。</p>
+<h2 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h2><p>运算符 “+” 不仅能用于加法运算，还能做字符串连接。但是这种效率不是很高。在 Python 中，字符串变量在内存中是不可变的。如果使用 “+” 拼接字符串，内存会先创建一个新字符串，然后将两个旧字符串拼接，再复制到新字符串。推荐使用以下方法：</p>
+<ul>
+<li>使用 “%” 运算符连接</li>
+</ul>
+<p>这种方式有点像 C 语言中 printf 函数的功能，使用 “%s” 来表示字符串类型参数，再用 “%” 连接一个字符串和一组变量。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fir = <span class="hljs-string">'hello'</span></span><br><span class="line">sec = <span class="hljs-string">'monkey'</span></span><br><span class="line">result = <span class="hljs-string">'%s, %s'</span> % (fir, sec)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 format() 格式化连接</li>
+</ul>
+<p>这种格式化字符串函数是 Python 特有的，属于高级用法。因为它威力强大，不仅支持多种参数类型，还支持对数字格式化。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fir = <span class="hljs-string">'hello'</span></span><br><span class="line">sec = <span class="hljs-string">'monkey'</span></span><br><span class="line">result = <span class="hljs-string">'&#123;&#125;, &#123;&#125;'</span>.format(fir, sec)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>上述代码使用隐式的位置参数，format() 还能显式指定参数所对应变量的位置。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fir = <span class="hljs-string">'hello'</span></span><br><span class="line">sec = <span class="hljs-string">'monkey'</span></span><br><span class="line">result = <span class="hljs-string">'&#123;1&#125;, &#123;0&#125;'</span>.format(fir, sec)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 join() 方式</li>
+</ul>
+<p>这种算是技巧性办法。join() 方法通常是用于连接列表或元组中的元素。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>, <span class="hljs-string">'3'</span>]</span><br><span class="line">result = <span class="hljs-string">'+'</span>.join(list)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-generator"><a href="#使用-generator" class="headerlink" title="使用 generator"></a>使用 generator</h2><p>generator 翻译成中文是生成器。生成器也是一种特殊迭代器。它其实是生成器函数返回生成器的迭代。生成器算是 Python 非常棒的特性。它的出现能帮助大大节省些内存空间。</p>
+<p>假如我们要生成从 1 到 10 这 10 个数字，采用列表的方式定义，会占用 10 个地址空间。采用生成器，只会占用一个地址空间。因为生成器并没有把所有的值存在内存中，而是在运行时生成值。所以生成器只能访问一次。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 创建一个从包含 1 到 10 的生成器</span></span><br><span class="line">gen = (i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>))</span><br><span class="line">print(gen)</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> gen:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<h2 id="死循环"><a href="#死循环" class="headerlink" title="死循环"></a>死循环</h2><p>虽然使用<code>While True</code>和<code>while 1</code>都能实现死循环，但是<code>while 1</code>是单步运算，所以效率会高一点。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 推荐</span></span><br><span class="line"><span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:</span><br><span class="line">    <span class="hljs-comment"># todo list</span></span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line">    <span class="hljs-comment"># todo list</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="巧用多重赋值"><a href="#巧用多重赋值" class="headerlink" title="巧用多重赋值"></a>巧用多重赋值</h2><p>交换将两个变量的值，我们会立马想到应用一个第三方变量的方法。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 将 a 和 b 两个值互换</span></span><br><span class="line">temp = a</span><br><span class="line">a = b</span><br><span class="line">b = temp</span><br></pre></td></tr></table></figure>
+
+<p>Python 素有优雅的名声，所以有一个更加优雅又快速的方法，那就是多重赋值。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 将 a 和 b 两个值互换</span></span><br><span class="line">a, b = b, a</span><br></pre></td></tr></table></figure>
+
+<h2 id="列表的插入与排序"><a href="#列表的插入与排序" class="headerlink" title="列表的插入与排序"></a>列表的插入与排序</h2><p>Python 标准库中有个 <strong>bisect</strong> 模块是内置模块，它实现了一个算法用于插入元素到有序列表。在一些情况下，这比反复排序列表或构造一个大的列表再排序的效率更高。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> bisect</span><br><span class="line"></span><br><span class="line">L = [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">12</span>,<span class="hljs-number">15</span>]</span><br><span class="line">x = <span class="hljs-number">3</span></span><br><span class="line"></span><br><span class="line">x_insert_point = bisect.bisect_left(L, x)</span><br><span class="line"><span class="hljs-comment"># 在 L 中查找 x，x 存在时返回 x 左侧的位置，x 不存在返回应该插入的位置</span></span><br><span class="line"><span class="hljs-comment"># 这是3存在于列表中，返回左侧位置１</span></span><br><span class="line">print(x_insert_point)</span><br><span class="line"></span><br><span class="line">x_insert_point = bisect.bisect_right(L, x)</span><br><span class="line"><span class="hljs-comment"># 在 L 中查找 x，x 存在时返回x右侧的位置，x 不存在返回应该插入的位置</span></span><br><span class="line"><span class="hljs-comment"># 这是3存在于列表中，返回右侧位置３</span></span><br><span class="line">print(x_insert_point)</span><br><span class="line"></span><br><span class="line">x_insort_left = bisect.insort_left(L, x)</span><br><span class="line"><span class="hljs-comment">#将 x 插入到列表 L 中，x 存在时插入在左侧</span></span><br><span class="line">print(L)</span><br><span class="line"></span><br><span class="line">x_insort_rigth = bisect.insort_right(L, x)</span><br><span class="line"><span class="hljs-comment">#将 x 插入到列表L中，x 存在时插入在右侧</span></span><br><span class="line">print(L)</span><br></pre></td></tr></table></figure>
+
+<h2 id="尽量使用局部变量"><a href="#尽量使用局部变量" class="headerlink" title="尽量使用局部变量"></a>尽量使用局部变量</h2><p>Python 检索局部变量比检索全局变量快。因此, 尽量少用 “global” 关键字。</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -360,7 +414,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2063,7 +2117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

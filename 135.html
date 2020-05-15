@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 学习笔记之环境搭建">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBjnHI.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:05:41.604Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLhp8.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:07:59.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBjnHI.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLhp8.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBjnHI.jpg" alt="Django 学习笔记之环境搭建">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Django 学习笔记之环境搭建
+                <span class="card-title-color">Django 学习笔记之环境搭建</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>古人云：功遇善其事，必先利其器。在正式学习 Django Web 框架之前，我们要把准备工作做好。准备工作主要是搭建开发环境，具体工作是安装 Python、创建虚拟环境 venv、安装 Django、安装 IDE 工具（Pycharm）。</p>
-<a id="more"></a>
-<h2 id="安装-Python"><a href="#安装-Python" class="headerlink" title="安装 Python"></a>安装 Python</h2><p>如果你使用的桌面系统是 Windows，你需要到 Python 官网下载安装包。 Linux 和 Mac 系统都自带了 Python 运行环境。Python 分为 2 和 3 版本，目前 Python 团队即将停止维护 Python 2 版本，所以建议安装 Python 3。目前最新版本是 3.6.4。另外，本系列文章适合具备 Python 基础的同学。如果你对 Python 基本语法还是很懵懂，建议你先把基础知识夯实。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>古人云：功遇善其事，必先利其器。在正式学习 Django Web 框架之前，我们要把准备工作做好。准备工作主要是搭建开发环境，具体工作是安装 Python、创建虚拟环境 venv、安装 Django、安装 IDE 工具（Pycharm）。</p>
+<h2 id="安装-Python"><a href="#安装-Python" class="headerlink" title="安装 Python"></a>安装 Python</h2><p>如果你使用的桌面系统是 Windows，你需要到 Python 官网下载安装包。 <a id="more"></a>Linux 和 Mac 系统都自带了 Python 运行环境。Python 分为 2 和 3 版本，目前 Python 团队即将停止维护 Python 2 版本，所以建议安装 Python 3。目前最新版本是 3.6.4。另外，本系列文章适合具备 Python 基础的同学。如果你对 Python 基本语法还是很懵懂，建议你先把基础知识夯实。</p>
 <h2 id="创建虚拟环境-venv"><a href="#创建虚拟环境-venv" class="headerlink" title="创建虚拟环境 venv"></a>创建虚拟环境 venv</h2><p>一提到 Python 虚拟环境，你会惊叹说为什么不用  virtualenv？如果你生产或开发环境需同时支持 Python 2 和 Python 3 ，那就需要 virtualenv。我们是从零开始学习 Django，所以可以直接使用 venv。简单来说，venv 模块是 Python 3.3 版本之后，标准库自带的虚拟环境创建和管理工具，在 Python 3 版本是代替 virtualenv。</p>
 <p>为什么要创建虚拟环境呢？<br>你或许会从网上下载一些安全工具或者软件。你害怕这些程序带有后门，甚至是木马程序。所以不敢在自己当前的系统中直接运行。你会使用 VMware 创建一个虚拟机，然后在虚拟机中运行该程序。不管程序是否是病毒，都不会对我当前的系统造成影响。因为虚拟机和当前的系统相互隔离，互不影响。虚拟机出现问题，只要删除即可，不会影响到当前系统。使用 venv 创建虚拟环境也是同样的道理。在当前系统中创建出一个环境，该环境可以跟当前系统互不影响，你可以随意折腾。另外，有了 virtualenv 虚拟环境之后，我们就可以把那个文件夹整体拷贝了，部署起来方便很多。</p>
 <h3 id="venv-使用"><a href="#venv-使用" class="headerlink" title="venv 使用"></a>venv 使用</h3><p>创建 Python 虚拟环境，其实是“创建” 一个文件夹。假如我们需要在 D 盘中创建一个名为 web_dev 的虚拟环境。打开终端，执行以下命令。</p>
@@ -230,6 +235,27 @@ var _hmt = _hmt || [];
 <h2 id="初始-Django"><a href="#初始-Django" class="headerlink" title="初始 Django"></a>初始 Django</h2><p>我之前写了 Django 初始系列文章。你可以先阅读下，这样你对 Django 有整体的认识以及掌握些基本知识（创建项目，运行项目等）。</p>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>我新建一个 Python Web 学习交流 QQ 群，群号：701534112。欢迎大家加群，一起交流，一起学习。<br><img src="./images/img/QQ_groups.jpg" alt></p>
 
+                </div>             
+            
+            <!-- <p>古人云：功遇善其事，必先利其器。在正式学习 Django Web 框架之前，我们要把准备工作做好。准备工作主要是搭建开发环境，具体工作是安装 Python、创建虚拟环境 venv、安装 Django、安装 IDE 工具（Pycharm）。</p>
+<h2 id="安装-Python"><a href="#安装-Python" class="headerlink" title="安装 Python"></a>安装 Python</h2><p>如果你使用的桌面系统是 Windows，你需要到 Python 官网下载安装包。 <a id="more"></a>Linux 和 Mac 系统都自带了 Python 运行环境。Python 分为 2 和 3 版本，目前 Python 团队即将停止维护 Python 2 版本，所以建议安装 Python 3。目前最新版本是 3.6.4。另外，本系列文章适合具备 Python 基础的同学。如果你对 Python 基本语法还是很懵懂，建议你先把基础知识夯实。</p>
+<h2 id="创建虚拟环境-venv"><a href="#创建虚拟环境-venv" class="headerlink" title="创建虚拟环境 venv"></a>创建虚拟环境 venv</h2><p>一提到 Python 虚拟环境，你会惊叹说为什么不用  virtualenv？如果你生产或开发环境需同时支持 Python 2 和 Python 3 ，那就需要 virtualenv。我们是从零开始学习 Django，所以可以直接使用 venv。简单来说，venv 模块是 Python 3.3 版本之后，标准库自带的虚拟环境创建和管理工具，在 Python 3 版本是代替 virtualenv。</p>
+<p>为什么要创建虚拟环境呢？<br>你或许会从网上下载一些安全工具或者软件。你害怕这些程序带有后门，甚至是木马程序。所以不敢在自己当前的系统中直接运行。你会使用 VMware 创建一个虚拟机，然后在虚拟机中运行该程序。不管程序是否是病毒，都不会对我当前的系统造成影响。因为虚拟机和当前的系统相互隔离，互不影响。虚拟机出现问题，只要删除即可，不会影响到当前系统。使用 venv 创建虚拟环境也是同样的道理。在当前系统中创建出一个环境，该环境可以跟当前系统互不影响，你可以随意折腾。另外，有了 virtualenv 虚拟环境之后，我们就可以把那个文件夹整体拷贝了，部署起来方便很多。</p>
+<h3 id="venv-使用"><a href="#venv-使用" class="headerlink" title="venv 使用"></a>venv 使用</h3><p>创建 Python 虚拟环境，其实是“创建” 一个文件夹。假如我们需要在 D 盘中创建一个名为 web_dev 的虚拟环境。打开终端，执行以下命令。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// venv 后面接上创建虚拟环境的绝对路径，建议文件名不要事先存在。</span><br><span class="line">// Windows、Mac、Linux 执行命令都是一样，只不过路径不一样</span><br><span class="line">python -m venv D://web_dev</span><br></pre></td></tr></table></figure>
+
+<p>执行创建命令之后，你会发现多出了一个名为 web_dev 文件夹，这说明已经创建成功。进入目录，里面有四个文件夹。<br><img src="./images/img/61_1.png" alt></p>
+<p>创建虚拟环境的完成，只是完成了一半工作。革命还尚未成功，我们还需要激活虚拟环境。依然是打开终端，进入 <code>Scripts</code> 文件夹，运行 <code>activate.bat</code> 来激活虚拟环境。 Linux 下没有 <code>Scripts</code> 这个目录，取而代之的是 <code>bin</code>目录。而激活脚本名则是<code>activate</code>。<br><img src="./images/img/61_2.png" alt><br>激活完毕，我们下一步就是安装 Django 库。</p>
+<h2 id="安装-Django"><a href="#安装-Django" class="headerlink" title="安装 Django"></a>安装 Django</h2><p>还是上述的虚拟环境中，我们通过 pip 方式来安装 Django。如果你把终端关闭了，这也意味着把虚拟环境给关闭了。你按照上述激活步骤重新进入虚拟环境即可。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\web_dev&gt;D://web_dev/Scripts/activate.bat</span><br><span class="line">(web_dev) D:\web_dev&gt;pip install django</span><br><span class="line">Collecting django</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-IDE-工具（Pycharm）"><a href="#安装-IDE-工具（Pycharm）" class="headerlink" title="安装 IDE 工具（Pycharm）"></a>安装 IDE 工具（Pycharm）</h2><p>我们需要到 Pycharm 官网下载安装包。<br>安装版本一定要选择 Professional ！<br>安装版本一定要选择 Professional ！<br>安装版本一定要选择 Professional ！<br>重要的话说三遍~</p>
+<p>因为这个版本集成了很多 Web 开发组件，无须手动。</p>
+<p>另附上下载地址：<a href="https://www.jetbrains.com/pycharm/download/" target="_blank" rel="external nofollow noopener noreferrer">https://www.jetbrains.com/pycharm/download/</a></p>
+<p>Pycharm 是收费版本。如果你有条件的话，可以选择购买正版。或者到网上选择激活码。</p>
+<h2 id="初始-Django"><a href="#初始-Django" class="headerlink" title="初始 Django"></a>初始 Django</h2><p>我之前写了 Django 初始系列文章。你可以先阅读下，这样你对 Django 有整体的认识以及掌握些基本知识（创建项目，运行项目等）。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>我新建一个 Python Web 学习交流 QQ 群，群号：701534112。欢迎大家加群，一起交流，一起学习。<br><img src="./images/img/QQ_groups.jpg" alt></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -334,7 +360,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2037,7 +2063,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

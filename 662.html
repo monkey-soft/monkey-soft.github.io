@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="多线程爬取 unsplash 图库">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDAgqf.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:20:16.885Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKnW6.jpg">
+<meta property="og:updated_time" content="2020-05-15T13:54:47.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDAgqf.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKnW6.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDAgqf.jpg" alt="多线程爬取 unsplash 图库">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>多线程爬取 unsplash 图库
+                <span class="card-title-color">多线程爬取 unsplash 图库</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>我公众号文章的封面配图都在 Unsplash 上找的。因为 Unsplash 是一个完全免费的、无版权的高清图片资源网站。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>我公众号文章的封面配图都在 Unsplash 上找的。因为 Unsplash 是一个完全免费的、无版权的高清图片资源网站。</p>
 <a id="more"></a>
 <blockquote>
 <p>所谓的「无版权」是指这个网站上的图片由创作者自愿分享出来，完全免费提供给任何人作为任何用途使用。Unsplash 的原话是「do whatever you want」，进一步说明是「你可以免费对图片进行复制、修改、分发，包括用作商业目的，无需经过允许即可使用」。</p>
@@ -245,6 +251,43 @@ var _hmt = _hmt || [];
 <h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><p>按照计划，执行完一次程序代码。硬盘的 D 盘目录中会有一个 Unsplash 的文件夹，里面会有 71131 张图片。我是将爬虫程序运行在云主机上，所以就只显示本地爬取的 100 多张图片。<br><img src="./images/img/93_7.png" alt></p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/SchweizerMesser" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
 
+                </div>             
+            
+            <!-- <p>我公众号文章的封面配图都在 Unsplash 上找的。因为 Unsplash 是一个完全免费的、无版权的高清图片资源网站。</p>
+<a id="more"></a>
+<blockquote>
+<p>所谓的「无版权」是指这个网站上的图片由创作者自愿分享出来，完全免费提供给任何人作为任何用途使用。Unsplash 的原话是「do whatever you want」，进一步说明是「你可以免费对图片进行复制、修改、分发，包括用作商业目的，无需经过允许即可使用」。</p>
+</blockquote>
+<p>自己发现之前在寻找图片上还是挺花费时间的。先在 Unsplash 上浏览图片，当发现觉得还不错的图片就会下载下来。另外，下载图片还需要自己点击下载按钮。这确实挺花费时间。现在自己学会了网络爬虫，是时候改善下情况。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>Unsplash 网站采用瀑布流样式来呈现图片。首页以开始只会呈现一部分图片，当我们滑动滚动条到底部时，网页才会继续加载部分图片。这网站经常使用 Ajax 技术来加载图片。针对动态渲染网页，我会选择 Selenium 来爬取。但是，我这次为了追求高效率下载图片，势必要使用多线程。因此，只能放弃使用 Selenium，转而通过抓包方式来分析网站。</p>
+<p>我使用浏览器的开发者工具来查看网络请求。<br><img src="./images/img/93_1.png" alt><br>查看首页的数据包，只能得到知首页是经过重定向的信息。</p>
+<p>接着, 自己满怀期待查看 main.js 文件。因为名字的原因，所以自己怀疑这个 js 文件的作用是发起请求网络。自己只要在代码中搜索下 <strong>http</strong> 字样，说不定还有意外的收获。<br><img src="./images/img/93_2.png" alt></p>
+<p>结果希望又落空。只能接着分析。</p>
+<p>经过一番漫长的分析之后，最后发现两个很有价值的信息。<br><img src="./images/img/93_3.png" alt></p>
+<p><img src="./images/img/93_4.png" alt></p>
+<p>这个 url 地址十有八九是图片的请求地址。</p>
+<p>自己使用浏览器访问这个地址，证实自己的猜想是正确的。<br><img src="./images/img/93_5.png" alt></p>
+<p>根据英语单词，可以推断出各个参数的意思。page 表示页数, 从前面的信息得知目前一共有 71131 个页面；per_page 表示每页拉去的图片数, order_by 表示按时间从现在到以前的顺序来拉取图片。</p>
+<p>我自己使用 Requests 库编写一段简单的请求代码。目的是验证网站是否有反爬虫机制，结果发现没有。<br><img src="./images/img/93_6.png" alt></p>
+<h2 id="爬取思路"><a href="#爬取思路" class="headerlink" title="爬取思路"></a>爬取思路</h2><p>因为多线程需要考虑线程安全的问题，所以我决定使用 Queue 队列模块来存储所有的的 url 地址。Queue 模块中提供了同步的、线程安全的队列类，其中就有 FIFO（先入先出)队列 Queue。Queue 内部实现了锁原语，帮我们实现加锁和释放锁的操作。因此，我们能够在多线程中直接使用。</p>
+<p>最终的思路是：</p>
+<p>1) 计算出所有图片的 url 地址，然后使用 Queue 存储起来<br>2) 创建并启动多个线程，然后每个线程要完成以下工作：使用 requests 库请求 url 地址、使用 JSON 库解析的 JSON 形式的响应体，获取图片的下载地址、使用 urllib 库下载图片到本地。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>先定义一些常量, 方便后续操作。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 使用队列保存存放图片 url 地址, 确保线程同步</span></span><br><span class="line">url_queue = Queue()</span><br><span class="line"><span class="hljs-comment"># 线程总数</span></span><br><span class="line">THREAD_SUM = <span class="hljs-number">5</span></span><br><span class="line"><span class="hljs-comment"># 存储图片的位置</span></span><br><span class="line">IMAGE_SRC = <span class="hljs-string">'D://Unsplash/'</span></span><br></pre></td></tr></table></figure>
+
+<p>计算出所有的 url 地址, 然后存放到 url_queue 队列中。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_all_url</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 循环计算出所有的 url 地址, 存放到队列中 """</span></span><br><span class="line">    base_url = <span class="hljs-string">'https://unsplash.com/napi/photos?page=&#123;&#125;&amp;per_page=1&amp;order_by=latest'</span></span><br><span class="line">    page = <span class="hljs-number">1</span></span><br><span class="line">    max_page = <span class="hljs-number">71131</span></span><br><span class="line">    <span class="hljs-keyword">while</span> page &lt;= max_page:</span><br><span class="line">        url = base_url.format(page)</span><br><span class="line">        url_queue.put(url)</span><br><span class="line">        page += <span class="hljs-number">1</span></span><br><span class="line">    print(<span class="hljs-string">'计划下载'</span>, url_queue.qsize(), <span class="hljs-string">'张图片'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>创建多个线程，然后逐个启动。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    get_all_url()</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(THREAD_SUM):</span><br><span class="line">        unsplash = Unsplash(i+<span class="hljs-number">1</span>)</span><br><span class="line">        unsplash.start()</span><br></pre></td></tr></table></figure>
+
+<p>原生的 Thread 类无法满足场景的需求。我新建一个名为 Unsplash 的类，该类继承threading.Thread 来自定义线程类，接着重写 run 方法。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Unsplash</span><span class="hljs-params">(threading.Thread)</span>:</span></span><br><span class="line"></span><br><span class="line">    NOT_EXIST = <span class="hljs-number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, thread_id)</span>:</span></span><br><span class="line">        threading.Thread.__init__(self)</span><br><span class="line">        self.thread_id = thread_id</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> self.NOT_EXIST:</span><br><span class="line">            <span class="hljs-comment"># 队列为空, 结束线程</span></span><br><span class="line">            <span class="hljs-keyword">if</span> url_queue.empty():</span><br><span class="line">                NOT_EXIST = <span class="hljs-number">1</span></span><br><span class="line">                <span class="hljs-keyword">break</span></span><br><span class="line"></span><br><span class="line">            url = url_queue.get()</span><br><span class="line">            self.get_data(url)</span><br><span class="line">            time.sleep(random.randint(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_data</span><span class="hljs-params">(self, url)</span>:</span></span><br><span class="line">        <span class="hljs-string">""" 根据 url 获取 JSON 格式的图片数据"""</span></span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="hljs-string">'User-agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.3964.2 Safari/537.36'</span>,</span><br><span class="line">            <span class="hljs-string">'accept'</span>: <span class="hljs-string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'</span>,</span><br><span class="line">            <span class="hljs-string">'referer'</span>: <span class="hljs-string">'https://unsplash.com/'</span>,</span><br><span class="line">            <span class="hljs-string">'path'</span>: url.split(<span class="hljs-string">'com'</span>)[<span class="hljs-number">1</span>],</span><br><span class="line">            <span class="hljs-string">'authority'</span>: <span class="hljs-string">'unsplash.com'</span>,</span><br><span class="line">            <span class="hljs-string">'viewport-width'</span>: <span class="hljs-string">'1920'</span>,</span><br><span class="line">        &#125;</span><br><span class="line">        response = requests.get(url, headers=headers)</span><br><span class="line">        print(<span class="hljs-string">'请求第[ '</span> + url + <span class="hljs-string">' ], 状态码为 '</span>, response.status_code)</span><br><span class="line">        self.get_image_url(response.text)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_image_url</span><span class="hljs-params">(self, response)</span>:</span></span><br><span class="line">        <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">        使用 json.loads(response) 将其转化为字典类型, 以便采用 key-value 形式获取值</span></span><br><span class="line"><span class="hljs-string">        raw：包含Exif信息的全尺寸原图，此类图片的容量很大</span></span><br><span class="line"><span class="hljs-string">        full：全尺寸分辨率的图片，去除了Exif信息并且对内容进行了压缩，图片容量适中</span></span><br><span class="line"><span class="hljs-string">        normal：普通尺寸的图片，去除了Exif信息，并且对分辨率和内容进行了压缩，图片容量较小；</span></span><br><span class="line"><span class="hljs-string">        """</span></span><br><span class="line">        image_url = json.loads(response)[<span class="hljs-number">0</span>][<span class="hljs-string">'urls'</span>][<span class="hljs-string">'full'</span>]</span><br><span class="line">        self.save_img(image_url)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save_img</span><span class="hljs-params">(self, image_url)</span>:</span></span><br><span class="line">        print(<span class="hljs-string">'线程'</span>, self.thread_id, <span class="hljs-string">' | 正在下载'</span>, image_url)</span><br><span class="line">        <span class="hljs-keyword">try</span>:</span><br><span class="line">            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(IMAGE_SRC):</span><br><span class="line">                os.mkdir(IMAGE_SRC)</span><br><span class="line">            filename = IMAGE_SRC + image_url.split(<span class="hljs-string">'com'</span>)[<span class="hljs-number">1</span>].split(<span class="hljs-string">'?'</span>)[<span class="hljs-number">0</span>] + <span class="hljs-string">'.jpg'</span></span><br><span class="line">            <span class="hljs-comment"># 下载图片，并保存到文件夹中</span></span><br><span class="line">            urllib.request.urlretrieve(image_url, filename=filename)</span><br><span class="line">        <span class="hljs-keyword">except</span> IOError <span class="hljs-keyword">as</span> e:</span><br><span class="line">            print(<span class="hljs-string">'保存图片出现异常失败'</span>, e)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><p>按照计划，执行完一次程序代码。硬盘的 D 盘目录中会有一个 Unsplash 的文件夹，里面会有 71131 张图片。我是将爬虫程序运行在云主机上，所以就只显示本地爬取的 100 多张图片。<br><img src="./images/img/93_7.png" alt></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/SchweizerMesser" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -349,7 +392,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2044,7 +2087,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

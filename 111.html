@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="分享自己学习HTTP协议的一些心得。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBbFVf.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:41:07.471Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ys7xZq.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:09:21.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBbFVf.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ys7xZq.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBbFVf.jpg" alt="深入理解HTTP">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>深入理解HTTP
+                <span class="card-title-color">深入理解HTTP</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <h2 id="HTTP是什么"><a href="#HTTP是什么" class="headerlink" title="HTTP是什么"></a>HTTP是什么</h2><blockquote>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <h2 id="HTTP是什么"><a href="#HTTP是什么" class="headerlink" title="HTTP是什么"></a>HTTP是什么</h2><blockquote>
 <p>HTTP全称是HyperText Transfer Protocal，即：超文本传输协议。它主要规定了客户端和服务器之间的通信格式。HTTP还是一个基于请求/响应模式的、无状态的协议；即我们通常所说的Request/Response。</p>
 </blockquote>
 <a id="more"></a>
@@ -263,6 +269,61 @@ var _hmt = _hmt || [];
 <h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><p>作用: 生成消息的具体时间和日期<br>例如: Date: Sun, 20 Nov 2016 05:09:51 GMT</p>
 <h3 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h3><p>响应体包含的内容是网页的内容信息，主要是html代码等</p>
 
+                </div>             
+            
+            <!-- <h2 id="HTTP是什么"><a href="#HTTP是什么" class="headerlink" title="HTTP是什么"></a>HTTP是什么</h2><blockquote>
+<p>HTTP全称是HyperText Transfer Protocal，即：超文本传输协议。它主要规定了客户端和服务器之间的通信格式。HTTP还是一个基于请求/响应模式的、无状态的协议；即我们通常所说的Request/Response。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="HTTP与TCP的关系"><a href="#HTTP与TCP的关系" class="headerlink" title="HTTP与TCP的关系"></a>HTTP与TCP的关系</h2><p>TCP协议是位于TCP/IP参考模型中的网络互连层，而HTTP协议属于应用层。因此，HTTP协议是基于TCP协议。</p>
+<h2 id="HTTP请求-HTTP-Request"><a href="#HTTP请求-HTTP-Request" class="headerlink" title="HTTP请求(HTTP Request)"></a>HTTP请求(HTTP Request)</h2><p>HTTP请求由三部分组成，分别是：</p>
+<ul>
+<li>请求行</li>
+<li>HTTP头</li>
+<li>请求体</li>
+</ul>
+<p>下面是请求示例：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET /?tn=90058352_hao_pg HTTP/1.1</span><br><span class="line">Host: www.hao123.com</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 UBrowser/5.7.16400.16 Safari/537.36</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8</span><br></pre></td></tr></table></figure>
+
+<h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><p>同样也是由请求方法（POST/GET）方式、请求的主机、协议版本号三部分组成。下面为请求行的示例：<br><code>GET /?tn=90058352_hao_pg HTTP/1.1</code></p>
+<h3 id="HTTP头"><a href="#HTTP头" class="headerlink" title="HTTP头"></a>HTTP头</h3><p>HTTP头又细分为请求头(request header)、普通头(general header)、实体头(entity header)<br>而HTTP头主要关注点是其字段</p>
+<h4 id="Accept"><a href="#Accept" class="headerlink" title="Accept"></a>Accept</h4><p>作用: 浏览器可以接受的媒体类型<br>例如：  <code>Accept: text/html</code>  代表浏览器可以接受服务器回发的类型为 text/html  也就是我们常说的html文档<br>通配符 * 代表任意类型<br>例如：  <code>Accept: */*</code>  代表浏览器可以处理所有类型,(一般浏览器发给服务器都是发这个)</p>
+<h4 id="Accept-Language"><a href="#Accept-Language" class="headerlink" title="Accept-Language"></a>Accept-Language</h4><p>作用： 浏览器申明自己接收的语言。<br>语言跟字符集的区别：中文是语言，中文有多种字符集，比如big5，gb2312，gbk等等；<br>例如： <code>Accept-Language: zh-CN,zh</code></p>
+<h4 id="Accept-Encoding"><a href="#Accept-Encoding" class="headerlink" title="Accept-Encoding"></a>Accept-Encoding</h4><p>作用： 浏览器申明自己接收的编码方法，通常指定压缩方法（gzip，deflate）<br>例如：<code>Accept-Encoding: gzip</code>, <code>Accept-Encoding: deflate</code></p>
+<h4 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h4><p>作用： 告诉HTTP服务器， 客户端使用的操作系统的名称和版本以及浏览器的名称和版本.<br>例如： <code>User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 UBrowser/5.7.16400.16 Safari/537.36</code></p>
+<h4 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h4><p>作用： 告诉服务器，请求的内容的类型<br>常见的字段： 假设使用POST方式请求</p>
+<ul>
+<li>text/xml              [请求体为文本]</li>
+<li>application/json      [请求体为JSON数据]</li>
+<li>application/xml       [请求体为xml数据]</li>
+<li>image/jpeg            [请求体为jpeg图片]</li>
+<li>multipart/form-data   [请求体为表单]</li>
+</ul>
+<h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h4><p>作用： 最重要的header，将cookie的值发送给HTTP服务器</p>
+<h4 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h4><p>例如：　<code>Connection: keep-alive</code>   当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接<br>例如：  <code>Connection: close</code>  代表一个Request完成后，客户端和服务器之间用于传输HTTP数据的TCP连接会关闭， 当客户端再次发送Request，需要重新建立TCP连接。</p>
+<h4 id="Content-Length"><a href="#Content-Length" class="headerlink" title="Content-Length"></a>Content-Length</h4><p>作用：发送给HTTP服务器数据的长度。<br>例如： <code>Content-Length: 18</code></p>
+<h4 id="Referer"><a href="#Referer" class="headerlink" title="Referer:"></a>Referer:</h4><p>作用： 提供了Request的上下文信息的服务器，告诉服务器我是从哪个链接过来的。</p>
+<h3 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h3><p>这个只有post方式请求才有，get方式请求没有。</p>
+<h4 id="HTTP响应-HTTP-Response"><a href="#HTTP响应-HTTP-Response" class="headerlink" title="HTTP响应(HTTP Response)"></a>HTTP响应(HTTP Response)</h4><p>HTTP Response的结构跟Request的结构基本一样。同样分为三部分：</p>
+<ul>
+<li>响应行</li>
+<li>响应头</li>
+<li>响应体</li>
+</ul>
+<p>下面是响应示例：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Length: 156474</span><br><span class="line">Content-Type: text/html;charset=UTF-8</span><br><span class="line">Cxy_all: 90058352_hao_pg+d4fa7f28cefb9b120f868558e440bafa</span><br><span class="line">Date: Sun, 20 Nov 2016 05:09:51 GMT</span><br><span class="line">Expires: Sun, 20 Nov 2016 05:09:51 GMT</span><br><span class="line">Lfy: nj02.11</span><br><span class="line">Server: BWS/1.0</span><br><span class="line">Set-Cookie: __bsi=11619936655404239050_00_60_N_R_126_0303_c02f_Y; max-age=3600; domain=www.hao123.com; path=/</span><br></pre></td></tr></table></figure>
+
+<h3 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h3><p>响应行由协议版本、响应状态构成<br>下面为响应行的示例：<br><code>HTTP/1.1 200 OK</code></p>
+<h3 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h3><p>响应头关注点是字段，常见的字段如下：</p>
+<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>作用: 非常重要的规则。 这个用来指定Response-Request遵循的缓存机制。<br>例如：<br><code>Cache-Control:Public</code>      可以被任何缓存所缓存<br><code>Cache-Control:Private</code>     内容只缓存到私有缓存中<br><code>Cache-Control:no-cache</code>    所有内容都不会被缓存</p>
+<h4 id="Content-Type-1"><a href="#Content-Type-1" class="headerlink" title="Content-Type"></a>Content-Type</h4><p>作用：服务器告诉浏览器，自己响应的对象的类型和字符集<br>例如:<br><code>Content-Type: text/html; charset=utf-8</code><br><code>Content-Type: image/jpeg</code></p>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>作用: 浏览器会在指定过期时间内使用本地缓存<br>例如: <code>Expires:Sun, 20 Nov 2016 05:09:51 GMT</code></p>
+<h4 id="Connection-1"><a href="#Connection-1" class="headerlink" title="Connection"></a>Connection</h4><p>跟HTTP头中的<code>Connection</code>是同样的原理</p>
+<h4 id="Content-Encoding"><a href="#Content-Encoding" class="headerlink" title="Content-Encoding"></a>Content-Encoding</h4><p>跟HTTP中头的<code>Content-Encoding</code>是同样的原理</p>
+<h4 id="Content-Length-1"><a href="#Content-Length-1" class="headerlink" title="Content-Length"></a>Content-Length</h4><p>作用：指明实体正文的长度，以字节方式存储的十进制数字来表示。<br>例如: <code>Content-Length: 156474</code></p>
+<h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><p>作用: 生成消息的具体时间和日期<br>例如: Date: Sun, 20 Nov 2016 05:09:51 GMT</p>
+<h3 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h3><p>响应体包含的内容是网页的内容信息，主要是html代码等</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -360,7 +421,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2139,7 +2200,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

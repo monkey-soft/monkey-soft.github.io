@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="几个Python编程小技巧">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXw1e.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:03:37.044Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLaY6.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:07:24.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXw1e.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLaY6.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBXw1e.jpg" alt="几个Python编程小技巧">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>几个Python编程小技巧
+                <span class="card-title-color">几个Python编程小技巧</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>本文，猴哥分享几个 Python 编程的小技巧。</p>
-<a id="more"></a>
-<h2 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h2><p>我们在爬取网站是，会经常抓取网页文本，但是打印文本会出现是一堆乱码。这是为什么呢？原因是 Python 中字符对象分为两种，一种是 Unicode 对象，另一种是 str 对象。字符在 Python 中又以 Unicode 对象为基础，所以我们定义的字符串在内存中以 Unicode 编码的形式存储。另外，str 对象又可以有多种编码形式，如 UTF-8、GBK-2312 等。虽然不同编码的 str 对象能被解码成 unicode 对象，但是不同编码的 str 对象直接不能直接转换。因此，如果字符串编码是 GB2312，将其存储到 list 中，再打印出来看到乱码是 Unicode 编码。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>本文，猴哥分享几个 Python 编程的小技巧。</p>
+<h2 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h2><p>我们在爬取网站是，会经常抓取网页文本，但是打印文本会出现是一堆乱码。这是为什么呢？原因是 Python 中字符对象分为两种，一种是 Unicode 对象，另一种是 str 对象。字符在 Python 中又以 Unicode 对象为基础，所以我们定义的字符串在内存中以 Unicode 编码的形式存储。<a id="more"></a>另外，str 对象又可以有多种编码形式，如 UTF-8、GBK-2312 等。虽然不同编码的 str 对象能被解码成 unicode 对象，但是不同编码的 str 对象直接不能直接转换。因此，如果字符串编码是 GB2312，将其存储到 list 中，再打印出来看到乱码是 Unicode 编码。</p>
 <p>解决这个问题其实很简单，Unicode 作为中间编码。我们只要将一种字符编码（如 GB2312）的字符串解码为 Unicode 编码，再编码为另外一种字符编码（如 UTF-8）。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 数据库以 UTF-8 形式保存字符串，而获取到的字符串是 GB2312</span></span><br><span class="line">str = getFromNetWork()      <span class="hljs-comment"># 获取网络字符串，字符编码为 GB2312</span></span><br><span class="line">str.encode(<span class="hljs-string">'GB2312'</span>).decode(<span class="hljs-string">'UTF-8'</span>) </span><br><span class="line">print(str)</span><br></pre></td></tr></table></figure>
 
@@ -226,6 +231,23 @@ var _hmt = _hmt || [];
 
 <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>Python 不仅是面向过程的编程语言，而且是面向对象的编程语言。在 Python 中，一个类被初始化，那么 <code>__new__()</code> 函数一定会先被调用，然后再调用<code>__init__()</code>。我们可以采用 hasattr() 函数来判断对象是否包含对应的属性，也就是判断类是否被初始化。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(cls)</span>:</span></span><br><span class="line">        <span class="hljs-comment"># 关键在于这，每一次实例化的时候，我们都只会返回这同一个instance对象</span></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(cls, <span class="hljs-string">'instance'</span>):</span><br><span class="line">            cls.instance = super(Singleton, cls).__new__(cls)</span><br><span class="line">        <span class="hljs-keyword">return</span> cls.instance</span><br><span class="line"></span><br><span class="line">obj1 = Singleton()</span><br><span class="line">obj2 = Singleton()</span><br><span class="line">obj1.name = <span class="hljs-string">'GeeMonkey'</span></span><br><span class="line">print(obj1.name, obj2.name)</span><br><span class="line">print(obj1 <span class="hljs-keyword">is</span> obj2)</span><br><span class="line"></span><br><span class="line">&gt;&gt;  GeeMonkey GeeMonkey</span><br><span class="line">&gt;&gt;  <span class="hljs-literal">True</span></span><br></pre></td></tr></table></figure>
+                </div>             
+            
+            <!-- <p>本文，猴哥分享几个 Python 编程的小技巧。</p>
+<h2 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h2><p>我们在爬取网站是，会经常抓取网页文本，但是打印文本会出现是一堆乱码。这是为什么呢？原因是 Python 中字符对象分为两种，一种是 Unicode 对象，另一种是 str 对象。字符在 Python 中又以 Unicode 对象为基础，所以我们定义的字符串在内存中以 Unicode 编码的形式存储。<a id="more"></a>另外，str 对象又可以有多种编码形式，如 UTF-8、GBK-2312 等。虽然不同编码的 str 对象能被解码成 unicode 对象，但是不同编码的 str 对象直接不能直接转换。因此，如果字符串编码是 GB2312，将其存储到 list 中，再打印出来看到乱码是 Unicode 编码。</p>
+<p>解决这个问题其实很简单，Unicode 作为中间编码。我们只要将一种字符编码（如 GB2312）的字符串解码为 Unicode 编码，再编码为另外一种字符编码（如 UTF-8）。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 数据库以 UTF-8 形式保存字符串，而获取到的字符串是 GB2312</span></span><br><span class="line">str = getFromNetWork()      <span class="hljs-comment"># 获取网络字符串，字符编码为 GB2312</span></span><br><span class="line">str.encode(<span class="hljs-string">'GB2312'</span>).decode(<span class="hljs-string">'UTF-8'</span>) </span><br><span class="line">print(str)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="值交换"><a href="#值交换" class="headerlink" title="值交换"></a>值交换</h2><p>在 C 或者 Java 中，要将两个变量的值进行交换。我们需要一个临时变量来存储其中一个值。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> a=<span class="hljs-number">10</span>, b=<span class="hljs-number">20</span>,temp;</span><br><span class="line">temp = a;</span><br><span class="line">a = b;</span><br><span class="line">b = temp;</span><br></pre></td></tr></table></figure>
+
+<p>但是在 Python中，有个简单的办法能直接一步到位。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-number">10</span></span><br><span class="line">b = <span class="hljs-number">20</span></span><br><span class="line">print(<span class="hljs-string">'a = '</span>, a, <span class="hljs-string">' b = '</span>, b)</span><br><span class="line">b, a = a, b</span><br><span class="line">print(<span class="hljs-string">'a = '</span>, a, <span class="hljs-string">' b = '</span>, b)</span><br><span class="line"></span><br><span class="line">&gt;&gt;  a =  <span class="hljs-number">10</span>  b =  <span class="hljs-number">20</span></span><br><span class="line">&gt;&gt;  a =  <span class="hljs-number">20</span>  b =  <span class="hljs-number">10</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>Python 不仅是面向过程的编程语言，而且是面向对象的编程语言。在 Python 中，一个类被初始化，那么 <code>__new__()</code> 函数一定会先被调用，然后再调用<code>__init__()</code>。我们可以采用 hasattr() 函数来判断对象是否包含对应的属性，也就是判断类是否被初始化。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(cls)</span>:</span></span><br><span class="line">        <span class="hljs-comment"># 关键在于这，每一次实例化的时候，我们都只会返回这同一个instance对象</span></span><br><span class="line">        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(cls, <span class="hljs-string">'instance'</span>):</span><br><span class="line">            cls.instance = super(Singleton, cls).__new__(cls)</span><br><span class="line">        <span class="hljs-keyword">return</span> cls.instance</span><br><span class="line"></span><br><span class="line">obj1 = Singleton()</span><br><span class="line">obj2 = Singleton()</span><br><span class="line">obj1.name = <span class="hljs-string">'GeeMonkey'</span></span><br><span class="line">print(obj1.name, obj2.name)</span><br><span class="line">print(obj1 <span class="hljs-keyword">is</span> obj2)</span><br><span class="line"></span><br><span class="line">&gt;&gt;  GeeMonkey GeeMonkey</span><br><span class="line">&gt;&gt;  <span class="hljs-literal">True</span></span><br></pre></td></tr></table></figure>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -330,7 +352,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2017,7 +2039,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

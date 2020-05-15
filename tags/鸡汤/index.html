@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/15.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBb1aT.jpg" alt="你为何要那么拼命？">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/15.html"><i class="fas fa-angle-double-right"></i>你为何要那么拼命？</a>
+                <a class="card-title-color" href="/15.html">你为何要那么拼命？</a>
             
         </h1>
 
@@ -210,8 +208,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>很多人往往有这样的状态，当完成一个目标之后，就守着这收获的成果沾沾自喜。你觉得考上了大学，就可以整天逃课沉迷于游戏？你觉得找到工作了，就可以准时下班走人，天天潇潇洒洒？答案是否定的。如果你是现在身处这状态，说明你对自己未来人生没有什么规划，是对自己极其不负责任的表示。你试问你自己，是否有在为自己拼命？</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/15.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsHAy9.jpg" alt="你为何要那么拼命？">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>很多人往往有这样的状态，当完成一个目标之后，就守着这收获的成果沾沾自喜。你觉得考上了大学，就可以整天逃课沉迷于游戏？你觉得找到工作了，就可以准时下班走人，天天潇潇洒洒？答案是否定的。如果你是现在身处这状态，说明你对自己未来人生没有什么规划，是对自己极其不负责任的表示。你试问你自己，是否有在为自己拼命？</p>
+                </div>
+            
+            <!-- <p>很多人往往有这样的状态，当完成一个目标之后，就守着这收获的成果沾沾自喜。你觉得考上了大学，就可以整天逃课沉迷于游戏？你觉得找到工作了，就可以准时下班走人，天天潇潇洒洒？答案是否定的。如果你是现在身处这状态，说明你对自己未来人生没有什么规划，是对自己极其不负责任的表示。你试问你自己，是否有在为自己拼命？</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2822,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

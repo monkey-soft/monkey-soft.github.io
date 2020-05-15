@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 读取文本文件的内容">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEPL6.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:21:53.405Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKWlT.jpg">
+<meta property="og:updated_time" content="2020-05-15T13:56:39.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEPL6.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKWlT.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDEPL6.jpg" alt="Python 读取文本文件的内容">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Python 读取文本文件的内容
+                <span class="card-title-color">Python 读取文本文件的内容</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>数据存储方式有很多种。如果数据的数据量比较大、数据类型繁多且要求便于搜索，我们一般会选择存储到数据库中。如果数据内容只是一些的文本信息，我们可以将数据存储到 TXT 、JSON、CSV 等文本文件中。类似存储小说、日志内容等场景，一般是将内容存储到文本文件中。数据已经存储到 txt 文件中，那该如何读取了？本文的主要内容是讲解如何读取文本文件的内容。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>数据存储方式有很多种。如果数据的数据量比较大、数据类型繁多且要求便于搜索，我们一般会选择存储到数据库中。如果数据内容只是一些的文本信息，我们可以将数据存储到 TXT 、JSON、CSV 等文本文件中。类似存储小说、日志内容等场景，一般是将内容存储到文本文件中。数据已经存储到 txt 文件中，那该如何读取了？本文的主要内容是讲解如何读取文本文件的内容。</p>
 <a id="more"></a>
 <h2 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h2><p>文本操作可以想象成对水池进行加水和排水。文本文件就好比一个存储水的水池，数据就类似水。从文本文件中读取数据好比让水池排水。在这过程中，我们需要一条“管道”才能从读取到数据。在 Python 语言中，open() 函数就是这样的“管道”。当 open() 函数成功打开文件后，我们会得到一个 file 对象。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file = open(<span class="hljs-string">'One Day.txt'</span>, <span class="hljs-string">'r'</span>)</span><br></pre></td></tr></table></figure>
@@ -227,6 +233,25 @@ var _hmt = _hmt || [];
 
 <h2 id="readlines"><a href="#readlines" class="headerlink" title="readlines()"></a>readlines()</h2><p><code>realines()</code> 函数跟<code>read()</code>类似，会一次性读取所有内容，然后按行返回一个 list 对象。这种读取方式速度会比较快。但随着文本的增大，占用内存会越来越多。一般读取配置文件，可以使用这种方法。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'one day.txt'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:</span><br><span class="line">    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file.readlines():</span><br><span class="line">        print(line.strip())</span><br><span class="line">        time.sleep(<span class="hljs-number">1</span>)</span><br></pre></td></tr></table></figure>
+                </div>             
+            
+            <!-- <p>数据存储方式有很多种。如果数据的数据量比较大、数据类型繁多且要求便于搜索，我们一般会选择存储到数据库中。如果数据内容只是一些的文本信息，我们可以将数据存储到 TXT 、JSON、CSV 等文本文件中。类似存储小说、日志内容等场景，一般是将内容存储到文本文件中。数据已经存储到 txt 文件中，那该如何读取了？本文的主要内容是讲解如何读取文本文件的内容。</p>
+<a id="more"></a>
+<h2 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h2><p>文本操作可以想象成对水池进行加水和排水。文本文件就好比一个存储水的水池，数据就类似水。从文本文件中读取数据好比让水池排水。在这过程中，我们需要一条“管道”才能从读取到数据。在 Python 语言中，open() 函数就是这样的“管道”。当 open() 函数成功打开文件后，我们会得到一个 file 对象。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file = open(<span class="hljs-string">'One Day.txt'</span>, <span class="hljs-string">'r'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>但是操作文件经常会出现各种异常，例如文件不存在，文件不具备可读属性等。因此，我们需要做异常处理工作。这里推荐使用 <code>with</code> 语句，其内部已经实现异常处理相关的逻辑。另外还有一个好处，我们还可以不用调用 <code>close()</code> 函数来关闭文件。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'One Day.txt'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:</span><br><span class="line">    <span class="hljs-keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>open() 函数的第二个参数是打开模式。可以是只读<code>r</code>，写入<code>w</code>，追加<code>a</code>、以二进制形式读取<code>rb</code>等。</p>
+<h2 id="read"><a href="#read" class="headerlink" title="read()"></a>read()</h2><p>read() 函数读取数据方式有点暴力。它是一次性将文件的全部内容读取到内存中。如果文件太多的话，会把内存给撑爆。为了保险起见，我们通常每次只读取一小段区间内容，然后反复调用。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding:utf-8 -*-</span></span><br><span class="line">size = <span class="hljs-number">1024</span></span><br><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'one day.txt'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:</span><br><span class="line">    print(file.read(size))</span><br></pre></td></tr></table></figure>
+
+<h2 id="readline"><a href="#readline" class="headerlink" title="readline()"></a>readline()</h2><p>如果我们需要每次只读取一行内容，则需要用到<code>readline()</code> 函数。这种读取方式虽然效率不高，但是占用内存小，能做到即读即用。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'one day.txt'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:</span><br><span class="line">    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file:</span><br><span class="line">        <span class="hljs-comment"># realine() 读取整行内容，包括 "\n" 字符</span></span><br><span class="line">        print(file.readline().strip())</span><br><span class="line">        time.sleep(<span class="hljs-number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="readlines"><a href="#readlines" class="headerlink" title="readlines()"></a>readlines()</h2><p><code>realines()</code> 函数跟<code>read()</code>类似，会一次性读取所有内容，然后按行返回一个 list 对象。这种读取方式速度会比较快。但随着文本的增大，占用内存会越来越多。一般读取配置文件，可以使用这种方法。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'one day.txt'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:</span><br><span class="line">    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file.readlines():</span><br><span class="line">        print(line.strip())</span><br><span class="line">        time.sleep(<span class="hljs-number">1</span>)</span><br></pre></td></tr></table></figure>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -331,7 +356,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2022,7 +2047,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

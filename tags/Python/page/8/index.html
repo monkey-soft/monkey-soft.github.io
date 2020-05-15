@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/340.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBvBdI.jpg" alt="Django 学习笔记之模型(下)">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/340.html"><i class="fas fa-angle-double-right"></i>Django 学习笔记之模型(下)</a>
+                <a class="card-title-color" href="/711.html">详解 Requests 库的用法</a>
             
         </h1>
 
@@ -185,13 +183,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-03-13T00:12:44.000Z">2018-03-13</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-03-13</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-07-26T08:08:04.000Z">2017-07-26</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-07-26</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
                 </div>
                 
 
@@ -200,7 +198,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    17 分钟 读完 (大约 2502 个字)
+                    20 分钟 读完 (大约 3051 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -210,8 +208,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>上篇文章讲解了 Django 如何创建模型，本文将继续讲解如何对模型进行增删改查操作。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/711.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsHcT0.jpg" alt="详解 Requests 库的用法">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>如果你把上篇多线程和多进程的文章搞定了，那么要恭喜你了 。你编写爬虫的能力上了一个崭新的台阶。不过，我们还不能沾沾自喜，因为任重而道远。那么接下来就关注下本文的主要内容。本文主要介绍 urllib 库的代替品 —— <code>Requests</code>。</p>
+                </div>
+            
+            <!-- <p>如果你把上篇多线程和多进程的文章搞定了，那么要恭喜你了 。你编写爬虫的能力上了一个崭新的台阶。不过，我们还不能沾沾自喜，因为任重而道远。那么接下来就关注下本文的主要内容。本文主要介绍 urllib 库的代替品 —— <code>Requests</code>。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -230,14 +247,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Django/" rel="tag">Django</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Web/" rel="tag">Web</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Requests/" rel="tag">Requests</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/340.html#more">阅读更多</a>
+                <a class="read_more" href="/711.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -255,18 +272,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/239.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBvKsJ.jpg" alt="Django 学习笔记之模型(上)">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/239.html"><i class="fas fa-angle-double-right"></i>Django 学习笔记之模型(上)</a>
+                <a class="card-title-color" href="/710.html">Python 多进程与多线程</a>
             
         </h1>
 
@@ -274,13 +284,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-02-14T06:48:41.000Z">2018-02-14</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-02-14</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-07-20T08:28:12.000Z">2017-07-20</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-07-20</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
                 </div>
                 
 
@@ -289,7 +299,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    20 分钟 读完 (大约 3057 个字)
+                    20 分钟 读完 (大约 2925 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -299,8 +309,35 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>上片文章讲解模板。你本文将讲解 “MTV” 中 M 层次，即模型层（数据存取层）。模型这内容比较多，我将其拆分为 3 个部分来讲解。同时，文章也配套了例子，你可以通过 <strong>阅读原文</strong> 来查看。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/710.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsH8OA.jpg" alt="Python 多进程与多线程">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <blockquote>
+<p>前言：为什么有人说 Python 的多线程是鸡肋，不是真正意义上的多线程？</p>
+</blockquote>
+<p>看到这里，也许你会疑惑。这很正常，所以让我们带着问题来阅读本文章吧。</p>
+<p>问题：<br>1、Python 多线程为什么耗时更长？<br>2、为什么在 Python 里面推荐使用多进程而不是多线程？</p>
+                </div>
+            
+            <!-- <blockquote>
+<p>前言：为什么有人说 Python 的多线程是鸡肋，不是真正意义上的多线程？</p>
+</blockquote>
+<p>看到这里，也许你会疑惑。这很正常，所以让我们带着问题来阅读本文章吧。</p>
+<p>问题：<br>1、Python 多线程为什么耗时更长？<br>2、为什么在 Python 里面推荐使用多进程而不是多线程？</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -319,14 +356,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Django/" rel="tag">Django</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Web/" rel="tag">Web</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" rel="tag">多进程</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/239.html#more">阅读更多</a>
+                <a class="read_more" href="/710.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -344,18 +381,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/238.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBveRU.jpg" alt="Django 学习笔记之模板">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/238.html"><i class="fas fa-angle-double-right"></i>Django 学习笔记之模板</a>
+                <a class="card-title-color" href="/79.html">爬虫实战一：爬取当当网所有 Python 书籍</a>
             
         </h1>
 
@@ -363,13 +393,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-02-13T06:48:08.000Z">2018-02-13</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-02-13</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-07-18T02:56:03.000Z">2017-07-18</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-07-18</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
                 </div>
                 
 
@@ -378,7 +408,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    19 分钟 读完 (大约 2831 个字)
+                    10 分钟 读完 (大约 1531 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -388,8 +418,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>本文是自己 Django 学习笔记系列的第四篇原创文章。主要接着篇文章的视图内容，讲解模板的用法。另外也说下 Django 学习笔记系列的安排。自己计划大概 15 篇文章的输出自己学习 Django 框架的内容，再用大概 10 篇文章进行实战开发，最后可能用少量的篇幅进行补充。废话不多说，切回主题。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/79.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsH3yd.jpg" alt="爬虫实战一：爬取当当网所有 Python 书籍">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>我们已经学习 urllib、re、BeautifulSoup 这三个库的用法。但只是停留在理论层面上，还需实践来检验学习成果。因此，本文主要讲解如何利用我们刚才的几个库去实战。</p>
+<h2 id="确定爬取目标"><a href="#确定爬取目标" class="headerlink" title="确定爬取目标"></a>确定爬取目标</h2><p>任何网站皆可爬取，就看你要不要爬取而已。本次选取的爬取目标是当当网，爬取内容是 以 Python 为关键字搜索出来的页面中所有书籍的信息。具体如下图所示：</p>
+                </div>
+            
+            <!-- <p>我们已经学习 urllib、re、BeautifulSoup 这三个库的用法。但只是停留在理论层面上，还需实践来检验学习成果。因此，本文主要讲解如何利用我们刚才的几个库去实战。</p>
+<h2 id="确定爬取目标"><a href="#确定爬取目标" class="headerlink" title="确定爬取目标"></a>确定爬取目标</h2><p>任何网站皆可爬取，就看你要不要爬取而已。本次选取的爬取目标是当当网，爬取内容是 以 Python 为关键字搜索出来的页面中所有书籍的信息。具体如下图所示：</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -408,14 +459,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Django/" rel="tag">Django</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Web/" rel="tag">Web</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E5%BD%93%E5%BD%93/" rel="tag">当当</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="tag">爬虫实战</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="tag">项目实战</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/238.html#more">阅读更多</a>
+                <a class="read_more" href="/79.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -433,18 +484,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/237.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBvViV.jpg" alt="Django 学习笔记之视图与URL配置">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/237.html"><i class="fas fa-angle-double-right"></i>Django 学习笔记之视图与URL配置</a>
+                <a class="card-title-color" href="/78.html">内容提取神器 beautifulSoup 的用法</a>
             
         </h1>
 
@@ -452,13 +496,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-02-08T10:34:54.000Z">2018-02-08</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-02-08</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-07-15T07:57:22.000Z">2017-07-15</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-07-15</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
                 </div>
                 
 
@@ -467,7 +511,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    16 分钟 读完 (大约 2434 个字)
+                    14 分钟 读完 (大约 2031 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -477,8 +521,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>本文章是自己学习 Django 框架的第三篇。前面两篇文章主要记录 Django 理论相关知识。从本篇文章开始，将以理论和实战方式讲述 Django 框架的知识。让我们一起来 coding 吧~</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/78.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsHMWD.jpg" alt="内容提取神器 beautifulSoup 的用法">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>上篇文章只是简单讲述正则表达式如何读懂以及 re 常见的函数的用法。我们可能读懂别人的正则表达式，但是要自己写起正则表达式的话，可能会陷入如何写的困境。正则表达式写起来费劲又出错率高，那么有没有替代方案呢？俗话说得好，条条道路通罗马。目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。</p>
+                </div>
+            
+            <!-- <p>上篇文章只是简单讲述正则表达式如何读懂以及 re 常见的函数的用法。我们可能读懂别人的正则表达式，但是要自己写起正则表达式的话，可能会陷入如何写的困境。正则表达式写起来费劲又出错率高，那么有没有替代方案呢？俗话说得好，条条道路通罗马。目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -497,14 +560,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Django/" rel="tag">Django</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Web/" rel="tag">Web</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/beautifulSoup/" rel="tag">beautifulSoup</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/237.html#more">阅读更多</a>
+                <a class="read_more" href="/78.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -522,18 +585,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/236.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBvAI0.jpg" alt="Django 学习笔记之初识">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/236.html"><i class="fas fa-angle-double-right"></i>Django 学习笔记之初识</a>
+                <a class="card-title-color" href="/67.html">Python 正则表达式</a>
             
         </h1>
 
@@ -541,13 +597,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-02-06T04:52:36.000Z">2018-02-06</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-02-06</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-06-30T07:53:38.000Z">2017-06-30</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-06-30</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
                 </div>
                 
 
@@ -556,7 +612,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1196 个字)
+                    8 分钟 读完 (大约 1125 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -566,8 +622,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>上篇文章讲述 Django 环境搭建， 在文章最后部分还有 6 篇 Django 简单入门的文章。后来我自己以一个新手的角度来阅读文章，发现前面三篇文章能被够消化吸收。但是后三篇文章理解起来可能会有点费劲，可能是我漏写了很多细节。因此，本文先将前三盘文章的内容做一些补充说明，降低学习成本。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/67.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsHmo6.jpg" alt="Python 正则表达式">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>我们能够使用 urllib 向网页请求并获取其网页数据。但是抓取信息数据量比较大，我们可能需要其中一小部分数据。对付刚才的难题，就需要正则表达式出马了。正则表达式能帮助我们匹配过滤到我们需要的数据，但它学习起来非常枯燥无味。你可能会说，我还没有开始想学习正则表达式，你就来打击我？  莫慌！层层递进地学习，一步一个脚印地学习，很快就会学会了。对于爬虫，我觉得学会最基本的符号就差不多了。</p>
+                </div>
+            
+            <!-- <p>我们能够使用 urllib 向网页请求并获取其网页数据。但是抓取信息数据量比较大，我们可能需要其中一小部分数据。对付刚才的难题，就需要正则表达式出马了。正则表达式能帮助我们匹配过滤到我们需要的数据，但它学习起来非常枯燥无味。你可能会说，我还没有开始想学习正则表达式，你就来打击我？  莫慌！层层递进地学习，一步一个脚印地学习，很快就会学会了。对于爬虫，我觉得学会最基本的符号就差不多了。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -586,14 +661,14 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Django/" rel="tag">Django</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Web/" rel="tag">Web</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/236.html#more">阅读更多</a>
+                <a class="read_more" href="/67.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -611,18 +686,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/135.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBjnHI.jpg" alt="Django 学习笔记之环境搭建">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/135.html"><i class="fas fa-angle-double-right"></i>Django 学习笔记之环境搭建</a>
+                <a class="card-title-color" href="/66.html">详解 python3 urllib</a>
             
         </h1>
 
@@ -630,13 +698,13 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <!-- 增加了icon-->
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2018-01-29T03:23:53.000Z">2018-01-29</time>
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-01-29</span>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-06-26T03:31:10.000Z">2017-06-26</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-06-26</span>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder-open has-text-grey"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Django 学习笔记</a>
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
                 </div>
                 
 
@@ -645,7 +713,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1202 个字)
+                    16 分钟 读完 (大约 2430 个字)
                 </span>
                 
                 <!-- 浏览量
@@ -655,8 +723,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>古人云：功遇善其事，必先利其器。在正式学习 Django Web 框架之前，我们要把准备工作做好。准备工作主要是搭建开发环境，具体工作是安装 Python、创建虚拟环境 venv、安装 Django、安装 IDE 工具（Pycharm）。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/66.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsHedx.jpg" alt="详解 python3 urllib">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>本文是爬虫系列文章的第一篇，主要讲解 Python 3 中的 urllib 库的用法。urllib 是 Python 标准库中用于网络请求的库。该库有四个模块，分别是<code>urllib.request</code>，<code>urllib.error</code>，<code>urllib.parse</code>，<code>urllib.robotparser</code>。其中<code>urllib.request</code>，<code>urllib.error</code>两个库在爬虫程序中应用比较频繁。那我们就开门见山，直接讲解这两个模块的用法。</p>
+                </div>
+            
+            <!-- <p>本文是爬虫系列文章的第一篇，主要讲解 Python 3 中的 urllib 库的用法。urllib 是 Python 标准库中用于网络请求的库。该库有四个模块，分别是<code>urllib.request</code>，<code>urllib.error</code>，<code>urllib.parse</code>，<code>urllib.robotparser</code>。其中<code>urllib.request</code>，<code>urllib.error</code>两个库在爬虫程序中应用比较频繁。那我们就开门见山，直接讲解这两个模块的用法。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -675,14 +762,220 @@ var _hmt = _hmt || [];
                 <!-- 首页显示的文章标签 -->
                 <div class="nexmoe-post-meta">
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Django/" rel="tag">Django</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/Web/" rel="tag">Web</a>
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
                 </div>
                 
             </div>
 
             <div class="level-start">
                 <div class="level-item">
-                <a class="read_more" href="/135.html#more">阅读更多</a>
+                <a class="read_more" href="/66.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="card-title-color" href="/62.html">学爬虫之道</a>
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2017-06-24T17:05:52.000Z">2017-06-25</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-06-25</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1168 个字)
+                </span>
+                
+                <!-- 浏览量
+                 -->
+            </div>
+        </div>
+        
+
+        <br>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/62.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsHZe1.jpg" alt="学爬虫之道">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>近来在阅读 《轻量级 Django》,虽然还没有读完，但我已经收益颇多。我不得不称赞 Django 框架的开发人员，他们把 Web 开发降低门槛。Django 让我从对 Web 开发是一无所知到现在可以编写小型 web 应用，这很舒服。</p>
+<p>Django 已经算是入门，所以自己把学习目标转到爬虫。自己接下来会利用三个月的时间来专攻 Python 爬虫。这几天，我使用“主题阅读方法”阅读 Python 爬虫入门的文档。制定 Python 爬虫的学习路线。</p>
+                </div>
+            
+            <!-- <p>近来在阅读 《轻量级 Django》,虽然还没有读完，但我已经收益颇多。我不得不称赞 Django 框架的开发人员，他们把 Web 开发降低门槛。Django 让我从对 Web 开发是一无所知到现在可以编写小型 web 应用，这很舒服。</p>
+<p>Django 已经算是入门，所以自己把学习目标转到爬虫。自己接下来会利用三个月的时间来专攻 Python 爬虫。这几天，我使用“主题阅读方法”阅读 Python 爬虫入门的文档。制定 Python 爬虫的学习路线。</p>  -->
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+
+        <!-- 增加版权说明 -->
+        
+        
+        
+        
+        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。-->
+        <hr style="height:1px;margin:1rem 0">
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <!-- 首页显示的文章标签 -->
+                <div class="nexmoe-post-meta">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="nexmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>
+                </div>
+                
+            </div>
+
+            <div class="level-start">
+                <div class="level-item">
+                <a class="read_more" href="/62.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    <div class="card-content article ">
+        <!-- 标题移动到文章信息上方 -->
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="card-title-color" href="/123.html">常用 Python 标准库</a>
+            
+        </h1>
+
+        
+        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- 增加了icon-->
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<time class="level-item has-text-grey" datetime="2016-12-04T19:47:47.000Z">2016-12-05</time>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2016-12-05</span>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">Python 必知必会</a>
+                </div>
+                
+
+                 
+                <i class="far fa-clock"></i>&nbsp;&nbsp;
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1621 个字)
+                </span>
+                
+                <!-- 浏览量
+                 -->
+            </div>
+        </div>
+        
+
+        <br>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/123.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsHCJU.jpg" alt="常用 Python 标准库">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>众所周知，Python有庞大的库资源，有官方标准库以及第三方的扩展库。每个库都一把利器，能帮助我们快速处理某方面的问题。作为一名python的初学者，当把基本的语法、列表和元组、字典、迭代器、异常处理、I/O操作、抽象等知识点学完之后。我建议把官方常用的标准库也随便学下来。讲真的，你知道这些库之后，你会有种相见恨晚的感觉。</p>
+<p>接下来带大家走进python标准库的世界。PS： 使用Python的版本为Python3</p>
+                </div>
+            
+            <!-- <p>众所周知，Python有庞大的库资源，有官方标准库以及第三方的扩展库。每个库都一把利器，能帮助我们快速处理某方面的问题。作为一名python的初学者，当把基本的语法、列表和元组、字典、迭代器、异常处理、I/O操作、抽象等知识点学完之后。我建议把官方常用的标准库也随便学下来。讲真的，你知道这些库之后，你会有种相见恨晚的感觉。</p>
+<p>接下来带大家走进python标准库的世界。PS： 使用Python的版本为Python3</p>  -->
+        </div>
+
+        <!-- 增加微信公众号首发说明 -->
+        
+
+        <!-- 增加版权说明 -->
+        
+        
+        
+        
+        <!-- 在预览时也显示 tags，并且将 Read More 按钮放置在右边。-->
+        <hr style="height:1px;margin:1rem 0">
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <!-- 首页显示的文章标签 -->
+                <div class="nexmoe-post-meta">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="nexmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>
+                </div>
+                
+            </div>
+
+            <div class="level-start">
+                <div class="level-item">
+                <a class="read_more" href="/123.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -705,7 +998,7 @@ var _hmt = _hmt || [];
         <div class="pagination-previous">
             <a class="is-flex-grow has-text-black-ter" href="/tags/Python/page/7/">上一页</a>
         </div>
-        <div class="pagination-next">
+        <div class="pagination-next is-invisible is-hidden-mobile">
             <a class="is-flex-grow has-text-black-ter" href="/tags/Python/page/9/">下一页</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
@@ -717,12 +1010,6 @@ var _hmt = _hmt || [];
             <li><a class="pagination-link has-text-black-ter" href="/tags/Python/page/7/">7</a></li>
             
             <li><a class="pagination-link is-current" href="/tags/Python/page/8/">8</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/tags/Python/page/9/">9</a></li>
-            
-            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/tags/Python/page/13/">13</a></li>
             
         </ul>
     </nav>
@@ -3279,7 +3566,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

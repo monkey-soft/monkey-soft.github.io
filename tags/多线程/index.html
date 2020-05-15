@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/710.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBLPN8.jpg" alt="Python 多进程与多线程">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/710.html"><i class="fas fa-angle-double-right"></i>Python 多进程与多线程</a>
+                <a class="card-title-color" href="/710.html">Python 多进程与多线程</a>
             
         </h1>
 
@@ -210,11 +208,35 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <blockquote>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/710.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsH8OA.jpg" alt="Python 多进程与多线程">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <blockquote>
 <p>前言：为什么有人说 Python 的多线程是鸡肋，不是真正意义上的多线程？</p>
 </blockquote>
 <p>看到这里，也许你会疑惑。这很正常，所以让我们带着问题来阅读本文章吧。</p>
+<p>问题：<br>1、Python 多线程为什么耗时更长？<br>2、为什么在 Python 里面推荐使用多进程而不是多线程？</p>
+                </div>
+            
+            <!-- <blockquote>
+<p>前言：为什么有人说 Python 的多线程是鸡肋，不是真正意义上的多线程？</p>
+</blockquote>
+<p>看到这里，也许你会疑惑。这很正常，所以让我们带着问题来阅读本文章吧。</p>
+<p>问题：<br>1、Python 多线程为什么耗时更长？<br>2、为什么在 Python 里面推荐使用多进程而不是多线程？</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2808,7 +2830,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

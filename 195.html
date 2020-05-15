@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="170 行代码爬取《白蛇：缘起》短评数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDV24g.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:29:59.035Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQ4o9.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:28:41.728Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDV24g.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQ4o9.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDV24g.jpg" alt="170 行代码爬取《白蛇：缘起》短评数据">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>170 行代码爬取《白蛇：缘起》短评数据
+                <span class="card-title-color">170 行代码爬取《白蛇：缘起》短评数据</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>在我的童年记忆中，电视台播放的动画片大多都是从日本、美国引进的。很多动画片算是银幕上的经典，例如：《变形金刚》系列、《猛兽侠》、《蜘蛛侠》、《七龙珠》、《名侦探柯南》、《灌篮高手》、《数码宝贝》等。</p>
-<a id="more"></a>
-<p>但是国产的精品动画篇确认寥寥无几，可能是当时我国动漫产业还处在起步阶段。一晃几十年过去了，现在的国产动漫算是强势崛起，这也涌现出《斗破苍穹》、《秦时明月》、《天行九歌》等优秀的动画片。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>在我的童年记忆中，电视台播放的动画片大多都是从日本、美国引进的。很多动画片算是银幕上的经典，例如：《变形金刚》系列、《猛兽侠》、《蜘蛛侠》、《七龙珠》、《名侦探柯南》、《灌篮高手》、《数码宝贝》等。</p>
+<p>但是国产的精品动画篇确认寥寥无几，可能是当时我国动漫产业还处在起步阶段。<a id="more"></a>一晃几十年过去了，现在的国产动漫算是强势崛起，这也涌现出《斗破苍穹》、《秦时明月》、《天行九歌》等优秀的动画片。</p>
 <p>2019年1月11日，一部国产动画电影《白蛇：缘起》在全国热映，一经上映便是好评如潮。这部电影凭借惊艳的花屏，出色的配音取得猫眼 9.4 分、豆瓣 8.0 分的高分成绩。</p>
 <p>既然是难得一见的精品，那么我去猫眼上爬爬网友的短评，看看网友们的观点。</p>
 <h2 id="分析页面"><a href="#分析页面" class="headerlink" title="分析页面"></a>分析页面</h2><p>估计很多人经常光顾猫眼电影网，猫眼的反爬机制越来越严格，手段也越来越多。如果选择“刚正面”，爬取 PC 端的页面，可能总体收益不高。况且，PC 端的页面只有精彩短评，没有全部的网页评论数据。</p>
@@ -248,6 +253,45 @@ var _hmt = _hmt || [];
 <p>我因控制爬虫速率，暂时还没有完成爬取工作。至于爬取结果，详情见下篇文章关于电影短评的数据分析。</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/SchweizerMesser/blob/master/Maoyan_WhiteSnake/WhiteSnake.py" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
 
+                </div>             
+            
+            <!-- <p>在我的童年记忆中，电视台播放的动画片大多都是从日本、美国引进的。很多动画片算是银幕上的经典，例如：《变形金刚》系列、《猛兽侠》、《蜘蛛侠》、《七龙珠》、《名侦探柯南》、《灌篮高手》、《数码宝贝》等。</p>
+<p>但是国产的精品动画篇确认寥寥无几，可能是当时我国动漫产业还处在起步阶段。<a id="more"></a>一晃几十年过去了，现在的国产动漫算是强势崛起，这也涌现出《斗破苍穹》、《秦时明月》、《天行九歌》等优秀的动画片。</p>
+<p>2019年1月11日，一部国产动画电影《白蛇：缘起》在全国热映，一经上映便是好评如潮。这部电影凭借惊艳的花屏，出色的配音取得猫眼 9.4 分、豆瓣 8.0 分的高分成绩。</p>
+<p>既然是难得一见的精品，那么我去猫眼上爬爬网友的短评，看看网友们的观点。</p>
+<h2 id="分析页面"><a href="#分析页面" class="headerlink" title="分析页面"></a>分析页面</h2><p>估计很多人经常光顾猫眼电影网，猫眼的反爬机制越来越严格，手段也越来越多。如果选择“刚正面”，爬取 PC 端的页面，可能总体收益不高。况且，PC 端的页面只有精彩短评，没有全部的网页评论数据。</p>
+<p><img src="./images/img/131_1.jpg" alt></p>
+<p>因此，我选择转移战场，从手机页面入手，看看是否有收获。将浏览器选择以手机模式浏览器，结果发现手机网页有全部的短评数据。点击“查看全部讨论”，继续抓包分析。</p>
+<p><img src="./images/img/131_2.jpg" alt></p>
+<p>随着鼠标滚动，自己浏览过几页短评数据之后，最终找到规律。</p>
+<p><img src="./images/img/131_3.jpg" alt><br><img src="./images/img/131_4.jpg" alt><br><img src="./images/img/131_5.jpg" alt></p>
+<p>页面请求的地址是：</p>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://m.maoyan.com/review/v2/comments.json?</span><br></pre></td></tr></table></figure>
+
+<p>后面携带一些参数：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">movieId=<span class="hljs-number">1235560</span>&amp;  <span class="hljs-comment">#电影id</span></span><br><span class="line">userId=<span class="hljs-number">-1</span>&amp; <span class="hljs-comment">#默认用户id</span></span><br><span class="line">offset=<span class="hljs-number">0</span>&amp; <span class="hljs-comment">#分片页数</span></span><br><span class="line">limit=<span class="hljs-number">15</span>&amp; <span class="hljs-comment">#每个分片显示具体数值</span></span><br><span class="line">ts=<span class="hljs-number">0</span>&amp; <span class="hljs-comment">#当前时间</span></span><br><span class="line">type=<span class="hljs-number">3</span></span><br></pre></td></tr></table></figure>
+
+<p>然后 offset 的值以 15 间隔递增。</p>
+<p>我格式化请求结果，确认能获取到短评内容、点赞数等。但是这个无法满足我的需求，我是想获取城市信息，后面想绘制地理热力图。而目前这个接口没有城市信息。</p>
+<p>因此，我选择逛逛各大搜索引擎，试下碰碰运气。最后幸运女神帮了我一把，我找到别人已经挖掘到的猫眼短评接口。</p>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://m.maoyan.com/mmdb/comments/movie/1235560.json?_v_=yes&amp;offset=1</span><br></pre></td></tr></table></figure>
+<p>其中 1235560 表示电影的 id，offset 代表页数。</p>
+<h2 id="爬虫制作"><a href="#爬虫制作" class="headerlink" title="爬虫制作"></a>爬虫制作</h2><p>因为短评数据量可能会比较多，所以我选择用数据库来存储数据。后面方便进行数据导出、数据去重等。</p>
+<p>自己从 json 数据结果中提取想要的数据，然后设计数据表并创建。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_database</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">    create_table_sql = (</span><br><span class="line">        <span class="hljs-string">"CREATE TABLE IF NOT EXISTS &#123;&#125; ("</span></span><br><span class="line">        <span class="hljs-string">"`id` VARCHAR(12) NOT NULL,"</span></span><br><span class="line">        <span class="hljs-string">"`nickName` VARCHAR(30),"</span></span><br><span class="line">        <span class="hljs-string">"`userId` VARCHAR(12),"</span></span><br><span class="line">        <span class="hljs-string">"`userLevel` INT(3),"</span></span><br><span class="line">        <span class="hljs-string">"`cityName` VARCHAR(10),"</span></span><br><span class="line">        <span class="hljs-string">"`gender` tinyint(1),"</span></span><br><span class="line">        <span class="hljs-string">"`score` FLOAT(2,1),"</span></span><br><span class="line">        <span class="hljs-string">"`startTime` VARCHAR(30),"</span></span><br><span class="line">        <span class="hljs-string">"`filmView` BOOLEAN,"</span></span><br><span class="line">        <span class="hljs-string">"`supportComment` BOOLEAN,"</span></span><br><span class="line">        <span class="hljs-string">"`supportLike` BOOLEAN,"</span></span><br><span class="line">        <span class="hljs-string">"`sureViewed` INT(2),"</span></span><br><span class="line">        <span class="hljs-string">"`avatarurl` VARCHAR(200),"</span></span><br><span class="line">        <span class="hljs-string">"`content` TEXT"</span></span><br><span class="line">        <span class="hljs-string">") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"</span>.format(self.__table)</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">try</span>:</span><br><span class="line">        self.cursor.execute(create_table_sql)</span><br><span class="line">        self.conn.commit()</span><br><span class="line">    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:</span><br><span class="line">        self.close_connection()</span><br><span class="line">        print(e)</span><br></pre></td></tr></table></figure>
+
+<p>然后构造 Session 会话、请求头 headers 和 url 地址。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">""" 构造会话 Session 抓取短评 """</span></span><br><span class="line">session = requests.Session()</span><br><span class="line"><span class="hljs-comment"># 电影短评地址</span></span><br><span class="line">movie_url = <span class="hljs-string">'http://m.maoyan.com/mmdb/comments/movie/1235560.json?_v_=yes&amp;offset=&#123;&#125;'</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="hljs-string">'User-agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Mobile Safari/537.36'</span>,</span><br><span class="line">    <span class="hljs-string">'Accept-Encoding'</span>: <span class="hljs-string">'gzip, deflate'</span>,</span><br><span class="line">    <span class="hljs-string">'accept'</span>: <span class="hljs-string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">    <span class="hljs-string">'Host'</span>: <span class="hljs-string">'m.maoyan.com'</span>,</span><br><span class="line">    <span class="hljs-string">'Accept-Language'</span>: <span class="hljs-string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">    <span class="hljs-string">'Cache-Control'</span>: <span class="hljs-string">'max-age=0'</span>,</span><br><span class="line">    <span class="hljs-string">'Connection'</span>: <span class="hljs-string">'keep-alive'</span>,</span><br><span class="line">    <span class="hljs-string">'Upgrade-Insecure-Requests'</span>: <span class="hljs-string">'1'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着请求 url 地址并解析返回的 Json 数据。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">offset = <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:</span><br><span class="line">    print(<span class="hljs-string">'============抓取第'</span>, offset, <span class="hljs-string">'页短评============'</span>)</span><br><span class="line">    print(<span class="hljs-string">'============&gt;&gt;&gt;'</span>, movie_url.format(offset))</span><br><span class="line">    response = session.get(movie_url.format(offset), headers=headers)</span><br><span class="line">    <span class="hljs-keyword">if</span> response.status_code == <span class="hljs-number">200</span>:</span><br><span class="line">        <span class="hljs-string">""" 解析短评 """</span></span><br><span class="line">        data_list = []</span><br><span class="line">        data = &#123;&#125;</span><br><span class="line">        <span class="hljs-keyword">for</span> comment <span class="hljs-keyword">in</span> json.loads(response.text)[<span class="hljs-string">'cmts'</span>]:</span><br><span class="line">            data[<span class="hljs-string">'id'</span>] = comment.get(<span class="hljs-string">'id'</span>)</span><br><span class="line">            data[<span class="hljs-string">'nickName'</span>] = comment.get(<span class="hljs-string">'nickName'</span>)</span><br><span class="line">            data[<span class="hljs-string">'userId'</span>] = comment.get(<span class="hljs-string">'userId'</span>)</span><br><span class="line">            data[<span class="hljs-string">'userLevel'</span>] = comment.get(<span class="hljs-string">'userLevel'</span>)</span><br><span class="line">            data[<span class="hljs-string">'cityName'</span>] = comment.get(<span class="hljs-string">'cityName'</span>)</span><br><span class="line">            data[<span class="hljs-string">'gender'</span>] = comment.get(<span class="hljs-string">'gender'</span>)</span><br><span class="line">            data[<span class="hljs-string">'score'</span>] = comment.get(<span class="hljs-string">'score'</span>)</span><br><span class="line">            data[<span class="hljs-string">'startTime'</span>] = comment.get(<span class="hljs-string">'startTime'</span>)</span><br><span class="line">            data[<span class="hljs-string">'filmView'</span>] = comment.get(<span class="hljs-string">'filmView'</span>)</span><br><span class="line">            data[<span class="hljs-string">'supportComment'</span>] = comment.get(<span class="hljs-string">'supportComment'</span>)</span><br><span class="line">            data[<span class="hljs-string">'supportLike'</span>] = comment.get(<span class="hljs-string">'supportLike'</span>)</span><br><span class="line">            data[<span class="hljs-string">'sureViewed'</span>] = comment.get(<span class="hljs-string">'sureViewed'</span>)</span><br><span class="line">            data[<span class="hljs-string">'avatarurl'</span>] = comment.get(<span class="hljs-string">'avatarurl'</span>)</span><br><span class="line">            data[<span class="hljs-string">'content'</span>] = comment.get(<span class="hljs-string">'content'</span>)</span><br><span class="line">            print(data)</span><br><span class="line">            data_list.append(data)</span><br><span class="line">            data = &#123;&#125;</span><br><span class="line">        print(<span class="hljs-string">'============解析到'</span>, len(data_list), <span class="hljs-string">'条短评数据============'</span>)</span><br><span class="line">        self.insert_comments(data_list)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-comment"># 抓取失败就先暂停抓取, 标记抓取页数, 过段时间再抓取</span></span><br><span class="line">        print(<span class="hljs-string">'&gt;=== 抓取第 '</span>, offset, <span class="hljs-string">' 失败, 错误码为 '</span> + response.status_code)</span><br><span class="line">        <span class="hljs-keyword">break</span></span><br><span class="line">    offset += <span class="hljs-number">1</span></span><br><span class="line">    time.sleep(random.randint(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>))</span><br></pre></td></tr></table></figure>
+
+<p>完成解析数据工作之后，最后一步工作就是将数据插入到数据库中。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert_comments</span><span class="hljs-params">(self, datalist)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 往数据库表中插入数据 """</span></span><br><span class="line">    insert_sql = (</span><br><span class="line">        <span class="hljs-string">"insert into "</span></span><br><span class="line">        <span class="hljs-string">"&#123;&#125; (id, nickName, userId, userLevel, cityName, gender, score, "</span></span><br><span class="line">        <span class="hljs-string">"startTime, filmView, supportComment, supportLike, sureViewed, avatarurl, content)"</span></span><br><span class="line">        <span class="hljs-string">"values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"</span>.format(self.__table))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">try</span>:</span><br><span class="line">        templist = []</span><br><span class="line">        <span class="hljs-keyword">for</span> comment <span class="hljs-keyword">in</span> datalist:</span><br><span class="line">            <span class="hljs-keyword">if</span> comment.get(<span class="hljs-string">'gender'</span>) <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:</span><br><span class="line">                comment[<span class="hljs-string">'gender'</span>] = <span class="hljs-number">-1</span></span><br><span class="line">            data = (comment.get(<span class="hljs-string">'id'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'nickName'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'userId'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'userLevel'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'cityName'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'gender'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'score'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'startTime'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'filmView'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'supportComment'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'supportLike'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'sureViewed'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'avatarurl'</span>),</span><br><span class="line">                    comment.get(<span class="hljs-string">'content'</span>))</span><br><span class="line">            templist.append(data)</span><br><span class="line">        self.cursor.executemany(insert_sql, templist)</span><br><span class="line">        self.conn.commit()</span><br><span class="line">    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:</span><br><span class="line">        print(<span class="hljs-string">'===== insert exception --&gt;&gt;&gt; %s'</span>, e)</span><br></pre></td></tr></table></figure>
+
+<p>我因控制爬虫速率，暂时还没有完成爬取工作。至于爬取结果，详情见下篇文章关于电影短评的数据分析。</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/SchweizerMesser/blob/master/Maoyan_WhiteSnake/WhiteSnake.py" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -352,7 +396,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2039,7 +2083,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

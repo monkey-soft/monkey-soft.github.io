@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="搭建手机抓包环境">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEMOP.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:22:53.484Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKHt1.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:18:45.969Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEMOP.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKHt1.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDEMOP.jpg" alt="搭建手机抓包环境">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>搭建手机抓包环境
+                <span class="card-title-color">搭建手机抓包环境</span>
             
         </h1>
 
@@ -209,10 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>智能手机的普及，这使得移动互联网成为另一个流量巨头。越来越多的公司也会转而直接提供 App 来展示内容。例如微信以及其生态（微信公众号、小程序）、抖音等。这也说明人们对于手机的依赖心更强。那抓取 App 的数据显得更加有意义。本文的主要内容是讲述如何搭建手机抓包环境。</p>
-<a id="more"></a>
-<h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><p>1）一台电脑<br>最好是笔记本电脑，因为笔记本电脑内置了无限网卡。如果你使用的台式电脑，你需要自己购买无线网卡。可以不需要购买专业的抓包网卡， 购买那些 USB 迷你无线网卡就满足使用要求。如果你不清楚买什么网卡，可以选择小米随身 WIFI。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>智能手机的普及，这使得移动互联网成为另一个流量巨头。越来越多的公司也会转而直接提供 App 来展示内容。例如微信以及其生态（微信公众号、小程序）、抖音等。这也说明人们对于手机的依赖心更强。那抓取 App 的数据显得更加有意义。本文的主要内容是讲述如何搭建手机抓包环境。</p>
+<h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><a id="more"></a>
+<p>1）一台电脑<br>最好是笔记本电脑，因为笔记本电脑内置了无限网卡。如果你使用的台式电脑，你需要自己购买无线网卡。可以不需要购买专业的抓包网卡， 购买那些 USB 迷你无线网卡就满足使用要求。如果你不清楚买什么网卡，可以选择小米随身 WIFI。</p>
 <p>2）一台手机</p>
 <p>3）抓包软件<br>常用的抓包软件有 WireShark、Fiddler、Charles、miniproxy 等。我这里使用 Fiddler 作为实例进行讲解，他们抓包的原理基本相同。看个人喜欢选择抓包软件即可。</p>
 <p>4）软 AP 软件<br>现在市面上有很多结合网卡能创建出软AP(Soft-AP)软件。常见的软件有：猎豹免费 WIFI、360 免费 WIFI、WIFI 共享精灵。</p>
@@ -239,6 +245,37 @@ var _hmt = _hmt || [];
 <p><img src="./images/img/102_8.png" alt></p>
 <p>最后，用手机浏览器访问代理服务器地址安装证书。根据上图，我访问的是 192.168.192.2:8888, 浏览器会提示是否安装证书。安装成功之后，即可对手机 App 进行抓包。</p>
 
+                </div>             
+            
+            <!-- <p>智能手机的普及，这使得移动互联网成为另一个流量巨头。越来越多的公司也会转而直接提供 App 来展示内容。例如微信以及其生态（微信公众号、小程序）、抖音等。这也说明人们对于手机的依赖心更强。那抓取 App 的数据显得更加有意义。本文的主要内容是讲述如何搭建手机抓包环境。</p>
+<h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><a id="more"></a>
+<p>1）一台电脑<br>最好是笔记本电脑，因为笔记本电脑内置了无限网卡。如果你使用的台式电脑，你需要自己购买无线网卡。可以不需要购买专业的抓包网卡， 购买那些 USB 迷你无线网卡就满足使用要求。如果你不清楚买什么网卡，可以选择小米随身 WIFI。</p>
+<p>2）一台手机</p>
+<p>3）抓包软件<br>常用的抓包软件有 WireShark、Fiddler、Charles、miniproxy 等。我这里使用 Fiddler 作为实例进行讲解，他们抓包的原理基本相同。看个人喜欢选择抓包软件即可。</p>
+<p>4）软 AP 软件<br>现在市面上有很多结合网卡能创建出软AP(Soft-AP)软件。常见的软件有：猎豹免费 WIFI、360 免费 WIFI、WIFI 共享精灵。</p>
+<h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><p>1）对手机 App 进行抓包，究竟抓取什么内容？<br>手机 App 离不开跟服务器交互。它们之间通过 HTTP/HTTPS 协议建立链接，然后大多数以 JSON 格式传输数据。对 App 抓包，抓的也是 HTTP/HTTPS 的包。</p>
+<p>2）抓包软件原理是什么？<br>抓包软件可以看成一个代理服务器，所有数据包都经过这个代理服务器转发。在转发过程中，代理服务器会把这些数据拦截下来。这就是我们看到的“抓包”。</p>
+<p>3）是否需要用到软 AP 软件？<br>这个跟你的网络有点关系。如果你的电脑和手机处于同一网段，那么就不需要使用软 AP 创建个 WIFI 网络。如果不在同一网段，就需要用到软 AP 软件。最常见的场景应该是：电脑使用的有线网络，手机使用的是无线网络。这两个设备很有可能不在同一网段。</p>
+<p>4) 如果判断两个设备是否位于同一网段？<br>网段是 IP 地址分类的概念。我们现在使用的 IP 地址还是 IPv4。一个 IP 地址大概长这个样子：192.168.1.110。一般情况下，如果两个设备的 IP 地址前三位都是一样的话，就算是位于同一网段。<br>我的电脑的 IP 地址是：</p>
+<p><img src="./images/img/102_1.png" alt></p>
+<p>我的手机的 IP 地址是：</p>
+<p><img src="./images/img/102_2.jpg" alt></p>
+<p>上面两张图说明位于同一网段。<br>如果两个设备不在同一网段，使用电脑开启个软 AP，然后将手机连接到这个 WIFI 网络。这样他们就处于同一网段了。</p>
+<h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><p>接下来，我按照两个设备不在同一网段的情况进行讲解。因为这种情况遇到的机率非常高。</p>
+<p>首先，先下载猎豹免费 WIFI。安装成功之后，开启 WIFI， 并让手机连接到刚才创建的 WIFI。</p>
+<p><img src="./images/img/102_3.png" alt></p>
+<p>然后到 Fiddler 的官网下载安装包。Fiddler 官网毕竟是国外网站，访问有时候很慢。如果下载不下来，可以到国内的软件商城下载。安装成功，打开 Fiddler 软件，我们会看到以下界面。左边是抓取到的数据包，右边是数据包分析界面。</p>
+<p><img src="./images/img/102_4.png" alt></p>
+<p>接着将“是否允许远程设备连”选项开启。Tools -&gt; Fiddler Options -&gt; Connections，勾选”Allow remote computers to connect”。<br><img src="./images/img/102_5.png" alt></p>
+<p>另外，我们可以看到 Fildder 监听着的 8888 端口号。这个是手机设置代理的端口号。在手机的连接的 WIFI 的设置中配置代理。代理 IP 地址是电脑的 IP 地址，端口就是刚才设定的 8888 端口。这里要注意的是，要先确保电脑和手机处于同一网段。</p>
+<p>我们使用软 AP 创建 WIFI，这保证电脑和手机处于同一网络。IP 地址要重新查看一遍。</p>
+<p><img src="./images/img/102_6.png" alt></p>
+<p>再将刚才的获取的 IP 地址和端口填写到 WIFI 的代理配置中。</p>
+<p><img src="./images/img/102_7.jpg" alt></p>
+<p>现在谷歌和苹果都强推使用 HTTPS 协议，所以我们也要配置下抓取 HTTPS 的包。</p>
+<p><img src="./images/img/102_8.png" alt></p>
+<p>最后，用手机浏览器访问代理服务器地址安装证书。根据上图，我访问的是 192.168.192.2:8888, 浏览器会提示是否安装证书。安装成功之后，即可对手机 App 进行抓包。</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -343,7 +380,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2030,7 +2067,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

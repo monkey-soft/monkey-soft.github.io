@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/1185.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDVuh4.jpg" alt="Python 三种遍历目录的方法，轻松帮你找出隐藏文件">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/1185.html"><i class="fas fa-angle-double-right"></i>Python 三种遍历目录的方法，轻松帮你找出隐藏文件</a>
+                <a class="card-title-color" href="/1185.html">Python 三种遍历目录的方法，轻松帮你找出隐藏文件</a>
             
         </h1>
 
@@ -210,8 +208,27 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>无论在 Windows 系统中还是 Linux 系统中，都存在着隐藏文件以及隐藏文件夹。隐藏文件夹一般是系统关键性目录，例如 Windows 系统中的 C 盘中的 <strong>Boot 文件夹</strong>、<strong>Windows 文件夹</strong>等。在 Linux 系统中，一些系统配置文件或软件配置文件会被隐藏起来，如：系统环境变量配置文件 <strong>.profile</strong>。有些时候，我们必须通过文件路径来遍历整个目录，然后找到隐藏文件。本文的主要内容是给大家分享 Python 三种遍历文件的方法。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/1185.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YyQexK.jpg" alt="Python 三种遍历目录的方法，轻松帮你找出隐藏文件">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>无论在 Windows 系统中还是 Linux 系统中，都存在着隐藏文件以及隐藏文件夹。隐藏文件夹一般是系统关键性目录，例如 Windows 系统中的 C 盘中的 <strong>Boot 文件夹</strong>、<strong>Windows 文件夹</strong>等。在 Linux 系统中，一些系统配置文件或软件配置文件会被隐藏起来，如：系统环境变量配置文件 <strong>.profile</strong>。有些时候，我们必须通过文件路径来遍历整个目录，然后找到隐藏文件。本文的主要内容是给大家分享 Python 三种遍历文件的方法。</p>
+                </div>
+            
+            <!-- <p>无论在 Windows 系统中还是 Linux 系统中，都存在着隐藏文件以及隐藏文件夹。隐藏文件夹一般是系统关键性目录，例如 Windows 系统中的 C 盘中的 <strong>Boot 文件夹</strong>、<strong>Windows 文件夹</strong>等。在 Linux 系统中，一些系统配置文件或软件配置文件会被隐藏起来，如：系统环境变量配置文件 <strong>.profile</strong>。有些时候，我们必须通过文件路径来遍历整个目录，然后找到隐藏文件。本文的主要内容是给大家分享 Python 三种遍历文件的方法。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2822,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

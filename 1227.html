@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 定时任务(下)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXilQ.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:01:54.780Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsqqzD.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:04:30.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXilQ.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsqqzD.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBXilQ.jpg" alt="Python 定时任务(下)">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Python 定时任务(下)
+                <span class="card-title-color">Python 定时任务(下)</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是<code>APScheduler</code>。</p>
-<a id="more"></a>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>APScheduler</code>的全称是<code>Advanced Python Scheduler</code>。它是一个轻量级的 Python 定时任务调度框架。APScheduler 支持三种调度任务：<code>固定时间间隔</code>，<code>固定时间点（日期）</code>，<code>Linux 下的 Crontab 命令</code>。同时，它还支持异步执行、后台执行调度任务。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是<code>APScheduler</code>。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>APScheduler</code>的全称是<code>Advanced Python Scheduler</code>。它是一个轻量级的 Python 定时任务调度框架。APScheduler 支持三种调度任务：<a id="more"></a><code>固定时间间隔</code>，<code>固定时间点（日期）</code>，<code>Linux 下的 Crontab 命令</code>。同时，它还支持异步执行、后台执行调度任务。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用 pip 包管理工具安装 APScheduler 是最方便快捷的。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install APScheduler</span><br><span class="line"><span class="hljs-comment"># 如果出现因下载失败导致安装不上的情况，建议使用代理</span></span><br><span class="line">pip --proxy http://代理ip:端口 install APScheduler</span><br></pre></td></tr></table></figure>
 
@@ -382,6 +387,179 @@ var _hmt = _hmt || [];
 <p>下面是显式设置 job store(使用mongo存储)和 executor 的代码的示例。<br>注：本代码来源于网络</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> pymongo <span class="hljs-keyword">import</span> MongoClient</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.schedulers.blocking <span class="hljs-keyword">import</span> BlockingScheduler</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.jobstores.mongodb <span class="hljs-keyword">import</span> MongoDBJobStore</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.jobstores.memory <span class="hljs-keyword">import</span> MemoryJobStore</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.executors.pool <span class="hljs-keyword">import</span> ThreadPoolExecutor, ProcessPoolExecutor</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_job</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">print</span> <span class="hljs-string">'hello world'</span></span><br><span class="line">host = <span class="hljs-string">'127.0.0.1'</span></span><br><span class="line">port = <span class="hljs-number">27017</span></span><br><span class="line">client = MongoClient(host, port)</span><br><span class="line"> </span><br><span class="line">jobstores = &#123;</span><br><span class="line">    <span class="hljs-string">'mongo'</span>: MongoDBJobStore(collection=<span class="hljs-string">'job'</span>, database=<span class="hljs-string">'test'</span>, client=client),</span><br><span class="line">    <span class="hljs-string">'default'</span>: MemoryJobStore()</span><br><span class="line">&#125;</span><br><span class="line">executors = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: ThreadPoolExecutor(<span class="hljs-number">10</span>),</span><br><span class="line">    <span class="hljs-string">'processpool'</span>: ProcessPoolExecutor(<span class="hljs-number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">job_defaults = &#123;</span><br><span class="line">    <span class="hljs-string">'coalesce'</span>: <span class="hljs-literal">False</span>,</span><br><span class="line">    <span class="hljs-string">'max_instances'</span>: <span class="hljs-number">3</span></span><br><span class="line">&#125;</span><br><span class="line">scheduler = BlockingScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)</span><br><span class="line">scheduler.add_job(my_job, <span class="hljs-string">'interval'</span>, seconds=<span class="hljs-number">5</span>)</span><br><span class="line"> </span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    scheduler.start()</span><br><span class="line"><span class="hljs-keyword">except</span> SystemExit:</span><br><span class="line">    client.close()</span><br></pre></td></tr></table></figure>
 
+                </div>             
+            
+            <!-- <p>上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是<code>APScheduler</code>。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>APScheduler</code>的全称是<code>Advanced Python Scheduler</code>。它是一个轻量级的 Python 定时任务调度框架。APScheduler 支持三种调度任务：<a id="more"></a><code>固定时间间隔</code>，<code>固定时间点（日期）</code>，<code>Linux 下的 Crontab 命令</code>。同时，它还支持异步执行、后台执行调度任务。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用 pip 包管理工具安装 APScheduler 是最方便快捷的。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install APScheduler</span><br><span class="line"><span class="hljs-comment"># 如果出现因下载失败导致安装不上的情况，建议使用代理</span></span><br><span class="line">pip --proxy http://代理ip:端口 install APScheduler</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><p>APScheduler 使用起来还算是比较简单。运行一个调度任务只需要以下三部曲。</p>
+<p>1) 新建一个 schedulers (调度器) 。<br>2) 添加一个调度任务(job stores)。<br>3) 运行调度任务。</p>
+<p>下面是执行每 2 秒报时的简单示例代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.schedulers.background <span class="hljs-keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">timedTask</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    print(datetime.datetime.utcnow().strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S.%f"</span>)[:<span class="hljs-number">-3</span>])</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    <span class="hljs-comment"># 创建后台执行的 schedulers</span></span><br><span class="line">    scheduler = BackgroundScheduler()  </span><br><span class="line">    <span class="hljs-comment"># 添加调度任务</span></span><br><span class="line">    <span class="hljs-comment"># 调度方法为 timedTask，触发器选择 interval(间隔性)，间隔时长为 2 秒</span></span><br><span class="line">    scheduler.add_job(timedTask, <span class="hljs-string">'interval'</span>, seconds=<span class="hljs-number">2</span>)</span><br><span class="line">    <span class="hljs-comment"># 启动调度任务</span></span><br><span class="line">    scheduler.start()</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line">        print(time.time())</span><br><span class="line">        time.sleep(<span class="hljs-number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h2><p>APScheduler 有四种组件，分别是：<code>调度器(scheduler)</code>，<code>作业存储(job store)</code>，<code>触发器(trigger)</code>，<code>执行器(executor)</code>。</p>
+<ul>
+<li><p>schedulers（调度器）<br>它是任务调度器，属于控制器角色。它配置作业存储器和执行器可以在调度器中完成，例如添加、修改和移除作业。</p>
+</li>
+<li><p>triggers（触发器）<br>描述调度任务被触发的条件。不过触发器完全是无状态的。</p>
+</li>
+<li><p>job stores（作业存储器）<br>任务持久化仓库，默认保存任务在内存中，也可将任务保存都各种数据库中，任务中的数据序列化后保存到持久化数据库，从数据库加载后又反序列化。</p>
+</li>
+<li><p>executors（执行器）<br>负责处理作业的运行，它们通常通过在作业中提交指定的可调用对象到一个线程或者进城池来进行。当作业完成时，执行器将会通知调度器。</p>
+</li>
+</ul>
+<h3 id="schedulers（调度器）"><a href="#schedulers（调度器）" class="headerlink" title="schedulers（调度器）"></a>schedulers（调度器）</h3><p>我个人觉得 APScheduler 非常好用的原因。它提供 7 种调度器，能够满足我们各种场景的需要。例如：后台执行某个操作，异步执行操作等。调度器分别是：</p>
+<ul>
+<li>BlockingScheduler : 调度器在当前进程的主线程中运行，也就是会阻塞当前线程。</li>
+<li>BackgroundScheduler : 调度器在后台线程中运行，不会阻塞当前线程。</li>
+<li>AsyncIOScheduler : 结合 <code>asyncio</code> 模块（一个异步框架）一起使用。</li>
+<li>GeventScheduler : 程序中使用 <code>gevent</code>（高性能的Python并发框架）作为IO模型，和 <code>GeventExecutor</code> 配合使用。</li>
+<li>TornadoScheduler : 程序中使用 <code>Tornado</code>（一个web框架）的IO模型，用 <code>ioloop.add_timeout</code> 完成定时唤醒。</li>
+<li>TwistedScheduler : 配合 <code>TwistedExecutor</code>，用 <code>reactor.callLater</code> 完成定时唤醒。</li>
+<li>QtScheduler : 你的应用是一个 Qt 应用，需使用QTimer完成定时唤醒。</li>
+</ul>
+<h3 id="triggers（触发器）"><a href="#triggers（触发器）" class="headerlink" title="triggers（触发器）"></a>triggers（触发器）</h3><p>APScheduler 有三种内建的 trigger:<br>1）date 触发器<br>date 是最基本的一种调度，作业任务只会执行一次。它表示特定的时间点触发。它的参数如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">run_date (datetime 或 str)</td>
+<td align="left">作业的运行日期或时间</td>
+</tr>
+<tr>
+<td align="center">timezone (datetime.tzinfo 或 str)</td>
+<td align="left">指定时区</td>
+</tr>
+</tbody></table>
+<p>date 触发器使用示例如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime</span><br><span class="line"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> date</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.schedulers.background <span class="hljs-keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">job_func</span><span class="hljs-params">(text)</span>:</span></span><br><span class="line">    print(text)</span><br><span class="line"></span><br><span class="line">scheduler = BackgroundScheduler()</span><br><span class="line"><span class="hljs-comment"># 在 2017-12-13 时刻运行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="hljs-string">'date'</span>, run_date=date(<span class="hljs-number">2017</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>), args=[<span class="hljs-string">'text'</span>])</span><br><span class="line"><span class="hljs-comment"># 在 2017-12-13 14:00:00 时刻运行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="hljs-string">'date'</span>, run_date=datetime(<span class="hljs-number">2017</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>), args=[<span class="hljs-string">'text'</span>])</span><br><span class="line"><span class="hljs-comment"># 在 2017-12-13 14:00:01 时刻运行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="hljs-string">'date'</span>, run_date=<span class="hljs-string">'2017-12-13 14:00:01'</span>, args=[<span class="hljs-string">'text'</span>])</span><br><span class="line"></span><br><span class="line">scheduler.start()</span><br></pre></td></tr></table></figure>
+
+<p>2）interval 触发器<br>固定时间间隔触发。interval 间隔调度，参数如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">weeks (int)</td>
+<td align="left">间隔几周</td>
+</tr>
+<tr>
+<td align="center">days (int)</td>
+<td align="left">间隔几天</td>
+</tr>
+<tr>
+<td align="center">hours (int)</td>
+<td align="left">间隔几小时</td>
+</tr>
+<tr>
+<td align="center">minutes (int)</td>
+<td align="left">间隔几分钟</td>
+</tr>
+<tr>
+<td align="center">seconds (int)</td>
+<td align="left">间隔多少秒</td>
+</tr>
+<tr>
+<td align="center">start_date (datetime 或 str)</td>
+<td align="left">开始日期</td>
+</tr>
+<tr>
+<td align="center">end_date (datetime 或 str)</td>
+<td align="left">结束日期</td>
+</tr>
+<tr>
+<td align="center">timezone (datetime.tzinfo 或str)</td>
+<td align="left">时区</td>
+</tr>
+</tbody></table>
+<p>interval 触发器使用示例如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.schedulers.background <span class="hljs-keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">job_func</span><span class="hljs-params">(text)</span>:</span></span><br><span class="line">    print(datetime.datetime.utcnow().strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S.%f"</span>)[:<span class="hljs-number">-3</span>])</span><br><span class="line"></span><br><span class="line">scheduler = BackgroundScheduler()</span><br><span class="line"><span class="hljs-comment"># 每隔两分钟执行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="hljs-string">'interval'</span>, minutes=<span class="hljs-number">2</span>)</span><br><span class="line"><span class="hljs-comment"># 在 2017-12-13 14:00:01 ~ 2017-12-13 14:00:10 之间, 每隔两分钟执行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="hljs-string">'interval'</span>, minutes=<span class="hljs-number">2</span>, start_date=<span class="hljs-string">'2017-12-13 14:00:01'</span> , end_date=<span class="hljs-string">'2017-12-13 14:00:10'</span>)</span><br><span class="line"></span><br><span class="line">scheduler.start()</span><br></pre></td></tr></table></figure>
+
+<p>3）cron 触发器<br> 在特定时间周期性地触发，和Linux crontab格式兼容。它是功能最强大的触发器。<br> 我们先了解 cron 参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">year (int 或 str)</td>
+<td align="left">年，4位数字</td>
+</tr>
+<tr>
+<td align="center">month (int 或 str)</td>
+<td align="left">月 (范围1-12)</td>
+</tr>
+<tr>
+<td align="center">day (int 或 str)</td>
+<td align="left">日 (范围1-31</td>
+</tr>
+<tr>
+<td align="center">week (int 或 str)</td>
+<td align="left">周 (范围1-53)</td>
+</tr>
+<tr>
+<td align="center">day_of_week (int 或 str)</td>
+<td align="left">周内第几天或者星期几 (范围0-6 或者 mon,tue,wed,thu,fri,sat,sun)</td>
+</tr>
+<tr>
+<td align="center">hour (int 或 str)</td>
+<td align="left">时 (范围0-23)</td>
+</tr>
+<tr>
+<td align="center">minute (int 或 str)</td>
+<td align="left">分 (范围0-59)</td>
+</tr>
+<tr>
+<td align="center">second (int 或 str)</td>
+<td align="left">秒 (范围0-59)</td>
+</tr>
+<tr>
+<td align="center">start_date (datetime 或 str)</td>
+<td align="left">最早开始日期(包含)</td>
+</tr>
+<tr>
+<td align="center">end_date (datetime 或 str)</td>
+<td align="left">最晚结束时间(包含)</td>
+</tr>
+<tr>
+<td align="center">timezone (datetime.tzinfo 或str)</td>
+<td align="left">指定时区</td>
+</tr>
+</tbody></table>
+<p>这些参数是支持算数表达式，取值格式有如下：<br><img src="./images/img/51_4.png" alt></p>
+<p>cron 触发器使用示例如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.schedulers.background <span class="hljs-keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">job_func</span><span class="hljs-params">(text)</span>:</span></span><br><span class="line">    print(<span class="hljs-string">"当前时间："</span>, datetime.datetime.utcnow().strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S.%f"</span>)[:<span class="hljs-number">-3</span>])</span><br><span class="line"></span><br><span class="line">scheduler = BackgroundScheduler()</span><br><span class="line"><span class="hljs-comment"># 在每年 1-3、7-9 月份中的每个星期一、二中的 00:00, 01:00, 02:00 和 03:00 执行 job_func 任务</span></span><br><span class="line">scheduler .add_job(job_func, <span class="hljs-string">'cron'</span>, month=<span class="hljs-string">'1-3,7-9'</span>,day=<span class="hljs-string">'0, tue'</span>, hour=<span class="hljs-string">'0-3'</span>)</span><br><span class="line"></span><br><span class="line">scheduler.start()</span><br></pre></td></tr></table></figure>
+
+<h3 id="作业存储-job-store"><a href="#作业存储-job-store" class="headerlink" title="作业存储(job store)"></a>作业存储(job store)</h3><p>该组件是对调度任务的管理。<br>1）添加 job<br>有两种添加方法，其中一种上述代码用到的 <code>add_job()</code>， 另一种则是<code>scheduled_job()</code>修饰器来修饰函数。</p>
+<p>这个两种办法的区别是：第一种方法返回一个 apscheduler.job.Job 的实例，可以用来改变或者移除 job。第二种方法只适用于应用运行期间不会改变的 job。</p>
+<p>第二种添加任务方式的例子：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> datetime</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.schedulers.background <span class="hljs-keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@scheduler.scheduled_job(job_func, 'interval', minutes=2)</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">job_func</span><span class="hljs-params">(text)</span>:</span></span><br><span class="line">    print(datetime.datetime.utcnow().strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S.%f"</span>)[:<span class="hljs-number">-3</span>])</span><br><span class="line"></span><br><span class="line">scheduler = BackgroundScheduler()</span><br><span class="line">scheduler.start()</span><br></pre></td></tr></table></figure>
+
+<p>2）移除 job<br>移除 job 也有两种方法：<code>remove_job()</code> 和 <code>job.remove()</code>。<br>remove_job() 是根据 job 的 id 来移除，所以要在 job 创建的时候指定一个 id。<br>job.remove() 则是对 job 执行 remove 方法即可</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scheduler.add_job(job_func, <span class="hljs-string">'interval'</span>, minutes=<span class="hljs-number">2</span>, id=<span class="hljs-string">'job_one'</span>)</span><br><span class="line">scheduler.remove_job(job_one)</span><br><span class="line"></span><br><span class="line">job = add_job(job_func, <span class="hljs-string">'interval'</span>, minutes=<span class="hljs-number">2</span>, id=<span class="hljs-string">'job_one'</span>)</span><br><span class="line">job.remvoe()</span><br></pre></td></tr></table></figure>
+
+<p>3）获取 job 列表<br>通过 <code>scheduler.get_jobs()</code> 方法能够获取当前调度器中的所有 job 的列表</p>
+<p>4) 修改 job<br>如果你因计划改变要对 job 进行修改，可以使用<code>Job.modify()</code> 或者 <code>modify_job()</code>方法来修改 job 的属性。但是值得注意的是，job 的 id 是无法被修改的。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scheduler.add_job(job_func, <span class="hljs-string">'interval'</span>, minutes=<span class="hljs-number">2</span>, id=<span class="hljs-string">'job_one'</span>)</span><br><span class="line">scheduler.start()</span><br><span class="line"><span class="hljs-comment"># 将触发时间间隔修改成 5分钟</span></span><br><span class="line">scheduler.modify_job(<span class="hljs-string">'job_one'</span>, minutes=<span class="hljs-number">5</span>)</span><br><span class="line"></span><br><span class="line">job = scheduler.add_job(job_func, <span class="hljs-string">'interval'</span>, minutes=<span class="hljs-number">2</span>)</span><br><span class="line"><span class="hljs-comment"># 将触发时间间隔修改成 5分钟</span></span><br><span class="line">job.modify(minutes=<span class="hljs-number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>5）关闭 job<br>默认情况下调度器会等待所有正在运行的作业完成后，关闭所有的调度器和作业存储。如果你不想等待，可以将 wait 选项设置为 False。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scheduler.shutdown()</span><br><span class="line">scheduler.shutdown(wait=false)</span><br></pre></td></tr></table></figure>
+
+<h3 id="执行器-executor"><a href="#执行器-executor" class="headerlink" title="执行器(executor)"></a>执行器(executor)</h3><p>执行器顾名思义是执行调度任务的模块。最常用的 executor 有两种：<code>ProcessPoolExecutor</code> 和 <code>ThreadPoolExecutor</code></p>
+<p>下面是显式设置 job store(使用mongo存储)和 executor 的代码的示例。<br>注：本代码来源于网络</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> pymongo <span class="hljs-keyword">import</span> MongoClient</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.schedulers.blocking <span class="hljs-keyword">import</span> BlockingScheduler</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.jobstores.mongodb <span class="hljs-keyword">import</span> MongoDBJobStore</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.jobstores.memory <span class="hljs-keyword">import</span> MemoryJobStore</span><br><span class="line"><span class="hljs-keyword">from</span> apscheduler.executors.pool <span class="hljs-keyword">import</span> ThreadPoolExecutor, ProcessPoolExecutor</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_job</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">print</span> <span class="hljs-string">'hello world'</span></span><br><span class="line">host = <span class="hljs-string">'127.0.0.1'</span></span><br><span class="line">port = <span class="hljs-number">27017</span></span><br><span class="line">client = MongoClient(host, port)</span><br><span class="line"> </span><br><span class="line">jobstores = &#123;</span><br><span class="line">    <span class="hljs-string">'mongo'</span>: MongoDBJobStore(collection=<span class="hljs-string">'job'</span>, database=<span class="hljs-string">'test'</span>, client=client),</span><br><span class="line">    <span class="hljs-string">'default'</span>: MemoryJobStore()</span><br><span class="line">&#125;</span><br><span class="line">executors = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: ThreadPoolExecutor(<span class="hljs-number">10</span>),</span><br><span class="line">    <span class="hljs-string">'processpool'</span>: ProcessPoolExecutor(<span class="hljs-number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">job_defaults = &#123;</span><br><span class="line">    <span class="hljs-string">'coalesce'</span>: <span class="hljs-literal">False</span>,</span><br><span class="line">    <span class="hljs-string">'max_instances'</span>: <span class="hljs-number">3</span></span><br><span class="line">&#125;</span><br><span class="line">scheduler = BlockingScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)</span><br><span class="line">scheduler.add_job(my_job, <span class="hljs-string">'interval'</span>, seconds=<span class="hljs-number">5</span>)</span><br><span class="line"> </span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    scheduler.start()</span><br><span class="line"><span class="hljs-keyword">except</span> SystemExit:</span><br><span class="line">    client.close()</span><br></pre></td></tr></table></figure>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -486,7 +664,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2193,7 +2371,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

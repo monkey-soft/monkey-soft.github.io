@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 爬虫之内容提取库beautifulSoup的用法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBqIn1.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:49:53.094Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsHMWD.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:11:20.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBqIn1.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsHMWD.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBqIn1.jpg" alt="内容提取神器 beautifulSoup 的用法">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>内容提取神器 beautifulSoup 的用法
+                <span class="card-title-color">内容提取神器 beautifulSoup 的用法</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>上篇文章只是简单讲述正则表达式如何读懂以及 re 常见的函数的用法。我们可能读懂别人的正则表达式，但是要自己写起正则表达式的话，可能会陷入如何写的困境。正则表达式写起来费劲又出错率高，那么有没有替代方案呢？俗话说得好，条条道路通罗马。目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>上篇文章只是简单讲述正则表达式如何读懂以及 re 常见的函数的用法。我们可能读懂别人的正则表达式，但是要自己写起正则表达式的话，可能会陷入如何写的困境。正则表达式写起来费劲又出错率高，那么有没有替代方案呢？俗话说得好，条条道路通罗马。目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。</p>
 <a id="more"></a>
 
 <h2 id="BeautifulSoup-简介"><a href="#BeautifulSoup-简介" class="headerlink" title="BeautifulSoup 简介"></a>BeautifulSoup 简介</h2><p>引用 BeautifulSoup 官网的说明：</p>
@@ -353,6 +359,151 @@ var _hmt = _hmt || [];
 <p>注意：实际 HTML 中的 tag 的<code>.next_sibling</code>和 <code>.previous_sibling</code>属性通常是字符串或空白，因为空白或者换行也可以被视作一个节点，所以得到的结果可能是空白或者换行</p>
 <p>（5）获取所有兄弟节点<br>通过<code>.next_siblings</code>和<code>.previous_siblings</code>属性可以对当前节点的兄弟节点迭代输出</p>
 
+                </div>             
+            
+            <!-- <p>上篇文章只是简单讲述正则表达式如何读懂以及 re 常见的函数的用法。我们可能读懂别人的正则表达式，但是要自己写起正则表达式的话，可能会陷入如何写的困境。正则表达式写起来费劲又出错率高，那么有没有替代方案呢？俗话说得好，条条道路通罗马。目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。</p>
+<a id="more"></a>
+
+<h2 id="BeautifulSoup-简介"><a href="#BeautifulSoup-简介" class="headerlink" title="BeautifulSoup 简介"></a>BeautifulSoup 简介</h2><p>引用 BeautifulSoup 官网的说明：</p>
+<blockquote>
+<p>Beautiful Soup is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating, searching, and modifying the parse tree. It commonly saves programmers hours or days of work. </p>
+</blockquote>
+<p>大致意思如下: BeautifulSoup 是一个能从 HTML 或 XML 文件中提取数据的 Python 库。它能通过自己定义的解析器来提供导航、搜索，甚至改变解析树。它的出现，会大大节省开发者的时间。</p>
+<h2 id="安装-BeautifulSoup"><a href="#安装-BeautifulSoup" class="headerlink" title="安装 BeautifulSoup"></a>安装 BeautifulSoup</h2><p>目前 BeautifulSoup 最新版本是 4.6.0，它是支持 Python3的。所以可以大胆去升级安装使用。</p>
+<p>安装方法有两种：</p>
+<ul>
+<li>使用<code>pip</code><br>比较推荐使用这种方式，既简单又方便管理。</li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br><span class="line"><span class="hljs-comment"># 如果出现因下载失败导致安装不上的情况，可以先启动 ss 再执行安装命令</span></span><br><span class="line"><span class="hljs-comment"># 或者在终端中使用代理</span></span><br><span class="line">pip --proxy http://代理ip:端口 install beautifulsoup4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用<code>easy_install</code></li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easy_install beautifulsoup4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用系统包管理</li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install Python-bs4</span><br><span class="line"><span class="hljs-comment"># 适用于 ubuntu 系统以及 Debian 系统</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="初始-BeautifulSoup"><a href="#初始-BeautifulSoup" class="headerlink" title="初始 BeautifulSoup"></a>初始 BeautifulSoup</h2><p>首先导入 BeautifulSoup 库，然后创建一个 BeautifulSoup 对象，再利用对象做文章。<br>具体参考示例代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(response)</span><br><span class="line">print(soup.prettify())</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，response 可以<code>urlllib</code>或者<code>request</code>请求返回的内容，也可以是本地 HTML 文本。如果要打开本地，代码需要改为</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">soup = BeautifulSoup(open(<span class="hljs-string">"index.html"</span>))</span><br><span class="line"><span class="hljs-comment"># 打开当前目录下 index.html 文件</span></span><br></pre></td></tr></table></figure>
+
+<p><code>soup.prettify()</code>函数的作用是打印整个 html 文件的 dom 树，例如上面执行结果如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="line"> <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">       The Dormouse's story</span><br><span class="line">   <span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>  </span><br><span class="line"> <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>  </span><br><span class="line"> <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dromouse"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>The Dormouse's story<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"story"</span>&gt;</span>Once upon a time there were three little sisters; and their names were<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com/elsie"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sister"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"link1"</span>&gt;</span><span class="hljs-comment">&lt;!-- Elsie --&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span><br><span class="line"> <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="解析-BeautifulSoup-对象"><a href="#解析-BeautifulSoup-对象" class="headerlink" title="解析 BeautifulSoup 对象"></a>解析 BeautifulSoup 对象</h2><p>想从 html 中获取到自己所想要的内容，我归纳出三种办法：</p>
+<h3 id="利用-Tag-对象"><a href="#利用-Tag-对象" class="headerlink" title="利用 Tag 对象"></a>利用 Tag 对象</h3><p>从上文得知，BeautifulSoup 将复杂 HTML 文档转换成一个复杂的树形结构,每个节点都是Python对象。跟安卓中的<code>Gson</code>库有异曲同工之妙。节点对象可以分为 4 种：<code>Tag</code>, <code>NavigableString</code>, <code>BeautifulSoup</code>, <code>Comment</code>。</p>
+<p>Tag 对象可以看成 HTML 中的标签。这样说，你大概明白具体是怎么回事。我们再通过例子来更加深入了解 Tag 对象。以下代码是以 prettify() 打印的结果为前提。</p>
+<ul>
+<li>例子1</li>
+</ul>
+<p>获取<code>head</code>标签内容</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.head)</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">&lt;head&gt;&lt;title&gt;The Dormouse<span class="hljs-string">'s story&lt;/title&gt;&lt;/head&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>例子2</li>
+</ul>
+<p>获取<code>title</code>标签内容</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.title)</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">&lt;title&gt;The Dormouse<span class="hljs-string">'s story&lt;/title&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>例子3</li>
+</ul>
+<p>获取<code>p</code>标签内容</p>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.p)</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">&lt;p class="title" name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>如果 Tag 对象要获取的标签有多个的话，它只会返回所以内容中第一个符合要求的标签。</p>
+<p>对象一般含有属性，Tag 对象也不例外。它具有两个非常重要的属性， <strong><font color="red">name</font></strong> 和 <strong><font color="red">attrs</font></strong>。</p>
+<p><strong>name</strong><br>name 属性是 Tag 对象的标签名。不过也有特殊的，soup 对象的 name 是 [document]</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(soup.name)</span><br><span class="line">print(soup.head.name)</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[document]</span><br><span class="line">head</span><br></pre></td></tr></table></figure>
+
+<p><strong>attrs</strong><br>attrs 属性是 Tag 对象所包含的属性值，它是一个字典类型。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.p.attrs）</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">&#123;<span class="hljs-string">'class'</span>: [<span class="hljs-string">'title'</span>], <span class="hljs-string">'name'</span>: <span class="hljs-string">'dromouse'</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其他三个属性也顺带介绍下:</p>
+<ul>
+<li>NavigableString</li>
+</ul>
+<p>说白了就是：Tag 对象里面的内容</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.title.string)</span><br><span class="line"> <span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">The Dormouse<span class="hljs-string">'s story</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>BeautifulSoup</li>
+</ul>
+<p>BeautifulSoup 对象表示的是一个文档的全部内容.大部分时候,可以把它当作 Tag 对象。它是一个特殊的 Tag。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(type(soup.name))</span><br><span class="line">print(soup.name)</span><br><span class="line">print(soup.attrs)</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">&lt;type <span class="hljs-string">'unicode'</span>&gt;</span><br><span class="line">[document]</span><br><span class="line">&#123;&#125; 空字典</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Comment</li>
+</ul>
+<p>Comment 对象是一个特殊类型的 NavigableString 对象。如果 HTML 页面中含有注释及特殊字符串的内容。而那些内容不是我们想要的，所以我们在使用前最好做下类型判断。例如：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> type(soup.a.string) == bs4.element.Comment:</span><br><span class="line">    ...    <span class="hljs-comment"># 执行其他操作，例如打印内容</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="利用过滤器"><a href="#利用过滤器" class="headerlink" title="利用过滤器"></a>利用过滤器</h3><p>过滤器其实是一个<code>find_all()</code>函数， 它会将所有符合条件的内容以列表形式返回。它的构造方法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find_all(name, attrs, recursive, text, **kwargs )</span><br></pre></td></tr></table></figure>
+
+<p>name 参数可以有多种写法：</p>
+<ul>
+<li>（1）节点名</li>
+</ul>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all(<span class="hljs-string">'p'</span>))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;p class="title" name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;, &lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were&lt;/p&gt;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>（2）正则表达式</li>
+</ul>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all(re.compile(<span class="hljs-string">'^p'</span>)))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;p class="title" name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;, &lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were&lt;/p&gt;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>（3）列表<br>如果参数为列表，过滤标准为列表中的所有元素。看下具体代码，你就会一目了然了。</li>
+</ul>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all([<span class="hljs-string">'p'</span>, <span class="hljs-string">'a'</span>]))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;p class="title" name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;,  &lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were&lt;/p&gt;,  &lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;]</span><br></pre></td></tr></table></figure>
+
+<p>另外 attrs 参数可以也作为过滤条件来获取内容，而 limit 参数是限制返回的条数。</p>
+<h3 id="利用-CSS-选择器"><a href="#利用-CSS-选择器" class="headerlink" title="利用 CSS 选择器"></a>利用 CSS 选择器</h3><p>以 CSS 语法为匹配标准找到 Tag。同样也是使用到一个函数，该函数为<code>select()</code>，返回类型也是 list。它的具体用法如下, 同样以 prettify() 打印的结果为前提：</p>
+<ul>
+<li>（1）通过 tag 标签查找</li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.select(head))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;head&gt;&lt;title&gt;The Dormouse<span class="hljs-string">'s story&lt;/title&gt;&lt;/head&gt;]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>（2）通过 id 查找</li>
+</ul>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.select(<span class="hljs-string">'#link1'</span>))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>（3）通过 class 查找</li>
+</ul>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.select(<span class="hljs-string">'.sister'</span>))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>（4）通过属性查找</li>
+</ul>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.select(<span class="hljs-string">'p[name=dromouse]'</span>))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;p class="title" name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.select(<span class="hljs-string">'p[class=title]'</span>))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;p class="title" name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>（5）组合查找</li>
+</ul>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(soup.select(<span class="hljs-string">"body p"</span>))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;p class="title" name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;,</span><br><span class="line">&lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were&lt;/p&gt;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.select(<span class="hljs-string">"p &gt; a"</span>))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.select(<span class="hljs-string">"p &gt; .sister"</span>))</span><br><span class="line"><span class="hljs-comment"># 输出结果如下：</span></span><br><span class="line">[&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;&lt;!-- Elsie --&gt;&lt;/a&gt;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理上下关系"><a href="#处理上下关系" class="headerlink" title="处理上下关系"></a>处理上下关系</h2><p>从上文可知，我们已经能获取到节点对象，但有时候需要获取其父节点或者子节点的内容，我们要怎么做了？这就需要对<code>parse tree</code>进行遍历</p>
+<p>（1）获取子节点<br>利用<code>.children</code>属性，该属性会返回当前节点所以的子节点。但是它返回的类型不是列表，而是迭代器</p>
+<p>（2）获取所有子孙节点<br>使用<code>.descendants</code>属性，它会返回所有子孙节点的迭代器</p>
+<p>（3）获取父节点<br>通过<code>.parent</code>属性可以获得所有子孙节点的迭代器</p>
+<p>（4）获取所有父节点<br><code>.parents</code>属性，也是返回所有子孙节点的迭代器</p>
+<p>（5）获取兄弟节点<br>兄弟节点可以理解为和本节点处在统一级的节点，<code>.next_sibling</code>属性获取了该节点的下一个兄弟节点，<code>.previous_sibling</code>则与之相反，如果节点不存在，则返回 None</p>
+<p>注意：实际 HTML 中的 tag 的<code>.next_sibling</code>和 <code>.previous_sibling</code>属性通常是字符串或空白，因为空白或者换行也可以被视作一个节点，所以得到的结果可能是空白或者换行</p>
+<p>（5）获取所有兄弟节点<br>通过<code>.next_siblings</code>和<code>.previous_siblings</code>属性可以对当前节点的兄弟节点迭代输出</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -457,7 +608,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2164,7 +2315,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

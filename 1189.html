@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="使用 Python 分析全国所有必胜客餐厅">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDVtAO.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:28:05.715Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQJRP.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:26:26.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDVtAO.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyQJRP.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDVtAO.jpg" alt="使用 Python 分析全国所有必胜客餐厅">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>使用 Python 分析全国所有必胜客餐厅
+                <span class="card-title-color">使用 Python 分析全国所有必胜客餐厅</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>在之前的一篇文章中，我讲到如何爬取必胜客官网中全国各大城市餐厅的信息。虽然餐厅数据信息被抓取下来，但是数据一直在硬盘中“躺尸”。不曾记得，自己已经第 n 次这么做了。说到这里，要追溯到自己的大学时光。</p>
-<a id="more"></a>
-<p>自己从大学开始就接触 Python，当时是自己的好奇心很强烈。好奇为什么 Python 不需要浏览器就能抓取网站数据。内心感叹到，这简直是太妙了。自己为了体验这种抓取数据的乐趣，所以写了很多的爬虫程序。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>在之前的一篇文章中，我讲到如何爬取必胜客官网中全国各大城市餐厅的信息。虽然餐厅数据信息被抓取下来，但是数据一直在硬盘中“躺尸”。不曾记得，自己已经第 n 次这么做了。说到这里，要追溯到自己的大学时光。</p>
+<p>自己从大学开始就接触 Python，当时是自己的好奇心很强烈。好奇为什么 Python 不需要浏览器就能抓取网站数据。内心感叹到，这简直是太妙了。<a id="more"></a>自己为了体验这种抓取数据的乐趣，所以写了很多的爬虫程序。</p>
 <p>随着自己知识面地拓展，自己了解到数据分析这领域。自己从而才知道爬取到的数据，原来背后还隐藏的一些信息。自己也是在学习这方面的相关知识。这篇文章算是数据分析的处女稿，主要内容是从数据中提取出必胜客餐厅的一些信息。</p>
 <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>百度前端技术部开源一个基于 Javascript 的数据可视化图表库。其名字为 ECharts。它算是前端数据可视化的利器，能提供直观，生动，可交互，可个性化定制的数据可视化图表。</p>
 <p>国内有个大神突发奇想，这么好用的库如果能和 Python 结合起来就好了。于是乎，pyecharts 库就应运而生。因此，pyecharts 的作用是用于生成 Echarts 图表的类库。本文中的所有图标，自己都是利用 pyecharts 生成的。</p>
@@ -246,6 +251,43 @@ var _hmt = _hmt || [];
 <p><img src="./images/img/123_2.png" alt></p>
 <p>从数据上看，北上广深的餐厅数占据全国餐厅数的 22.64%。其他二三线城市共占据 77.36%。<strong>说明必胜客餐厅不仅主打大城市路线，还往二三四线城市发展，扩展领域。</strong></p>
 
+                </div>             
+            
+            <!-- <p>在之前的一篇文章中，我讲到如何爬取必胜客官网中全国各大城市餐厅的信息。虽然餐厅数据信息被抓取下来，但是数据一直在硬盘中“躺尸”。不曾记得，自己已经第 n 次这么做了。说到这里，要追溯到自己的大学时光。</p>
+<p>自己从大学开始就接触 Python，当时是自己的好奇心很强烈。好奇为什么 Python 不需要浏览器就能抓取网站数据。内心感叹到，这简直是太妙了。<a id="more"></a>自己为了体验这种抓取数据的乐趣，所以写了很多的爬虫程序。</p>
+<p>随着自己知识面地拓展，自己了解到数据分析这领域。自己从而才知道爬取到的数据，原来背后还隐藏的一些信息。自己也是在学习这方面的相关知识。这篇文章算是数据分析的处女稿，主要内容是从数据中提取出必胜客餐厅的一些信息。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>百度前端技术部开源一个基于 Javascript 的数据可视化图表库。其名字为 ECharts。它算是前端数据可视化的利器，能提供直观，生动，可交互，可个性化定制的数据可视化图表。</p>
+<p>国内有个大神突发奇想，这么好用的库如果能和 Python 结合起来就好了。于是乎，pyecharts 库就应运而生。因此，pyecharts 的作用是用于生成 Echarts 图表的类库。本文中的所有图标，自己都是利用 pyecharts 生成的。</p>
+<p>安装该库也很简单，使用 pip 方式安装。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyecharts</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><p>数据清洗工作是数据分析必不可少的步骤。这一步是为了清洗一些脏数据。因为可能网站本身就有空数据，或者匹配抓取网站信息时，有些混乱的数据。这些都需要清除掉。</p>
+<p>我之前是将数据写到一个 json 文件中，我先将数据读取出来。然后把 json 文本数据转化为字典类型。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_datas</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 从文件中获取数据 """</span></span><br><span class="line">    file_name = <span class="hljs-string">'results.json'</span></span><br><span class="line">    <span class="hljs-keyword">with</span> open(file_name, <span class="hljs-string">'r'</span>, encoding=<span class="hljs-string">'UTF-8'</span>) <span class="hljs-keyword">as</span> file:</span><br><span class="line">        content = file.read()</span><br><span class="line">        data = json.loads(content, encoding=<span class="hljs-string">'UTF-8'</span>)</span><br><span class="line">        <span class="hljs-comment"># print(data)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<p>接着对字典进行遍历, 统计每个城市的餐厅总数。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_restaurants_sum</span><span class="hljs-params">(data)</span>:</span></span><br><span class="line">    <span class="hljs-string">""" 对字典进行遍历, 统计每个城市的餐厅总数 """</span></span><br><span class="line">    results = &#123;&#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> data.items():</span><br><span class="line">        results[key] = len(value)</span><br><span class="line">        <span class="hljs-comment"># print(key, len(value))</span></span><br><span class="line">    <span class="hljs-keyword">return</span> results</span><br></pre></td></tr></table></figure>
+
+<p>再将字典中的每个 key-value 转化为元组，然后根据 value 进行倒序排序。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">restaurants_sum = sorted(restaurants_sum.items(), key=<span class="hljs-keyword">lambda</span> item: item[<span class="hljs-number">1</span>], reverse=<span class="hljs-literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>最后根据显示结果，手动删除一些脏数据。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">clean_datas</span><span class="hljs-params">(data)</span>:</span></span><br><span class="line">    <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">    清除脏数据。</span></span><br><span class="line"><span class="hljs-string">    经过分析发现 ('新区', 189), ('南区', 189), ('朝阳', 56) 是脏数据, 必胜客官网的地区选项中就有这三个名字</span></span><br><span class="line"><span class="hljs-string">    [('新区', 189), ('上海市', 189), ('南区', 189), ('北京市', 184), ('深圳', 95),</span></span><br><span class="line"><span class="hljs-string">     ('广州', 86), ('杭州', 78), ('天津市', 69), ('朝阳', 56), ('苏州', 54)]</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    data.remove((<span class="hljs-string">'新区'</span>, <span class="hljs-number">189</span>))</span><br><span class="line">    data.remove((<span class="hljs-string">'南区'</span>, <span class="hljs-number">189</span>))</span><br><span class="line">    data.remove((<span class="hljs-string">'朝阳'</span>, <span class="hljs-number">56</span>))</span><br><span class="line">    <span class="hljs-keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<p>到此，数据工作已经完成。</p>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><p>我们已经拿到了经过清洗的数据，我们简单对数据进行打印，然后绘制直方图。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">render_top10</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">    绘制直方图显示 全国必胜客餐厅总数 Top 10 的城市</span></span><br><span class="line"><span class="hljs-string">    根据清洗过后数据的结果, Top 城市如下</span></span><br><span class="line"><span class="hljs-string">    ('上海市', 189), ('北京市', 184), ('深圳', 95), ('广州', 86), ('杭州', 78),</span></span><br><span class="line"><span class="hljs-string">    ('天津市', 69), ('苏州', 54), ('西安', 52), ('武汉', 51), ('成都', 48)</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    attr = [<span class="hljs-string">"上海"</span>, <span class="hljs-string">"北京"</span>, <span class="hljs-string">"深圳"</span>, <span class="hljs-string">"广州"</span>, <span class="hljs-string">"杭州"</span>, <span class="hljs-string">"天津"</span>, <span class="hljs-string">"苏州"</span>, <span class="hljs-string">"西安"</span>, <span class="hljs-string">"武汉"</span>, <span class="hljs-string">"成都"</span>]</span><br><span class="line">    values = [<span class="hljs-number">189</span>, <span class="hljs-number">184</span>, <span class="hljs-number">95</span>, <span class="hljs-number">86</span>, <span class="hljs-number">78</span>, <span class="hljs-number">69</span>, <span class="hljs-number">54</span>, <span class="hljs-number">52</span>, <span class="hljs-number">51</span>, <span class="hljs-number">48</span>]</span><br><span class="line">    bar = Bar(<span class="hljs-string">"全国各大城市必胜客餐厅数量排行榜"</span>)</span><br><span class="line">    bar.add(<span class="hljs-string">"总数"</span>, attr, values, is_stack=<span class="hljs-literal">True</span>, is_more_utils=<span class="hljs-literal">True</span>)</span><br><span class="line">    bar.render(<span class="hljs-string">"render_bar.html"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>绘制出来的结果如下：</p>
+<p><img src="./images/img/123_1.jpg" alt></p>
+<p>不难看出，<strong>一线城市拥有必胜客的餐厅数比较多，省会城市拥有餐厅数要比非省会城市要多。</strong></p>
+<p>我们继续绘制饼状图，看看北上广深的餐厅数在全国的占比。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">render_top10_percent</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">    绘制饼状图 显示北上广深餐厅数在全国中的比例</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    configure(global_theme=<span class="hljs-string">'macarons'</span>)</span><br><span class="line">    attr = [<span class="hljs-string">"上海"</span>, <span class="hljs-string">"北京"</span>, <span class="hljs-string">"深圳"</span>, <span class="hljs-string">"广州"</span>, <span class="hljs-string">"其他城市"</span>]</span><br><span class="line">    value = [<span class="hljs-number">189</span>, <span class="hljs-number">184</span>, <span class="hljs-number">95</span>, <span class="hljs-number">86</span>, <span class="hljs-number">1893</span>]  <span class="hljs-comment"># 根据 count_other_sum() 计算出来的</span></span><br><span class="line">    pie = Pie(<span class="hljs-string">"北上广深餐厅数的占比"</span>)</span><br><span class="line">    pie.add(<span class="hljs-string">""</span>, attr, value, is_label_show=<span class="hljs-literal">True</span>, is_more_utils=<span class="hljs-literal">True</span>)</span><br><span class="line">    pie.render(<span class="hljs-string">"render_pie.html"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>绘制出来的结果如下：</p>
+<p><img src="./images/img/123_2.png" alt></p>
+<p>从数据上看，北上广深的餐厅数占据全国餐厅数的 22.64%。其他二三线城市共占据 77.36%。<strong>说明必胜客餐厅不仅主打大城市路线，还往二三四线城市发展，扩展领域。</strong></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -350,7 +392,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2037,7 +2079,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

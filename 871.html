@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="想提高爬虫效率？aiohttp 了解下">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDE1w8.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:23:08.541Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKO1K.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:19:01.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDE1w8.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKO1K.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDE1w8.jpg" alt="想提高爬虫效率？aiohttp 了解下">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>想提高爬虫效率？aiohttp 了解下
+                <span class="card-title-color">想提高爬虫效率？aiohttp 了解下</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>对于爬虫程序，我们往往会很关注其爬虫效率。影响爬虫效率有几个因素有，是否使用多线程，I/O 操作，是否同步执行等。其中 I/O 操作、同步执行是最影响爬虫效率的。</p>
-<a id="more"></a>
-<p>众所周知，Requests 库一个优秀的 HTTP 库，通过它可以非常简单地发起 HTTP 请求。不过，这个库所执行的网络请求都是同步。当爬虫程序进程获得 CPU 的时间片时，如果程序在进行 I/O 操作（例下载图片），在这段 IO 执行的时间里，CPU 处于空闲中，这样会造成 CPU 的计算能力就被浪费了。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>对于爬虫程序，我们往往会很关注其爬虫效率。影响爬虫效率有几个因素有，是否使用多线程，I/O 操作，是否同步执行等。其中 I/O 操作、同步执行是最影响爬虫效率的。</p>
+<p>众所周知，Requests 库一个优秀的 HTTP 库，通过它可以非常简单地发起 HTTP 请求。不过，这个库所执行的网络请求都是同步。<a id="more"></a>当爬虫程序进程获得 CPU 的时间片时，如果程序在进行 I/O 操作（例下载图片），在这段 IO 执行的时间里，CPU 处于空闲中，这样会造成 CPU 的计算能力就被浪费了。</p>
 <p>如果 CPU 能将等待时间利用起来，那么爬虫效率就提高了。那就需要对程序进行改造，将 I/O 同步操作变成异步操作。本文内容是介绍一个强大的异步 I/O 操作的库 —— <strong>aiohttp</strong>。</p>
 <h2 id="aiohttp-介绍"><a href="#aiohttp-介绍" class="headerlink" title="aiohttp 介绍"></a>aiohttp 介绍</h2><p>说到 aiohttp ，不得不说下 <strong>asyncio</strong> 。asyncio 是 Python 3.4 版本引入的标准库。它工作模式是单线程并发，使用协同执行 I/O 操作。asyncio 的编程模型就是一个消息循环。我们从 asyncio 模块中直接获取一个 EventLoop 的引用，然后把需要执行的协程扔到 EventLoop 中执行，就实现了异步 IO。</p>
 <p>使用 asyncio 实现一个异步函数 hello() 的例子:</p>
@@ -242,6 +247,39 @@ var _hmt = _hmt || [];
 
 <p>关于 aiohttp 更多用法，可以执行阅读官网文档。说句实话，aiohttp 跟 Requests 的用法大同小异。如果你已经学会了 Requests 库，很快就能掌握 aiohttp 的用法。</p>
 
+                </div>             
+            
+            <!-- <p>对于爬虫程序，我们往往会很关注其爬虫效率。影响爬虫效率有几个因素有，是否使用多线程，I/O 操作，是否同步执行等。其中 I/O 操作、同步执行是最影响爬虫效率的。</p>
+<p>众所周知，Requests 库一个优秀的 HTTP 库，通过它可以非常简单地发起 HTTP 请求。不过，这个库所执行的网络请求都是同步。<a id="more"></a>当爬虫程序进程获得 CPU 的时间片时，如果程序在进行 I/O 操作（例下载图片），在这段 IO 执行的时间里，CPU 处于空闲中，这样会造成 CPU 的计算能力就被浪费了。</p>
+<p>如果 CPU 能将等待时间利用起来，那么爬虫效率就提高了。那就需要对程序进行改造，将 I/O 同步操作变成异步操作。本文内容是介绍一个强大的异步 I/O 操作的库 —— <strong>aiohttp</strong>。</p>
+<h2 id="aiohttp-介绍"><a href="#aiohttp-介绍" class="headerlink" title="aiohttp 介绍"></a>aiohttp 介绍</h2><p>说到 aiohttp ，不得不说下 <strong>asyncio</strong> 。asyncio 是 Python 3.4 版本引入的标准库。它工作模式是单线程并发，使用协同执行 I/O 操作。asyncio 的编程模型就是一个消息循环。我们从 asyncio 模块中直接获取一个 EventLoop 的引用，然后把需要执行的协程扔到 EventLoop 中执行，就实现了异步 IO。</p>
+<p>使用 asyncio 实现一个异步函数 hello() 的例子:</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> asyncio</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@asyncio.coroutine # 修饰符，等同于 asyncio.coroutine(hello())</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    print(<span class="hljs-string">"Hello world!"</span>)</span><br><span class="line">    <span class="hljs-comment"># 异步调用asyncio.sleep(1):</span></span><br><span class="line">    r = <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> asyncio.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    print(<span class="hljs-string">"Hello again!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 获取EventLoop:</span></span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line"><span class="hljs-comment"># 执行coroutine</span></span><br><span class="line">loop.run_until_complete(hello())</span><br><span class="line">loop.close()</span><br></pre></td></tr></table></figure>
+
+<p>而 aiohttp 则是基于 asyncio 实现的 HTTP 框架。 aiohttp 全称是 Async http client/server framework。翻译成中文是异步 HTTP 的客户端/服务器框架。从名字中，我们可知 aiohttp 是分为服务器端和客户端，专门异步处理 HTTP 的请求。</p>
+<h2 id="aiohttp-安装"><a href="#aiohttp-安装" class="headerlink" title="aiohttp 安装"></a>aiohttp 安装</h2><p>安装 aiohttp 可以通过 pip 方式安装，在终端中执行安装命令即可。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install aiohttp</span><br></pre></td></tr></table></figure>
+
+<h2 id="async-await-语法"><a href="#async-await-语法" class="headerlink" title="async/await 语法"></a>async/await 语法</h2><p>前面我们讲到异步 I/O 的用法，但是声明异步函数比较繁琐，还需要依赖 yield 语法。在 Python 3.5 中，引入了 <strong>async/await</strong> 关键字，使得异步回调的写法更加直观和人性化。</p>
+<p>在函数 def 之前增加关键字<strong>async</strong>,表示这个函数是异步函数。相当于替代语法<code>@asyncio.coroutine</code>。具体例子例如：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    print(<span class="hljs-string">"Hello World!"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>另外使用 await 替换了 <code>yield from</code>, 表示这部分操作为异步操作。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    print(<span class="hljs-string">"Hello World!"</span>)</span><br><span class="line">    r = <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    print(<span class="hljs-string">"Hello again!"</span>)</span><br></pre></td></tr></table></figure>
+<p>最后执行异步函数，还是需要用到 EventLoop 引用，然后利用协程执行异步函数。最终的代码如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> asyncio</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    print(<span class="hljs-string">"Hello world!"</span>)</span><br><span class="line">    r = <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    print(<span class="hljs-string">"Hello again!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    loop = asyncio.get_event_loop()</span><br><span class="line">    tasks = [hello(), ]</span><br><span class="line">    loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line">    loop.close()</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello world!</span><br><span class="line">&gt;&gt; 会暂停一秒钟</span><br><span class="line">Hello again!</span><br></pre></td></tr></table></figure>
+
+<h2 id="aiohttp-基本用法"><a href="#aiohttp-基本用法" class="headerlink" title="aiohttp 基本用法"></a>aiohttp 基本用法</h2><p>我们使用 aiohttp 以 GET 方式向<code>httpbin.org</code>网站发起一个 HTTP 请求。因为是 aiohttp 是异步处理 HTTP 请求。所以还必须遵循 Python 的异步函数语法，即需使用 async/await 语法。</p>
+<p>使用 aiohttp 发起一个 HTTP 请求，具体编写可以分为以下几步：<br>1）使用 async 定义异步函数<br>2）通过 aiohttp.ClientSession 获取一个 session 对象<br>3）用该 session 对象以 GET、POST、PUT 等方式去请求网页<br>4）最后获取 EventLoop 引用，执行异步函数。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> asyncio</span><br><span class="line"><span class="hljs-keyword">import</span> aiohttp</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 定义异步函数 main()</span></span><br><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-comment"># 获取 session 对象</span></span><br><span class="line">      <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> aiohttp.ClientSession() <span class="hljs-keyword">as</span> session:</span><br><span class="line">        <span class="hljs-comment"># get 方式请求 httbin  async with session.get('http://httpbin.org/get') as response:</span></span><br><span class="line">            print(response.status)</span><br><span class="line">            print(<span class="hljs-keyword">await</span> response.text())</span><br><span class="line"></span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(main())</span><br></pre></td></tr></table></figure>
+
+<p>aiohttp 支持自定义 headers、设置超时时间、设置代理、自定义 cookie 等。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> asyncio</span><br><span class="line"><span class="hljs-keyword">import</span> aiohttp</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'http://httpbin.org/post'</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="hljs-string">'User-agent'</span>: <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="hljs-string">'data'</span>: <span class="hljs-string">'person data'</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 定义异步函数 main()</span></span><br><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-comment"># 获取 session 对象</span></span><br><span class="line">    <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> aiohttp.ClientSession() <span class="hljs-keyword">as</span> session:</span><br><span class="line">        <span class="hljs-comment"># post 方式请求 httbin</span></span><br><span class="line">        <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> session.post(url=url, headers=headers, data=data) <span class="hljs-keyword">as</span> response:</span><br><span class="line">            print(response.status)</span><br><span class="line">            print(<span class="hljs-keyword">await</span> response.text())</span><br><span class="line"></span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(main())</span><br></pre></td></tr></table></figure>
+
+<p>关于 aiohttp 更多用法，可以执行阅读官网文档。说句实话，aiohttp 跟 Requests 的用法大同小异。如果你已经学会了 Requests 库，很快就能掌握 aiohttp 的用法。</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -346,7 +384,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2037,7 +2075,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

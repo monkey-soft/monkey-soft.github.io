@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="不懂代码也能爬取数据？试试这几个工具">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBoihd.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:28:02.184Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsEPe0.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:33:51.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBoihd.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsEPe0.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBoihd.jpg" alt="不懂代码也能爬取数据？试试这几个工具">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>不懂代码也能爬取数据？试试这几个工具
+                <span class="card-title-color">不懂代码也能爬取数据？试试这几个工具</span>
             
         </h1>
 
@@ -209,11 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>前天，有个同学加我微信来咨询我：<br>“猴哥，我想抓取近期 5000 条新闻数据，但我是文科生，不会写代码，请问该怎么办？”</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>前天，有个同学加我微信来咨询我：<br>“猴哥，我想抓取近期 5000 条新闻数据，但我是文科生，不会写代码，请问该怎么办？”</p>
 <p>猴哥有问必答，对于这位同学的问题，我给安排上。</p>
-<a id="more"></a>
-<p>先说说获取数据的方式：一是利用现成的工具，我们只需懂得如何使用工具就能获取数据，不需要关心工具是怎么实现。打个比方，假如我们在岸上，要去海上某个小岛，岸边有一艘船，我们第一想法是选择坐船过去，而不会想着自己来造一艘船再过去。第二种是自己针对场景需求做些定制化工具，这就需要有点编程基础。举个例子，我们还是要到海上某个小岛，同时还要求在 30 分钟内将 1 顿货物送到岛上。</p>
+<p>先说说获取数据的方式：一是利用现成的工具，我们只需懂得如何使用工具就能获取<a id="more"></a>数据，不需要关心工具是怎么实现。打个比方，假如我们在岸上，要去海上某个小岛，岸边有一艘船，我们第一想法是选择坐船过去，而不会想着自己来造一艘船再过去。第二种是自己针对场景需求做些定制化工具，这就需要有点编程基础。举个例子，我们还是要到海上某个小岛，同时还要求在 30 分钟内将 1 顿货物送到岛上。</p>
 <p>因此，前期只是单纯想获取数据，没有什么其他要求的话，优先选择现有工具。可能是 Python 近来年很火，加上我们会经常看到别人用 Python 来制作网络爬虫抓取数据。从而有一些同学有这样的误区，想从网络上抓取数据就一定要学 Python，一定要去写代码。</p>
 <p>其实不然，猴哥介绍几个能快速获取网上数据的工具。</p>
 <h2 id="Microsoft-Excel"><a href="#Microsoft-Excel" class="headerlink" title="Microsoft Excel"></a>Microsoft Excel</h2><p>你没有看错，就是 Office 三剑客之一的 Excel。Excel 是一个强大的工具，能抓取数据就是它的功能之一。我以耳机作为关键字，抓取京东的商品列表。</p>
@@ -238,6 +243,35 @@ var _hmt = _hmt || [];
 <p>WebScraper 是一款优秀国外的浏览器插件。同样也是一款适合新手抓取数据的可视化工具。我们通过简单设置一些抓取规则，剩下的就交给浏览器去工作。</p>
 <p>地址：<a href="https://webscraper.io/" target="_blank" rel="external nofollow noopener noreferrer">https://webscraper.io/</a></p>
 
+                </div>             
+            
+            <!-- <p>前天，有个同学加我微信来咨询我：<br>“猴哥，我想抓取近期 5000 条新闻数据，但我是文科生，不会写代码，请问该怎么办？”</p>
+<p>猴哥有问必答，对于这位同学的问题，我给安排上。</p>
+<p>先说说获取数据的方式：一是利用现成的工具，我们只需懂得如何使用工具就能获取<a id="more"></a>数据，不需要关心工具是怎么实现。打个比方，假如我们在岸上，要去海上某个小岛，岸边有一艘船，我们第一想法是选择坐船过去，而不会想着自己来造一艘船再过去。第二种是自己针对场景需求做些定制化工具，这就需要有点编程基础。举个例子，我们还是要到海上某个小岛，同时还要求在 30 分钟内将 1 顿货物送到岛上。</p>
+<p>因此，前期只是单纯想获取数据，没有什么其他要求的话，优先选择现有工具。可能是 Python 近来年很火，加上我们会经常看到别人用 Python 来制作网络爬虫抓取数据。从而有一些同学有这样的误区，想从网络上抓取数据就一定要学 Python，一定要去写代码。</p>
+<p>其实不然，猴哥介绍几个能快速获取网上数据的工具。</p>
+<h2 id="Microsoft-Excel"><a href="#Microsoft-Excel" class="headerlink" title="Microsoft Excel"></a>Microsoft Excel</h2><p>你没有看错，就是 Office 三剑客之一的 Excel。Excel 是一个强大的工具，能抓取数据就是它的功能之一。我以耳机作为关键字，抓取京东的商品列表。</p>
+<p><img src="./images/img/163_1.jpg" alt></p>
+<p><img src="./images/img/163_2.jpg" alt></p>
+<p>等待几秒后，Excel 会将页面上所有的文字信息抓取到表格中。这种方式确实能抓取到数据，但也会引入一些我们不需要的数据。如果你有更高的需求，可以选择后面几个工具。</p>
+<h2 id="火车头采集器"><a href="#火车头采集器" class="headerlink" title="火车头采集器"></a>火车头采集器</h2><p><img src="./images/img/163_3.jpg" alt></p>
+<p>火车头是爬虫界的老品牌了，是目前使用人数最多的互联网数据抓取、处理、分析，挖掘软件。它的优势是采集不限网页，不限内容，同时还是分布式采集，效率会高一些。缺点是对小白用户不是很友好，有一定的知识门槛（了解如网页知识、HTTP 协议等方面知识），还需要花些时间熟悉工具操作。</p>
+<p>因为有学习门槛，掌握该工具之后，采集数据上限会很高。有时间和精力的同学可以去折腾折腾。</p>
+<p>官网地址：<a href="http://www.locoy.com/" target="_blank" rel="external nofollow noopener noreferrer">http://www.locoy.com/</a></p>
+<h2 id="八爪鱼采集器"><a href="#八爪鱼采集器" class="headerlink" title="八爪鱼采集器"></a>八爪鱼采集器</h2><p><img src="./images/img/163_4.jpg" alt></p>
+<p>八爪鱼采集器是一款非常适合新手的采集器。它具有简单易用的特点，让你能几分钟中就快手上手。八爪鱼提供一些常见抓取网站的模板，使用模板就能快速抓取数据。如果想抓取没有模板的网站，官网也提供非常详细的图文教程和视频教程。</p>
+<p>八爪鱼是基于浏览器内核实现可视化抓取数据，所以存在卡顿、采集数据慢的特点。但这瑕不掩瑜，能基本满足新手在短时间抓取数据的场景，比如翻页查询，Ajax 动态加载数据等。</p>
+<p>网站：<a href="https://www.bazhuayu.com/" target="_blank" rel="external nofollow noopener noreferrer">https://www.bazhuayu.com/</a></p>
+<h2 id="GooSeeker-集搜客"><a href="#GooSeeker-集搜客" class="headerlink" title="GooSeeker 集搜客"></a>GooSeeker 集搜客</h2><p><img src="./images/img/163_5.jpg" alt></p>
+<p>集搜客也是一款容易上手的可视化采集数据工具。同样能抓取动态网页，也支持可以抓取手机网站上的数据，还支持抓取在指数图表上悬浮显示的数据。集搜客是以浏览器插件形式抓取数据。虽然具有前面所述的有点，但缺点也有，无法多线程采集数据，出现浏览器卡顿也在所难免。</p>
+<p>网站：<a href="https://www.gooseeker.com/" target="_blank" rel="external nofollow noopener noreferrer">https://www.gooseeker.com/</a></p>
+<h2 id="Scrapinghub"><a href="#Scrapinghub" class="headerlink" title="Scrapinghub"></a>Scrapinghub</h2><p><img src="./images/img/163_6.jpg" alt></p>
+<p>如果你想抓取国外的网站数据，可以考虑 Scrapinghub。Scrapinghub 是一个基于Python 的 Scrapy 框架的云爬虫平台。Scrapehub 算是市场上非常复杂和强大的网络抓取平台，提供数据抓取的解决方案商。</p>
+<p>地址：<a href="https://scrapinghub.com/" target="_blank" rel="external nofollow noopener noreferrer">https://scrapinghub.com/</a></p>
+<h2 id="WebScraper"><a href="#WebScraper" class="headerlink" title="WebScraper"></a>WebScraper</h2><p><img src="./images/img/163_7.jpg" alt></p>
+<p>WebScraper 是一款优秀国外的浏览器插件。同样也是一款适合新手抓取数据的可视化工具。我们通过简单设置一些抓取规则，剩下的就交给浏览器去工作。</p>
+<p>地址：<a href="https://webscraper.io/" target="_blank" rel="external nofollow noopener noreferrer">https://webscraper.io/</a></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -335,7 +369,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2034,7 +2068,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

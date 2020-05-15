@@ -107,7 +107,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-3-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -166,18 +171,11 @@ var _hmt = _hmt || [];
 
     
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/399.html" class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDVTbV.jpg" alt="用数据告诉你，哪位导演是漫威影片中的票房收割机？">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/399.html"><i class="fas fa-angle-double-right"></i>用数据告诉你，哪位导演是漫威影片中的票房收割机？</a>
+                <a class="card-title-color" href="/399.html">用数据告诉你，哪位导演是漫威影片中的票房收割机？</a>
             
         </h1>
 
@@ -210,8 +208,29 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>3 月 8 号是国际劳动妇女节，漫威在这天“搞事”了。上映《惊奇队长》，这部是漫威电影宇宙的第一部女性超级英雄电影，也算是给妇女节献礼。身为漫威粉丝的我，当时不会错过这部电影，趁着周末去观影。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+                    
+                    <div>
+                        <a href="/399.html" class="image is-200x123">
+                            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YyQvod.jpg" alt="用数据告诉你，哪位导演是漫威影片中的票房收割机？">
+                        </a>
+                    </div>
+                    
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="excerpt">
+                    <p>3 月 8 号是国际劳动妇女节，漫威在这天“搞事”了。上映《惊奇队长》，这部是漫威电影宇宙的第一部女性超级英雄电影，也算是给妇女节献礼。身为漫威粉丝的我，当时不会错过这部电影，趁着周末去观影。</p>
+<p>现如今，漫威电影成为一种潮流文化，各系列电影基本是很卖座，导演的作用是功不可没。本文主要通过数据来分析，哪位导演是漫威电影的票房收割机。</p>
+                </div>
+            
+            <!-- <p>3 月 8 号是国际劳动妇女节，漫威在这天“搞事”了。上映《惊奇队长》，这部是漫威电影宇宙的第一部女性超级英雄电影，也算是给妇女节献礼。身为漫威粉丝的我，当时不会错过这部电影，趁着周末去观影。</p>
+<p>现如今，漫威电影成为一种潮流文化，各系列电影基本是很卖座，导演的作用是功不可没。本文主要通过数据来分析，哪位导演是漫威电影的票房收割机。</p>  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -2805,7 +2824,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

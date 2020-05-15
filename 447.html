@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 编码规范">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBxf1O.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:15:57.244Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsXqzT.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:13:44.026Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBxf1O.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsXqzT.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBxf1O.jpg" alt="Python 编码规范">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Python 编码规范
+                <span class="card-title-color">Python 编码规范</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>软件行业现在基本上是协同工作，不再是以前个人单打独斗的年代了。在一个团队中，每个人可能负责一个或者多个模块。如果团队没有统一的编程规范，会增加代码理解难度，从而增加维护成本。所以遵循良好的编码风格，可以有效的提高代码的可读性，降低出错几率和维护难度。另外，使用（尽量）统一的编码风格，还可以降低沟通成本。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>软件行业现在基本上是协同工作，不再是以前个人单打独斗的年代了。在一个团队中，每个人可能负责一个或者多个模块。如果团队没有统一的编程规范，会增加代码理解难度，从而增加维护成本。所以遵循良好的编码风格，可以有效的提高代码的可读性，降低出错几率和维护难度。另外，使用（尽量）统一的编码风格，还可以降低沟通成本。</p>
 <a id="more"></a>
 <p>网上有许多的编码规范，我介绍分享几个知名编码规范给大家参考学习。</p>
 <p>*<em>PEP 8 *</em><br>PEP 8 可以算是 Python 官方的标准编码规范。它是用于规范 Python 主发行版中的标准库的代码。所以这个编码规范是值得一看。</p>
@@ -245,6 +251,43 @@ var _hmt = _hmt || [];
 <p>或</p>
 <p><img src="./images/img/75_8.png" alt></p>
 
+                </div>             
+            
+            <!-- <p>软件行业现在基本上是协同工作，不再是以前个人单打独斗的年代了。在一个团队中，每个人可能负责一个或者多个模块。如果团队没有统一的编程规范，会增加代码理解难度，从而增加维护成本。所以遵循良好的编码风格，可以有效的提高代码的可读性，降低出错几率和维护难度。另外，使用（尽量）统一的编码风格，还可以降低沟通成本。</p>
+<a id="more"></a>
+<p>网上有许多的编码规范，我介绍分享几个知名编码规范给大家参考学习。</p>
+<p>*<em>PEP 8 *</em><br>PEP 8 可以算是 Python 官方的标准编码规范。它是用于规范 Python 主发行版中的标准库的代码。所以这个编码规范是值得一看。</p>
+<p>传送门：<a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external nofollow noopener noreferrer">文档地址</a></p>
+<p><strong>Google 的 Python 风格指南</strong><br>总所周知，Google 是开源大户。Google 会将项目托管到 Github 上面，任何人都可以 fork、 修改、提交。如果代码贡献者的编程风格与 Google 的不一致, 会给代码阅读者和其他代码提交者造成不小的困扰。Google 因此发布了这份自己的编程风格指南, 使所有提交代码的人都能获知 Google 的编程风格。Google 的 Python 风格也是遵循 PEP8 规范。</p>
+<p>传送门：<a href="http://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/contents/" target="_blank" rel="external nofollow noopener noreferrer">文档地址</a></p>
+<p><strong>Pocoo 风格指南</strong><br>估计大家对 Pocoo 比较陌生，但大家一定对小型 Web 开发框架 Flask 很熟悉。没错，Flask 是 Pocoo 团队开发的项目。 除了 Flask 之外，Pocoo 团队还有开发出很多广受欢迎的项目，例如 Jinja2（模板引擎）、Pygments（语法高亮包）、Sphinx（文档处理器）、Werzeug（WSGI工具集）。Poco o团队编码风格指南适用于所有 Pocoo 团队的项目。总体来说，Pocoo 团队编码风格指南严格遵循了 PEP8 的要求，但略有一些不同之处，并进行了一定的扩展延伸。</p>
+<p>传送门：<a href="http://dormousehole.readthedocs.io/en/latest/styleguide.html" target="_blank" rel="external nofollow noopener noreferrer">文档地址</a></p>
+<p>PyCharm 目前开发 Python 的主流 IDE 工具，我介绍下如何在 PyCharm 配置 PEP 8 代码提示、将代码格式化符合 PEP 8 规范。</p>
+<h2 id="配置-PEP-8-代码提示"><a href="#配置-PEP-8-代码提示" class="headerlink" title="配置 PEP 8 代码提示"></a>配置 PEP 8 代码提示</h2><p>一般安装 PyCharm 都默认配置了规范提示。直接在右下角调整 Highlighting Level 为 Inspections 就能自动 PEP 8 提示。</p>
+<p><img src="./images/img/75_1.png" alt></p>
+<p>在我之前 Django 学习笔记系列的第一个 demo 中，有不符合规范的地方。在代码编辑框的右边会有一个浅黄色的标记，你将鼠标悬停在光标上，PyCharm 会发现有提示。</p>
+<p><img src="./images/img/75_2.png" alt></p>
+<p>对于这种提示，只要在第 7 行增加一个回车就搞定了，之后PyCharm 也没有提示。</p>
+<p><img src="./images/img/75_3.png" alt></p>
+<p>当然，你也可以修改提示框的配色。</p>
+<p><img src="./images/img/75_4.png" alt></p>
+<h2 id="将代码格式化符合-PEP-8-规范"><a href="#将代码格式化符合-PEP-8-规范" class="headerlink" title="将代码格式化符合 PEP 8 规范"></a>将代码格式化符合 PEP 8 规范</h2><p>这里我们需要使用到一个第三方库 <strong>Autopep8</strong>。Autopep8 是一个将 Python 代码自动排版为 PEP 8 风格的小工具。它使用 PEP 8 工具来决定代码中的哪部分需要被排版。Autopep8 可以修复大部分PEP 8 工具中报告的排版问题。</p>
+<p>打开终端，使用 pip 命令来安装 Autopep8：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install autopep8</span><br></pre></td></tr></table></figure>
+
+<p>autopep8 是一个命令行工具，所以我们在终端下对某个文件进行格式化。命令行如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autopep8 --<span class="hljs-keyword">in</span>-place --aggressive --aggressive &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Pycharm 配置 Autopep8 方法如下：<br>1）选择菜单「File」–&gt;「Settings」–&gt;「Tools」–&gt;「External Tools」–&gt;点击加号添加工具</p>
+<p><img src="./images/img/75_5.png" alt></p>
+<p>2）填写如下配置项，点击「OK」保存</p>
+<p><img src="./images/img/75_6.png" alt></p>
+<p>图片中需要配置信息<br>Name：Autopep8 (可随意填写)<br>Tools settings:<br>    Programs：<code>autopep8</code><br>    Parameters：<code>--in-place --aggressive --ignore=E123,E133,E50 $FilePath$</code><br>    Working directory：<code>$ProjectFileDir$</code></p>
+<p>3） 选择菜单「Tool」–&gt;「Extern Tools」–&gt;「Autopep8」或在某个文件中右键选择「Extern Tools」–&gt;「Autopep8」，即可使用autopep8自动格式化你的python代码了。</p>
+<p><img src="./images/img/75_7.png" alt></p>
+<p>或</p>
+<p><img src="./images/img/75_8.png" alt></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -349,7 +392,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2032,7 +2075,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

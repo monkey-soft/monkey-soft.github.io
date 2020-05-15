@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 学习笔记之模型高级用法(下)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBzmDJ.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:22:52.698Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsjAyD.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:14:26.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBzmDJ.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsjAyD.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBzmDJ.jpg" alt="Django 学习笔记之模型高级用法(下)">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Django 学习笔记之模型高级用法(下)
+                <span class="card-title-color">Django 学习笔记之模型高级用法(下)</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>接着上篇文章内容，本文分享自己对模型一些用法的总结。</p>
-<a id="more"></a>
-<h2 id="模型的元数据Meta"><a href="#模型的元数据Meta" class="headerlink" title="模型的元数据Meta"></a>模型的元数据Meta</h2><p>除了抽象模型，在模型中定义的字段都会成为表中的列。如果我们需要给模型指定其他一些信息，例如排序方式、数据库表名等，就需要用到 Meta。Meta 是一个可选的类，具体用法如下：</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>接着上篇文章内容，本文分享自己对模型一些用法的总结。</p>
+<h2 id="模型的元数据Meta"><a href="#模型的元数据Meta" class="headerlink" title="模型的元数据Meta"></a>模型的元数据Meta</h2><p>除了抽象模型，在模型中定义的字段都会成为表中的列。如果我们需要给模型指定其他一些信息，例如排序方式、数据库表名等，就需要用到 Meta。Meta 是一个可选的类，具体用法如下：<a id="more"></a></p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">40</span>)</span><br><span class="line">    email = models.EmailField()</span><br><span class="line"></span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span></span><br><span class="line">        managed = <span class="hljs-literal">True</span></span><br><span class="line">        db_table = <span class="hljs-string">'author'</span></span><br></pre></td></tr></table></figure>
 
 <p>不知你是否对上述代码有影响。通过 Django 将数据库表反向生成模型时，Django 会默认带上 managed 和 db_table 信息。</p>
@@ -246,6 +251,43 @@ var _hmt = _hmt || [];
 <p>3）代理模型<br>使用多表继承时，父类的每个子类都会创建一张新数据表。但是我们只是想扩展一些方法，而不想改变模型的数据存储结构。我们可以将在 Meta 类中增加约束proxy=True 来实现。此时<strong>子模型</strong>称为<strong>父模型</strong>的<strong>代理类</strong>，子类中只能增加方法，而不能增加属性。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"><span class="hljs-keyword">from</span> django.contrib.auth.models <span class="hljs-keyword">import</span> User</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(User)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">10</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span></span><br><span class="line">        proxy = <span class="hljs-literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_something</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Man</span><span class="hljs-params">(Person)</span>:</span></span><br><span class="line">    job = models.CharField(max_length=<span class="hljs-number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Woman</span><span class="hljs-params">(Person)</span>:</span></span><br><span class="line">    makeup = models.CharField(max_length=<span class="hljs-number">20</span>)</span><br></pre></td></tr></table></figure>
 
+                </div>             
+            
+            <!-- <p>接着上篇文章内容，本文分享自己对模型一些用法的总结。</p>
+<h2 id="模型的元数据Meta"><a href="#模型的元数据Meta" class="headerlink" title="模型的元数据Meta"></a>模型的元数据Meta</h2><p>除了抽象模型，在模型中定义的字段都会成为表中的列。如果我们需要给模型指定其他一些信息，例如排序方式、数据库表名等，就需要用到 Meta。Meta 是一个可选的类，具体用法如下：<a id="more"></a></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">40</span>)</span><br><span class="line">    email = models.EmailField()</span><br><span class="line"></span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span></span><br><span class="line">        managed = <span class="hljs-literal">True</span></span><br><span class="line">        db_table = <span class="hljs-string">'author'</span></span><br></pre></td></tr></table></figure>
+
+<p>不知你是否对上述代码有影响。通过 Django 将数据库表反向生成模型时，Django 会默认带上 managed 和 db_table 信息。</p>
+<p>我主要说下 Meta 一些重要的属性，其他属性你可以通过文档信息进行学习。</p>
+<p><strong>abstract</strong>: 如果 abstract = True，模型会指定为抽象模型。它相当于面向对象编程中的抽象基类。</p>
+<p><strong>proxy</strong>：如果设置了proxy = True，表示使用代理模式的模型继承方式。</p>
+<p><strong>db_table</strong>：指定当前模型在数据库的表名。</p>
+<p><strong>managed</strong>：该属性默认值为 True，表示能创建模型和操作数据库表。</p>
+<p><strong>ordering</strong>：指定该模型生成的所有对象的排序方式。默认按升序排列，如果在字段名前加上字符 “-” 则表示按降序排列，如果使用字符问号 “？” 表示随机排列。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ordering = [<span class="hljs-string">'pub_date'</span>]             <span class="hljs-comment"># 表示按'pub_date'字段进行升序排列</span></span><br><span class="line">ordering = [<span class="hljs-string">'-pub_date'</span>]            <span class="hljs-comment"># 表示按'pub_date'字段进行降序排列</span></span><br><span class="line">ordering = [<span class="hljs-string">'-pub_date'</span>, <span class="hljs-string">'author'</span>]  <span class="hljs-comment"># 表示先按'pub_date'字段进行降序排列，再按`author`字段进行升序排列。</span></span><br></pre></td></tr></table></figure>
+<p><strong>verbose_name</strong>：给模型设置别名。如果不指定它，Django 会使用小写的模型名作为默认值。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">verbose_name = <span class="hljs-string">"book"</span></span><br><span class="line">verbose_name = <span class="hljs-string">"图书"</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>verbose_name_plural</strong>：因为英语单词有单数和复数两种形式，这个属性是模型对象的复数名。中文则跟 verbose_name 值一致。如果不指定该选项，那么默认的复数名字是 verbose_name 加上 ‘s’ 。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">verbose_name_plural = <span class="hljs-string">"books"</span></span><br><span class="line">verbose_name_plural = <span class="hljs-string">"图书"</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>indexes</strong>：为当前模型建立索引列表。用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    first_name = models.CharField(max_length=<span class="hljs-number">100</span>)</span><br><span class="line">    last_name = models.CharField(max_length=<span class="hljs-number">100</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span></span><br><span class="line">        indexes = [</span><br><span class="line">            models.Index(fields=[<span class="hljs-string">'last_name'</span>, <span class="hljs-string">'first_name'</span>]),</span><br><span class="line">            models.Index(fields=[<span class="hljs-string">'first_name'</span>], name=<span class="hljs-string">'first_name_idx'</span>),</span><br><span class="line">        ]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="模型的继承"><a href="#模型的继承" class="headerlink" title="模型的继承"></a>模型的继承</h2><p>根据模型的 Meta 信息设置，模型继承方式可以分为三种：<br>1）抽象模型<br>模型的 Meta 类中含有 abstract = True 属性。抽象模型一般被当作基类，它持有子类共有的字段。值得注意的是，抽象模型在数据库中不会生成表。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 抽象模型</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">500</span>)</span><br><span class="line">    age = models.PositiveIntegerField()</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span></span><br><span class="line">        abstract = <span class="hljs-literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 子模型</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span><span class="hljs-params">(Person)</span>:</span></span><br><span class="line">    school_name = models.CharField(max_length=<span class="hljs-number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<p>子模型如果没有定义 Meta 类，那么会继承抽象模型的 Meta 类。但是 abstract 属性不会被继承。</p>
+<p>2）多表继承<br>这种方式继承方式，子模型的父模型可以一个或者多个。</p>
+<p>当父类模型是正常的模型，即不是抽象模型，在数据库中有对应表。</p>
+<p>虽然在 Model 层不推荐使用多重继承，但 Django 的 ORM 还是支持这样的使用方式。如果使用多表继承，子模型跟每个父模型都会添加一个一对一的关系。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 父模型 one</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Model_One</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    attr1 = models.CharField(max_length=<span class="hljs-number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 父模型 two</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Model_Two</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    attr2 = models.CharField(max_length=<span class="hljs-number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 子模型</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Multiple</span><span class="hljs-params">(Model_One, Model_Two)</span>:</span></span><br><span class="line">    attr3 = models.CharField(max_length=<span class="hljs-number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>多重继承的时候，子类的 ORM 映射会选择第一个父类作为主键管理，其他的父类作为一般的外键管理。</p>
+<p>3）代理模型<br>使用多表继承时，父类的每个子类都会创建一张新数据表。但是我们只是想扩展一些方法，而不想改变模型的数据存储结构。我们可以将在 Meta 类中增加约束proxy=True 来实现。此时<strong>子模型</strong>称为<strong>父模型</strong>的<strong>代理类</strong>，子类中只能增加方法，而不能增加属性。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"><span class="hljs-keyword">from</span> django.contrib.auth.models <span class="hljs-keyword">import</span> User</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(User)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">10</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span></span><br><span class="line">        proxy = <span class="hljs-literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_something</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Man</span><span class="hljs-params">(Person)</span>:</span></span><br><span class="line">    job = models.CharField(max_length=<span class="hljs-number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Woman</span><span class="hljs-params">(Person)</span>:</span></span><br><span class="line">    makeup = models.CharField(max_length=<span class="hljs-number">20</span>)</span><br></pre></td></tr></table></figure>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -350,7 +392,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2033,7 +2075,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

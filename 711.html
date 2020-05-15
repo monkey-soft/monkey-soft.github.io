@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="详解 Requests 库的用法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBLA3Q.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:51:38.206Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsHcT0.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:12:08.850Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBLA3Q.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsHcT0.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBLA3Q.jpg" alt="详解 Requests 库的用法">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>详解 Requests 库的用法
+                <span class="card-title-color">详解 Requests 库的用法</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>如果你把上篇多线程和多进程的文章搞定了，那么要恭喜你了 。你编写爬虫的能力上了一个崭新的台阶。不过，我们还不能沾沾自喜，因为任重而道远。那么接下来就关注下本文的主要内容。本文主要介绍 urllib 库的代替品 —— <code>Requests</code>。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>如果你把上篇多线程和多进程的文章搞定了，那么要恭喜你了 。你编写爬虫的能力上了一个崭新的台阶。不过，我们还不能沾沾自喜，因为任重而道远。那么接下来就关注下本文的主要内容。本文主要介绍 urllib 库的代替品 —— <code>Requests</code>。</p>
 <a id="more"></a>
 
 <h2 id="Requests-简介"><a href="#Requests-简介" class="headerlink" title="Requests 简介"></a>Requests 简介</h2><p>引用 Requests 官网的说明：</p>
@@ -348,6 +354,146 @@ var _hmt = _hmt || [];
 <p>OAuth（开放授权）认证在我们的生活中随处可见。Requests 同样也支持这中认证方式，其中包括 OAuth 1.0 和 OAuth 2.0。如果你需要用到该认证，你需要安装一个支持库<code>requests-oauthlib</code>。我以 OAuth 1.0 认证作为例子进行讲解：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"><span class="hljs-keyword">from</span> requests_oauthlib <span class="hljs-keyword">import</span> OAuth1</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'https://api.twitter.com/1.1/account/verify_credentials.json'</span></span><br><span class="line">auth = OAuth1(<span class="hljs-string">'YOUR_APP_KEY'</span>, </span><br><span class="line">              <span class="hljs-string">'YOUR_APP_SECRET'</span>,</span><br><span class="line">              <span class="hljs-string">'USER_OAUTH_TOKEN'</span>, </span><br><span class="line">              <span class="hljs-string">'USER_OAUTH_TOKEN_SECRET'</span>)</span><br><span class="line">requests.get(url, auth=auth)</span><br></pre></td></tr></table></figure>
 
+                </div>             
+            
+            <!-- <p>如果你把上篇多线程和多进程的文章搞定了，那么要恭喜你了 。你编写爬虫的能力上了一个崭新的台阶。不过，我们还不能沾沾自喜，因为任重而道远。那么接下来就关注下本文的主要内容。本文主要介绍 urllib 库的代替品 —— <code>Requests</code>。</p>
+<a id="more"></a>
+
+<h2 id="Requests-简介"><a href="#Requests-简介" class="headerlink" title="Requests 简介"></a>Requests 简介</h2><p>引用 Requests 官网的说明：</p>
+<blockquote>
+<p>Requests is the only Non-GMO HTTP library for Python, safe for human consumption.</p>
+</blockquote>
+<p>Requests 官方的介绍语是多么霸气。之所以能够这么霸气，是因为 Requests 相比 urllib 在使用方面上会让开发者感到更加人性化、更加简洁、更加舒服。并且国外一些知名的公司也在使用该库，例如 Google、Microsoft、Amazon、Twitter 等。因此，我们就更加有必要来学习 Request 库了。在学习之前，我们来看下它究竟具有哪些特性？</p>
+<p>具体如下：</p>
+<ul>
+<li>Keep-Alive &amp; 连接池</li>
+<li>国际化域名和 URL</li>
+<li>带持久 Cookie 的会话</li>
+<li>浏览器式的 SSL 认证</li>
+<li>自动内容解码</li>
+<li>基本/摘要式的身份认证</li>
+<li>优雅的 key/value Cookie</li>
+<li>自动解压</li>
+<li>Unicode 响应体</li>
+<li>HTTP(S) 代理支持</li>
+<li>文件分块上传</li>
+<li>流下载</li>
+<li>连接超时</li>
+<li>分块请求</li>
+<li>支持 .netrc</li>
+</ul>
+<h2 id="安装-Requests"><a href="#安装-Requests" class="headerlink" title="安装 Requests"></a>安装 Requests</h2><p>古人云：“工欲善其事，必先利其器”。在学习 Requests 之前，我们应先将库安装好。安装它有两种办法。</p>
+<ul>
+<li>方法1：通过 pip 安装</li>
+</ul>
+<p>比较推荐使用这种方式，既简单又方便管理。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br><span class="line"><span class="hljs-comment"># 如果出现因下载失败导致安装不上的情况，可以先启动 ss 再执行安装命令</span></span><br><span class="line"><span class="hljs-comment"># 或者在终端中使用代理</span></span><br><span class="line">pip --proxy http://代理ip:端口 install requests</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法2：通过源码安装</li>
+</ul>
+<p>先通过 git 克隆源码库：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/kennethreitz/requests.git</span><br></pre></td></tr></table></figure>
+<p>或者直接到 <a href="https://github.com/requests/requests" target="_blank" rel="external nofollow noopener noreferrer">github</a> 网页上下载源码压缩包</p>
+<p>接着进入到 requests 目录中执行以下命令：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+
+<h2 id="发起请求"><a href="#发起请求" class="headerlink" title="发起请求"></a>发起请求</h2><p>有了前面学习 urllib 库的经验，现在我们学习 Requests 应该会更加容易上手。</p>
+<h3 id="简单抓取网页"><a href="#简单抓取网页" class="headerlink" title="简单抓取网页"></a>简单抓取网页</h3><p>我们使用 Requests  向百度贴吧发起一个 HTTP 请求，并获取到它页面的源代码。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 使用 get 方式请求</span></span><br><span class="line">response = requests.get(<span class="hljs-string">'https://tieba.baidu.com/'</span>)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>那么使用 POST 请求网页，代码又该怎么写呢？相信答案已经浮现在你脑海中了。没错，就是将 get 换成 post 即可。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 使用 post 方式请求</span></span><br><span class="line">response = requests.post(<span class="hljs-string">'https://tieba.baidu.com/'</span>)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="传递-URL-参数"><a href="#传递-URL-参数" class="headerlink" title="传递 URL 参数"></a>传递 URL 参数</h3><p>我们在请求网页时，经常需要携带一些参数。Requests 提供了<code>params</code>关键字参数来满足我们的需求。params 是一个字符串字典，我们只要将字典构建并赋给 params 即可。我们也无须关心参数的编码问题，因为 Requests 很人性化，会将我们需要传递的参数正确编码。它的具体用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'http://httpbin.org/get'</span></span><br><span class="line">params = &#123;<span class="hljs-string">'name'</span>: <span class="hljs-string">'Numb'</span>, <span class="hljs-string">'author'</span>: <span class="hljs-string">'Linkin Park'</span>&#125;</span><br><span class="line"><span class="hljs-comment"># params 支持列表作为值</span></span><br><span class="line"><span class="hljs-comment"># params = &#123;'name': 'Good Time', 'author': ['Owl City', 'Carly Rae Jepsen']&#125;</span></span><br><span class="line">response = requests.get(url, params=params)</span><br><span class="line">print(response.url)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>如果字典为空是不会被拼接到 URL中的。另外，params 的拼接顺序是随机的，而不是写在前面就优先拼接。</p>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#运行结果如下：</span></span><br><span class="line">http://httpbin.org/get?name=Numb&amp;author=Linkin+Park</span><br><span class="line">http://httpbin.org/get?name=Good+Time&amp;author=Owl+City&amp;author=Carly+Rae+Jepsen</span><br></pre></td></tr></table></figure>
+<p>你也许会疑问，为什么会有多了个”+”号呢？这个是 Requests 为了替代空格，它在请求时会自动转化为空格的。</p>
+<h4 id="构造请求头"><a href="#构造请求头" class="headerlink" title="构造请求头"></a>构造请求头</h4><p>为了将 Requests 发起的 HTTP 请求伪装成浏览器，我们通常是使用<code>headers</code>关键字参数。headers 参数同样也是一个字典类型。具体用法见以下代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'https://tieba.baidu.com/'</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="hljs-string">'user-agent'</span>: <span class="hljs-string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'</span></span><br><span class="line">    <span class="hljs-comment"># 还可以设置其他字段。</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url, headers=headers)</span><br><span class="line">print(response.url)</span><br><span class="line">print(response.text)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">### 使用 data 参数提交数据</span></span><br><span class="line">data 参数通常结合 POST 请求方式一起使用。如果我们需要用 POST 方式提交表单数据或者JSON数据，我们只需要传递一个字典给 data 参数。</span><br><span class="line"></span><br><span class="line">- 提交表单数据</span><br><span class="line"></span><br><span class="line">我们使用测试网页`http://httpbin.org/post`来提交表单数据作为例子进行展示。</span><br><span class="line">```python</span><br><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'http://httpbin.org/post'</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="hljs-string">'user'</span>: <span class="hljs-string">'admin'</span>,</span><br><span class="line">    <span class="hljs-string">'pass'</span>: <span class="hljs-string">'admin'</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.post(url, data=data) </span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：我们会看到<code>http://httpbin.org/post</code>页面打印我们的请求内容中，有<code>form</code>字段。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="hljs-string">"args"</span>: &#123;&#125;, </span><br><span class="line">  <span class="hljs-string">"data"</span>: <span class="hljs-string">""</span>, </span><br><span class="line">  <span class="hljs-string">"files"</span>: &#123;&#125;, </span><br><span class="line">  <span class="hljs-string">"form"</span>: &#123;</span><br><span class="line">    <span class="hljs-string">"pass"</span>: <span class="hljs-string">"admin"</span>, </span><br><span class="line">    <span class="hljs-string">"user"</span>: <span class="hljs-string">"admin"</span></span><br><span class="line">  &#125;, </span><br><span class="line">  <span class="hljs-string">"headers"</span>: &#123;</span><br><span class="line">    <span class="hljs-string">"Accept"</span>: <span class="hljs-string">"*/*"</span>, </span><br><span class="line">    <span class="hljs-string">"Accept-Encoding"</span>: <span class="hljs-string">"gzip, deflate"</span>, </span><br><span class="line">    <span class="hljs-string">"Cache-Control"</span>: <span class="hljs-string">"max-age=259200"</span>, </span><br><span class="line">    <span class="hljs-string">"Connection"</span>: <span class="hljs-string">"close"</span>, </span><br><span class="line">    <span class="hljs-string">"Content-Length"</span>: <span class="hljs-string">"21"</span>, </span><br><span class="line">    <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/x-www-form-urlencoded"</span>, </span><br><span class="line">    <span class="hljs-string">"Host"</span>: <span class="hljs-string">"httpbin.org"</span>, </span><br><span class="line">    <span class="hljs-string">"User-Agent"</span>: <span class="hljs-string">"python-requests/2.11.1"</span></span><br><span class="line">  &#125;, </span><br><span class="line">  <span class="hljs-string">"json"</span>: null, </span><br><span class="line">  <span class="hljs-string">"origin"</span>: <span class="hljs-string">"14.*.*.*"</span>, </span><br><span class="line">  <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://httpbin.org/post"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>提交 JSON 数据</li>
+</ul>
+<p>在HTTP 请求中，JSON 数据是被当作字符串文本。所以，我们使用 data 参数的传递 JSON 数据时，需要将其转为为字符串。我们继续使用上文的代码做演示。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> json</span><br><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'http://httpbin.org/post'</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="hljs-string">'user'</span>: <span class="hljs-string">'admin'</span>,</span><br><span class="line">    <span class="hljs-string">'pass'</span>: <span class="hljs-string">'admin'</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.post(url, data=json.dumps(data))</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>你可以拿下面的运行结果和提交表单数据的运行结果做下对比，你会了解更加清楚两者的差异。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="hljs-string">"args"</span>: &#123;&#125;, </span><br><span class="line">  <span class="hljs-string">"data"</span>: <span class="hljs-string">"&#123;\"pass\": \"admin\", \"user\": \"admin\"&#125;"</span>, </span><br><span class="line">  <span class="hljs-string">"files"</span>: &#123;&#125;, </span><br><span class="line">  <span class="hljs-string">"form"</span>: &#123;&#125;, </span><br><span class="line">  <span class="hljs-string">"headers"</span>: &#123;</span><br><span class="line">    <span class="hljs-string">"Accept"</span>: <span class="hljs-string">"*/*"</span>, </span><br><span class="line">    <span class="hljs-string">"Accept-Encoding"</span>: <span class="hljs-string">"gzip, deflate"</span>, </span><br><span class="line">    <span class="hljs-string">"Cache-Control"</span>: <span class="hljs-string">"max-age=259200"</span>, </span><br><span class="line">    <span class="hljs-string">"Connection"</span>: <span class="hljs-string">"close"</span>, </span><br><span class="line">    <span class="hljs-string">"Content-Length"</span>: <span class="hljs-string">"34"</span>, </span><br><span class="line">    <span class="hljs-string">"Host"</span>: <span class="hljs-string">"httpbin.org"</span>, </span><br><span class="line">    <span class="hljs-string">"User-Agent"</span>: <span class="hljs-string">"python-requests/2.11.1"</span></span><br><span class="line">  &#125;, </span><br><span class="line">  <span class="hljs-string">"json"</span>: &#123;</span><br><span class="line">    <span class="hljs-string">"pass"</span>: <span class="hljs-string">"admin"</span>, </span><br><span class="line">    <span class="hljs-string">"user"</span>: <span class="hljs-string">"admin"</span></span><br><span class="line">  &#125;, </span><br><span class="line">  <span class="hljs-string">"origin"</span>: <span class="hljs-string">"14.*.*.*"</span>, </span><br><span class="line">  <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://httpbin.org/post"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那是否有更加简便的方法来传递 JSON 数据？Requests 在 2.4.2 版本新增该功能。我们可以使用 json 参数直接传递，然后它会被自动编码。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'http://httpbin.org/post'</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="hljs-string">'user'</span>: <span class="hljs-string">'admin'</span>,</span><br><span class="line">    <span class="hljs-string">'pass'</span>: <span class="hljs-string">'admin'</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.post(url, json=data)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h3><p>有些网站做了浏览频率限制。如果我们请求该网站频率过高，该网站会被封掉我们的 IP，禁止我们的访问。所以我们需要使用代理来突破这“枷锁”。这里需要用到<code>proxies</code>参数，proxies 也是一个字典类型。具体用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'https://tieba.baidu.com/'</span></span><br><span class="line">proxies = &#123;</span><br><span class="line">    <span class="hljs-string">'http'</span>:<span class="hljs-string">"web-proxy.oa.com:8080"</span>,</span><br><span class="line">    <span class="hljs-string">'https'</span>:<span class="hljs-string">"web-proxy.oa.com:8080"</span></span><br><span class="line">    <span class="hljs-comment"># 若你的代理需要使用HTTP Basic Auth，可以使用 http://user:password@host/ 语法：</span></span><br><span class="line">    <span class="hljs-comment"># "http": "http://user:pass@27.154.181.34:43353/"</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url, proxies=proxies)</span><br><span class="line">print(response.url)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>除了支持 HTTP 代理，Requests 在 2.10 版本新增支持 SOCKS 协议的代理。也就是说，Requests 能够使用 ShadowSocks 代理。看到这里，你的内心是不是有点小激动？<br>使用 SOCKS 代理，需要额外安装一个第三方库，我们就使用 pip 来安装。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests[socks]</span><br></pre></td></tr></table></figure>
+
+<p>安装成功之后，就可以正常使用了，用法跟 HTTP 代理相关。具体见代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxies = &#123;</span><br><span class="line">    <span class="hljs-string">'http'</span>: <span class="hljs-string">'socks5://user:pass@host:port'</span>,</span><br><span class="line">    <span class="hljs-string">'https'</span>: <span class="hljs-string">'socks5://user:pass@host:port'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置请求超时"><a href="#设置请求超时" class="headerlink" title="设置请求超时"></a>设置请求超时</h3><p>我们使用代理发起请求，经常会碰到因代理失效导致请求失败的情况。因此，我们对请求超时做下设置。当发现请求超时，更换代理再重连。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response = requests.get(url, timeout=<span class="hljs-number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>如果你要同时设置 connect 和 read 的超时时间，可以传入一个元组进行设置。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response = requests.get(url, timeout=(<span class="hljs-number">3</span>, <span class="hljs-number">30</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Cookie"><a href="#使用-Cookie" class="headerlink" title="使用 Cookie"></a>使用 Cookie</h3><p>想在响应结果中获取 cookie 的一些值，可以直接访问。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.cookies[<span class="hljs-string">'key'</span>]  <span class="hljs-comment"># key 为 Cookie 字典中键</span></span><br></pre></td></tr></table></figure>
+
+<p>想发送 cookies 到服务器，可以使用<code>cookies</code>参数。同样该参数也是字典类型</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="hljs-string">'http://httpbin.org/cookies'</span></span><br><span class="line"><span class="hljs-comment"># cookies = dict(domain='httpbin.org')</span></span><br><span class="line">cookies = &#123;</span><br><span class="line">    <span class="hljs-string">'domain'</span>:<span class="hljs-string">'httpbin.org'</span>,</span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url, cookies=cookies)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<h2 id="响应结果"><a href="#响应结果" class="headerlink" title="响应结果"></a>响应结果</h2><p>我们跟Python 打交道，摆脱不了编码的问题。使用 Requests 请求，我们无需担心编码问题。感觉 Requests 真的是太人性化了。请求发出后，Requests 会基于 HTTP 头部对响应的编码作出有根据的推测。当你访问 response .text 之时，Requests 会使用其推测的文本编码。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response = requests.get(url)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>如果你想改变 response 的编码格式，可以这么做：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.encoding = <span class="hljs-string">'UTF-8'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="二进制响应内容"><a href="#二进制响应内容" class="headerlink" title="二进制响应内容"></a>二进制响应内容</h3><p>对于非文本请求， 我们能以字节的方式访问请求响应体。Requests 会自动为我们解码 gzip 和 deflate 传输编码的响应数据。<br>例如，以请求返回的二进制数据创建一张图片，你可以使用如下代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> BytesIO</span><br><span class="line"></span><br><span class="line">i = Image.open(BytesIO(response.content))</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSON-响应内容"><a href="#JSON-响应内容" class="headerlink" title="JSON 响应内容"></a>JSON 响应内容</h3><p>Requests 中也有一个内置的 JSON 解码器，助我们处理 JSON 数据：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'https://github.com/timeline.json'</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line">print(response.json())</span><br></pre></td></tr></table></figure>
+<p>如果 JSON 解码失败， response .json() 就会抛出一个异常。例如，响应内容是 401 (Unauthorized)，尝试访问 response .json() 将会抛出 ValueError: No JSON object could be decoded 异常。</p>
+<h3 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h3><p>我们需要根据响应码来判断请求的结果，具体是这样获取状态码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.status_code</span><br></pre></td></tr></table></figure>
+
+<p>Requests 内部提供了一个状态表，如果有需要对状态码进行判断，可以看下<code>requests.codes</code>的源码。</p>
+<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><h3 id="重定向与请求历史"><a href="#重定向与请求历史" class="headerlink" title="重定向与请求历史"></a>重定向与请求历史</h3><p>有些页面会做一些重定向的处理。Requests 又发挥人性化的特性。它在默认情况下，会帮我们自动处理所有重定向，包括 301 和 302 两种状态码。我们可以使用<br><code>response .history</code>来追踪重定向。</p>
+<p><code>Response.history</code>是一个 Response 对象的列表，为了完成请求而创建了这些对象。这个对象列表按照从最老到最近的请求进行排序。</p>
+<p>如果我们要禁用重定向处理，可以使用<code>allow_redirects</code>参数：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response = requests.get(url, allow_redirects=<span class="hljs-literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h3><p>Requests 支持 session 来跟踪用户的连接。例如我们要来跨请求保持一些 cookie，我们可以这么做：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s = requests.Session()</span><br><span class="line"></span><br><span class="line">s.get(<span class="hljs-string">'http://httpbin.org/cookies/set/sessioncookie/123456789'</span>)</span><br><span class="line">r = s.get(<span class="hljs-string">"http://httpbin.org/cookies"</span>)</span><br><span class="line"></span><br><span class="line">print(r.text)</span><br><span class="line"><span class="hljs-comment"># '&#123;"cookies": &#123;"sessioncookie": "123456789"&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h3><p>有些 web 站点都需要身份认证成功之后才能访问。urllib 具备这样的功能，Requests 也不例外。Requests 支持基本身份认证（HTTP Basic Auth）、netrc 认证、摘要式身份认证、OAuth 1 认证等。</p>
+<ul>
+<li>基本身份认证</li>
+</ul>
+<p>许多要求身份认证的web服务都接受 HTTP Basic Auth。这是最简单的一种身份认证，并且 Requests 对这种认证方式的支持是直接开箱即可用。HTTP Basic Auth 用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> requests.auth <span class="hljs-keyword">import</span> HTTPBasicAuth</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'http://httpbin.org/basic-auth/user/passwd'</span></span><br><span class="line">requests.get(url, auth=HTTPBasicAuth(<span class="hljs-string">'user'</span>, <span class="hljs-string">'pass'</span>))</span><br><span class="line"><span class="hljs-comment"># 简写的使用方式</span></span><br><span class="line">requests.get(url, auth=(<span class="hljs-string">'user'</span>, <span class="hljs-string">'pass'</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>摘要式身份认证</li>
+</ul>
+<p>摘要式是 HTTP 1.1 必需的第二种身份验证机制。这种身份验证由用户名和密码组成。随后将用 MD5（一种单向哈希算法）对摘要式身份验证进行哈希运算，并将其发送到服务器。具体用法如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> requests.auth <span class="hljs-keyword">import</span> HTTPDigestAuth</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'http://httpbin.org/digest-auth/auth/user/passwd/MD5'</span></span><br><span class="line">requests.get(url, auth=HTTPDigestAuth(<span class="hljs-string">'user'</span>, <span class="hljs-string">'pass'</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>OAuth  认证</li>
+</ul>
+<p>OAuth（开放授权）认证在我们的生活中随处可见。Requests 同样也支持这中认证方式，其中包括 OAuth 1.0 和 OAuth 2.0。如果你需要用到该认证，你需要安装一个支持库<code>requests-oauthlib</code>。我以 OAuth 1.0 认证作为例子进行讲解：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"><span class="hljs-keyword">from</span> requests_oauthlib <span class="hljs-keyword">import</span> OAuth1</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'https://api.twitter.com/1.1/account/verify_credentials.json'</span></span><br><span class="line">auth = OAuth1(<span class="hljs-string">'YOUR_APP_KEY'</span>, </span><br><span class="line">              <span class="hljs-string">'YOUR_APP_SECRET'</span>,</span><br><span class="line">              <span class="hljs-string">'USER_OAUTH_TOKEN'</span>, </span><br><span class="line">              <span class="hljs-string">'USER_OAUTH_TOKEN_SECRET'</span>)</span><br><span class="line">requests.get(url, auth=auth)</span><br></pre></td></tr></table></figure>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -452,7 +598,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2195,7 +2341,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

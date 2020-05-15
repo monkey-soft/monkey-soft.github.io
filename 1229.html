@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Scrapy 框架插件之IP代理池">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXQl4.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:02:31.829Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLFSS.jpg">
+<meta property="og:updated_time" content="2020-05-15T11:24:28.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBXQl4.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLFSS.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBXQl4.jpg" alt="Scrapy 框架插件之IP代理池">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Scrapy 框架插件之IP代理池
+                <span class="card-title-color">Scrapy 框架插件之IP代理池</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>现在很多网站都是对单个 IP 地址有访问次数限制，如果你在短时间内访问过于频繁。该网站会封掉你 IP，让你在一段时间内无法正常该网站。突破反爬虫机制的一个重要举措就是代理 IP。拥有庞大稳定的 IP 代理，在爬虫工作中将起到重要的作用,但是从成本的角度来说，一般稳定的 IP 池都很贵。因此，我为 Scrapy 爬虫编写个免费 IP 代理池插件。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>现在很多网站都是对单个 IP 地址有访问次数限制，如果你在短时间内访问过于频繁。该网站会封掉你 IP，让你在一段时间内无法正常该网站。突破反爬虫机制的一个重要举措就是代理 IP。拥有庞大稳定的 IP 代理，在爬虫工作中将起到重要的作用,但是从成本的角度来说，一般稳定的 IP 池都很贵。因此，我为 Scrapy 爬虫编写个免费 IP 代理池插件。</p>
 <a id="more"></a>
 
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>该插件适用的程序是基于 Scrapy 框架编写的爬虫程序。插件通过爬取免费代理地址，然后过滤掉无效 IP 代理后存放到 Mysql 数据库。另外，它会每 10 分钟轮询数据库中的 IP 代理数量。如果代理地址因为连接失败次数超过 3 次被删除，从而导致代理不够，它会后台重新爬取新的 IP 代理。</p>
@@ -252,6 +258,50 @@ var _hmt = _hmt || [];
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>本项目目前是第一版，可能有些不完善的地方。如果你有宝贵的完善建议或者有更多的代理网站，可以反馈给我。我会持续完善本项目。最后，本项目也在 github 上开源了。</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取网站的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Scrapy_IPProxyPool" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
 
+                </div>             
+            
+            <!-- <p>现在很多网站都是对单个 IP 地址有访问次数限制，如果你在短时间内访问过于频繁。该网站会封掉你 IP，让你在一段时间内无法正常该网站。突破反爬虫机制的一个重要举措就是代理 IP。拥有庞大稳定的 IP 代理，在爬虫工作中将起到重要的作用,但是从成本的角度来说，一般稳定的 IP 池都很贵。因此，我为 Scrapy 爬虫编写个免费 IP 代理池插件。</p>
+<a id="more"></a>
+
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>该插件适用的程序是基于 Scrapy 框架编写的爬虫程序。插件通过爬取免费代理地址，然后过滤掉无效 IP 代理后存放到 Mysql 数据库。另外，它会每 10 分钟轮询数据库中的 IP 代理数量。如果代理地址因为连接失败次数超过 3 次被删除，从而导致代理不够，它会后台重新爬取新的 IP 代理。</p>
+<h2 id="收集的代理网站"><a href="#收集的代理网站" class="headerlink" title="收集的代理网站"></a>收集的代理网站</h2><ul>
+<li>无忧代理(data5u)</li>
+<li>ip181 代理</li>
+<li>快代理</li>
+<li>西刺代理</li>
+</ul>
+<h2 id="项目说明"><a href="#项目说明" class="headerlink" title="项目说明"></a>项目说明</h2><ul>
+<li><p>startrun.py<br>项目的主入口。它负责启动 Scrapy 爬虫和代理池。</p>
+</li>
+<li><p>your_scrapy_project<br>该目录下主要存放两个文件：<code>config.py</code> 和 <code>settings.py</code>。config.py 是代理池的项目配置信息。而 settings.py 是你的 Scrapy 爬虫项目的配置参考代码。</p>
+</li>
+<li><p>ProxyPoolWorker.py<br><code>ProxyPoolWorker.py</code> 是 IP代理池模块的管理类，负责启动和维护 IP 代理池。</p>
+</li>
+<li><p>proxyDBManager.py<br><code>proxyDBManager.py</code> 位于 dbManager 包下。它是数据库操作类。主要工作是创建数据库表、往数据库中插入 IP 代理、查询数据库中剩余的 IP 代理总数、从数据库中随机查询一个 IP 代理、对连接超时或失败的 IP 代理做处理。</p>
+</li>
+<li><p>proxyModel.py<br><code>proxyModel.py</code> 在 <code>model</code> 包下。它是 IP 代理对象类。</p>
+</li>
+<li><p>requestEnginer.py<br><code>requestEnginer.py</code> 位于 <code>requester</code> 目录下。requestEnginer 是整个爬虫代理池的网络引擎。它采用 Session 的形式来发起 HTTP 请求。同时，它还负责验证代理地址有效性,  达到过滤掉无用 IP 代理的目的。</p>
+</li>
+<li><p>scrapy<br>scrapy 目录是一些 Scrapy 框架的自定义中间件。<code>RandomUserAgentMiddleware.py</code> 是为 HTTP 请求随机设置个 User-agent。<code>middlewares.py</code> 有两个职责。一是为 HTTP 请求随机设置个 IP 代理。二是负责捕获并处理 HTTP 异常请求。</p>
+</li>
+<li><p>spiders<br>该包主要是爬取各大代理网站的爬虫。</p>
+</li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>使用本插件，你需要通过 pip 安装以下依赖：</p>
+<ul>
+<li>requests</li>
+<li>apscheduler</li>
+<li>pymysql</li>
+</ul>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><p>1) 将 <code>startrun.py</code> 放到你的 Scrapy 项目的主目录下。例如你项目名为 demo，那么你需要放到 demo 的目录下。</p>
+<p>2) 修改 <code>config.py</code> 里面的 Mysql 相关配置信息。然后将其放到你的  Scrapy 项目的二级目录下。假如你项目名为 demo，那么你需要放到 demo /demo 的目录下。</p>
+<p>3) 参考 <code>setting.py</code>，修改你的 Scrapy 项目中的 <code>setting.py</code> 文件。主要是在你项目中增加以下代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 默认使用 IP 代理池</span></span><br><span class="line"><span class="hljs-keyword">if</span> IF_USE_PROXY:</span><br><span class="line">    DOWNLOADER_MIDDLEWARES = &#123;</span><br><span class="line">        <span class="hljs-comment"># 第二行的填写规则</span></span><br><span class="line">        <span class="hljs-comment">#  yourproject.myMiddlewares(文件名).middleware类</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 设置 User-Agent</span></span><br><span class="line">        <span class="hljs-string">'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware'</span>: <span class="hljs-literal">None</span>,</span><br><span class="line">        <span class="hljs-string">'proxyPool.scrapy.RandomUserAgentMiddleware.RandomUserAgentMiddleware'</span>: <span class="hljs-number">400</span>,</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 设置代理</span></span><br><span class="line">        <span class="hljs-string">'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware'</span>: <span class="hljs-literal">None</span>,</span><br><span class="line">        <span class="hljs-string">'proxyPool.scrapy.middlewares.ProxyMiddleware'</span>: <span class="hljs-number">100</span>,</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 设置自定义捕获异常中间层</span></span><br><span class="line">        <span class="hljs-string">'proxyPool.scrapy.middlewares.CatchExceptionMiddleware'</span>: <span class="hljs-number">105</span>,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>本项目目前是第一版，可能有些不完善的地方。如果你有宝贵的完善建议或者有更多的代理网站，可以反馈给我。我会持续完善本项目。最后，本项目也在 github 上开源了。</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取网站的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Scrapy_IPProxyPool" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -356,7 +406,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2063,7 +2113,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

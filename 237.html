@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 学习笔记之视图与URL配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBvViV.jpg">
-<meta property="og:updated_time" content="2020-05-14T10:12:51.492Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLqkq.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:08:38.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBvViV.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsLqkq.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBvViV.jpg" alt="Django 学习笔记之视图与URL配置">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Django 学习笔记之视图与URL配置
+                <span class="card-title-color">Django 学习笔记之视图与URL配置</span>
             
         </h1>
 
@@ -209,10 +207,17 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>本文章是自己学习 Django 框架的第三篇。前面两篇文章主要记录 Django 理论相关知识。从本篇文章开始，将以理论和实战方式讲述 Django 框架的知识。让我们一起来 coding 吧~</p>
-<a id="more"></a>
-<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>我们开发 Web 程序是基于 Django 框架，所以要想创建 Django 项目。创建项目有两种方式，一种是使用 Django 管理任务 <strong>django-admin.py</strong>，另一种是借助 IDE 工具 <strong>Pycharm</strong>。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>本文章是自己学习 Django 框架的第三篇。前面两篇文章主要记录 Django 理论相关知识。从本篇文章开始，将以理论和实战方式讲述 Django 框架的知识。让我们一起来 coding 吧~</p>
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>我们开发 Web 程序是基于 Django 框架，所以要想创建 Django 项目。<a id="more"></a>创建项目有两种方式，一种是使用 Django 管理任务 <strong>django-admin.py</strong>，另一种是借助 IDE 工具 <strong>Pycharm</strong>。</p>
 <ul>
 <li><code>使用 django-admin.py</code></li>
 </ul>
@@ -277,6 +282,74 @@ var _hmt = _hmt || [];
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf.urls <span class="hljs-keyword">import</span> include, url</span><br><span class="line"><span class="hljs-keyword">from</span> app02 <span class="hljs-keyword">import</span> views</span><br><span class="line"> </span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="hljs-string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="hljs-string">r'index/$'</span>, views.index),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 
+                </div>             
+            
+            <!-- <p>本文章是自己学习 Django 框架的第三篇。前面两篇文章主要记录 Django 理论相关知识。从本篇文章开始，将以理论和实战方式讲述 Django 框架的知识。让我们一起来 coding 吧~</p>
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>我们开发 Web 程序是基于 Django 框架，所以要想创建 Django 项目。<a id="more"></a>创建项目有两种方式，一种是使用 Django 管理任务 <strong>django-admin.py</strong>，另一种是借助 IDE 工具 <strong>Pycharm</strong>。</p>
+<ul>
+<li><code>使用 django-admin.py</code></li>
+</ul>
+<p>1）新建project<br>在你准备存放项目的目录下，打开终端，执行新建命令。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">django-admin.py startproject Django_demo  // Django_demo 为 project 的名称，你可随意命名</span><br><span class="line">// 如果执行失败，可以改用下面命令</span><br><span class="line">django-admin startproject Django_demo     // Django_demo 为 project 的名称，你可随意命名</span><br></pre></td></tr></table></figure>
+
+<p>新建 Project 成功之后，你会发现目录下会多出一些文件。这些文件主要跟工程配置有关系，跟具体业务逻辑没啥关系。<br><img src="./images/img/63_1.png" alt></p>
+<p>2）新建 application<br>新建了项目，为什么还要新建 application ？简单来说 <strong>project **可以理解为一个容器，</strong>application** 可以理解为 project 中的一个网站应用。对于每个Django项目有且只有一个 project, 而一个 project 可以包含多个 application。</p>
+<p>到最外层的 Django_demo 目录下新建我们的 application</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp test    // test 为 application 的名称，你可随意命名</span><br></pre></td></tr></table></figure>
+<p>新建成功后，会发现多了一个名为 test 目录。看到里面有些文件，是否心中有种似曾相识的感觉？</p>
+<p><img src="./images/img/63_2.png" alt></p>
+<p>3）配置应用<br>最后一步，我们需要把刚才新建的 application 加到 settings.py 中的 INSTALL_APPS 中 。具体操作是修改 Django_demo/Django_demo/settings.py 文件，</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">    <span class="hljs-string">'django.contrib.admin'</span>,           // 管理站点</span><br><span class="line">    <span class="hljs-string">'django.contrib.auth'</span>,            // 认证系统</span><br><span class="line">    <span class="hljs-string">'django.contrib.contenttypes'</span>,    // 用于内容类型框架</span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions'</span>,        // 回话框架</span><br><span class="line">    <span class="hljs-string">'django.contrib.messages'</span>,        // 消息框架</span><br><span class="line">    <span class="hljs-string">'django.contrib.staticfiles'</span>,     // 管理静态文件的框架</span><br><span class="line">     // Djaogo 默认包含上面的应用</span><br><span class="line">    <span class="hljs-string">'test'</span>,   // 刚才新建的 application，如果有多个 application，依次在后面添加即可。</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>借助 Pycharm</code></li>
+</ul>
+<p>有些小伙伴可能使用命令工具方式比较复杂，是否有比较简便的方式？当然，那借助 Pycharm，直接一步搞定。<br>打开 PyCharm IDE 工具，点击 File -&gt; New Project， 左边选择Django。新建如下图所示： </p>
+<p><img src="./images/img/63_3.png" alt></p>
+<p>新建成功之后会看到这样的目录结构 ，Pycharm 已经帮我们搞定了大部分工作。</p>
+<p><img src="./images/img/63_4.png" alt></p>
+<h2 id="视图与URL配置"><a href="#视图与URL配置" class="headerlink" title="视图与URL配置"></a>视图与URL配置</h2><h3 id="第一个页面"><a href="#第一个页面" class="headerlink" title="第一个页面"></a>第一个页面</h3><p><strong>URL配置(URLconf.py) 是文件路由，是 URL 和 URL 对应视图的映射表</strong> 。换句话说，就是由它来分发网络请求，将每个 Web 请求根据 URL 地址来调用视图来显示。URL 模式的语法是：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">    url(路径匹配, view 函数, 可选参数, 可选别名),</span></span><br><span class="line"><span class="hljs-string">    路径匹配：  一个正则表达式字符串。一般写法是  **r'正则表达式'**。如果你对正则表达式不太熟悉，建议你先补习补习下。</span></span><br><span class="line"><span class="hljs-string">    view 函数： 一个可调用对象，通常为一个视图函数或一个指定视图函数路径的字符串</span></span><br><span class="line"><span class="hljs-string">    可选参数：  可选的要传递给视图函数的默认参数（字典形式）</span></span><br><span class="line"><span class="hljs-string">    可选别名：   可选参数，一般结合模板方便管理</span></span><br><span class="line"><span class="hljs-string">    '''</span></span><br><span class="line">    url(<span class="hljs-string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>一般在 URLconf.py 中新增一个 URL 表达式，就需要在 view.py 中增加一个视图函数</strong>。</p>
+<p>我们来根据上述规则创建下首个页面。首先在 view.py 中增加首页视图函数。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Create your views here.</span></span><br><span class="line"><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span><span class="hljs-params">(request)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">"Hello ！这是我第一个 Django 项目"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>视图中的函数名 index 对应是 URL 地址中的 path 部分。 那什么是 path 呢？URL 地址定义是 <strong>协议://host:port/path</strong> 。假如有个地址是 <strong><a href="http://127.0.0.1:8000/music" target="_blank" rel="external nofollow noopener noreferrer">http://127.0.0.1:8000/music</a></strong>。http 就是协议；127.0.0.1 是主机号，主机号可以是 IP 地址或者域名，不过域名是比较常见，因为容易记；port 是端口号，如果端口号是 80 可以忽略不写，其他则要填写完整；music 就是前面说的 path，端口号后面第一个 “/“ 符号后面的字符串都是路径（path）。index 比较特殊，我们通常把 index 设定为首页，所以访问首页的时候，path 不用填写。如果你还不很了解，我们等会运行下程序，你就会涣然大悟。</p>
+<p>在创建视图函数之后，我们需要在 urls.py 中配置好 url 匹配规则。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf.urls <span class="hljs-keyword">import</span> url</span><br><span class="line"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin</span><br><span class="line"><span class="hljs-keyword">from</span> demo <span class="hljs-keyword">import</span> views                <span class="hljs-comment"># 导入我们的视图</span></span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="hljs-string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="hljs-string">r'^$'</span>, views.index),          <span class="hljs-comment"># 添加首页 url 匹配规则。index 就是刚才创建的函数。</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>配置了 url 匹配规则，剩下最后一步运行验证了。点击 pycharm 工具上的运行按钮（绿色的播放键），然后打开浏览器，在地址栏输入 <strong><a href="http://127.0.0.1:8000" target="_blank" rel="external nofollow noopener noreferrer">http://127.0.0.1:8000</a></strong>。你会看到我们 index 函数返回的内容。</p>
+<p>如果你访问的地址是 <strong><a href="http://127.0.0.1:8000/" target="_blank" rel="external nofollow noopener noreferrer">http://127.0.0.1:8000/</a></strong>，同样也是能正常看到页面内容。</p>
+<p><img src="./images/img/63_5.png" alt></p>
+<p>pycharm 能启动一个 web 服务器，内部是使用到 manage.py 脚本。因此，我们也可以使用命令行的形式来启动一个 web 本地测试服务器。在最外层的 Django_demo 目录下，打开终端命令行工具，执行 <code>python manage.py runserver</code> 即可启动服务器。</p>
+<h3 id="返回-HTML-页面"><a href="#返回-HTML-页面" class="headerlink" title="返回 HTML 页面"></a>返回 HTML 页面</h3><p>视图返回结果是一串字符串，我们只是用于做测试用的。但是实际开发中，返回结果通常是 html 页面。view 函数想要返回 html 页面，使用 render() 携带一个 html 页面即可。render() 内部返回的也是一个 HttpResponse 对象。</p>
+<p>我们在 view.py 中增加名为 <strong>content</strong> 的视图函数，用来返回一个 html 页面。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Create your views here.</span></span><br><span class="line"><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">content</span><span class="hljs-params">(request)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">'content.html'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>接着在 application 目录下新建名为 templates 的文件夹，再创建一个 content.html 文件。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>content<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>这是 content 页面。<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>这是 content 页面。<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>这是 content 页面。<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>还要配置下 url 路由规则。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf.urls <span class="hljs-keyword">import</span> url</span><br><span class="line"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin</span><br><span class="line"><span class="hljs-keyword">from</span> demo <span class="hljs-keyword">import</span> views                <span class="hljs-comment"># 导入我们的视图</span></span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="hljs-string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="hljs-string">r'^content/$'</span>, views.content)   <span class="hljs-comment"># 添加 content 页面的 url 匹配规则。</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>最后一步，使用浏览器浏览 content 的页面。</p>
+<p><img src="./images/img/63_6.png" alt></p>
+<h3 id="url-路由的命名组"><a href="#url-路由的命名组" class="headerlink" title="url 路由的命名组"></a>url 路由的命名组</h3><p>url 路由有另种命名组，一种是无名名组，另一种是有名分组。 无名分组是使用简单的、没有命名的正则表达式组（通过圆括号）来捕获 URL 中的值。上述两个例子和以下的一些都是都是无命名分组。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf.urls <span class="hljs-keyword">import</span> url</span><br><span class="line"><span class="hljs-keyword">from</span> demo <span class="hljs-keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="hljs-string">r'^content/2018/$'</span>, views.special_case_2018),</span><br><span class="line">    url(<span class="hljs-string">r'^content/([0-9]&#123;4&#125;)/$'</span>, views.year_content),</span><br><span class="line">    url(<span class="hljs-string">r'^content/([0-9]&#123;4&#125;)/([0-9]&#123;2&#125;)/$'</span>, views.month_content),</span><br><span class="line">    url(<span class="hljs-string">r'^content/([0-9]&#123;4&#125;)/([0-9]&#123;2&#125;)/([0-9]+)/$'</span>, views.detail_content)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>如果返回的 URL 的 path 为 /content/2018 时，是无法匹配到上面任何一个模式，因为每个模式要求 URL 以一个斜线结尾。paht 为 /content/2018/ 则能匹配到两个模式，是匹配到哪个呢？因为模式按照顺序来匹配的，所以第一个模式会被优先匹配。path 为 /content/2018/02/ 将匹配到第三个模式。Django 调用的是 views 文件中的 month_content(request, ‘2018’, ‘02’)。</p>
+<p>无名分组的视图只能接受 python 中传入的固定值参数，如值 2018 等。但是无法获取到存放值的变量，而有名分组恰恰能解决这个痛点。有名分组只是在无名分组的正则表达式上增加一个参数即可。语法是(?P<name>pattern)，其中 name 是组的名称，pattern 是要匹配的模式。具体改造如下：</name></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf.urls <span class="hljs-keyword">import</span> url</span><br><span class="line"><span class="hljs-keyword">from</span> demo  <span class="hljs-keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="hljs-string">r'^content/2018/$'</span>, views.special_case_2018),</span><br><span class="line">    url(<span class="hljs-string">r'^articles/(?P&lt;year&gt;[0-9]&#123;4&#125;)/$'</span>,  views.year_content),</span><br><span class="line">    url(<span class="hljs-string">r'^articles/(?P&lt;year&gt;[0-9]&#123;4&#125;)/(?P&lt;month&gt;[0-9]&#123;2&#125;)/$'</span>, views.month_content),</span><br><span class="line">    url(<span class="hljs-string">r'^articles/(?P&lt;year&gt;[0-9]&#123;4&#125;)/(?P&lt;month&gt;[0-9]&#123;2&#125;)/(?P&lt;day&gt;[0-9]&#123;2&#125;)/$'</span>, views.detail_content)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>经过改造之后，当访问 path 为 /content/2018/02/ 时，请求将调用views.content(request, year=’2018’, month=’02’)函数，而不是views.month_content(request, ‘2018’, ‘02’)。</p>
+<h3 id="路由转发器（include）"><a href="#路由转发器（include）" class="headerlink" title="路由转发器（include）"></a>路由转发器（include）</h3><p>如果一个项目下有很多的 application，那么在 urls.py 里面就要写巨多的 urls 映射关系。这样看起来很不灵活，而且杂乱无章。这时候就要根据不同的 application 来分发不同的url请求。</p>
+<p>假如在上述的 project 中，我又新建了一个新的 application，名为 app02。配置路由转发器操作如下：首先，在 urls.py 里写入 urls 映射条目。值得注意是，要导入Django 的 include 方法。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf.urls <span class="hljs-keyword">import</span> url, include</span><br><span class="line"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="hljs-string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="hljs-string">r'^app02/'</span>, include(<span class="hljs-string">'app02.urls'</span>)),   // 将 url 为”app02/“的请求都交给 app02 下的 urls 去处理</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>其次，在 app02 目录下创建一个 urls.py 文件，用来处理请求的url，使之与 views 建立映射。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.conf.urls <span class="hljs-keyword">import</span> include, url</span><br><span class="line"><span class="hljs-keyword">from</span> app02 <span class="hljs-keyword">import</span> views</span><br><span class="line"> </span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="hljs-string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="hljs-string">r'index/$'</span>, views.index),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -381,7 +454,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2080,7 +2153,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 绘图,我只用 Matplotlib(二)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBLvPU.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:56:43.574Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ysqraq.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:00:53.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBLvPU.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ysqraq.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBLvPU.jpg" alt="Python 绘图,我只用 Matplotlib(二)">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>Python 绘图,我只用 Matplotlib(二)
+                <span class="card-title-color">Python 绘图,我只用 Matplotlib(二)</span>
             
         </h1>
 
@@ -209,11 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
-<a id="more"></a>
-
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
 <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>在学习绘制之前，先来了解下 Matplotlib 基础概念。</p>
+<a id="more"></a>
 <h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><p>我们绘制图形主要用到两个库，<code>matplotlib.pyplot</code>和<code>numpy</code>。在编码过程中，这两个库的使用频率较高，而这两个库的名字较长。这难免会给我们带来不便。所以我们一般给其设置别名， 大大减少重复性工作量。具体如下代码：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt   <span class="hljs-comment"># 导入模块 matplotlib.pyplot，并简写成 plt </span></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np                <span class="hljs-comment"># 导入模块 numpy，并简写成 np</span></span><br></pre></td></tr></table></figure>
 <p>numpy 是 Python 用于数学运算的库，它是在安装 matplotlib 时候顺带安装的。pyplot 是 matplotlib 一个子模块，主要为底层的面向对象的绘图库提供状态机界面。状态机隐式地自动创建数字和坐标轴以实现所需的绘图。 matplotlib 中的所有内容都按照层次结果进行组织。顶层就是由 pyplot 提供的 matplotlib “状态机环境”。基于这个状态机环境，我们就可以创建图形。</p>
@@ -325,6 +330,122 @@ var _hmt = _hmt || [];
 <p><img src="./images/img/47_12.png" alt></p>
 <p>到此为止，我们基本上完成了绘制直线所有工作。Matplotlib 能绘制种类繁多且绘图功能强大，所以我接下来的文章将单独对每种类型图做分享讲解。</p>
 
+                </div>             
+            
+            <!-- <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>在学习绘制之前，先来了解下 Matplotlib 基础概念。</p>
+<a id="more"></a>
+<h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><p>我们绘制图形主要用到两个库，<code>matplotlib.pyplot</code>和<code>numpy</code>。在编码过程中，这两个库的使用频率较高，而这两个库的名字较长。这难免会给我们带来不便。所以我们一般给其设置别名， 大大减少重复性工作量。具体如下代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt   <span class="hljs-comment"># 导入模块 matplotlib.pyplot，并简写成 plt </span></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np                <span class="hljs-comment"># 导入模块 numpy，并简写成 np</span></span><br></pre></td></tr></table></figure>
+<p>numpy 是 Python 用于数学运算的库，它是在安装 matplotlib 时候顺带安装的。pyplot 是 matplotlib 一个子模块，主要为底层的面向对象的绘图库提供状态机界面。状态机隐式地自动创建数字和坐标轴以实现所需的绘图。 matplotlib 中的所有内容都按照层次结果进行组织。顶层就是由 pyplot 提供的 matplotlib “状态机环境”。基于这个状态机环境，我们就可以创建图形。</p>
+<h3 id="图形组成标签"><a href="#图形组成标签" class="headerlink" title="图形组成标签"></a>图形组成标签</h3><p>我在 matplotlib 官网上找图像组件说明图并在上面增加中文翻译。通过这张图，我们对 matplotlib 整体地认识。</p>
+<p><img src="./images/img/47_1.jpg" alt></p>
+<p>接下来，我主要讲解 matplotlib 中几个重要的标签。</p>
+<ul>
+<li>Figure</li>
+</ul>
+<p>Figure 翻译成中文是图像窗口。Figure 是包裹 Axes、tiles、legends 等组件的最外层窗口。它其实是一个 Windows 应用窗口 。<br><img src="./images/img/47_2.png" alt><br>Figure 中最主要的元素是 Axes（子图）。一个 Figure 中可以有多个子图，但至少要有一个能够显示内容的子图。</p>
+<ul>
+<li>Axes </li>
+</ul>
+<p>Axes 翻译成中文是轴域/子图。Axes 是带有数据的图像区域。从上文可知，它是位于 Figure 里面。那它和 Figure 是什么关系？这里可能文字难以表述清楚，我以图说文。用两图带你彻底弄清它们的关系。</p>
+<p>在看运行结果之前，我先呈上代码给各位看官品尝。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()                      <span class="hljs-comment"># 创建一个没有 axes 的 figure</span></span><br><span class="line">fig.suptitle(<span class="hljs-string">'No axes on this figure'</span>)  <span class="hljs-comment"># 添加标题以便我们辨别</span></span><br><span class="line"></span><br><span class="line">fig, ax_lst = plt.subplots(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)        <span class="hljs-comment"># 创建一个以 axes 为单位的 2x2 网格的 figure </span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>根据运行结果图，我们不难看出。左图的 Figure1 中没有 axes，右图的 Figure2 中有 4 个 axes。因此，我们可以将 Axes 理解为面板，而面板是覆在窗口(Figure) 上。<br><img src="./images/img/47_3.png" alt></p>
+<ul>
+<li>Axis </li>
+</ul>
+<p>Axis 在中文的意思是轴。官网文档对 Axis 定义解释不清楚，让我们看得云里雾里的。如果你有留意前文的组成说明图，可以看到 X Axis 和 Y Axis 的字样。按照平常人的见识， 观察该图就能明白 Axis 是轴的意思。此外，Axis 和 Axes 以及 Figure 这三者关系，你看完下图，会恍然大悟。<br><img src="./images/img/47_4.png" alt></p>
+<h2 id="绘制第一张图"><a href="#绘制第一张图" class="headerlink" title="绘制第一张图"></a>绘制第一张图</h2><p>按照剧本发展，我接下来以绘制曲线并逐步美化它为例子，一步步讲解如何绘制图形。在这过程中，我也会逐一说明各个函数的作用。</p>
+<h3 id="初步绘制曲线"><a href="#初步绘制曲线" class="headerlink" title="初步绘制曲线"></a>初步绘制曲线</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>      <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x      <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line">plt.figure()    <span class="hljs-comment"># 定义一个图像窗口</span></span><br><span class="line">plt.plot(x, y1) <span class="hljs-comment"># 绘制曲线 y1</span></span><br><span class="line">plt.plot(x, y2) <span class="hljs-comment"># 绘制曲线 y2</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>调用<code>np.linspace</code>是创建一个 numpy 数组，并记作 x。x 包含了从 -2 到 6 之间等间隔的 50 个值。y1 和 y2 则分别是这 50 个值对应曲线的函数值组成的 numpy 数组。前面的操作还处于设置属性的阶段，还没有开始绘制图形。<code>plt.figure()</code> 函数才意味着开始执行绘图操作。最后别忘记调用<code>show()</code>函数将图形呈现出来。</p>
+<p><img src="./images/img/47_5.png" alt></p>
+<h3 id="简单修饰"><a href="#简单修饰" class="headerlink" title="简单修饰"></a>简单修饰</h3><p>我们已经绘制出两条直线，但样式比较简陋。所以我给两条曲线设置鲜艳的颜色、线条类型。同时，还给纵轴和横轴的设置上下限，增加可观性。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 创建一个点数为 8 x 6 的窗口, 并设置分辨率为 80像素/每英寸</span></span><br><span class="line">plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>), dpi=<span class="hljs-number">80</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 再创建一个规格为 1 x 1 的子图</span></span><br><span class="line">plt.subplot(<span class="hljs-number">1</span>，<span class="hljs-number">1</span>，<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>        <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x        <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 设置横轴的上下限</span></span><br><span class="line">plt.xlim(<span class="hljs-number">-1</span>, <span class="hljs-number">6</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴的上下限</span></span><br><span class="line">plt.ylim(<span class="hljs-number">-2</span>, <span class="hljs-number">10</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_6.png" alt></p>
+<h3 id="设置纵横轴标签"><a href="#设置纵横轴标签" class="headerlink" title="设置纵横轴标签"></a>设置纵横轴标签</h3><p>在图像中，我们不能一味地认为横轴就是 X 轴，纵轴就是 Y 轴。图形因内容数据不同，纵横轴标签往往也会不同。这也体现了给纵横轴设置标签说明的重要性。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴标签</span></span><br><span class="line">plt.xlabel(<span class="hljs-string">"X"</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴标签</span></span><br><span class="line">plt.ylabel(<span class="hljs-string">"Y"</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_7.png" alt></p>
+<h3 id="设置精准刻度"><a href="#设置精准刻度" class="headerlink" title="设置精准刻度"></a>设置精准刻度</h3><p>matplotlib 画图设置的刻度是由曲线以及窗口的像素点等因素决定。这些刻度精确度无法满足需求，我们需要手动添加刻度。上图中，纵轴只显示 2 的倍数的刻度，横轴只显示 1 的倍数的刻度。我们为其添加精准刻度，纵轴变成单位间隔为 1 的刻度，横轴变成单位间隔为 0.5 的刻度。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2.5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3.5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5.5</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>xticks() 和 yticks() 需要传入一个列表作为参数。</p>
+<p><img src="./images/img/47_8.png" alt></p>
+<p>该方法默认是将列表的值来设置刻度标签，如果你想重新设置刻度标签，则需要传入两个列表参数给 xticks() 和 yticks() 。第一个列表的值代表刻度，第二个列表的值代表刻度所显示的标签。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],</span><br><span class="line">           [<span class="hljs-string">"-1m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"1m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"3m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"5m"</span>, <span class="hljs-string">"6m"</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>],</span><br><span class="line">           [<span class="hljs-string">"-2m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"6m"</span>, <span class="hljs-string">"8m"</span>, <span class="hljs-string">"10m"</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_9.png" alt></p>
+<h3 id="添加图例"><a href="#添加图例" class="headerlink" title="添加图例"></a>添加图例</h3><p>如果需要在图的左上角添加一个图例。我们只需要在 plot() 函数里以「键 - 值」的形式增加一个参数。首先我们需要在绘制曲线的时候，增加一个 label 参数，然后再调用 plt.legend() 绘制出一个图例。plt.legend() 需要传入一个位置值。loc 的值可选如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">best</td>
+<td align="center">自动选择最佳位置，默认是左上</td>
+</tr>
+<tr>
+<td align="center">upper right</td>
+<td align="center">右上</td>
+</tr>
+<tr>
+<td align="center">upper left</td>
+<td align="center">左上</td>
+</tr>
+<tr>
+<td align="center">lower right</td>
+<td align="center">右下</td>
+</tr>
+<tr>
+<td align="center">lower left</td>
+<td align="center">左下</td>
+</tr>
+<tr>
+<td align="center">right</td>
+<td align="center">右边，默认是右上。如果因图形挡住右上，会自动往下选择空白地方绘制</td>
+</tr>
+<tr>
+<td align="center">center right</td>
+<td align="center">垂直居中且靠右</td>
+</tr>
+<tr>
+<td align="center">center left</td>
+<td align="center">垂直居中且靠左</td>
+</tr>
+<tr>
+<td align="center">lower center</td>
+<td align="center">垂直居中且靠底部</td>
+</tr>
+<tr>
+<td align="center">upper center</td>
+<td align="center">垂直居中且靠顶部</td>
+</tr>
+<tr>
+<td align="center">center</td>
+<td align="center">居中</td>
+</tr>
+</tbody></table>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line">plt.legend(loc=<span class="hljs-string">"upper left"</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_10.png" alt></p>
+<h3 id="注释特殊点位"><a href="#注释特殊点位" class="headerlink" title="注释特殊点位"></a>注释特殊点位</h3><p>有时某些数据点非常关键，需要突显出来。我们需要将改点绘制出来，即绘制散点图，再对其做注释。实现上述需求，我们要用到<code>scatter()</code>和<code>annotate()</code>函数。<code>scatter()</code> 是用于绘制散图，这里我们只是用其来绘制单个点。scatter() 用法，后续文章会详细对其用法做说明。<code>annotate()</code>则是添加标注 。</p>
+<p><code>scatter()</code> 函数必须传入两个参数 x 和 y。值得注意得是，它们的数据类型是列表。x 代表要标注点的横轴位置，y 代表要标注点的横轴位置。x 和 y 列表中下标相同的数据是对应的。例如 x 为 [3, 4]，y 为 [6, 8]，这表示会绘制点（3，6），（4， 8）。因此，x 和 y 长度要一样。</p>
+<p><code>annotate</code>函数同样也有两个必传参数，一个是标注内容，另一个是 xy。标注内容是一个字符串。xy 表示要在哪个位置（点）显示标注内容。xy 位置地选定。一般是在<code>scatter()</code> 绘制点附近，但不建议重合，这样会影响美观。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 6)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">6</span>], s=<span class="hljs-number">30</span>, color=<span class="hljs-string">"blue"</span>)      <span class="hljs-comment"># s 为点的 size</span></span><br><span class="line"><span class="hljs-comment"># 对(3, 6)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 6)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">5.5</span>),       <span class="hljs-comment"># 在(3.3, 5.5)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,         <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)  <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>),            <span class="hljs-comment"># 在(3.3, 0)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,          <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)    <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_11.png" alt></p>
+<p>点已经被标注出来了，如果你还想给点添加注释。这需要使用<code>text()</code>函数。text(x，y，s) 作用是在点(x，y) 上添加文本 s。matplotlib 目前好像对中午支持不是很友好， 中文均显示为乱码。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>, xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>))</span><br><span class="line">plt.text(<span class="hljs-number">4</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-string">"this point very important"</span>,</span><br><span class="line">         fontdict=&#123;<span class="hljs-string">'size'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'color'</span>: <span class="hljs-string">'green'</span>&#125;)  <span class="hljs-comment"># fontdict设置文本字体</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_12.png" alt></p>
+<p>到此为止，我们基本上完成了绘制直线所有工作。Matplotlib 能绘制种类繁多且绘图功能强大，所以我接下来的文章将单独对每种类型图做分享讲解。</p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -429,7 +550,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2144,7 +2265,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

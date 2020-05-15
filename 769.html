@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="为什么说 TCP 协议是可靠的？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEuQI.jpg">
-<meta property="og:updated_time" content="2020-05-14T11:22:38.709Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKo79.jpg">
+<meta property="og:updated_time" content="2020-05-15T13:57:10.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YDEuQI.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyKo79.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YDEuQI.jpg" alt="为什么说 TCP 协议是可靠的？">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>为什么说 TCP 协议是可靠的？
+                <span class="card-title-color">为什么说 TCP 协议是可靠的？</span>
             
         </h1>
 
@@ -209,8 +207,16 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>为什么说 TCP 协议是可靠的？几张图带你彻底了解 TCP 协议。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>为什么说 TCP 协议是可靠的？几张图带你彻底了解 TCP 协议。</p>
 <a id="more"></a>
 <blockquote>
 <p>TCP 协议是 TCP/IP 协议栈中的传输层的协议，TCP协议又叫传输控制协议(Transport Control Protocal)。众所周知，它是一个可靠协议。因为它能保证接收端<strong>完整地</strong>接受到发送端发送的数据包，即保证不丢包。</p>
@@ -284,6 +290,82 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 
+                </div>             
+            
+            <!-- <p>为什么说 TCP 协议是可靠的？几张图带你彻底了解 TCP 协议。</p>
+<a id="more"></a>
+<blockquote>
+<p>TCP 协议是 TCP/IP 协议栈中的传输层的协议，TCP协议又叫传输控制协议(Transport Control Protocal)。众所周知，它是一个可靠协议。因为它能保证接收端<strong>完整地</strong>接受到发送端发送的数据包，即保证不丢包。</p>
+</blockquote>
+<p>那 TCP 协议如何保证不丢包呢？这个是本文重点讲述的内容。</p>
+<h2 id="TCP-协议的作用"><a href="#TCP-协议的作用" class="headerlink" title="TCP 协议的作用"></a>TCP 协议的作用</h2><p>ISO（国际标准化组织）曾提出一个 OSI 七层模型。将网络的协议划分为 7 个层，从低到高排序是：物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。但是这个模型仅停留在理论阶段。因为该模型过于庞大、复杂，以至于无法被广泛应用。</p>
+<p>后来技术人员在 TCP/IP 等协议集问世之后，提出 TCP/IP 协议栈。该模型很贴近实际场景，所以被广泛的应用。TCP/IP 协议栈一共分为 4 个层次。从低到高依次排序是：数据链路层（有书籍称之为网络接口层)、网络层、传输层、应用层。</p>
+<p><img src="./images/img/101_1.png" alt></p>
+<ul>
+<li>网络接口层：针对不同物理网络的连接形式的协议：以太网、FDDI 光纤分布式数据接口。其中协议有 ARP 协议(地址解析协议)、RARP 协议(反向地址转换协议)</li>
+<li>网际层：负责数据的传输，路由以及地址选择。最主要的协议是 IP 协议。</li>
+<li>传输层：确认数据传输以及进行纠错处理。传输层中中有两个非常重要的协议，即 TCP 协议和 UDP 协议。</li>
+<li>应用层：各种服务以及应用程序。常见的应用层协议有 HTTP 协议、FTP 协议(文件传输协议)、SMTP 协议(简单邮件传输协议)等</li>
+</ul>
+<h2 id="TCP-协议通信特点"><a href="#TCP-协议通信特点" class="headerlink" title="TCP 协议通信特点"></a>TCP 协议通信特点</h2><p>TCP 协议是<strong>实现端口到端口</strong>的通信。它虚拟了本文流(byte stream)的通信。我们知道，计算机数据的本质是有序的 0/1 序列(如果以byte为单位，就叫做文本流)。计算机的功能就是储存和处理文本流。所以<strong>TCP 是采用“流”通信</strong>。</p>
+<p>但是传输层的下一层是网络层。即 TCP 协议的下一层协议是 IP 层。这就意味着 TCP 协议最终还是由 IP 协议规定的形式传输数据。而<strong>IP 协议是以数据包方式传送</strong>。同时，IP 数据包的 MTU 也有长度限制。所以 <strong>TCP 协议会将数据切割为一个个片段，然后丢给网络层，接着打包成一个个数据包进行传输</strong>。</p>
+<p><img src="./images/img/101_2.png" alt></p>
+<p>但是这样，流数据变成了一个个片段数据，这会无法保证数据到达的次序。因为 IP 协议在传输过程中，不会按顺序进行发送和接受数据包。针对这问题，TCP 协议为了确保数据到达的顺序与文本流顺序相同。TCP 协议将每个 TCP 片段中分为<strong>头部(header)和数据(payload)</strong>两部分。每个头部中带有一个<strong>序号</strong>。这相当于给每个片段增加一个序号标记，方便后续排序。</p>
+<p><img src="./images/img/101_3.png" alt></p>
+<h2 id="TCP-实现可靠通信的两种方式"><a href="#TCP-实现可靠通信的两种方式" class="headerlink" title="TCP 实现可靠通信的两种方式"></a>TCP 实现可靠通信的两种方式</h2><p>我们都知道 IP 协议是“不太靠谱”。因为 IP 协议是不可靠的，所以 IP 数据包可能在传输过程中发生错误或者丢失。这就意味着，TCP 协议不得不面对以下三个问题。1）每个数据包有可能发送不成功 2）数据包在传输过程中有可能被丢弃 3）接收端有可能接受不到数据包</p>
+<p>TCP 为了解决这丢包问题，提出两个补救措施。</p>
+<ul>
+<li>1 ACK 回复</li>
+</ul>
+<p>在每收到一个<strong>正确的、符合次序的</strong>片段之后，就向发送方(也就是连接的另一段)发送一个特殊的 TCP 片段，用来知会(<strong>ACK，acknowledge</strong>)发送方：我已经收到那个片段了。这个特殊的 TCP片段 叫做 <strong>ACK 回复</strong>。如果一个片段序号为 L，对应ACK 回复有回复号 L+1，也就是接收方期待接收的下一个发送片段的序号。<br><img src="index_files/101_4.png" alt></p>
+<ul>
+<li>2 重新发送机制</li>
+</ul>
+<p>如果发送方在一定时间等待之后，还是没有收到 ACK 回复，那么它推断之前发送的片段一定发生了异常。发送方会<strong>重复发送(retransmit)</strong>那个出现异常的片段，等待 ACK 回复，如果还没有收到，那么再重复发送原片段… 直到收到该片段对应的 ACK 回复(回复号为 L+1 的 ACK)。</p>
+<p><img src="./images/img/101_5.png" alt></p>
+<h2 id="TCP-的滑动窗口"><a href="#TCP-的滑动窗口" class="headerlink" title="TCP 的滑动窗口"></a>TCP 的滑动窗口</h2><p>虽然采用 “ACK 回复” + “重新发送机制” 方式能实现不丢包，但是会存在两个问题。<br>1.效率低的问题。<br>发送方保持发送 -&gt; 等待ACK -&gt; 发送 -&gt; 等待ACK…的单线工作方式，这样的工作方式叫做 stop-and-wait。stop-and-wait 虽然实现了 TCP 通信的可靠性，但同时牺牲了网络通信的效率。同时，在等待ACK的时间段内，我们的网络都处于闲置(idle)状态</p>
+<p>2.有点小缺陷<br>如果片段一直没有被确认，会导致后续的片段无法发送出去。</p>
+<p>TCP 为了进一步优化解决这两个问题，提出<strong>滑动窗口(sliding window)</strong>的概念。滑动窗口被同时应用于接收方和发送方, 发送方和接收方各有一个滑窗。当片段位于滑窗中时，表示 TCP 正在处理该片段。此外，如果滑窗中可以有多个片段，也就是可以同时处理多个片段。</p>
+<p>我们借助一些图片来进一步了解下滑动窗口内部机制。</p>
+<p><img src="./images/img/101_6.png" alt></p>
+<p>黄色框框表示可以容纳三个片段的固定大小的滑窗。在图中，并假设片段从左向右排列。实际运用中，滑动窗口是可变的，窗口大小是<strong>字节(byte)</strong>来计算的。</p>
+<p>对于发送方来说，滑窗的左侧为已发送并已 ACK 过的片段序列，滑窗右侧是尚未发送的片段序列。如果滑动窗口第一个片段一直没有收到 ACK 回复，窗口不会向右滑动。但是发送方还是可以继续发送后面两个片段数据包。</p>
+<p>对于接受方来说，滑窗的左侧是已经正确收到并 ACK 回复过的片段，也就是正确接收到的文本流。滑窗中的片段是期望接收的片段。如果滑窗中第一个片段先收到， 滑窗会向右移动。如果滑窗中后面两个片段先收到，但是第一个片段没有收到。窗口不会向右滑动。</p>
+<p><img src="./images/img/101_7.png" alt></p>
+<p>发送端已经发送三个数据包（1、2、3），在等待每个数据包的 ACK 回复</p>
+<p><img src="./images/img/101_8.png" alt></p>
+<p>接收端成功收到两个数据包，回复两个 ACK。还有一个数据包没有收到。当收到 数据包 1 时，接收端会回复一个 ACK 1，然后将窗口向有滑动一个位置。</p>
+<p><img src="./images/img/101_9.png" alt></p>
+<p>发送端成功接收到 ACK 1 回复</p>
+<p><img src="./images/img/101_10.png" alt></p>
+<p>发送端的窗口向右滑动一个位置</p>
+<p><img src="./images/img/101_11.png" alt></p>
+<p>在没有收到 ACK 2 和 3 的回复，还能继续发送数据包 4</p>
+<p><img src="./images/img/101_12.png" alt></p>
+<p>之前数据包 4 已经发送了。在之后成功收到 ACK 2 和 3 的回复，窗口向右滑动两个位置，现在又能继续发送数据包 5，6</p>
+<p>通过上面一系列图片，我们可以大致知道滑动窗口的机制。我们来做下小总结：</p>
+<ul>
+<li>对于发送端</li>
+</ul>
+<p>如果滑动窗口第一个片段一直没有收到 ACK 回复，窗口不会向右滑动。但是发送方还是可以继续发送后面两个片段数据包。</p>
+<ul>
+<li>对于接受端</li>
+</ul>
+<p>如果滑窗中第一个片段先收到，滑窗会向右移动。如果滑窗中后面两个片段先收到，但是第一个片段没有收到。窗口不会向右滑动</p>
+<p>那么实际应用中确实是这样吗？如果接收方每接受一个片段，就回复一个 ACK。这种效率有点低。所以实际应用中， <strong>TCP 协议为了减少了 ACK 回复所消耗的流量，采用的是累计 ACK 回复。</strong> 接收方往往利用一个 ACK 回复来知会连续多个片段的成功接收。通过累计 ACK，所需要的 ACK 回复通常可以降到 50%。</p>
+<p>我们同样通过图片的形式来了解累计 ACK 回复的原理。</p>
+<p><img src="./images/img/101_13.png" alt></p>
+<p>在图中，橙色为已经接收的片段。方框为滑窗，滑窗可容纳3个片段。</p>
+<p>情况1：滑窗还没接收到片段 7 时，已接收到片段 8，9。这样就在滑窗中制造了一个“空穴”(hole)。</p>
+<p>情况2：当滑窗最终接收到片段7时，滑窗送出一个回复号为 10 的 ACK 回复。发送方收到该回复，会意识到，片段 10 之前的片段已经按照次序被成功接收。整个过程中节约了片段 7 和片段 8 所需的两个 ACK 回复。</p>
+<p>文章参考内容：</p>
+<ul>
+<li><p>Vamei 大神的<a href="http://www.cnblogs.com/vamei/archive/2012/12/08/2805252.html" target="_blank" rel="external nofollow noopener noreferrer">《协议森林08 不放弃 (TCP协议与流通信)》</a></p>
+</li>
+<li><p>Vamei 大神的<a href="http://www.cnblogs.com/vamei/archive/2012/12/18/2822739.html" target="_blank" rel="external nofollow noopener noreferrer">《协议森林10 魔鬼细节 (TCP滑窗管理)》</a></p>
+</li>
+</ul>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -388,7 +470,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2079,7 +2161,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

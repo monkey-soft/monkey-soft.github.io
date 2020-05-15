@@ -19,10 +19,10 @@
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="彻底理解 Python中的Iterable、Iterator、generator">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBO9M9.jpg">
-<meta property="og:updated_time" content="2020-05-14T09:57:04.917Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ysq6iV.jpg">
+<meta property="og:updated_time" content="2020-05-15T16:01:27.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;14&#x2F;YBO9M9.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ysq6iV.jpg">
 
 
 
@@ -108,7 +108,12 @@ var _hmt = _hmt || [];
 </head>
 <!-- 文章页面内容有三栏布局修改为两栏布局-->
 <body class="is-2-column">
-    <nav class="navbar navbar-main">
+    <div class="navbar-top">
+    <div class="container">
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    </div>    
+</div>
+<nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
@@ -160,18 +165,11 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <span class="image is-7by1">
-            <img class="thumbnail" src="https://s1.ax1x.com/2020/05/14/YBO9M9.jpg" alt="彻底理解 Iterable、Iterator、generator">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         <!-- 标题移动到文章信息上方 -->
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <i class="fas fa-angle-double-right"></i>彻底理解 Iterable、Iterator、generator
+                <span class="card-title-color">彻底理解 Iterable、Iterator、generator</span>
             
         </h1>
 
@@ -209,9 +207,18 @@ var _hmt = _hmt || [];
         
 
         <br>
-        <div class="content">
-            <p>本文介绍猴哥对于Python中的Iterable、Iterator、generator的理解。<br>﻿<a id="more"></a></p>
-<h2 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h2><p>我们一般称<code>Iterable</code>为<code>可迭代对象</code>。Python 中任意的对象，只要它定义了可以返回一个迭代器的<code>__iter__</code>方法，或者定义了可以支持下标索引的<code>__getitem__</code>方法，那么它就是一个可迭代对象。我们常用到的集合数据类型都是 Iterable。例如列表（list）、元组（tuple）、字典（dict）、集合（set）、字符串（str）等。</p>
+        
+        <div class="content_container">
+            <!-- 左边封面图 -->
+            <div class="thumbnail-left">
+                
+            </div>
+            <!-- 右边文章概要 -->
+            
+                <div class="content">
+                    <p>本文介绍猴哥对于Python中的Iterable、Iterator、generator的理解。
+﻿</p>
+<h2 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h2><p>我们一般称<code>Iterable</code>为<code>可迭代对象</code>。Python 中任意的对象，只要它定义了可以返回一个迭代器的<code>__iter__</code>方法，或者定义了可以支持下标索引的<code>__getitem__</code>方法，那么它就是一个可迭代对象。我们常用到的集合数据类型都是 Iterable。<a id="more"></a>例如列表（list）、元组（tuple）、字典（dict）、集合（set）、字符串（str）等。</p>
 <p>我定义了一个列表 numlist，打印出该列表的方法。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">numlist = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</span><br><span class="line">print(numlist)</span><br><span class="line">print(numlist.__iter__)      <span class="hljs-comment"># 调用__iter__方法</span></span><br><span class="line">print(numlist.__getitem__)  <span class="hljs-comment"># 调用__getitem__方法</span></span><br></pre></td></tr></table></figure>
 
@@ -245,6 +252,44 @@ var _hmt = _hmt || [];
 
 <p>运行结果如下：<br><img src="./images/img/48_4.png" alt></p>
 
+                </div>             
+            
+            <!-- <p>本文介绍猴哥对于Python中的Iterable、Iterator、generator的理解。
+﻿</p>
+<h2 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h2><p>我们一般称<code>Iterable</code>为<code>可迭代对象</code>。Python 中任意的对象，只要它定义了可以返回一个迭代器的<code>__iter__</code>方法，或者定义了可以支持下标索引的<code>__getitem__</code>方法，那么它就是一个可迭代对象。我们常用到的集合数据类型都是 Iterable。<a id="more"></a>例如列表（list）、元组（tuple）、字典（dict）、集合（set）、字符串（str）等。</p>
+<p>我定义了一个列表 numlist，打印出该列表的方法。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">numlist = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</span><br><span class="line">print(numlist)</span><br><span class="line">print(numlist.__iter__)      <span class="hljs-comment"># 调用__iter__方法</span></span><br><span class="line">print(numlist.__getitem__)  <span class="hljs-comment"># 调用__getitem__方法</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：<br><img src="./images/img/48_1.png" alt></p>
+<p>根据运行结果，我们可知列表就是个可迭代对象。Python 的<code>collections</code>库有个<code>isinstance()</code>函数。可以用来判断一个对象是否是 Iterable 对象。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Iterable  </span><br><span class="line"></span><br><span class="line">isinstance(&#123;&#125;, Iterable)  </span><br><span class="line">isinstance((), Iterable) </span><br><span class="line">isinstance(<span class="hljs-number">999</span>, Iterable)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为：<br><img src="./images/img/48_2.png" alt></p>
+<p>如果我们每次都要使用这个函数来判断一个对象是否为可迭代对象，这样操作有点麻烦。有没有快速判定的方法呢？答案是肯定的。可以直接使用 for 循环进行遍历的对象就是可迭代对象。</p>
+<p>除此之外，<code>generator(生成器)</code> 和<code>带 yield 的 generator function</code> 也是可迭代的对象。</p>
+<h2 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h2><p><code>Iterator</code>是迭代器的意思。任意对象，只要定义了<code>next()</code>（Python 2 版本）或者<code>__next__()</code>（Python 3 版本） 方法，那么它就是一个迭代器。迭代器中还有另一个函数<code>__iter__()</code>，它和 <strong>next</strong>() 方法形成迭代器协议。</p>
+<ul>
+<li><p><strong>iter</strong>()<br>返回主要是返回迭代器对象本身，即<code>return self</code>。如果你自己定义个迭代器，实现该函数就能使用<code>for  ...  in ...</code>语句遍历了。</p>
+</li>
+<li><p><strong>next</strong>()<br>获取容器中的下一个元素，当没有可访问元素后，就抛出<code>StopIteration</code>异常。</p>
+</li>
+</ul>
+<p>遍历迭代器有两个方式。一种是使用 <strong>next</strong>() 函数；另一种则是使用 for each 循环，本质上就是通过不断调用 <strong>next</strong>() 函数实现的。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Iterator</span><br><span class="line"></span><br><span class="line">numlist = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 将数组转化为迭代器</span></span><br><span class="line">ite1 = iter(numlist)</span><br><span class="line">print(ite1)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> ite1:</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">print(<span class="hljs-string">"========="</span>)</span><br><span class="line"></span><br><span class="line">ite2 = iter(numlist)</span><br><span class="line"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line">    <span class="hljs-keyword">try</span>:</span><br><span class="line">        num = ite2.__next__()</span><br><span class="line">        print(num)</span><br><span class="line">    <span class="hljs-keyword">except</span> StopIteration:</span><br><span class="line">        <span class="hljs-keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>值得注意的是一个 Iterator 只能遍历一次。</p>
+<h2 id="generator"><a href="#generator" class="headerlink" title="generator"></a>generator</h2><p>generator 翻译成中文是生成器。生成器也是一种特殊迭代器。它其实是生成器函数返回生成器的迭代，“生成器的迭代器”这个术语通常被称作”生成器”。yield 是生成器实现<code>__next__()</code>方法的关键。它作为生成器执行的暂停恢复点，可以对 yield 表达式进行赋值，也可以将 yield 表达式的值返回。任何包含 yield 语句的函数被称为生成器。</p>
+<p>yield是一个语法糖，内部实现支持了迭代器协议，同时yield内部是一个状态机，维护着挂起和继续的状态。</p>
+<p>个人认为，生成器算是 Python 非常棒的特性。它的出现能帮助大大节省些内存空间。假如我们要生成从 1 到 10 这 10 个数字，采用列表的方式定义，会占用 10 个地址空间。采用生成器，只会占用一个地址空间。因为生成器并没有把所有的值存在内存中，而是在运行时生成值。所以生成器只能访问一次。</p>
+<p>创建一个从包含 1 到 10 的生成器的例子。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gen = (i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>))</span><br><span class="line">print(gen)</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> gen:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：<br><img src="./images/img/48_3.png" alt></p>
+<p>带有 yield 关键字 的例子。重点关注运行结果，这能让你对 yield 有更深的认识。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">testYield</span><span class="hljs-params">(n)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n):</span><br><span class="line">        print(<span class="hljs-string">"当前值: "</span>, i)</span><br><span class="line">        <span class="hljs-keyword">yield</span> doubeNumber(i)</span><br><span class="line">        print(<span class="hljs-string">"第 "</span>, i, <span class="hljs-string">" 次运行"</span>)</span><br><span class="line">    print(<span class="hljs-string">"testYield 运行结束"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doubeNumber</span><span class="hljs-params">(i)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> i*<span class="hljs-number">2</span></span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> testYield(<span class="hljs-number">3</span>):</span><br><span class="line">        print(i, <span class="hljs-string">"==="</span>, i)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：<br><img src="./images/img/48_4.png" alt></p>
+  -->
         </div>
 
         <!-- 增加微信公众号首发说明 -->
@@ -349,7 +394,7 @@ var _hmt = _hmt || [];
 <script>
     new Valine({
         el: '#valine-thread' ,
-        notify: false,
+        notify: true,
         verify: false,
         app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
         app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
@@ -2036,7 +2081,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
+<a id="back-to-top" title="回到顶端" ">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
