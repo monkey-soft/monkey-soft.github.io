@@ -5,7 +5,7 @@
 <!百度站长工具验证>
 <meta name="baidu-site-verification" content="Cg06Zha1ae">
 
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.2.0">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,14 +15,20 @@
     <meta name="description" content="Python 绘图,我只用 Matplotlib(二)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 绘图,我只用 Matplotlib(二)">
-<meta property="og:url" content="https:&#x2F;&#x2F;geekmonkey.top&#x2F;1123.html">
+<meta property="og:url" content="https://geekmonkey.top/1123.html">
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Python 绘图,我只用 Matplotlib(二)">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ysqraq.jpg">
-<meta property="og:updated_time" content="2020-05-15T16:00:53.588Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/15/Ysqraq.jpg">
+<meta property="article:published_time" content="2017-11-06T21:34:31.000Z">
+<meta property="article:modified_time" content="2020-05-15T16:00:53.588Z">
+<meta property="article:author" content="极客猴">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据分析">
+<meta property="article:tag" content="Matplotlib">
+<meta property="article:tag" content="数据可视化">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ysqraq.jpg">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/15/Ysqraq.jpg">
 
 
 
@@ -110,7 +116,7 @@ var _hmt = _hmt || [];
 <body class="is-2-column">
     <div class="navbar-top">
     <div class="container">
-    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客|公众号『极客猴』</span></p>
     </div>    
 </div>
 <nav class="navbar navbar-main">
@@ -136,7 +142,7 @@ var _hmt = _hmt || [];
                 
                 <a class="navbar-item" href="/treasure">藏宝阁</a>
                 
-                <a class="navbar-item" href="/friends">友情</a>
+                <a class="navbar-item" href="/friends">友情链接</a>
                 
                 <a class="navbar-item" href="/about">关于我</a>
                 
@@ -145,13 +151,13 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
                 <!-- 右边搜索-->
-                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a> 
                 
@@ -205,9 +211,7 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
-
         <br>
-        
         <div class="content_container">
             <!-- 左边封面图 -->
             <div class="thumbnail-left">
@@ -215,239 +219,127 @@ var _hmt = _hmt || [];
             </div>
             <!-- 右边文章概要 -->
             
-                <div class="content">
-                    <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>在学习绘制之前，先来了解下 Matplotlib 基础概念。</p>
-<a id="more"></a>
-<h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><p>我们绘制图形主要用到两个库，<code>matplotlib.pyplot</code>和<code>numpy</code>。在编码过程中，这两个库的使用频率较高，而这两个库的名字较长。这难免会给我们带来不便。所以我们一般给其设置别名， 大大减少重复性工作量。具体如下代码：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt   <span class="hljs-comment"># 导入模块 matplotlib.pyplot，并简写成 plt </span></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np                <span class="hljs-comment"># 导入模块 numpy，并简写成 np</span></span><br></pre></td></tr></table></figure>
-<p>numpy 是 Python 用于数学运算的库，它是在安装 matplotlib 时候顺带安装的。pyplot 是 matplotlib 一个子模块，主要为底层的面向对象的绘图库提供状态机界面。状态机隐式地自动创建数字和坐标轴以实现所需的绘图。 matplotlib 中的所有内容都按照层次结果进行组织。顶层就是由 pyplot 提供的 matplotlib “状态机环境”。基于这个状态机环境，我们就可以创建图形。</p>
-<h3 id="图形组成标签"><a href="#图形组成标签" class="headerlink" title="图形组成标签"></a>图形组成标签</h3><p>我在 matplotlib 官网上找图像组件说明图并在上面增加中文翻译。通过这张图，我们对 matplotlib 整体地认识。</p>
-<p><img src="./images/img/47_1.jpg" alt></p>
-<p>接下来，我主要讲解 matplotlib 中几个重要的标签。</p>
-<ul>
-<li>Figure</li>
-</ul>
-<p>Figure 翻译成中文是图像窗口。Figure 是包裹 Axes、tiles、legends 等组件的最外层窗口。它其实是一个 Windows 应用窗口 。<br><img src="./images/img/47_2.png" alt><br>Figure 中最主要的元素是 Axes（子图）。一个 Figure 中可以有多个子图，但至少要有一个能够显示内容的子图。</p>
-<ul>
-<li>Axes </li>
-</ul>
-<p>Axes 翻译成中文是轴域/子图。Axes 是带有数据的图像区域。从上文可知，它是位于 Figure 里面。那它和 Figure 是什么关系？这里可能文字难以表述清楚，我以图说文。用两图带你彻底弄清它们的关系。</p>
-<p>在看运行结果之前，我先呈上代码给各位看官品尝。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()                      <span class="hljs-comment"># 创建一个没有 axes 的 figure</span></span><br><span class="line">fig.suptitle(<span class="hljs-string">'No axes on this figure'</span>)  <span class="hljs-comment"># 添加标题以便我们辨别</span></span><br><span class="line"></span><br><span class="line">fig, ax_lst = plt.subplots(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)        <span class="hljs-comment"># 创建一个以 axes 为单位的 2x2 网格的 figure </span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>根据运行结果图，我们不难看出。左图的 Figure1 中没有 axes，右图的 Figure2 中有 4 个 axes。因此，我们可以将 Axes 理解为面板，而面板是覆在窗口(Figure) 上。<br><img src="./images/img/47_3.png" alt></p>
-<ul>
-<li>Axis </li>
-</ul>
-<p>Axis 在中文的意思是轴。官网文档对 Axis 定义解释不清楚，让我们看得云里雾里的。如果你有留意前文的组成说明图，可以看到 X Axis 和 Y Axis 的字样。按照平常人的见识， 观察该图就能明白 Axis 是轴的意思。此外，Axis 和 Axes 以及 Figure 这三者关系，你看完下图，会恍然大悟。<br><img src="./images/img/47_4.png" alt></p>
-<h2 id="绘制第一张图"><a href="#绘制第一张图" class="headerlink" title="绘制第一张图"></a>绘制第一张图</h2><p>按照剧本发展，我接下来以绘制曲线并逐步美化它为例子，一步步讲解如何绘制图形。在这过程中，我也会逐一说明各个函数的作用。</p>
-<h3 id="初步绘制曲线"><a href="#初步绘制曲线" class="headerlink" title="初步绘制曲线"></a>初步绘制曲线</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>      <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x      <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line">plt.figure()    <span class="hljs-comment"># 定义一个图像窗口</span></span><br><span class="line">plt.plot(x, y1) <span class="hljs-comment"># 绘制曲线 y1</span></span><br><span class="line">plt.plot(x, y2) <span class="hljs-comment"># 绘制曲线 y2</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>调用<code>np.linspace</code>是创建一个 numpy 数组，并记作 x。x 包含了从 -2 到 6 之间等间隔的 50 个值。y1 和 y2 则分别是这 50 个值对应曲线的函数值组成的 numpy 数组。前面的操作还处于设置属性的阶段，还没有开始绘制图形。<code>plt.figure()</code> 函数才意味着开始执行绘图操作。最后别忘记调用<code>show()</code>函数将图形呈现出来。</p>
-<p><img src="./images/img/47_5.png" alt></p>
-<h3 id="简单修饰"><a href="#简单修饰" class="headerlink" title="简单修饰"></a>简单修饰</h3><p>我们已经绘制出两条直线，但样式比较简陋。所以我给两条曲线设置鲜艳的颜色、线条类型。同时，还给纵轴和横轴的设置上下限，增加可观性。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 创建一个点数为 8 x 6 的窗口, 并设置分辨率为 80像素/每英寸</span></span><br><span class="line">plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>), dpi=<span class="hljs-number">80</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 再创建一个规格为 1 x 1 的子图</span></span><br><span class="line">plt.subplot(<span class="hljs-number">1</span>，<span class="hljs-number">1</span>，<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>        <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x        <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 设置横轴的上下限</span></span><br><span class="line">plt.xlim(<span class="hljs-number">-1</span>, <span class="hljs-number">6</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴的上下限</span></span><br><span class="line">plt.ylim(<span class="hljs-number">-2</span>, <span class="hljs-number">10</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_6.png" alt></p>
-<h3 id="设置纵横轴标签"><a href="#设置纵横轴标签" class="headerlink" title="设置纵横轴标签"></a>设置纵横轴标签</h3><p>在图像中，我们不能一味地认为横轴就是 X 轴，纵轴就是 Y 轴。图形因内容数据不同，纵横轴标签往往也会不同。这也体现了给纵横轴设置标签说明的重要性。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴标签</span></span><br><span class="line">plt.xlabel(<span class="hljs-string">"X"</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴标签</span></span><br><span class="line">plt.ylabel(<span class="hljs-string">"Y"</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_7.png" alt></p>
-<h3 id="设置精准刻度"><a href="#设置精准刻度" class="headerlink" title="设置精准刻度"></a>设置精准刻度</h3><p>matplotlib 画图设置的刻度是由曲线以及窗口的像素点等因素决定。这些刻度精确度无法满足需求，我们需要手动添加刻度。上图中，纵轴只显示 2 的倍数的刻度，横轴只显示 1 的倍数的刻度。我们为其添加精准刻度，纵轴变成单位间隔为 1 的刻度，横轴变成单位间隔为 0.5 的刻度。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2.5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3.5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5.5</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>xticks() 和 yticks() 需要传入一个列表作为参数。</p>
-<p><img src="./images/img/47_8.png" alt></p>
-<p>该方法默认是将列表的值来设置刻度标签，如果你想重新设置刻度标签，则需要传入两个列表参数给 xticks() 和 yticks() 。第一个列表的值代表刻度，第二个列表的值代表刻度所显示的标签。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],</span><br><span class="line">           [<span class="hljs-string">"-1m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"1m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"3m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"5m"</span>, <span class="hljs-string">"6m"</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>],</span><br><span class="line">           [<span class="hljs-string">"-2m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"6m"</span>, <span class="hljs-string">"8m"</span>, <span class="hljs-string">"10m"</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_9.png" alt></p>
-<h3 id="添加图例"><a href="#添加图例" class="headerlink" title="添加图例"></a>添加图例</h3><p>如果需要在图的左上角添加一个图例。我们只需要在 plot() 函数里以「键 - 值」的形式增加一个参数。首先我们需要在绘制曲线的时候，增加一个 label 参数，然后再调用 plt.legend() 绘制出一个图例。plt.legend() 需要传入一个位置值。loc 的值可选如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">best</td>
-<td align="center">自动选择最佳位置，默认是左上</td>
-</tr>
-<tr>
-<td align="center">upper right</td>
-<td align="center">右上</td>
-</tr>
-<tr>
-<td align="center">upper left</td>
-<td align="center">左上</td>
-</tr>
-<tr>
-<td align="center">lower right</td>
-<td align="center">右下</td>
-</tr>
-<tr>
-<td align="center">lower left</td>
-<td align="center">左下</td>
-</tr>
-<tr>
-<td align="center">right</td>
-<td align="center">右边，默认是右上。如果因图形挡住右上，会自动往下选择空白地方绘制</td>
-</tr>
-<tr>
-<td align="center">center right</td>
-<td align="center">垂直居中且靠右</td>
-</tr>
-<tr>
-<td align="center">center left</td>
-<td align="center">垂直居中且靠左</td>
-</tr>
-<tr>
-<td align="center">lower center</td>
-<td align="center">垂直居中且靠底部</td>
-</tr>
-<tr>
-<td align="center">upper center</td>
-<td align="center">垂直居中且靠顶部</td>
-</tr>
-<tr>
-<td align="center">center</td>
-<td align="center">居中</td>
-</tr>
-</tbody></table>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line">plt.legend(loc=<span class="hljs-string">"upper left"</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_10.png" alt></p>
-<h3 id="注释特殊点位"><a href="#注释特殊点位" class="headerlink" title="注释特殊点位"></a>注释特殊点位</h3><p>有时某些数据点非常关键，需要突显出来。我们需要将改点绘制出来，即绘制散点图，再对其做注释。实现上述需求，我们要用到<code>scatter()</code>和<code>annotate()</code>函数。<code>scatter()</code> 是用于绘制散图，这里我们只是用其来绘制单个点。scatter() 用法，后续文章会详细对其用法做说明。<code>annotate()</code>则是添加标注 。</p>
-<p><code>scatter()</code> 函数必须传入两个参数 x 和 y。值得注意得是，它们的数据类型是列表。x 代表要标注点的横轴位置，y 代表要标注点的横轴位置。x 和 y 列表中下标相同的数据是对应的。例如 x 为 [3, 4]，y 为 [6, 8]，这表示会绘制点（3，6），（4， 8）。因此，x 和 y 长度要一样。</p>
-<p><code>annotate</code>函数同样也有两个必传参数，一个是标注内容，另一个是 xy。标注内容是一个字符串。xy 表示要在哪个位置（点）显示标注内容。xy 位置地选定。一般是在<code>scatter()</code> 绘制点附近，但不建议重合，这样会影响美观。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 6)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">6</span>], s=<span class="hljs-number">30</span>, color=<span class="hljs-string">"blue"</span>)      <span class="hljs-comment"># s 为点的 size</span></span><br><span class="line"><span class="hljs-comment"># 对(3, 6)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 6)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">5.5</span>),       <span class="hljs-comment"># 在(3.3, 5.5)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,         <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)  <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>),            <span class="hljs-comment"># 在(3.3, 0)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,          <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)    <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_11.png" alt></p>
-<p>点已经被标注出来了，如果你还想给点添加注释。这需要使用<code>text()</code>函数。text(x，y，s) 作用是在点(x，y) 上添加文本 s。matplotlib 目前好像对中午支持不是很友好， 中文均显示为乱码。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>, xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>))</span><br><span class="line">plt.text(<span class="hljs-number">4</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-string">"this point very important"</span>,</span><br><span class="line">         fontdict=&#123;<span class="hljs-string">'size'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'color'</span>: <span class="hljs-string">'green'</span>&#125;)  <span class="hljs-comment"># fontdict设置文本字体</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_12.png" alt></p>
-<p>到此为止，我们基本上完成了绘制直线所有工作。Matplotlib 能绘制种类繁多且绘图功能强大，所以我接下来的文章将单独对每种类型图做分享讲解。</p>
-
-                </div>             
-            
-            <!-- <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>在学习绘制之前，先来了解下 Matplotlib 基础概念。</p>
-<a id="more"></a>
-<h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><p>我们绘制图形主要用到两个库，<code>matplotlib.pyplot</code>和<code>numpy</code>。在编码过程中，这两个库的使用频率较高，而这两个库的名字较长。这难免会给我们带来不便。所以我们一般给其设置别名， 大大减少重复性工作量。具体如下代码：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt   <span class="hljs-comment"># 导入模块 matplotlib.pyplot，并简写成 plt </span></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np                <span class="hljs-comment"># 导入模块 numpy，并简写成 np</span></span><br></pre></td></tr></table></figure>
-<p>numpy 是 Python 用于数学运算的库，它是在安装 matplotlib 时候顺带安装的。pyplot 是 matplotlib 一个子模块，主要为底层的面向对象的绘图库提供状态机界面。状态机隐式地自动创建数字和坐标轴以实现所需的绘图。 matplotlib 中的所有内容都按照层次结果进行组织。顶层就是由 pyplot 提供的 matplotlib “状态机环境”。基于这个状态机环境，我们就可以创建图形。</p>
-<h3 id="图形组成标签"><a href="#图形组成标签" class="headerlink" title="图形组成标签"></a>图形组成标签</h3><p>我在 matplotlib 官网上找图像组件说明图并在上面增加中文翻译。通过这张图，我们对 matplotlib 整体地认识。</p>
-<p><img src="./images/img/47_1.jpg" alt></p>
-<p>接下来，我主要讲解 matplotlib 中几个重要的标签。</p>
-<ul>
-<li>Figure</li>
-</ul>
-<p>Figure 翻译成中文是图像窗口。Figure 是包裹 Axes、tiles、legends 等组件的最外层窗口。它其实是一个 Windows 应用窗口 。<br><img src="./images/img/47_2.png" alt><br>Figure 中最主要的元素是 Axes（子图）。一个 Figure 中可以有多个子图，但至少要有一个能够显示内容的子图。</p>
-<ul>
-<li>Axes </li>
-</ul>
-<p>Axes 翻译成中文是轴域/子图。Axes 是带有数据的图像区域。从上文可知，它是位于 Figure 里面。那它和 Figure 是什么关系？这里可能文字难以表述清楚，我以图说文。用两图带你彻底弄清它们的关系。</p>
-<p>在看运行结果之前，我先呈上代码给各位看官品尝。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()                      <span class="hljs-comment"># 创建一个没有 axes 的 figure</span></span><br><span class="line">fig.suptitle(<span class="hljs-string">'No axes on this figure'</span>)  <span class="hljs-comment"># 添加标题以便我们辨别</span></span><br><span class="line"></span><br><span class="line">fig, ax_lst = plt.subplots(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)        <span class="hljs-comment"># 创建一个以 axes 为单位的 2x2 网格的 figure </span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>根据运行结果图，我们不难看出。左图的 Figure1 中没有 axes，右图的 Figure2 中有 4 个 axes。因此，我们可以将 Axes 理解为面板，而面板是覆在窗口(Figure) 上。<br><img src="./images/img/47_3.png" alt></p>
-<ul>
-<li>Axis </li>
-</ul>
-<p>Axis 在中文的意思是轴。官网文档对 Axis 定义解释不清楚，让我们看得云里雾里的。如果你有留意前文的组成说明图，可以看到 X Axis 和 Y Axis 的字样。按照平常人的见识， 观察该图就能明白 Axis 是轴的意思。此外，Axis 和 Axes 以及 Figure 这三者关系，你看完下图，会恍然大悟。<br><img src="./images/img/47_4.png" alt></p>
-<h2 id="绘制第一张图"><a href="#绘制第一张图" class="headerlink" title="绘制第一张图"></a>绘制第一张图</h2><p>按照剧本发展，我接下来以绘制曲线并逐步美化它为例子，一步步讲解如何绘制图形。在这过程中，我也会逐一说明各个函数的作用。</p>
-<h3 id="初步绘制曲线"><a href="#初步绘制曲线" class="headerlink" title="初步绘制曲线"></a>初步绘制曲线</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>      <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x      <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line">plt.figure()    <span class="hljs-comment"># 定义一个图像窗口</span></span><br><span class="line">plt.plot(x, y1) <span class="hljs-comment"># 绘制曲线 y1</span></span><br><span class="line">plt.plot(x, y2) <span class="hljs-comment"># 绘制曲线 y2</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>调用<code>np.linspace</code>是创建一个 numpy 数组，并记作 x。x 包含了从 -2 到 6 之间等间隔的 50 个值。y1 和 y2 则分别是这 50 个值对应曲线的函数值组成的 numpy 数组。前面的操作还处于设置属性的阶段，还没有开始绘制图形。<code>plt.figure()</code> 函数才意味着开始执行绘图操作。最后别忘记调用<code>show()</code>函数将图形呈现出来。</p>
-<p><img src="./images/img/47_5.png" alt></p>
-<h3 id="简单修饰"><a href="#简单修饰" class="headerlink" title="简单修饰"></a>简单修饰</h3><p>我们已经绘制出两条直线，但样式比较简陋。所以我给两条曲线设置鲜艳的颜色、线条类型。同时，还给纵轴和横轴的设置上下限，增加可观性。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 创建一个点数为 8 x 6 的窗口, 并设置分辨率为 80像素/每英寸</span></span><br><span class="line">plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>), dpi=<span class="hljs-number">80</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 再创建一个规格为 1 x 1 的子图</span></span><br><span class="line">plt.subplot(<span class="hljs-number">1</span>，<span class="hljs-number">1</span>，<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>        <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x        <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 设置横轴的上下限</span></span><br><span class="line">plt.xlim(<span class="hljs-number">-1</span>, <span class="hljs-number">6</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴的上下限</span></span><br><span class="line">plt.ylim(<span class="hljs-number">-2</span>, <span class="hljs-number">10</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_6.png" alt></p>
-<h3 id="设置纵横轴标签"><a href="#设置纵横轴标签" class="headerlink" title="设置纵横轴标签"></a>设置纵横轴标签</h3><p>在图像中，我们不能一味地认为横轴就是 X 轴，纵轴就是 Y 轴。图形因内容数据不同，纵横轴标签往往也会不同。这也体现了给纵横轴设置标签说明的重要性。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴标签</span></span><br><span class="line">plt.xlabel(<span class="hljs-string">"X"</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴标签</span></span><br><span class="line">plt.ylabel(<span class="hljs-string">"Y"</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_7.png" alt></p>
-<h3 id="设置精准刻度"><a href="#设置精准刻度" class="headerlink" title="设置精准刻度"></a>设置精准刻度</h3><p>matplotlib 画图设置的刻度是由曲线以及窗口的像素点等因素决定。这些刻度精确度无法满足需求，我们需要手动添加刻度。上图中，纵轴只显示 2 的倍数的刻度，横轴只显示 1 的倍数的刻度。我们为其添加精准刻度，纵轴变成单位间隔为 1 的刻度，横轴变成单位间隔为 0.5 的刻度。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2.5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3.5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5.5</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p>xticks() 和 yticks() 需要传入一个列表作为参数。</p>
-<p><img src="./images/img/47_8.png" alt></p>
-<p>该方法默认是将列表的值来设置刻度标签，如果你想重新设置刻度标签，则需要传入两个列表参数给 xticks() 和 yticks() 。第一个列表的值代表刻度，第二个列表的值代表刻度所显示的标签。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],</span><br><span class="line">           [<span class="hljs-string">"-1m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"1m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"3m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"5m"</span>, <span class="hljs-string">"6m"</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>],</span><br><span class="line">           [<span class="hljs-string">"-2m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"6m"</span>, <span class="hljs-string">"8m"</span>, <span class="hljs-string">"10m"</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_9.png" alt></p>
-<h3 id="添加图例"><a href="#添加图例" class="headerlink" title="添加图例"></a>添加图例</h3><p>如果需要在图的左上角添加一个图例。我们只需要在 plot() 函数里以「键 - 值」的形式增加一个参数。首先我们需要在绘制曲线的时候，增加一个 label 参数，然后再调用 plt.legend() 绘制出一个图例。plt.legend() 需要传入一个位置值。loc 的值可选如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center">值</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">best</td>
-<td align="center">自动选择最佳位置，默认是左上</td>
-</tr>
-<tr>
-<td align="center">upper right</td>
-<td align="center">右上</td>
-</tr>
-<tr>
-<td align="center">upper left</td>
-<td align="center">左上</td>
-</tr>
-<tr>
-<td align="center">lower right</td>
-<td align="center">右下</td>
-</tr>
-<tr>
-<td align="center">lower left</td>
-<td align="center">左下</td>
-</tr>
-<tr>
-<td align="center">right</td>
-<td align="center">右边，默认是右上。如果因图形挡住右上，会自动往下选择空白地方绘制</td>
-</tr>
-<tr>
-<td align="center">center right</td>
-<td align="center">垂直居中且靠右</td>
-</tr>
-<tr>
-<td align="center">center left</td>
-<td align="center">垂直居中且靠左</td>
-</tr>
-<tr>
-<td align="center">lower center</td>
-<td align="center">垂直居中且靠底部</td>
-</tr>
-<tr>
-<td align="center">upper center</td>
-<td align="center">垂直居中且靠顶部</td>
-</tr>
-<tr>
-<td align="center">center</td>
-<td align="center">居中</td>
-</tr>
-</tbody></table>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line">plt.legend(loc=<span class="hljs-string">"upper left"</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_10.png" alt></p>
-<h3 id="注释特殊点位"><a href="#注释特殊点位" class="headerlink" title="注释特殊点位"></a>注释特殊点位</h3><p>有时某些数据点非常关键，需要突显出来。我们需要将改点绘制出来，即绘制散点图，再对其做注释。实现上述需求，我们要用到<code>scatter()</code>和<code>annotate()</code>函数。<code>scatter()</code> 是用于绘制散图，这里我们只是用其来绘制单个点。scatter() 用法，后续文章会详细对其用法做说明。<code>annotate()</code>则是添加标注 。</p>
-<p><code>scatter()</code> 函数必须传入两个参数 x 和 y。值得注意得是，它们的数据类型是列表。x 代表要标注点的横轴位置，y 代表要标注点的横轴位置。x 和 y 列表中下标相同的数据是对应的。例如 x 为 [3, 4]，y 为 [6, 8]，这表示会绘制点（3，6），（4， 8）。因此，x 和 y 长度要一样。</p>
-<p><code>annotate</code>函数同样也有两个必传参数，一个是标注内容，另一个是 xy。标注内容是一个字符串。xy 表示要在哪个位置（点）显示标注内容。xy 位置地选定。一般是在<code>scatter()</code> 绘制点附近，但不建议重合，这样会影响美观。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 6)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">6</span>], s=<span class="hljs-number">30</span>, color=<span class="hljs-string">"blue"</span>)      <span class="hljs-comment"># s 为点的 size</span></span><br><span class="line"><span class="hljs-comment"># 对(3, 6)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 6)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">5.5</span>),       <span class="hljs-comment"># 在(3.3, 5.5)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,         <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)  <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>),            <span class="hljs-comment"># 在(3.3, 0)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,          <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)    <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_11.png" alt></p>
-<p>点已经被标注出来了，如果你还想给点添加注释。这需要使用<code>text()</code>函数。text(x，y，s) 作用是在点(x，y) 上添加文本 s。matplotlib 目前好像对中午支持不是很友好， 中文均显示为乱码。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>, xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>))</span><br><span class="line">plt.text(<span class="hljs-number">4</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-string">"this point very important"</span>,</span><br><span class="line">         fontdict=&#123;<span class="hljs-string">'size'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'color'</span>: <span class="hljs-string">'green'</span>&#125;)  <span class="hljs-comment"># fontdict设置文本字体</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="./images/img/47_12.png" alt></p>
-<p>到此为止，我们基本上完成了绘制直线所有工作。Matplotlib 能绘制种类繁多且绘图功能强大，所以我接下来的文章将单独对每种类型图做分享讲解。</p>
-  -->
         </div>
+        <!-- 文章页面显示全部内容 -->
+        
+            <div class="content">
+                <p>上篇文章，我们了解到 Matplotlib 是一个风格类似 Matlab 的基于 Python 的绘图库。它提供了一整套和matlab相似的命令API，十分适合交互式地进行制图。而且我们也可以方便地将它作为绘图控件，嵌入GUI应用程序中。本文主要走进 Matplotlib 的世界，初步学会绘制图形。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>在学习绘制之前，先来了解下 Matplotlib 基础概念。</p>
+<a id="more"></a>
+<h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><p>我们绘制图形主要用到两个库，<code>matplotlib.pyplot</code>和<code>numpy</code>。在编码过程中，这两个库的使用频率较高，而这两个库的名字较长。这难免会给我们带来不便。所以我们一般给其设置别名， 大大减少重复性工作量。具体如下代码：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt   <span class="hljs-comment"># 导入模块 matplotlib.pyplot，并简写成 plt </span></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np                <span class="hljs-comment"># 导入模块 numpy，并简写成 np</span></span><br></pre></td></tr></table></figure>
+<p>numpy 是 Python 用于数学运算的库，它是在安装 matplotlib 时候顺带安装的。pyplot 是 matplotlib 一个子模块，主要为底层的面向对象的绘图库提供状态机界面。状态机隐式地自动创建数字和坐标轴以实现所需的绘图。 matplotlib 中的所有内容都按照层次结果进行组织。顶层就是由 pyplot 提供的 matplotlib “状态机环境”。基于这个状态机环境，我们就可以创建图形。</p>
+<h3 id="图形组成标签"><a href="#图形组成标签" class="headerlink" title="图形组成标签"></a>图形组成标签</h3><p>我在 matplotlib 官网上找图像组件说明图并在上面增加中文翻译。通过这张图，我们对 matplotlib 整体地认识。</p>
+<p><img src="./images/img/47_1.jpg" alt></p>
+<p>接下来，我主要讲解 matplotlib 中几个重要的标签。</p>
+<ul>
+<li>Figure</li>
+</ul>
+<p>Figure 翻译成中文是图像窗口。Figure 是包裹 Axes、tiles、legends 等组件的最外层窗口。它其实是一个 Windows 应用窗口 。<br><img src="./images/img/47_2.png" alt><br>Figure 中最主要的元素是 Axes（子图）。一个 Figure 中可以有多个子图，但至少要有一个能够显示内容的子图。</p>
+<ul>
+<li>Axes </li>
+</ul>
+<p>Axes 翻译成中文是轴域/子图。Axes 是带有数据的图像区域。从上文可知，它是位于 Figure 里面。那它和 Figure 是什么关系？这里可能文字难以表述清楚，我以图说文。用两图带你彻底弄清它们的关系。</p>
+<p>在看运行结果之前，我先呈上代码给各位看官品尝。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()                      <span class="hljs-comment"># 创建一个没有 axes 的 figure</span></span><br><span class="line">fig.suptitle(<span class="hljs-string">'No axes on this figure'</span>)  <span class="hljs-comment"># 添加标题以便我们辨别</span></span><br><span class="line"></span><br><span class="line">fig, ax_lst = plt.subplots(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)        <span class="hljs-comment"># 创建一个以 axes 为单位的 2x2 网格的 figure </span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>根据运行结果图，我们不难看出。左图的 Figure1 中没有 axes，右图的 Figure2 中有 4 个 axes。因此，我们可以将 Axes 理解为面板，而面板是覆在窗口(Figure) 上。<br><img src="./images/img/47_3.png" alt></p>
+<ul>
+<li>Axis </li>
+</ul>
+<p>Axis 在中文的意思是轴。官网文档对 Axis 定义解释不清楚，让我们看得云里雾里的。如果你有留意前文的组成说明图，可以看到 X Axis 和 Y Axis 的字样。按照平常人的见识， 观察该图就能明白 Axis 是轴的意思。此外，Axis 和 Axes 以及 Figure 这三者关系，你看完下图，会恍然大悟。<br><img src="./images/img/47_4.png" alt></p>
+<h2 id="绘制第一张图"><a href="#绘制第一张图" class="headerlink" title="绘制第一张图"></a>绘制第一张图</h2><p>按照剧本发展，我接下来以绘制曲线并逐步美化它为例子，一步步讲解如何绘制图形。在这过程中，我也会逐一说明各个函数的作用。</p>
+<h3 id="初步绘制曲线"><a href="#初步绘制曲线" class="headerlink" title="初步绘制曲线"></a>初步绘制曲线</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>      <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x      <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line">plt.figure()    <span class="hljs-comment"># 定义一个图像窗口</span></span><br><span class="line">plt.plot(x, y1) <span class="hljs-comment"># 绘制曲线 y1</span></span><br><span class="line">plt.plot(x, y2) <span class="hljs-comment"># 绘制曲线 y2</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
+<p>调用<code>np.linspace</code>是创建一个 numpy 数组，并记作 x。x 包含了从 -2 到 6 之间等间隔的 50 个值。y1 和 y2 则分别是这 50 个值对应曲线的函数值组成的 numpy 数组。前面的操作还处于设置属性的阶段，还没有开始绘制图形。<code>plt.figure()</code> 函数才意味着开始执行绘图操作。最后别忘记调用<code>show()</code>函数将图形呈现出来。</p>
+<p><img src="./images/img/47_5.png" alt></p>
+<h3 id="简单修饰"><a href="#简单修饰" class="headerlink" title="简单修饰"></a>简单修饰</h3><p>我们已经绘制出两条直线，但样式比较简陋。所以我给两条曲线设置鲜艳的颜色、线条类型。同时，还给纵轴和横轴的设置上下限，增加可观性。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 创建一个点数为 8 x 6 的窗口, 并设置分辨率为 80像素/每英寸</span></span><br><span class="line">plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>), dpi=<span class="hljs-number">80</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 再创建一个规格为 1 x 1 的子图</span></span><br><span class="line">plt.subplot(<span class="hljs-number">1</span>，<span class="hljs-number">1</span>，<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="hljs-number">-2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">50</span>)</span><br><span class="line">y1 = x + <span class="hljs-number">3</span>        <span class="hljs-comment"># 曲线 y1</span></span><br><span class="line">y2 = <span class="hljs-number">3</span> - x        <span class="hljs-comment"># 曲线 y2</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 设置横轴的上下限</span></span><br><span class="line">plt.xlim(<span class="hljs-number">-1</span>, <span class="hljs-number">6</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴的上下限</span></span><br><span class="line">plt.ylim(<span class="hljs-number">-2</span>, <span class="hljs-number">10</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_6.png" alt></p>
+<h3 id="设置纵横轴标签"><a href="#设置纵横轴标签" class="headerlink" title="设置纵横轴标签"></a>设置纵横轴标签</h3><p>在图像中，我们不能一味地认为横轴就是 X 轴，纵轴就是 Y 轴。图形因内容数据不同，纵横轴标签往往也会不同。这也体现了给纵横轴设置标签说明的重要性。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴标签</span></span><br><span class="line">plt.xlabel(<span class="hljs-string">"X"</span>)</span><br><span class="line"><span class="hljs-comment"># 设置纵轴标签</span></span><br><span class="line">plt.ylabel(<span class="hljs-string">"Y"</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_7.png" alt></p>
+<h3 id="设置精准刻度"><a href="#设置精准刻度" class="headerlink" title="设置精准刻度"></a>设置精准刻度</h3><p>matplotlib 画图设置的刻度是由曲线以及窗口的像素点等因素决定。这些刻度精确度无法满足需求，我们需要手动添加刻度。上图中，纵轴只显示 2 的倍数的刻度，横轴只显示 1 的倍数的刻度。我们为其添加精准刻度，纵轴变成单位间隔为 1 的刻度，横轴变成单位间隔为 0.5 的刻度。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2.5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3.5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5.5</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>xticks() 和 yticks() 需要传入一个列表作为参数。</p>
+<p><img src="./images/img/47_8.png" alt></p>
+<p>该方法默认是将列表的值来设置刻度标签，如果你想重新设置刻度标签，则需要传入两个列表参数给 xticks() 和 yticks() 。第一个列表的值代表刻度，第二个列表的值代表刻度所显示的标签。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 设置横轴精准刻度</span></span><br><span class="line">plt.xticks([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],</span><br><span class="line">           [<span class="hljs-string">"-1m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"1m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"3m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"5m"</span>, <span class="hljs-string">"6m"</span>])</span><br><span class="line"><span class="hljs-comment"># 设置纵轴精准刻度</span></span><br><span class="line">plt.yticks([<span class="hljs-number">-2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>],</span><br><span class="line">           [<span class="hljs-string">"-2m"</span>, <span class="hljs-string">"0m"</span>, <span class="hljs-string">"2m"</span>, <span class="hljs-string">"4m"</span>, <span class="hljs-string">"6m"</span>, <span class="hljs-string">"8m"</span>, <span class="hljs-string">"10m"</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_9.png" alt></p>
+<h3 id="添加图例"><a href="#添加图例" class="headerlink" title="添加图例"></a>添加图例</h3><p>如果需要在图的左上角添加一个图例。我们只需要在 plot() 函数里以「键 - 值」的形式增加一个参数。首先我们需要在绘制曲线的时候，增加一个 label 参数，然后再调用 plt.legend() 绘制出一个图例。plt.legend() 需要传入一个位置值。loc 的值可选如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">值</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">best</td>
+<td align="center">自动选择最佳位置，默认是左上</td>
+</tr>
+<tr>
+<td align="center">upper right</td>
+<td align="center">右上</td>
+</tr>
+<tr>
+<td align="center">upper left</td>
+<td align="center">左上</td>
+</tr>
+<tr>
+<td align="center">lower right</td>
+<td align="center">右下</td>
+</tr>
+<tr>
+<td align="center">lower left</td>
+<td align="center">左下</td>
+</tr>
+<tr>
+<td align="center">right</td>
+<td align="center">右边，默认是右上。如果因图形挡住右上，会自动往下选择空白地方绘制</td>
+</tr>
+<tr>
+<td align="center">center right</td>
+<td align="center">垂直居中且靠右</td>
+</tr>
+<tr>
+<td align="center">center left</td>
+<td align="center">垂直居中且靠左</td>
+</tr>
+<tr>
+<td align="center">lower center</td>
+<td align="center">垂直居中且靠底部</td>
+</tr>
+<tr>
+<td align="center">upper center</td>
+<td align="center">垂直居中且靠顶部</td>
+</tr>
+<tr>
+<td align="center">center</td>
+<td align="center">居中</td>
+</tr>
+</tbody></table>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line">plt.legend(loc=<span class="hljs-string">"upper left"</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_10.png" alt></p>
+<h3 id="注释特殊点位"><a href="#注释特殊点位" class="headerlink" title="注释特殊点位"></a>注释特殊点位</h3><p>有时某些数据点非常关键，需要突显出来。我们需要将改点绘制出来，即绘制散点图，再对其做注释。实现上述需求，我们要用到<code>scatter()</code>和<code>annotate()</code>函数。<code>scatter()</code> 是用于绘制散图，这里我们只是用其来绘制单个点。scatter() 用法，后续文章会详细对其用法做说明。<code>annotate()</code>则是添加标注 。</p>
+<p><code>scatter()</code> 函数必须传入两个参数 x 和 y。值得注意得是，它们的数据类型是列表。x 代表要标注点的横轴位置，y 代表要标注点的横轴位置。x 和 y 列表中下标相同的数据是对应的。例如 x 为 [3, 4]，y 为 [6, 8]，这表示会绘制点（3，6），（4， 8）。因此，x 和 y 长度要一样。</p>
+<p><code>annotate</code>函数同样也有两个必传参数，一个是标注内容，另一个是 xy。标注内容是一个字符串。xy 表示要在哪个位置（点）显示标注内容。xy 位置地选定。一般是在<code>scatter()</code> 绘制点附近，但不建议重合，这样会影响美观。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-comment"># 绘制颜色为蓝色、宽度为 1 像素的连续曲线 y1</span></span><br><span class="line">plt.plot(x, y1, color=<span class="hljs-string">"blue"</span>, linewidth=<span class="hljs-number">1.0</span>, linestyle=<span class="hljs-string">"-"</span>, label=<span class="hljs-string">"y1"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 6)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">6</span>], s=<span class="hljs-number">30</span>, color=<span class="hljs-string">"blue"</span>)      <span class="hljs-comment"># s 为点的 size</span></span><br><span class="line"><span class="hljs-comment"># 对(3, 6)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 6)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">5.5</span>),       <span class="hljs-comment"># 在(3.3, 5.5)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,         <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)  <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 绘制颜色为紫色、宽度为 2 像素的不连续曲线 y2</span></span><br><span class="line">plt.plot(x, y2, color=<span class="hljs-string">"#800080"</span>, linewidth=<span class="hljs-number">2.0</span>, linestyle=<span class="hljs-string">"--"</span>, label=<span class="hljs-string">"y2"</span>)</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>,</span><br><span class="line">             xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>),            <span class="hljs-comment"># 在(3.3, 0)上做标注</span></span><br><span class="line">             fontsize=<span class="hljs-number">16</span>,          <span class="hljs-comment"># 设置字体大小为 16</span></span><br><span class="line">             xycoords=<span class="hljs-string">'data'</span>)    <span class="hljs-comment"># xycoords='data' 是说基于数据的值来选位置</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_11.png" alt></p>
+<p>点已经被标注出来了，如果你还想给点添加注释。这需要使用<code>text()</code>函数。text(x，y，s) 作用是在点(x，y) 上添加文本 s。matplotlib 目前好像对中午支持不是很友好， 中文均显示为乱码。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="hljs-comment"># 绘制散点(3, 0)</span></span><br><span class="line">plt.scatter([<span class="hljs-number">3</span>], [<span class="hljs-number">0</span>], s=<span class="hljs-number">50</span>, color=<span class="hljs-string">"#800080"</span>)</span><br><span class="line"><span class="hljs-comment"># 对(3, 0)做标注</span></span><br><span class="line">plt.annotate(<span class="hljs-string">"(3, 0)"</span>, xy=(<span class="hljs-number">3.3</span>, <span class="hljs-number">0</span>))</span><br><span class="line">plt.text(<span class="hljs-number">4</span>, <span class="hljs-number">-0.5</span>, <span class="hljs-string">"this point very important"</span>,</span><br><span class="line">         fontdict=&#123;<span class="hljs-string">'size'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'color'</span>: <span class="hljs-string">'green'</span>&#125;)  <span class="hljs-comment"># fontdict设置文本字体</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="./images/img/47_12.png" alt></p>
+<p>到此为止，我们基本上完成了绘制直线所有工作。Matplotlib 能绘制种类繁多且绘图功能强大，所以我接下来的文章将单独对每种类型图做分享讲解。</p>
+
+            </div>   
+        
+        <br>
         <!-- 增加微信公众号首发说明 -->
         
         <div>
@@ -467,7 +359,7 @@ var _hmt = _hmt || [];
             </li>
             </ul>
         
-        <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
+            <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
         
         
         <hr style="height:1px;margin:1rem 0">
@@ -496,6 +388,8 @@ var _hmt = _hmt || [];
 
 
 
+
+
 <div class="card">
     <div class="card-content">
         <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
@@ -514,6 +408,7 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </div>
+
 
 
 
@@ -563,11 +458,13 @@ var _hmt = _hmt || [];
 </div>
 </div>
                 
+                
+                
 
 
 
 
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -634,9 +531,6 @@ var _hmt = _hmt || [];
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank" rel="external nofollow noopener noreferrer">
                 关注我</a>
-            <div clas="level" id="knowledge-qrcode" style="display: none; height: 330px; padding: 0px; margin: 0px; width: 242px; opacity: 1;">
-                <img src="https://s1.ax1x.com/2020/05/14/YBHCAU.png" alt="极客猴的公众号" width="100%">
-            </div>
         </div>
         
         
@@ -721,12 +615,32 @@ var _hmt = _hmt || [];
     </div>
 
     
+        <div class="card widget">
+  <div class="weight_card-content">
+    <div class="menu">
+      <h4 class="menu_weight" style="text-align:center;">更多内容,请关注公众号！</h4>
+      <div>
+        <img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" alt="极客猴的公众号" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <div class="card widget">
+    <div>
+      <a href="https://reg.huaweicloud.com/registerui/cn/register.html?bpInvite=7a2d288001c6466a&service=https%3A%2F%2Faccount.huaweicloud.com%2Fusercenter%2F%3Flocale%3Dzh-cn%26hws_route_url%3DregistSuccess%26bpInvite%3D7a2d288001c6466a%26bpName%3D5f9f98a29e2c40b780c1793086f29fe2%26inviteCode%3Dchanql123%26bindType%3D1#/register" target="_blank" rel="external nofollow noopener noreferrer">
+      <img src="https://s1.ax1x.com/2020/05/17/Y25LY6.png" alt="华为云新用户福利" width="100%">
+      </a>
+    </div>
+</div>
+    
         <!-- 侧边组件-专栏 -->
 
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 专栏
             </h3>
             <ul class="menu-list">
@@ -812,386 +726,387 @@ var _hmt = _hmt || [];
     <!-- 优化移动端显示，隐藏 archive  -->
     <div class="card-content is-hidden-mobile">
         <div class="menu">
-        <h3 class="menu-label">
+        <h3 class="menu_weight">
             归档
         </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">7</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
+
+            <div class="field is-grouped is-grouped-multiline">
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">7</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/05/">
+                            <span class="level-start">
+                                <span class="level-item">五月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                
+            </div>
         </div>
     </div>
 </div>
@@ -1199,940 +1114,883 @@ var _hmt = _hmt || [];
         <div class="card widget">
     <div class="card-content">
         <div class="menu">
-        <h3 class="menu-label">
-            我的好友
-        </h3>
-
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://python。iswbm.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="https://dp2px.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;水寒的博客</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.gcowsec.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Gcow 安全团队</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-    
-        <!-- -->
-        <div class="column-right-shadow 
-         
-        ">
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag">APScheduler</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">APScheduler</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Chrome/">
-                        <span class="tag">Chrome</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Chrome</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Debian/">
-                        <span class="tag">Debian</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Debian</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag">Django</span>
-                        <span class="tag is-grey">20</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Django</span>
+                        <span class="tag tag_count">20</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Djongo/">
-                        <span class="tag">Djongo</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Djongo</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Flask/">
-                        <span class="tag">Flask</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Flask</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Github/">
-                        <span class="tag">Github</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Github</span>
+                        <span class="tag tag_count">6</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag">HTTP</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">HTTP</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Hexo/">
-                        <span class="tag">Hexo</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Hexo</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IG/">
-                        <span class="tag">IG</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IG</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag">IP代理池</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IP代理池</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag">Iterable</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterable</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag">Iterator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Jekyll/">
-                        <span class="tag">Jekyll</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Jekyll</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag">Linux</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Linux</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MangoDB/">
-                        <span class="tag">MangoDB</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MangoDB</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Matplotlib</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mongo-Plugin/">
-                        <span class="tag">Mongo Plugin</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mongo Plugin</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MongoDB/">
-                        <span class="tag">MongoDB</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MongoDB</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mysql/">
-                        <span class="tag">Mysql</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mysql</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Nosqlclient/">
-                        <span class="tag">Nosqlclient</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Nosqlclient</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OAuth/">
-                        <span class="tag">OAuth</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OAuth</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag">OCR</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OCR</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/PEP/">
-                        <span class="tag">PEP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">PEP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pandas/">
-                        <span class="tag">Pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pycharm/">
-                        <span class="tag">Pycharm</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pycharm</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag">Python</span>
-                        <span class="tag is-grey">78</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Python</span>
+                        <span class="tag tag_count">78</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Redis</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Request/">
-                        <span class="tag">Request</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Request</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag">Requests</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Requests</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/SEO-%E4%BC%98%E5%8C%96/">
-                        <span class="tag">SEO 优化</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">SEO 优化</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag">Scrapy</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Scrapy</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Selenium/">
-                        <span class="tag">Selenium</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Selenium</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Session/">
-                        <span class="tag">Session</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Session</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/TCP/">
-                        <span class="tag">TCP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">TCP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Token/">
-                        <span class="tag">Token</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Token</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Ubuntu/">
-                        <span class="tag">Ubuntu</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Ubuntu</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Unicode/">
-                        <span class="tag">Unicode</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Unicode</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Vlog/">
-                        <span class="tag">Vlog</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Vlog</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag">Web</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Web</span>
+                        <span class="tag tag_count">19</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/WordPress/">
-                        <span class="tag">WordPress</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">WordPress</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag">Xpath</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Xpath</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/aiohttp/">
-                        <span class="tag">aiohttp</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">aiohttp</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag">beautifulSoup</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">beautifulSoup</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/codecs/">
-                        <span class="tag">codecs</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">codecs</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/csv/">
-                        <span class="tag">csv</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">csv</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag">datetime</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">datetime</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag">generator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">generator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag">lxml</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">lxml</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/os-path/">
-                        <span class="tag">os.path</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">os.path</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pandas/">
-                        <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag">pustil</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pustil</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pyecharts/">
-                        <span class="tag">pyecharts</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pyecharts</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag">sched</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">sched</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/session/">
-                        <span class="tag">session</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">session</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/the-fuck/">
-                        <span class="tag">the fuck</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">the fuck</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag">time</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">time</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/unsplash/">
-                        <span class="tag">unsplash</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">unsplash</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/web/">
-                        <span class="tag">web</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">web</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%83%E5%A4%95/">
-                        <span class="tag">七夕</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">七夕</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%AD%E9%97%B4%E9%94%AE/">
-                        <span class="tag">中间键</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">中间键</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B9%A6%E7%B1%8D/">
-                        <span class="tag">书籍</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">书籍</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        <span class="tag">二维码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">二维码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%A7%E5%93%81/">
-                        <span class="tag">产品</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">产品</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%90%86/">
-                        <span class="tag">代理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">代理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%89%AF%E4%B8%9A/">
-                        <span class="tag">副业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">副业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="tag">博客</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">博客</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag">反爬虫</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">反爬虫</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="tag">可视化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">可视化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
-                        <span class="tag">后台</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/">
-                        <span class="tag">后台架构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台架构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%95%86%E4%B8%9A/">
-                        <span class="tag">商业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">商业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%9B%BE%E8%A1%A8/">
-                        <span class="tag">图表</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">图表</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag">多线程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多线程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag">多进程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多进程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag">定时任务</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">定时任务</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%B9%B4%E6%80%BB%E7%BB%93/">
-                        <span class="tag">年总结</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">年总结</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/">
-                        <span class="tag">开发进阶</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开发进阶</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
-                        <span class="tag">开源项目</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开源项目</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag">当当</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">当当</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BF%85%E8%83%9C%E5%AE%A2/">
-                        <span class="tag">必胜客</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">必胜客</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag">思念</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">思念</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-                        <span class="tag">性能优化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">性能优化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="tag">总结</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">总结</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%84%9F%E6%82%9F/">
-                        <span class="tag">感悟</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">感悟</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%87%82%E7%82%B9%E7%B3%BB%E5%88%97/">
-                        <span class="tag">懂点系列</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">懂点系列</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag">技巧</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">技巧</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85/">
-                        <span class="tag">抓包</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
-                        <span class="tag">抓包工具</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包工具</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8B%96%E5%BB%B6%E7%97%87/">
-                        <span class="tag">拖延症</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">拖延症</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="tag">操作系统</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">操作系统</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag">数据分析</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据分析</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="tag">数据库</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据库</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag">数据结构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据结构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%99%A8/">
-                        <span class="tag">数据采集器</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据采集器</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="tag">数据集</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据集</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="tag">数组</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数组</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E4%BB%B6%E9%81%8D%E5%8E%86/">
-                        <span class="tag">文件遍历</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文件遍历</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-                        <span class="tag">文本操作</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文本操作</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag">方法论</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">方法论</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-                        <span class="tag">时间管理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">时间管理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <span class="tag">标准库</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">标准库</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag">正则表达式</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">正则表达式</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BA%90%E7%A0%81/">
-                        <span class="tag">源码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">源码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BC%AB%E5%A8%81/">
-                        <span class="tag">漫威</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">漫威</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag">爬虫实战</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">爬虫实战</span>
+                        <span class="tag tag_count">10</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag">电影</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">电影</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%99%BD%E8%9B%87%E7%BC%98%E8%B5%B7/">
-                        <span class="tag">白蛇缘起</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">白蛇缘起</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/">
-                        <span class="tag">短视频</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">短视频</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
-                        <span class="tag">社工库</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">社工库</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">
-                        <span class="tag">竞品分析</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">竞品分析</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
-                        <span class="tag">编码规范</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编码规范</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-                        <span class="tag">编程入门</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编程入门</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">
-                        <span class="tag">网易云音乐</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网易云音乐</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag">网络爬虫</span>
-                        <span class="tag is-grey">24</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网络爬虫</span>
+                        <span class="tag tag_count">24</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="tag">自学</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">自学</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag">认知</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">认知</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B1%86%E7%93%A3/">
-                        <span class="tag">豆瓣</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">豆瓣</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B4%A6%E5%8F%B7%E8%AE%A4%E8%AF%81/">
-                        <span class="tag">账号认证</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">账号认证</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag">阅读</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">阅读</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="tag">面试</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">面试</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="tag">项目实战</span>
-                        <span class="tag is-grey">14</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">项目实战</span>
+                        <span class="tag tag_count">14</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag">验证码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">验证码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
-                        <span class="tag">高并发</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">高并发</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag">鸡汤</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">鸡汤</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
@@ -2141,12 +1999,10 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
-        
-        </div>
+    
     
 </div>
 
-                
             </div>
         </div>
     </section>

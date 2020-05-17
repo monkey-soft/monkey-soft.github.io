@@ -5,7 +5,7 @@
 <!百度站长工具验证>
 <meta name="baidu-site-verification" content="Cg06Zha1ae">
 
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.2.0">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,14 +15,19 @@
     <meta name="description" content="Django 学习笔记之模型(上)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django 学习笔记之模型(上)">
-<meta property="og:url" content="https:&#x2F;&#x2F;geekmonkey.top&#x2F;239.html">
+<meta property="og:url" content="https://geekmonkey.top/239.html">
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="Django 学习笔记之模型(上)">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsOfER.jpg">
-<meta property="og:updated_time" content="2020-05-15T16:10:13.523Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/15/YsOfER.jpg">
+<meta property="article:published_time" content="2018-02-14T06:48:41.000Z">
+<meta property="article:modified_time" content="2020-05-15T16:10:13.523Z">
+<meta property="article:author" content="极客猴">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="Django">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YsOfER.jpg">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/15/YsOfER.jpg">
 
 
 
@@ -110,7 +115,7 @@ var _hmt = _hmt || [];
 <body class="is-2-column">
     <div class="navbar-top">
     <div class="container">
-    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客|公众号『极客猴』</span></p>
     </div>    
 </div>
 <nav class="navbar navbar-main">
@@ -136,7 +141,7 @@ var _hmt = _hmt || [];
                 
                 <a class="navbar-item" href="/treasure">藏宝阁</a>
                 
-                <a class="navbar-item" href="/friends">友情</a>
+                <a class="navbar-item" href="/friends">友情链接</a>
                 
                 <a class="navbar-item" href="/about">关于我</a>
                 
@@ -145,13 +150,13 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
                 <!-- 右边搜索-->
-                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a> 
                 
@@ -205,9 +210,7 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
-
         <br>
-        
         <div class="content_container">
             <!-- 左边封面图 -->
             <div class="thumbnail-left">
@@ -215,229 +218,122 @@ var _hmt = _hmt || [];
             </div>
             <!-- 右边文章概要 -->
             
-                <div class="content">
-                    <p>上片文章讲解模板。你本文将讲解 “MTV” 中 M 层次，即模型层（数据存取层）。模型这内容比较多，我将其拆分为 3 个部分来讲解。同时，文章也配套了例子，你可以通过 <strong>阅读原文</strong> 来查看。</p>
-<h2 id="编程环境"><a href="#编程环境" class="headerlink" title="编程环境"></a>编程环境</h2><p>因为 Django 近期推出 Django 2.0 版本， 所以有必要再说明下。<a id="more"></a>如果你是按照本系列来学习 Django 框架的话，按照前面安装 Django 的方式，你安装 Django 版本应该是最新版本，即 2.0。</p>
-<p>那么使用最新 Django 版本来学习可以吗？如果是学习的话，不用太在意版本。当然学习最新的较好，因为可以学习新的 API。同时，Django 2.0 不再兼容 Python 2 了，现在学习 Python 都建议采用 Python 3版本了。另外 Django 1.8 官方只维护到 2018 年的 4 月，1.11 是最后一个兼容 Python 2 的 Django版本。如果是项目需要升级 Django版本，需要兼容到 Python 2，那么要考虑用 1.11 版本了。</p>
-<p>顺便补充下本文用的一些工具的版本：Python 版本是 3.6，Mysql 版本是 5.5.</p>
-<h2 id="模型是什么"><a href="#模型是什么" class="headerlink" title="模型是什么"></a>模型是什么</h2><p>在 Web 应用中，数据一般存储到数据库中。Django 中的模型层是跟数据库打交道的层次。模型层中可能会有多个模型，每个模型（每个 app 中的 models.py 中每个类都是一个模型）都对应着数据库中的唯一一张表。</p>
-<h2 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h2><p>在我们探索 Django 的模型层之前，我们需要配置下数据库；告诉 Django 视野什么数据库以及如何连接数据库。这一步要确保配置无误，不然后面难以执行。我们找到新项目中的 setting.py, 里面有个 <strong>DATABASES</strong> 选项。Django 默认是使用 sqlite 数据库，所以你会看到里面 sqlite 数据库的配置信息。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">        <span class="hljs-string">'NAME'</span>: os.path.join(BASE_DIR, <span class="hljs-string">'db.sqlite3'</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面的代码中的 <strong>ENGINE</strong> 是选择哪个数据库引擎, <strong>NAME</strong> 是数据库的名字。至于选择哪种引擎，要看项目中使用了什么数据库。Django 目前支持以下这 MySQL、PostgreSQL、Oracle 等数据库，它们的数据库引擎设置如下：</p>
-<table>
-<thead>
-<tr>
-<th align="left">设置字段</th>
-<th align="left">数据库</th>
-<th align="left">设配器(驱动)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">postgresql</td>
-<td align="left">PostgreSQL</td>
-<td align="left">psycopg 1.x版</td>
-</tr>
-<tr>
-<td align="left">postgresql_psycopg2</td>
-<td align="left">PostgreSQL</td>
-<td align="left">psycopg 2.x版</td>
-</tr>
-<tr>
-<td align="left">mysql</td>
-<td align="left">MySQL</td>
-<td align="left">MySQLdb</td>
-</tr>
-<tr>
-<td align="left">sqlite3</td>
-<td align="left">SQLite</td>
-<td align="left">不需要</td>
-</tr>
-<tr>
-<td align="left">oracle</td>
-<td align="left">Oracle</td>
-<td align="left">cx_Oracle</td>
-</tr>
-</tbody></table>
-<p>其中设置字段是填充 ENGINE 的值。如果你使用的 MySQL 数据库，那么你需要填写 django.db.backends.mysql。数据库驱动表示需要使用 pip 安装该库。如果你使用的 MySQL 数据库，那么你需要安装 MySQLdb 设配器。</p>
-<p>但是这里有个坑，MySQLdb 在支持 Python 2 版本，不支持 Python 3 版本。所以你安装该设配器之后，运行项目会报出错误。Django 官网建议使用替代品 <strong>mysqlclient</strong>。mysqlclient 是 MySQLdb 的一个分支，最主要是它支持 Python 3。</p>
-<p>本文中使用到 Mysql 数据库，那么 DATABASES 的配置如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="hljs-string">'NAME'</span>: <span class="hljs-string">'django'</span>,</span><br><span class="line">        <span class="hljs-string">'HOST'</span>: <span class="hljs-string">'127.0.0.1'</span>,</span><br><span class="line">        <span class="hljs-string">'PORT'</span>: <span class="hljs-string">'3306'</span>,</span><br><span class="line">        <span class="hljs-string">'USER'</span>: <span class="hljs-string">'root'</span>,</span><br><span class="line">        <span class="hljs-string">'PASSWORD'</span>: <span class="hljs-string">'123456'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="第一个模型"><a href="#第一个模型" class="headerlink" title="第一个模型"></a>第一个模型</h2><p>我们先新建名为 Django_demo 的 projeact, 再新建名为 demo 的 app。最后，别忘记在 setting.py 中将新创建的 app 激活。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Django 2.0 的初始配置内容</span></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="hljs-string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="hljs-string">'demo'</span>,  <span class="hljs-comment"># 我们新创建的 app</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h3><p>打开我们刚才创建的 app 中的 models.py 文件，我们以后就主要在这里编写模型。假设现在有个需求：某个作者创作了一本书，本书由出版社出版了。我们可以设定三者的字段以及关系。</p>
-<ul>
-<li>假设作者有姓名、Email 邮箱这两个数据属性。</li>
-<li>假设出版社有出版社名称、地址这两个属性。</li>
-<li>书籍有两四个属性：书名、出版日期、作者、出版社。有一个或多个作者（和作者是多对多的关联关系[many-to-many]）， 只有一个出版商（和出版商是一对多的关联关系[one-to-many]，也被称作外键[foreign key]）</li>
-</ul>
-<p>所以我们编写代码如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">40</span>)</span><br><span class="line">    email = models.EmailField()</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Publisher</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">30</span>)</span><br><span class="line">    address = models.CharField(max_length=<span class="hljs-number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="hljs-number">100</span>)</span><br><span class="line">    authors = models.ManyToManyField(Author)</span><br><span class="line">    <span class="hljs-comment"># publisher = models.ForeignKey(Publisher)</span></span><br><span class="line">    <span class="hljs-comment"># Django 2.0 需要加上 on_delete=models.CASCADE</span></span><br><span class="line">    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)</span><br><span class="line">    publication_date = models.DateField()</span><br></pre></td></tr></table></figure>
-
-
-<p>我们定义每个模型，即类（如 Author 和 Book）都需要继承 django.db.models.Model。Model 是 Django 做了一层包装以便我们更加方便地使用的类， 它其中包含了所有数据库交互的方法。上面代码中的每个类相当于单个数据库表，每个属性也是这个表中的一个字段。 属性名就是字段名，它的类型（例如 CharField ）相当于数据库的字段类型 （例如 varchar ）。例如， Publisher 模块等同于下面这张表</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">"Publisher"</span> (</span><br><span class="line">    <span class="hljs-string">"id"</span> <span class="hljs-built_in">serial</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line">    <span class="hljs-string">"name"</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">    <span class="hljs-string">"address"</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>所以我们在为属性命名的时候，要避免使用数据库的关键字。另外，我们只需要关心每个类的属性以及长度限制，不用关心怎么创建数据库表。Django 可以自动生成这些 CREATE TABLE 语句的。</p>
-<h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>我们上面的创建了几个模型还处于定义上，Django 还没有正真创建数据库中的表。<br>因此，我们需要执行两个命令来同步一下数据库。</p>
-<p>在我们刚才创建的工程 Django_demo 目录下，我们打开终端，执行以下命令：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br></pre></td></tr></table></figure>
-
-<p>运行成功效果图如下：</p>
-<p><img src="./images/img/65_1.png" alt></p>
-<p>这一步相当于 在该app下建立 migrations目录，并记录下你所有的关于modes.py的改动，比如0001_initial.py， 但是这个改动还没有作用到数据库文件</p>
-<p>第二步，在之前的终端上继续执行 migrate 命令。</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
-
-<p>运行成功效果图如下：<br><img src="./images/img/65_2.png" alt></p>
-<p>这一步表示将该改动（当makemigrations之后产生了0001_initial.py 文件）作用到数据库文件，比如 create table 之类。</p>
-<p>如果你用到 Pycharm 的 Database 功能，你会看到我们刚才创建的定义的几个模型。<br><img src="./images/img/65_3.png" alt></p>
-<h3 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h3><p>在前面的例子中，我们需要对每个属性设置一个字段，例如 CharField。Django 内置了几十种内置字段类型。常用的类型如下：</p>
-<p>1) <strong>AutoField</strong>：一个根据实际ID自动增长的 IntegerField 。如果表中没有设置主键时，将会自动添加一个自增主键。</p>
-<p>2）<strong>IntegerField</strong>：一个整数。在 Django 所有支持的数据库中，-2147483648 到 2147483647 范围才是合法的。</p>
-<p>3）<strong>BigIntegerField</strong>：一个64位整数, 和 IntegerField 类似，不过它的范围比较大。</p>
-<p>4）<strong>BooleanField</strong>：一个 true/false 字段。这个字段的默认表单部件是 CheckboxInput。</p>
-<p>5）<strong>CharField</strong>：字符字段。对于比较大的文本内容,请使用 TextField 类型。这个字段的默认表单部件是 TextInput。它有个参数 max_length。max_length 表示字段允许的最大字符串长度。这将在数据库中和表单验证时生效</p>
-<p>6）<strong>TextField</strong>：大文本字段。默认的表单部件是一个 Textarea。</p>
-<p>7）<strong>DateField</strong>：日期。它带有两个可选参数：auto_now 和 auto_now_add。auto_now 表示当对象保存时，该字段会自动设置成当前时间。一般用于记录“修改时间” 。auto_now_add 记录字段首次被创建的时间。</p>
-<p>8）<strong>DateTimeField</strong>：时间和日期。它也带有两个可选参数，名字和用法跟 DateField 一样。</p>
-<p>9）<strong>TimeField</strong>：时间字段, 类似于Python datetime.time 实例. 和 DateField 具有相同的选项。</p>
-<p>10）<strong>URLField</strong>：一个 CharField 类型的URL，默认长度是200；默认的表单部件是一个 TextInput。</p>
-<p>11）<strong>EmailField</strong>：一个检查输入的email地址是否合法的 CharField 类型。</p>
-<p>12）<strong>FileField</strong>：上传文件字段。</p>
-<p>13）<strong>ImageField</strong>：图片字段，它继承了 FileField 所以属性和方法。</p>
-<h3 id="关系字段"><a href="#关系字段" class="headerlink" title="关系字段"></a>关系字段</h3><p>关系字段(Relationship fileds) 也是属于字段，只不过三个字段比较特殊，所以单独拿出来说。我们按照上述的创建模型的例子来继续讲解。它们三者之间的关系应该这样：一本书由一家出版社出版，一家出版社可以出版很多书。一本书由多个作者合写，一个作者可以写很多书。</p>
-<p>1）<em>ForeignKey</em><br>表示属于模型间关系中的多对一关系。在我们的范例模型中，一家出版社 publisher 可以出版很多书 Book。在数据库中, Django 使用 ForeignKey 字段名称＋ “_id” 做为数据库中的列名称。在上面的例子中, 书籍 model 对应的数据表中会有一个 publisher_id 列。你可以通过显式地指定 db_column 来改变该字段的列名称,不过，除非你想自定 义 SQL ，否则没必要更改数据库的列名称。</p>
-<p>它第一个参数必须传入该模型关联的类。on_delete 现在可以用作第二个位置参数(之前它通常只是作为一个关键字参数传递). 在Django 2.0中，这将是一个必传的参数。</p>
-<p>2）<em>OneToOneField</em><br>它属于 ForeignKey 中的特例。当 ForeignKey 中有个字段 unique 被设置为 True 时， 就表示一对一关系。</p>
-<p>3）<em>ManyToManyField</em><br>属于模型间关系中的多对多关系。在我们的范例模型中， Book 有一个 多对多字段 叫做 authors。因为他们的关系是一本书由多个作者合写，一个作者可以写很多书。在数据库中<br>Django 创建一个中间表来表示 ManyToManyField 关系。默认情况下，中间表的名称由两个关系表名结合而成。所以刚才我们创建数据库表的途中，会有四张表，而不是三表。</p>
-<h3 id="字段选项"><a href="#字段选项" class="headerlink" title="字段选项"></a>字段选项</h3><p>有些字段会有些特殊参数，但所有字段类型都又些通用的可选选项。先是常用的可选选项。<br>1）<strong>null</strong> ：如果该参数设置为 True，Django将会把数据库中的空值保存为 NULL。不填写就默认为 False。</p>
-<p>2）<strong>blank</strong>：如果为 True ，该字段允许为空值，不填写默认为 False。这个字段是用于处理表单数据输入验证。</p>
-<p>3）<strong>primary_key</strong>：如果为 True，那么这个字段就是模型的主键。</p>
-<p>4）<strong>unique</strong>：如果该值设置为 True, 这个数据字段在整张表中必须是唯一的。</p>
-<p>5）<strong>default</strong>：设置该字段的默认值。</p>
-<p>6）由二项元组构成的一个可迭代对象（列表或元组），用来给字段提供选择项。 如果设置了 <strong>choices</strong>，默认的表单将是一个选择框。具体使用例子如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    SHIRT_SIZES = (</span><br><span class="line">        (<span class="hljs-string">'S'</span>, <span class="hljs-string">'Small'</span>),</span><br><span class="line">        (<span class="hljs-string">'M'</span>, <span class="hljs-string">'Medium'</span>),</span><br><span class="line">        (<span class="hljs-string">'L'</span>, <span class="hljs-string">'Large'</span>),</span><br><span class="line">    )</span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">60</span>)</span><br><span class="line">    shirt_size = models.CharField(max_length=<span class="hljs-number">1</span>, choices=SHIRT_SIZES)</span><br></pre></td></tr></table></figure>
-
-<p>下篇文章，我们将讲解如果对这些模型（表）进行操作。</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Django_demo" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
-
-                </div>             
-            
-            <!-- <p>上片文章讲解模板。你本文将讲解 “MTV” 中 M 层次，即模型层（数据存取层）。模型这内容比较多，我将其拆分为 3 个部分来讲解。同时，文章也配套了例子，你可以通过 <strong>阅读原文</strong> 来查看。</p>
-<h2 id="编程环境"><a href="#编程环境" class="headerlink" title="编程环境"></a>编程环境</h2><p>因为 Django 近期推出 Django 2.0 版本， 所以有必要再说明下。<a id="more"></a>如果你是按照本系列来学习 Django 框架的话，按照前面安装 Django 的方式，你安装 Django 版本应该是最新版本，即 2.0。</p>
-<p>那么使用最新 Django 版本来学习可以吗？如果是学习的话，不用太在意版本。当然学习最新的较好，因为可以学习新的 API。同时，Django 2.0 不再兼容 Python 2 了，现在学习 Python 都建议采用 Python 3版本了。另外 Django 1.8 官方只维护到 2018 年的 4 月，1.11 是最后一个兼容 Python 2 的 Django版本。如果是项目需要升级 Django版本，需要兼容到 Python 2，那么要考虑用 1.11 版本了。</p>
-<p>顺便补充下本文用的一些工具的版本：Python 版本是 3.6，Mysql 版本是 5.5.</p>
-<h2 id="模型是什么"><a href="#模型是什么" class="headerlink" title="模型是什么"></a>模型是什么</h2><p>在 Web 应用中，数据一般存储到数据库中。Django 中的模型层是跟数据库打交道的层次。模型层中可能会有多个模型，每个模型（每个 app 中的 models.py 中每个类都是一个模型）都对应着数据库中的唯一一张表。</p>
-<h2 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h2><p>在我们探索 Django 的模型层之前，我们需要配置下数据库；告诉 Django 视野什么数据库以及如何连接数据库。这一步要确保配置无误，不然后面难以执行。我们找到新项目中的 setting.py, 里面有个 <strong>DATABASES</strong> 选项。Django 默认是使用 sqlite 数据库，所以你会看到里面 sqlite 数据库的配置信息。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">        <span class="hljs-string">'NAME'</span>: os.path.join(BASE_DIR, <span class="hljs-string">'db.sqlite3'</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面的代码中的 <strong>ENGINE</strong> 是选择哪个数据库引擎, <strong>NAME</strong> 是数据库的名字。至于选择哪种引擎，要看项目中使用了什么数据库。Django 目前支持以下这 MySQL、PostgreSQL、Oracle 等数据库，它们的数据库引擎设置如下：</p>
-<table>
-<thead>
-<tr>
-<th align="left">设置字段</th>
-<th align="left">数据库</th>
-<th align="left">设配器(驱动)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">postgresql</td>
-<td align="left">PostgreSQL</td>
-<td align="left">psycopg 1.x版</td>
-</tr>
-<tr>
-<td align="left">postgresql_psycopg2</td>
-<td align="left">PostgreSQL</td>
-<td align="left">psycopg 2.x版</td>
-</tr>
-<tr>
-<td align="left">mysql</td>
-<td align="left">MySQL</td>
-<td align="left">MySQLdb</td>
-</tr>
-<tr>
-<td align="left">sqlite3</td>
-<td align="left">SQLite</td>
-<td align="left">不需要</td>
-</tr>
-<tr>
-<td align="left">oracle</td>
-<td align="left">Oracle</td>
-<td align="left">cx_Oracle</td>
-</tr>
-</tbody></table>
-<p>其中设置字段是填充 ENGINE 的值。如果你使用的 MySQL 数据库，那么你需要填写 django.db.backends.mysql。数据库驱动表示需要使用 pip 安装该库。如果你使用的 MySQL 数据库，那么你需要安装 MySQLdb 设配器。</p>
-<p>但是这里有个坑，MySQLdb 在支持 Python 2 版本，不支持 Python 3 版本。所以你安装该设配器之后，运行项目会报出错误。Django 官网建议使用替代品 <strong>mysqlclient</strong>。mysqlclient 是 MySQLdb 的一个分支，最主要是它支持 Python 3。</p>
-<p>本文中使用到 Mysql 数据库，那么 DATABASES 的配置如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="hljs-string">'NAME'</span>: <span class="hljs-string">'django'</span>,</span><br><span class="line">        <span class="hljs-string">'HOST'</span>: <span class="hljs-string">'127.0.0.1'</span>,</span><br><span class="line">        <span class="hljs-string">'PORT'</span>: <span class="hljs-string">'3306'</span>,</span><br><span class="line">        <span class="hljs-string">'USER'</span>: <span class="hljs-string">'root'</span>,</span><br><span class="line">        <span class="hljs-string">'PASSWORD'</span>: <span class="hljs-string">'123456'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="第一个模型"><a href="#第一个模型" class="headerlink" title="第一个模型"></a>第一个模型</h2><p>我们先新建名为 Django_demo 的 projeact, 再新建名为 demo 的 app。最后，别忘记在 setting.py 中将新创建的 app 激活。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Django 2.0 的初始配置内容</span></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="hljs-string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="hljs-string">'demo'</span>,  <span class="hljs-comment"># 我们新创建的 app</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h3><p>打开我们刚才创建的 app 中的 models.py 文件，我们以后就主要在这里编写模型。假设现在有个需求：某个作者创作了一本书，本书由出版社出版了。我们可以设定三者的字段以及关系。</p>
-<ul>
-<li>假设作者有姓名、Email 邮箱这两个数据属性。</li>
-<li>假设出版社有出版社名称、地址这两个属性。</li>
-<li>书籍有两四个属性：书名、出版日期、作者、出版社。有一个或多个作者（和作者是多对多的关联关系[many-to-many]）， 只有一个出版商（和出版商是一对多的关联关系[one-to-many]，也被称作外键[foreign key]）</li>
-</ul>
-<p>所以我们编写代码如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">40</span>)</span><br><span class="line">    email = models.EmailField()</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Publisher</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">30</span>)</span><br><span class="line">    address = models.CharField(max_length=<span class="hljs-number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="hljs-number">100</span>)</span><br><span class="line">    authors = models.ManyToManyField(Author)</span><br><span class="line">    <span class="hljs-comment"># publisher = models.ForeignKey(Publisher)</span></span><br><span class="line">    <span class="hljs-comment"># Django 2.0 需要加上 on_delete=models.CASCADE</span></span><br><span class="line">    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)</span><br><span class="line">    publication_date = models.DateField()</span><br></pre></td></tr></table></figure>
-
-
-<p>我们定义每个模型，即类（如 Author 和 Book）都需要继承 django.db.models.Model。Model 是 Django 做了一层包装以便我们更加方便地使用的类， 它其中包含了所有数据库交互的方法。上面代码中的每个类相当于单个数据库表，每个属性也是这个表中的一个字段。 属性名就是字段名，它的类型（例如 CharField ）相当于数据库的字段类型 （例如 varchar ）。例如， Publisher 模块等同于下面这张表</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">"Publisher"</span> (</span><br><span class="line">    <span class="hljs-string">"id"</span> <span class="hljs-built_in">serial</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line">    <span class="hljs-string">"name"</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">    <span class="hljs-string">"address"</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>所以我们在为属性命名的时候，要避免使用数据库的关键字。另外，我们只需要关心每个类的属性以及长度限制，不用关心怎么创建数据库表。Django 可以自动生成这些 CREATE TABLE 语句的。</p>
-<h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>我们上面的创建了几个模型还处于定义上，Django 还没有正真创建数据库中的表。<br>因此，我们需要执行两个命令来同步一下数据库。</p>
-<p>在我们刚才创建的工程 Django_demo 目录下，我们打开终端，执行以下命令：</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br></pre></td></tr></table></figure>
-
-<p>运行成功效果图如下：</p>
-<p><img src="./images/img/65_1.png" alt></p>
-<p>这一步相当于 在该app下建立 migrations目录，并记录下你所有的关于modes.py的改动，比如0001_initial.py， 但是这个改动还没有作用到数据库文件</p>
-<p>第二步，在之前的终端上继续执行 migrate 命令。</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
-
-<p>运行成功效果图如下：<br><img src="./images/img/65_2.png" alt></p>
-<p>这一步表示将该改动（当makemigrations之后产生了0001_initial.py 文件）作用到数据库文件，比如 create table 之类。</p>
-<p>如果你用到 Pycharm 的 Database 功能，你会看到我们刚才创建的定义的几个模型。<br><img src="./images/img/65_3.png" alt></p>
-<h3 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h3><p>在前面的例子中，我们需要对每个属性设置一个字段，例如 CharField。Django 内置了几十种内置字段类型。常用的类型如下：</p>
-<p>1) <strong>AutoField</strong>：一个根据实际ID自动增长的 IntegerField 。如果表中没有设置主键时，将会自动添加一个自增主键。</p>
-<p>2）<strong>IntegerField</strong>：一个整数。在 Django 所有支持的数据库中，-2147483648 到 2147483647 范围才是合法的。</p>
-<p>3）<strong>BigIntegerField</strong>：一个64位整数, 和 IntegerField 类似，不过它的范围比较大。</p>
-<p>4）<strong>BooleanField</strong>：一个 true/false 字段。这个字段的默认表单部件是 CheckboxInput。</p>
-<p>5）<strong>CharField</strong>：字符字段。对于比较大的文本内容,请使用 TextField 类型。这个字段的默认表单部件是 TextInput。它有个参数 max_length。max_length 表示字段允许的最大字符串长度。这将在数据库中和表单验证时生效</p>
-<p>6）<strong>TextField</strong>：大文本字段。默认的表单部件是一个 Textarea。</p>
-<p>7）<strong>DateField</strong>：日期。它带有两个可选参数：auto_now 和 auto_now_add。auto_now 表示当对象保存时，该字段会自动设置成当前时间。一般用于记录“修改时间” 。auto_now_add 记录字段首次被创建的时间。</p>
-<p>8）<strong>DateTimeField</strong>：时间和日期。它也带有两个可选参数，名字和用法跟 DateField 一样。</p>
-<p>9）<strong>TimeField</strong>：时间字段, 类似于Python datetime.time 实例. 和 DateField 具有相同的选项。</p>
-<p>10）<strong>URLField</strong>：一个 CharField 类型的URL，默认长度是200；默认的表单部件是一个 TextInput。</p>
-<p>11）<strong>EmailField</strong>：一个检查输入的email地址是否合法的 CharField 类型。</p>
-<p>12）<strong>FileField</strong>：上传文件字段。</p>
-<p>13）<strong>ImageField</strong>：图片字段，它继承了 FileField 所以属性和方法。</p>
-<h3 id="关系字段"><a href="#关系字段" class="headerlink" title="关系字段"></a>关系字段</h3><p>关系字段(Relationship fileds) 也是属于字段，只不过三个字段比较特殊，所以单独拿出来说。我们按照上述的创建模型的例子来继续讲解。它们三者之间的关系应该这样：一本书由一家出版社出版，一家出版社可以出版很多书。一本书由多个作者合写，一个作者可以写很多书。</p>
-<p>1）<em>ForeignKey</em><br>表示属于模型间关系中的多对一关系。在我们的范例模型中，一家出版社 publisher 可以出版很多书 Book。在数据库中, Django 使用 ForeignKey 字段名称＋ “_id” 做为数据库中的列名称。在上面的例子中, 书籍 model 对应的数据表中会有一个 publisher_id 列。你可以通过显式地指定 db_column 来改变该字段的列名称,不过，除非你想自定 义 SQL ，否则没必要更改数据库的列名称。</p>
-<p>它第一个参数必须传入该模型关联的类。on_delete 现在可以用作第二个位置参数(之前它通常只是作为一个关键字参数传递). 在Django 2.0中，这将是一个必传的参数。</p>
-<p>2）<em>OneToOneField</em><br>它属于 ForeignKey 中的特例。当 ForeignKey 中有个字段 unique 被设置为 True 时， 就表示一对一关系。</p>
-<p>3）<em>ManyToManyField</em><br>属于模型间关系中的多对多关系。在我们的范例模型中， Book 有一个 多对多字段 叫做 authors。因为他们的关系是一本书由多个作者合写，一个作者可以写很多书。在数据库中<br>Django 创建一个中间表来表示 ManyToManyField 关系。默认情况下，中间表的名称由两个关系表名结合而成。所以刚才我们创建数据库表的途中，会有四张表，而不是三表。</p>
-<h3 id="字段选项"><a href="#字段选项" class="headerlink" title="字段选项"></a>字段选项</h3><p>有些字段会有些特殊参数，但所有字段类型都又些通用的可选选项。先是常用的可选选项。<br>1）<strong>null</strong> ：如果该参数设置为 True，Django将会把数据库中的空值保存为 NULL。不填写就默认为 False。</p>
-<p>2）<strong>blank</strong>：如果为 True ，该字段允许为空值，不填写默认为 False。这个字段是用于处理表单数据输入验证。</p>
-<p>3）<strong>primary_key</strong>：如果为 True，那么这个字段就是模型的主键。</p>
-<p>4）<strong>unique</strong>：如果该值设置为 True, 这个数据字段在整张表中必须是唯一的。</p>
-<p>5）<strong>default</strong>：设置该字段的默认值。</p>
-<p>6）由二项元组构成的一个可迭代对象（列表或元组），用来给字段提供选择项。 如果设置了 <strong>choices</strong>，默认的表单将是一个选择框。具体使用例子如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    SHIRT_SIZES = (</span><br><span class="line">        (<span class="hljs-string">'S'</span>, <span class="hljs-string">'Small'</span>),</span><br><span class="line">        (<span class="hljs-string">'M'</span>, <span class="hljs-string">'Medium'</span>),</span><br><span class="line">        (<span class="hljs-string">'L'</span>, <span class="hljs-string">'Large'</span>),</span><br><span class="line">    )</span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">60</span>)</span><br><span class="line">    shirt_size = models.CharField(max_length=<span class="hljs-number">1</span>, choices=SHIRT_SIZES)</span><br></pre></td></tr></table></figure>
-
-<p>下篇文章，我们将讲解如果对这些模型（表）进行操作。</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Django_demo" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
-  -->
         </div>
+        <!-- 文章页面显示全部内容 -->
+        
+            <div class="content">
+                <p>上片文章讲解模板。你本文将讲解 “MTV” 中 M 层次，即模型层（数据存取层）。模型这内容比较多，我将其拆分为 3 个部分来讲解。同时，文章也配套了例子，你可以通过 <strong>阅读原文</strong> 来查看。</p>
+<h2 id="编程环境"><a href="#编程环境" class="headerlink" title="编程环境"></a>编程环境</h2><p>因为 Django 近期推出 Django 2.0 版本， 所以有必要再说明下。<a id="more"></a>如果你是按照本系列来学习 Django 框架的话，按照前面安装 Django 的方式，你安装 Django 版本应该是最新版本，即 2.0。</p>
+<p>那么使用最新 Django 版本来学习可以吗？如果是学习的话，不用太在意版本。当然学习最新的较好，因为可以学习新的 API。同时，Django 2.0 不再兼容 Python 2 了，现在学习 Python 都建议采用 Python 3版本了。另外 Django 1.8 官方只维护到 2018 年的 4 月，1.11 是最后一个兼容 Python 2 的 Django版本。如果是项目需要升级 Django版本，需要兼容到 Python 2，那么要考虑用 1.11 版本了。</p>
+<p>顺便补充下本文用的一些工具的版本：Python 版本是 3.6，Mysql 版本是 5.5.</p>
+<h2 id="模型是什么"><a href="#模型是什么" class="headerlink" title="模型是什么"></a>模型是什么</h2><p>在 Web 应用中，数据一般存储到数据库中。Django 中的模型层是跟数据库打交道的层次。模型层中可能会有多个模型，每个模型（每个 app 中的 models.py 中每个类都是一个模型）都对应着数据库中的唯一一张表。</p>
+<h2 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h2><p>在我们探索 Django 的模型层之前，我们需要配置下数据库；告诉 Django 视野什么数据库以及如何连接数据库。这一步要确保配置无误，不然后面难以执行。我们找到新项目中的 setting.py, 里面有个 <strong>DATABASES</strong> 选项。Django 默认是使用 sqlite 数据库，所以你会看到里面 sqlite 数据库的配置信息。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">        <span class="hljs-string">'NAME'</span>: os.path.join(BASE_DIR, <span class="hljs-string">'db.sqlite3'</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>上面的代码中的 <strong>ENGINE</strong> 是选择哪个数据库引擎, <strong>NAME</strong> 是数据库的名字。至于选择哪种引擎，要看项目中使用了什么数据库。Django 目前支持以下这 MySQL、PostgreSQL、Oracle 等数据库，它们的数据库引擎设置如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">设置字段</th>
+<th align="left">数据库</th>
+<th align="left">设配器(驱动)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">postgresql</td>
+<td align="left">PostgreSQL</td>
+<td align="left">psycopg 1.x版</td>
+</tr>
+<tr>
+<td align="left">postgresql_psycopg2</td>
+<td align="left">PostgreSQL</td>
+<td align="left">psycopg 2.x版</td>
+</tr>
+<tr>
+<td align="left">mysql</td>
+<td align="left">MySQL</td>
+<td align="left">MySQLdb</td>
+</tr>
+<tr>
+<td align="left">sqlite3</td>
+<td align="left">SQLite</td>
+<td align="left">不需要</td>
+</tr>
+<tr>
+<td align="left">oracle</td>
+<td align="left">Oracle</td>
+<td align="left">cx_Oracle</td>
+</tr>
+</tbody></table>
+<p>其中设置字段是填充 ENGINE 的值。如果你使用的 MySQL 数据库，那么你需要填写 django.db.backends.mysql。数据库驱动表示需要使用 pip 安装该库。如果你使用的 MySQL 数据库，那么你需要安装 MySQLdb 设配器。</p>
+<p>但是这里有个坑，MySQLdb 在支持 Python 2 版本，不支持 Python 3 版本。所以你安装该设配器之后，运行项目会报出错误。Django 官网建议使用替代品 <strong>mysqlclient</strong>。mysqlclient 是 MySQLdb 的一个分支，最主要是它支持 Python 3。</p>
+<p>本文中使用到 Mysql 数据库，那么 DATABASES 的配置如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="hljs-string">'NAME'</span>: <span class="hljs-string">'django'</span>,</span><br><span class="line">        <span class="hljs-string">'HOST'</span>: <span class="hljs-string">'127.0.0.1'</span>,</span><br><span class="line">        <span class="hljs-string">'PORT'</span>: <span class="hljs-string">'3306'</span>,</span><br><span class="line">        <span class="hljs-string">'USER'</span>: <span class="hljs-string">'root'</span>,</span><br><span class="line">        <span class="hljs-string">'PASSWORD'</span>: <span class="hljs-string">'123456'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第一个模型"><a href="#第一个模型" class="headerlink" title="第一个模型"></a>第一个模型</h2><p>我们先新建名为 Django_demo 的 projeact, 再新建名为 demo 的 app。最后，别忘记在 setting.py 中将新创建的 app 激活。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Django 2.0 的初始配置内容</span></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="hljs-string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="hljs-string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="hljs-string">'demo'</span>,  <span class="hljs-comment"># 我们新创建的 app</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h3><p>打开我们刚才创建的 app 中的 models.py 文件，我们以后就主要在这里编写模型。假设现在有个需求：某个作者创作了一本书，本书由出版社出版了。我们可以设定三者的字段以及关系。</p>
+<ul>
+<li>假设作者有姓名、Email 邮箱这两个数据属性。</li>
+<li>假设出版社有出版社名称、地址这两个属性。</li>
+<li>书籍有两四个属性：书名、出版日期、作者、出版社。有一个或多个作者（和作者是多对多的关联关系[many-to-many]）， 只有一个出版商（和出版商是一对多的关联关系[one-to-many]，也被称作外键[foreign key]）</li>
+</ul>
+<p>所以我们编写代码如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Author</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">40</span>)</span><br><span class="line">    email = models.EmailField()</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Publisher</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">30</span>)</span><br><span class="line">    address = models.CharField(max_length=<span class="hljs-number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="hljs-number">100</span>)</span><br><span class="line">    authors = models.ManyToManyField(Author)</span><br><span class="line">    <span class="hljs-comment"># publisher = models.ForeignKey(Publisher)</span></span><br><span class="line">    <span class="hljs-comment"># Django 2.0 需要加上 on_delete=models.CASCADE</span></span><br><span class="line">    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)</span><br><span class="line">    publication_date = models.DateField()</span><br></pre></td></tr></table></figure>
+
+
+<p>我们定义每个模型，即类（如 Author 和 Book）都需要继承 django.db.models.Model。Model 是 Django 做了一层包装以便我们更加方便地使用的类， 它其中包含了所有数据库交互的方法。上面代码中的每个类相当于单个数据库表，每个属性也是这个表中的一个字段。 属性名就是字段名，它的类型（例如 CharField ）相当于数据库的字段类型 （例如 varchar ）。例如， Publisher 模块等同于下面这张表</p>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">"Publisher"</span> (</span><br><span class="line">    <span class="hljs-string">"id"</span> <span class="hljs-built_in">serial</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> PRIMARY <span class="hljs-keyword">KEY</span>,</span><br><span class="line">    <span class="hljs-string">"name"</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">    <span class="hljs-string">"address"</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>所以我们在为属性命名的时候，要避免使用数据库的关键字。另外，我们只需要关心每个类的属性以及长度限制，不用关心怎么创建数据库表。Django 可以自动生成这些 CREATE TABLE 语句的。</p>
+<h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>我们上面的创建了几个模型还处于定义上，Django 还没有正真创建数据库中的表。<br>因此，我们需要执行两个命令来同步一下数据库。</p>
+<p>在我们刚才创建的工程 Django_demo 目录下，我们打开终端，执行以下命令：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br></pre></td></tr></table></figure>
+
+<p>运行成功效果图如下：</p>
+<p><img src="./images/img/65_1.png" alt></p>
+<p>这一步相当于 在该app下建立 migrations目录，并记录下你所有的关于modes.py的改动，比如0001_initial.py， 但是这个改动还没有作用到数据库文件</p>
+<p>第二步，在之前的终端上继续执行 migrate 命令。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<p>运行成功效果图如下：<br><img src="./images/img/65_2.png" alt></p>
+<p>这一步表示将该改动（当makemigrations之后产生了0001_initial.py 文件）作用到数据库文件，比如 create table 之类。</p>
+<p>如果你用到 Pycharm 的 Database 功能，你会看到我们刚才创建的定义的几个模型。<br><img src="./images/img/65_3.png" alt></p>
+<h3 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h3><p>在前面的例子中，我们需要对每个属性设置一个字段，例如 CharField。Django 内置了几十种内置字段类型。常用的类型如下：</p>
+<p>1) <strong>AutoField</strong>：一个根据实际ID自动增长的 IntegerField 。如果表中没有设置主键时，将会自动添加一个自增主键。</p>
+<p>2）<strong>IntegerField</strong>：一个整数。在 Django 所有支持的数据库中，-2147483648 到 2147483647 范围才是合法的。</p>
+<p>3）<strong>BigIntegerField</strong>：一个64位整数, 和 IntegerField 类似，不过它的范围比较大。</p>
+<p>4）<strong>BooleanField</strong>：一个 true/false 字段。这个字段的默认表单部件是 CheckboxInput。</p>
+<p>5）<strong>CharField</strong>：字符字段。对于比较大的文本内容,请使用 TextField 类型。这个字段的默认表单部件是 TextInput。它有个参数 max_length。max_length 表示字段允许的最大字符串长度。这将在数据库中和表单验证时生效</p>
+<p>6）<strong>TextField</strong>：大文本字段。默认的表单部件是一个 Textarea。</p>
+<p>7）<strong>DateField</strong>：日期。它带有两个可选参数：auto_now 和 auto_now_add。auto_now 表示当对象保存时，该字段会自动设置成当前时间。一般用于记录“修改时间” 。auto_now_add 记录字段首次被创建的时间。</p>
+<p>8）<strong>DateTimeField</strong>：时间和日期。它也带有两个可选参数，名字和用法跟 DateField 一样。</p>
+<p>9）<strong>TimeField</strong>：时间字段, 类似于Python datetime.time 实例. 和 DateField 具有相同的选项。</p>
+<p>10）<strong>URLField</strong>：一个 CharField 类型的URL，默认长度是200；默认的表单部件是一个 TextInput。</p>
+<p>11）<strong>EmailField</strong>：一个检查输入的email地址是否合法的 CharField 类型。</p>
+<p>12）<strong>FileField</strong>：上传文件字段。</p>
+<p>13）<strong>ImageField</strong>：图片字段，它继承了 FileField 所以属性和方法。</p>
+<h3 id="关系字段"><a href="#关系字段" class="headerlink" title="关系字段"></a>关系字段</h3><p>关系字段(Relationship fileds) 也是属于字段，只不过三个字段比较特殊，所以单独拿出来说。我们按照上述的创建模型的例子来继续讲解。它们三者之间的关系应该这样：一本书由一家出版社出版，一家出版社可以出版很多书。一本书由多个作者合写，一个作者可以写很多书。</p>
+<p>1）<em>ForeignKey</em><br>表示属于模型间关系中的多对一关系。在我们的范例模型中，一家出版社 publisher 可以出版很多书 Book。在数据库中, Django 使用 ForeignKey 字段名称＋ “_id” 做为数据库中的列名称。在上面的例子中, 书籍 model 对应的数据表中会有一个 publisher_id 列。你可以通过显式地指定 db_column 来改变该字段的列名称,不过，除非你想自定 义 SQL ，否则没必要更改数据库的列名称。</p>
+<p>它第一个参数必须传入该模型关联的类。on_delete 现在可以用作第二个位置参数(之前它通常只是作为一个关键字参数传递). 在Django 2.0中，这将是一个必传的参数。</p>
+<p>2）<em>OneToOneField</em><br>它属于 ForeignKey 中的特例。当 ForeignKey 中有个字段 unique 被设置为 True 时， 就表示一对一关系。</p>
+<p>3）<em>ManyToManyField</em><br>属于模型间关系中的多对多关系。在我们的范例模型中， Book 有一个 多对多字段 叫做 authors。因为他们的关系是一本书由多个作者合写，一个作者可以写很多书。在数据库中<br>Django 创建一个中间表来表示 ManyToManyField 关系。默认情况下，中间表的名称由两个关系表名结合而成。所以刚才我们创建数据库表的途中，会有四张表，而不是三表。</p>
+<h3 id="字段选项"><a href="#字段选项" class="headerlink" title="字段选项"></a>字段选项</h3><p>有些字段会有些特殊参数，但所有字段类型都又些通用的可选选项。先是常用的可选选项。<br>1）<strong>null</strong> ：如果该参数设置为 True，Django将会把数据库中的空值保存为 NULL。不填写就默认为 False。</p>
+<p>2）<strong>blank</strong>：如果为 True ，该字段允许为空值，不填写默认为 False。这个字段是用于处理表单数据输入验证。</p>
+<p>3）<strong>primary_key</strong>：如果为 True，那么这个字段就是模型的主键。</p>
+<p>4）<strong>unique</strong>：如果该值设置为 True, 这个数据字段在整张表中必须是唯一的。</p>
+<p>5）<strong>default</strong>：设置该字段的默认值。</p>
+<p>6）由二项元组构成的一个可迭代对象（列表或元组），用来给字段提供选择项。 如果设置了 <strong>choices</strong>，默认的表单将是一个选择框。具体使用例子如下：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(models.Model)</span>:</span></span><br><span class="line">    SHIRT_SIZES = (</span><br><span class="line">        (<span class="hljs-string">'S'</span>, <span class="hljs-string">'Small'</span>),</span><br><span class="line">        (<span class="hljs-string">'M'</span>, <span class="hljs-string">'Medium'</span>),</span><br><span class="line">        (<span class="hljs-string">'L'</span>, <span class="hljs-string">'Large'</span>),</span><br><span class="line">    )</span><br><span class="line">    name = models.CharField(max_length=<span class="hljs-number">60</span>)</span><br><span class="line">    shirt_size = models.CharField(max_length=<span class="hljs-number">1</span>, choices=SHIRT_SIZES)</span><br></pre></td></tr></table></figure>
+
+<p>下篇文章，我们将讲解如果对这些模型（表）进行操作。</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>如果你想获取项目的源码, 点击☞☞☞<a href="https://github.com/monkey-soft/Django_demo" target="_blank" rel="external nofollow noopener noreferrer">Github 仓库地址</a></p>
+
+            </div>   
+        
+        <br>
         <!-- 增加微信公众号首发说明 -->
         
         <div>
@@ -457,7 +353,7 @@ var _hmt = _hmt || [];
             </li>
             </ul>
         
-        <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
+            <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
         
         
         <hr style="height:1px;margin:1rem 0">
@@ -486,6 +382,8 @@ var _hmt = _hmt || [];
 
 
 
+
+
 <div class="card">
     <div class="card-content">
         <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
@@ -504,6 +402,7 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </div>
+
 
 
 
@@ -553,11 +452,13 @@ var _hmt = _hmt || [];
 </div>
 </div>
                 
+                
+                
 
 
 
 
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -624,9 +525,6 @@ var _hmt = _hmt || [];
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank" rel="external nofollow noopener noreferrer">
                 关注我</a>
-            <div clas="level" id="knowledge-qrcode" style="display: none; height: 330px; padding: 0px; margin: 0px; width: 242px; opacity: 1;">
-                <img src="https://s1.ax1x.com/2020/05/14/YBHCAU.png" alt="极客猴的公众号" width="100%">
-            </div>
         </div>
         
         
@@ -711,12 +609,32 @@ var _hmt = _hmt || [];
     </div>
 
     
+        <div class="card widget">
+  <div class="weight_card-content">
+    <div class="menu">
+      <h4 class="menu_weight" style="text-align:center;">更多内容,请关注公众号！</h4>
+      <div>
+        <img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" alt="极客猴的公众号" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <div class="card widget">
+    <div>
+      <a href="https://reg.huaweicloud.com/registerui/cn/register.html?bpInvite=7a2d288001c6466a&service=https%3A%2F%2Faccount.huaweicloud.com%2Fusercenter%2F%3Flocale%3Dzh-cn%26hws_route_url%3DregistSuccess%26bpInvite%3D7a2d288001c6466a%26bpName%3D5f9f98a29e2c40b780c1793086f29fe2%26inviteCode%3Dchanql123%26bindType%3D1#/register" target="_blank" rel="external nofollow noopener noreferrer">
+      <img src="https://s1.ax1x.com/2020/05/17/Y25LY6.png" alt="华为云新用户福利" width="100%">
+      </a>
+    </div>
+</div>
+    
         <!-- 侧边组件-专栏 -->
 
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 专栏
             </h3>
             <ul class="menu-list">
@@ -802,386 +720,387 @@ var _hmt = _hmt || [];
     <!-- 优化移动端显示，隐藏 archive  -->
     <div class="card-content is-hidden-mobile">
         <div class="menu">
-        <h3 class="menu-label">
+        <h3 class="menu_weight">
             归档
         </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">7</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
+
+            <div class="field is-grouped is-grouped-multiline">
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">7</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/05/">
+                            <span class="level-start">
+                                <span class="level-item">五月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                
+            </div>
         </div>
     </div>
 </div>
@@ -1189,940 +1108,883 @@ var _hmt = _hmt || [];
         <div class="card widget">
     <div class="card-content">
         <div class="menu">
-        <h3 class="menu-label">
-            我的好友
-        </h3>
-
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://python。iswbm.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="https://dp2px.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;水寒的博客</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.gcowsec.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Gcow 安全团队</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-    
-        <!-- -->
-        <div class="column-right-shadow 
-         
-        ">
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag">APScheduler</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">APScheduler</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Chrome/">
-                        <span class="tag">Chrome</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Chrome</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Debian/">
-                        <span class="tag">Debian</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Debian</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag">Django</span>
-                        <span class="tag is-grey">20</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Django</span>
+                        <span class="tag tag_count">20</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Djongo/">
-                        <span class="tag">Djongo</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Djongo</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Flask/">
-                        <span class="tag">Flask</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Flask</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Github/">
-                        <span class="tag">Github</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Github</span>
+                        <span class="tag tag_count">6</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag">HTTP</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">HTTP</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Hexo/">
-                        <span class="tag">Hexo</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Hexo</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IG/">
-                        <span class="tag">IG</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IG</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag">IP代理池</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IP代理池</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag">Iterable</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterable</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag">Iterator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Jekyll/">
-                        <span class="tag">Jekyll</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Jekyll</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag">Linux</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Linux</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MangoDB/">
-                        <span class="tag">MangoDB</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MangoDB</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Matplotlib</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mongo-Plugin/">
-                        <span class="tag">Mongo Plugin</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mongo Plugin</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MongoDB/">
-                        <span class="tag">MongoDB</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MongoDB</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mysql/">
-                        <span class="tag">Mysql</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mysql</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Nosqlclient/">
-                        <span class="tag">Nosqlclient</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Nosqlclient</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OAuth/">
-                        <span class="tag">OAuth</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OAuth</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag">OCR</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OCR</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/PEP/">
-                        <span class="tag">PEP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">PEP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pandas/">
-                        <span class="tag">Pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pycharm/">
-                        <span class="tag">Pycharm</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pycharm</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag">Python</span>
-                        <span class="tag is-grey">78</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Python</span>
+                        <span class="tag tag_count">78</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Redis</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Request/">
-                        <span class="tag">Request</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Request</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag">Requests</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Requests</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/SEO-%E4%BC%98%E5%8C%96/">
-                        <span class="tag">SEO 优化</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">SEO 优化</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag">Scrapy</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Scrapy</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Selenium/">
-                        <span class="tag">Selenium</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Selenium</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Session/">
-                        <span class="tag">Session</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Session</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/TCP/">
-                        <span class="tag">TCP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">TCP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Token/">
-                        <span class="tag">Token</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Token</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Ubuntu/">
-                        <span class="tag">Ubuntu</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Ubuntu</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Unicode/">
-                        <span class="tag">Unicode</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Unicode</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Vlog/">
-                        <span class="tag">Vlog</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Vlog</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag">Web</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Web</span>
+                        <span class="tag tag_count">19</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/WordPress/">
-                        <span class="tag">WordPress</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">WordPress</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag">Xpath</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Xpath</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/aiohttp/">
-                        <span class="tag">aiohttp</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">aiohttp</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag">beautifulSoup</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">beautifulSoup</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/codecs/">
-                        <span class="tag">codecs</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">codecs</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/csv/">
-                        <span class="tag">csv</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">csv</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag">datetime</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">datetime</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag">generator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">generator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag">lxml</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">lxml</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/os-path/">
-                        <span class="tag">os.path</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">os.path</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pandas/">
-                        <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag">pustil</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pustil</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pyecharts/">
-                        <span class="tag">pyecharts</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pyecharts</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag">sched</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">sched</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/session/">
-                        <span class="tag">session</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">session</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/the-fuck/">
-                        <span class="tag">the fuck</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">the fuck</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag">time</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">time</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/unsplash/">
-                        <span class="tag">unsplash</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">unsplash</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/web/">
-                        <span class="tag">web</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">web</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%83%E5%A4%95/">
-                        <span class="tag">七夕</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">七夕</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%AD%E9%97%B4%E9%94%AE/">
-                        <span class="tag">中间键</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">中间键</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B9%A6%E7%B1%8D/">
-                        <span class="tag">书籍</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">书籍</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        <span class="tag">二维码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">二维码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%A7%E5%93%81/">
-                        <span class="tag">产品</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">产品</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%90%86/">
-                        <span class="tag">代理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">代理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%89%AF%E4%B8%9A/">
-                        <span class="tag">副业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">副业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="tag">博客</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">博客</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag">反爬虫</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">反爬虫</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="tag">可视化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">可视化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
-                        <span class="tag">后台</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/">
-                        <span class="tag">后台架构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台架构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%95%86%E4%B8%9A/">
-                        <span class="tag">商业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">商业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%9B%BE%E8%A1%A8/">
-                        <span class="tag">图表</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">图表</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag">多线程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多线程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag">多进程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多进程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag">定时任务</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">定时任务</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%B9%B4%E6%80%BB%E7%BB%93/">
-                        <span class="tag">年总结</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">年总结</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/">
-                        <span class="tag">开发进阶</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开发进阶</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
-                        <span class="tag">开源项目</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开源项目</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag">当当</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">当当</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BF%85%E8%83%9C%E5%AE%A2/">
-                        <span class="tag">必胜客</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">必胜客</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag">思念</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">思念</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-                        <span class="tag">性能优化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">性能优化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="tag">总结</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">总结</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%84%9F%E6%82%9F/">
-                        <span class="tag">感悟</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">感悟</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%87%82%E7%82%B9%E7%B3%BB%E5%88%97/">
-                        <span class="tag">懂点系列</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">懂点系列</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag">技巧</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">技巧</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85/">
-                        <span class="tag">抓包</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
-                        <span class="tag">抓包工具</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包工具</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8B%96%E5%BB%B6%E7%97%87/">
-                        <span class="tag">拖延症</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">拖延症</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="tag">操作系统</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">操作系统</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag">数据分析</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据分析</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="tag">数据库</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据库</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag">数据结构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据结构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%99%A8/">
-                        <span class="tag">数据采集器</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据采集器</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="tag">数据集</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据集</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="tag">数组</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数组</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E4%BB%B6%E9%81%8D%E5%8E%86/">
-                        <span class="tag">文件遍历</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文件遍历</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-                        <span class="tag">文本操作</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文本操作</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag">方法论</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">方法论</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-                        <span class="tag">时间管理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">时间管理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <span class="tag">标准库</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">标准库</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag">正则表达式</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">正则表达式</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BA%90%E7%A0%81/">
-                        <span class="tag">源码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">源码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BC%AB%E5%A8%81/">
-                        <span class="tag">漫威</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">漫威</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag">爬虫实战</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">爬虫实战</span>
+                        <span class="tag tag_count">10</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag">电影</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">电影</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%99%BD%E8%9B%87%E7%BC%98%E8%B5%B7/">
-                        <span class="tag">白蛇缘起</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">白蛇缘起</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/">
-                        <span class="tag">短视频</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">短视频</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
-                        <span class="tag">社工库</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">社工库</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">
-                        <span class="tag">竞品分析</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">竞品分析</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
-                        <span class="tag">编码规范</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编码规范</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-                        <span class="tag">编程入门</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编程入门</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">
-                        <span class="tag">网易云音乐</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网易云音乐</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag">网络爬虫</span>
-                        <span class="tag is-grey">24</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网络爬虫</span>
+                        <span class="tag tag_count">24</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="tag">自学</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">自学</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag">认知</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">认知</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B1%86%E7%93%A3/">
-                        <span class="tag">豆瓣</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">豆瓣</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B4%A6%E5%8F%B7%E8%AE%A4%E8%AF%81/">
-                        <span class="tag">账号认证</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">账号认证</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag">阅读</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">阅读</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="tag">面试</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">面试</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="tag">项目实战</span>
-                        <span class="tag is-grey">14</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">项目实战</span>
+                        <span class="tag tag_count">14</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag">验证码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">验证码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
-                        <span class="tag">高并发</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">高并发</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag">鸡汤</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">鸡汤</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
@@ -2131,12 +1993,10 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
-        
-        </div>
+    
     
 </div>
 
-                
             </div>
         </div>
     </section>

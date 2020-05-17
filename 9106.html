@@ -5,7 +5,7 @@
 <!百度站长工具验证>
 <meta name="baidu-site-verification" content="Cg06Zha1ae">
 
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.2.0">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,14 +15,18 @@
     <meta name="description" content="一篇文章彻底了解HTTP发展史">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一篇文章彻底了解HTTP发展史">
-<meta property="og:url" content="https:&#x2F;&#x2F;geekmonkey.top&#x2F;9106.html">
+<meta property="og:url" content="https://geekmonkey.top/9106.html">
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="一篇文章彻底了解HTTP发展史">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyllOU.jpg">
-<meta property="og:updated_time" content="2020-05-15T14:09:10.807Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/15/YyllOU.jpg">
+<meta property="article:published_time" content="2019-09-15T13:14:01.000Z">
+<meta property="article:modified_time" content="2020-05-15T14:09:10.807Z">
+<meta property="article:author" content="极客猴">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="HTTP协议">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;YyllOU.jpg">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/15/YyllOU.jpg">
 
 
 
@@ -110,7 +114,7 @@ var _hmt = _hmt || [];
 <body class="is-2-column">
     <div class="navbar-top">
     <div class="container">
-    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客|公众号『极客猴』</span></p>
     </div>    
 </div>
 <nav class="navbar navbar-main">
@@ -136,7 +140,7 @@ var _hmt = _hmt || [];
                 
                 <a class="navbar-item" href="/treasure">藏宝阁</a>
                 
-                <a class="navbar-item" href="/friends">友情</a>
+                <a class="navbar-item" href="/friends">友情链接</a>
                 
                 <a class="navbar-item" href="/about">关于我</a>
                 
@@ -145,13 +149,13 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
                 <!-- 右边搜索-->
-                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a> 
                 
@@ -205,9 +209,7 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
-
         <br>
-        
         <div class="content_container">
             <!-- 左边封面图 -->
             <div class="thumbnail-left">
@@ -215,79 +217,47 @@ var _hmt = _hmt || [];
             </div>
             <!-- 右边文章概要 -->
             
-                <div class="content">
-                    <p>HTTP 协议可以算是在人们日常生活、工作用得比较多的协议。我们使用浏览器访问网页，就是通过 HTTP 来传递数据；客户端跟服务器交互，大部分会使用到 HTTP 协议。对于我们做数据采集的人来说，也是再正常不过。Requests 和 Scrapy 都是对 HTTP 进行封装的支持自定义配置的库。互联网工程任务组（IETF）在去年提议将 HTTP-over-QUIC 重命名为 HTTP/3。我们是做技术的，需要保持一定敏感度。一旦 HTTP/3 标准被定下来，各大产商会相继支持，那会给我们带来什么影响？需要我们回顾下 HTTP 的发展史。</p>
-<a id="more"></a>
-<h2 id="HTTP-0-9"><a href="#HTTP-0-9" class="headerlink" title="HTTP 0.9"></a>HTTP 0.9</h2><p>我们把时间拨回到 1991年， 万维网协会（World Wide Web Consortium，W3C）和互联网工程任务组（IETF）制定了 HTTP 0.9 标准。因为那个年代互联网还在普及，加上网速带宽低，所以 HTTP 0.9 只支持 GET 请求。</p>
-<h2 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h2><p>时间来到1996 年 5 月，HTTP/1.0 版本发布，HTTP 协议新增很多内容。首先是请求方式的多样化，从单一的 GET 请求，增加了 POST 命令和 HEAD 命令。除此之外，还支持发送任何格式的内容。这两项新增内容，不仅使得互联网不仅可以传输文字、传输图像、视频、二进制文件，还丰富了浏览器与服务器的互动方式。这为互联网的大发展奠定了基础。再次，HTTP请求和回应的格式也变了。除了数据部分，每次通信都必须包括头信息（HTTP header），用来描述一些元数据。其他的新增功能还包括状态码（status code）、多字符集支持、多部分发送（multi-part type）、权限（authorization）、缓存（cache）、内容编码（content encoding）等。</p>
-<p>但 HTTP/1.0 还是存在缺点：</p>
-<ul>
-<li><p>第一点是：<strong>连接无法复用</strong>。HTTP 1.0 规定浏览器与服务器只保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器完成请求处理后立即断开TCP连接，服务器不跟踪每个客户也不记录过去的请求。如果还要请求其他资源，就必须再新建一个连接。</p>
-</li>
-<li><p>第二点是：<strong>Head-Of-Line Blocking（HOLB，队头阻塞）</strong>。HOLB 是指一系列包（package）因为第一个包被阻塞；当页面中需要请求很多资源的时候，HOLB 会导致在达到最大请求数量时，剩余的资源需要等待其它资源请求完成后才能发起请求。这会导致带宽无法被充分利用，以及后续健康请求被阻塞。</p>
-</li>
-</ul>
-<h2 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h2><p>W3C 组织为了解决 HTTP 1.0 遗留的问题，在 1997 年 1 月，发布 HTTP/1.1 版本，只比 1.0 版本晚了半年。它进一步完善了 HTTP 协议，一直用到了20年后的今天，直到现在还是最流行的版本。具体优化点：</p>
-<ol>
-<li>缓存处理。在 HTTP 1.0 中主要使用 header 里的 If-Modified-Since,Expires 来做为缓存判断的标准，HTTP 1.1则引入了更多的缓存控制策略例如 Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</li>
-<li>带宽优化及网络连接的使用。针对网络开销大的问题，HTTP 1.1 在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
-<li>错误通知的管理。在HTTP1.1中新增了24个错误状态响应码。<br>4 . 长链接。HTTP/1.1 加入 Connection：keep-alive 可以复用一部分连接，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟。</li>
-</ol>
-<p>随着网络的发展，HTTP 1.1 还是暴露出一些局限性。</p>
-<ol>
-<li>虽然加入 keep-alive 可以复用一部分连接，但域名分片等情况下仍然需要建立多个 connection，耗费资源，给服务器带来性能压力。</li>
-<li>pipeling 只部分解决了 HOLB。HTTP 1.1 尝试使用 pipeling 来解决队头阻塞问题，即浏览器可以一次性发出多个请求（同个域名、同一条 TCP 链接）。但 pipeling 要求返回是按序的，那么前一个请求如果很耗时（比如处理大图片），那么后面的请求即使服务器已经处理完，仍会等待前面的请求处理完才开始按序返回。</li>
-<li>协议开销大。HTTP/1 在使用时，header 里携带的内容过大，在一定程度上增加了传输的成本，并且每次请求 header 基本不怎么变化，尤其在移动端增加用户流量。</li>
-</ol>
-<h2 id="HTTP-2-0"><a href="#HTTP-2-0" class="headerlink" title="HTTP  2.0"></a>HTTP  2.0</h2><p>互联网的发展还是受到网络速度的限制。有个调侃的话，<strong>永远不要忽略一辆载满磁带的在高速公路上飞驰的卡车的带宽</strong>。大概意思说数据量大到一定程度时，物理运输无论是速度、安全性、便捷性都比网络传输好。</p>
-<p>谷歌是业务首先提出云计算的概念；加上谷歌的公司文化特点是自己内部信息公开、透明，每个人都能了解到其他任何人当前的工作计划、代码等。谷歌为了解决内部系统传输数据慢的问题，自行研发的 SPDY 协议，目的是以最小化网络延迟，提升网络速度，解决 HTTP/1.1 效率不高的问题。 </p>
-<p>SPDY 协议是在 TCP 协议之上。相比 HTTP/1 的文本格式，HTTP/2 采用二进制格式传输数据，解析起来更高效。同时，还支持对 Header 压缩，减少头部的包体积大小。</p>
-<p><img src="./images/img/148_1.png" alt></p>
-<p>HTTP 2.0 还引入了多路复用技术。多路复用很好地解决了浏览器限制同一个域名下的请求数量的问题，同时也更容易实现全速传输，毕竟新开一个 TCP 连接都需要慢慢提升传输速度。</p>
-<p>谷歌于2009 年公开了 SPDY 协议，W3C 组织协议不错。于是乎，W3C 将 SPDY 协议引入到 HTTP 协议中，在 2012 年发布 HTTP 2.0。</p>
-<h2 id="HTTP-3-0"><a href="#HTTP-3-0" class="headerlink" title="HTTP  3.0"></a>HTTP  3.0</h2><p>不得不说谷歌的技术确实牛逼，TCP 协议虽然能保证不丢包，但还是存在一些局限性。谷歌为了提高Web联网的速度决定推倒重来，吸收 TCP 快速打开的技术，缓存当前会话的上下文等优点，基于 UDP 协议研发一种名为QUIC （全称是“快速UDP互联网连接”）的实验性网络协议，并且使用运用在 Chrome 浏览器上。</p>
-<p>我们可以在 Chrome 浏览器地址栏上输入 <code>chrome://flags/</code> 来体验 QUIC。</p>
-<p><img src="./images/img/148_2.png" alt></p>
-<p>身兼 IETF 旗下 HTTP 工作组组长和 QUIC 工作组组长的马克•诺丁汉（Mark Nottingham）提议，将 HTTP-over-QUIC 实验性协议将被重命名为 HTTP/3，并有望成为 HTTP 协议的第三个正式版本。</p>
-
-                </div>             
-            
-            <!-- <p>HTTP 协议可以算是在人们日常生活、工作用得比较多的协议。我们使用浏览器访问网页，就是通过 HTTP 来传递数据；客户端跟服务器交互，大部分会使用到 HTTP 协议。对于我们做数据采集的人来说，也是再正常不过。Requests 和 Scrapy 都是对 HTTP 进行封装的支持自定义配置的库。互联网工程任务组（IETF）在去年提议将 HTTP-over-QUIC 重命名为 HTTP/3。我们是做技术的，需要保持一定敏感度。一旦 HTTP/3 标准被定下来，各大产商会相继支持，那会给我们带来什么影响？需要我们回顾下 HTTP 的发展史。</p>
-<a id="more"></a>
-<h2 id="HTTP-0-9"><a href="#HTTP-0-9" class="headerlink" title="HTTP 0.9"></a>HTTP 0.9</h2><p>我们把时间拨回到 1991年， 万维网协会（World Wide Web Consortium，W3C）和互联网工程任务组（IETF）制定了 HTTP 0.9 标准。因为那个年代互联网还在普及，加上网速带宽低，所以 HTTP 0.9 只支持 GET 请求。</p>
-<h2 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h2><p>时间来到1996 年 5 月，HTTP/1.0 版本发布，HTTP 协议新增很多内容。首先是请求方式的多样化，从单一的 GET 请求，增加了 POST 命令和 HEAD 命令。除此之外，还支持发送任何格式的内容。这两项新增内容，不仅使得互联网不仅可以传输文字、传输图像、视频、二进制文件，还丰富了浏览器与服务器的互动方式。这为互联网的大发展奠定了基础。再次，HTTP请求和回应的格式也变了。除了数据部分，每次通信都必须包括头信息（HTTP header），用来描述一些元数据。其他的新增功能还包括状态码（status code）、多字符集支持、多部分发送（multi-part type）、权限（authorization）、缓存（cache）、内容编码（content encoding）等。</p>
-<p>但 HTTP/1.0 还是存在缺点：</p>
-<ul>
-<li><p>第一点是：<strong>连接无法复用</strong>。HTTP 1.0 规定浏览器与服务器只保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器完成请求处理后立即断开TCP连接，服务器不跟踪每个客户也不记录过去的请求。如果还要请求其他资源，就必须再新建一个连接。</p>
-</li>
-<li><p>第二点是：<strong>Head-Of-Line Blocking（HOLB，队头阻塞）</strong>。HOLB 是指一系列包（package）因为第一个包被阻塞；当页面中需要请求很多资源的时候，HOLB 会导致在达到最大请求数量时，剩余的资源需要等待其它资源请求完成后才能发起请求。这会导致带宽无法被充分利用，以及后续健康请求被阻塞。</p>
-</li>
-</ul>
-<h2 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h2><p>W3C 组织为了解决 HTTP 1.0 遗留的问题，在 1997 年 1 月，发布 HTTP/1.1 版本，只比 1.0 版本晚了半年。它进一步完善了 HTTP 协议，一直用到了20年后的今天，直到现在还是最流行的版本。具体优化点：</p>
-<ol>
-<li>缓存处理。在 HTTP 1.0 中主要使用 header 里的 If-Modified-Since,Expires 来做为缓存判断的标准，HTTP 1.1则引入了更多的缓存控制策略例如 Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</li>
-<li>带宽优化及网络连接的使用。针对网络开销大的问题，HTTP 1.1 在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
-<li>错误通知的管理。在HTTP1.1中新增了24个错误状态响应码。<br>4 . 长链接。HTTP/1.1 加入 Connection：keep-alive 可以复用一部分连接，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟。</li>
-</ol>
-<p>随着网络的发展，HTTP 1.1 还是暴露出一些局限性。</p>
-<ol>
-<li>虽然加入 keep-alive 可以复用一部分连接，但域名分片等情况下仍然需要建立多个 connection，耗费资源，给服务器带来性能压力。</li>
-<li>pipeling 只部分解决了 HOLB。HTTP 1.1 尝试使用 pipeling 来解决队头阻塞问题，即浏览器可以一次性发出多个请求（同个域名、同一条 TCP 链接）。但 pipeling 要求返回是按序的，那么前一个请求如果很耗时（比如处理大图片），那么后面的请求即使服务器已经处理完，仍会等待前面的请求处理完才开始按序返回。</li>
-<li>协议开销大。HTTP/1 在使用时，header 里携带的内容过大，在一定程度上增加了传输的成本，并且每次请求 header 基本不怎么变化，尤其在移动端增加用户流量。</li>
-</ol>
-<h2 id="HTTP-2-0"><a href="#HTTP-2-0" class="headerlink" title="HTTP  2.0"></a>HTTP  2.0</h2><p>互联网的发展还是受到网络速度的限制。有个调侃的话，<strong>永远不要忽略一辆载满磁带的在高速公路上飞驰的卡车的带宽</strong>。大概意思说数据量大到一定程度时，物理运输无论是速度、安全性、便捷性都比网络传输好。</p>
-<p>谷歌是业务首先提出云计算的概念；加上谷歌的公司文化特点是自己内部信息公开、透明，每个人都能了解到其他任何人当前的工作计划、代码等。谷歌为了解决内部系统传输数据慢的问题，自行研发的 SPDY 协议，目的是以最小化网络延迟，提升网络速度，解决 HTTP/1.1 效率不高的问题。 </p>
-<p>SPDY 协议是在 TCP 协议之上。相比 HTTP/1 的文本格式，HTTP/2 采用二进制格式传输数据，解析起来更高效。同时，还支持对 Header 压缩，减少头部的包体积大小。</p>
-<p><img src="./images/img/148_1.png" alt></p>
-<p>HTTP 2.0 还引入了多路复用技术。多路复用很好地解决了浏览器限制同一个域名下的请求数量的问题，同时也更容易实现全速传输，毕竟新开一个 TCP 连接都需要慢慢提升传输速度。</p>
-<p>谷歌于2009 年公开了 SPDY 协议，W3C 组织协议不错。于是乎，W3C 将 SPDY 协议引入到 HTTP 协议中，在 2012 年发布 HTTP 2.0。</p>
-<h2 id="HTTP-3-0"><a href="#HTTP-3-0" class="headerlink" title="HTTP  3.0"></a>HTTP  3.0</h2><p>不得不说谷歌的技术确实牛逼，TCP 协议虽然能保证不丢包，但还是存在一些局限性。谷歌为了提高Web联网的速度决定推倒重来，吸收 TCP 快速打开的技术，缓存当前会话的上下文等优点，基于 UDP 协议研发一种名为QUIC （全称是“快速UDP互联网连接”）的实验性网络协议，并且使用运用在 Chrome 浏览器上。</p>
-<p>我们可以在 Chrome 浏览器地址栏上输入 <code>chrome://flags/</code> 来体验 QUIC。</p>
-<p><img src="./images/img/148_2.png" alt></p>
-<p>身兼 IETF 旗下 HTTP 工作组组长和 QUIC 工作组组长的马克•诺丁汉（Mark Nottingham）提议，将 HTTP-over-QUIC 实验性协议将被重命名为 HTTP/3，并有望成为 HTTP 协议的第三个正式版本。</p>
-  -->
         </div>
+        <!-- 文章页面显示全部内容 -->
+        
+            <div class="content">
+                <p>HTTP 协议可以算是在人们日常生活、工作用得比较多的协议。我们使用浏览器访问网页，就是通过 HTTP 来传递数据；客户端跟服务器交互，大部分会使用到 HTTP 协议。对于我们做数据采集的人来说，也是再正常不过。Requests 和 Scrapy 都是对 HTTP 进行封装的支持自定义配置的库。互联网工程任务组（IETF）在去年提议将 HTTP-over-QUIC 重命名为 HTTP/3。我们是做技术的，需要保持一定敏感度。一旦 HTTP/3 标准被定下来，各大产商会相继支持，那会给我们带来什么影响？需要我们回顾下 HTTP 的发展史。</p>
+<a id="more"></a>
+<h2 id="HTTP-0-9"><a href="#HTTP-0-9" class="headerlink" title="HTTP 0.9"></a>HTTP 0.9</h2><p>我们把时间拨回到 1991年， 万维网协会（World Wide Web Consortium，W3C）和互联网工程任务组（IETF）制定了 HTTP 0.9 标准。因为那个年代互联网还在普及，加上网速带宽低，所以 HTTP 0.9 只支持 GET 请求。</p>
+<h2 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h2><p>时间来到1996 年 5 月，HTTP/1.0 版本发布，HTTP 协议新增很多内容。首先是请求方式的多样化，从单一的 GET 请求，增加了 POST 命令和 HEAD 命令。除此之外，还支持发送任何格式的内容。这两项新增内容，不仅使得互联网不仅可以传输文字、传输图像、视频、二进制文件，还丰富了浏览器与服务器的互动方式。这为互联网的大发展奠定了基础。再次，HTTP请求和回应的格式也变了。除了数据部分，每次通信都必须包括头信息（HTTP header），用来描述一些元数据。其他的新增功能还包括状态码（status code）、多字符集支持、多部分发送（multi-part type）、权限（authorization）、缓存（cache）、内容编码（content encoding）等。</p>
+<p>但 HTTP/1.0 还是存在缺点：</p>
+<ul>
+<li><p>第一点是：<strong>连接无法复用</strong>。HTTP 1.0 规定浏览器与服务器只保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器完成请求处理后立即断开TCP连接，服务器不跟踪每个客户也不记录过去的请求。如果还要请求其他资源，就必须再新建一个连接。</p>
+</li>
+<li><p>第二点是：<strong>Head-Of-Line Blocking（HOLB，队头阻塞）</strong>。HOLB 是指一系列包（package）因为第一个包被阻塞；当页面中需要请求很多资源的时候，HOLB 会导致在达到最大请求数量时，剩余的资源需要等待其它资源请求完成后才能发起请求。这会导致带宽无法被充分利用，以及后续健康请求被阻塞。</p>
+</li>
+</ul>
+<h2 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h2><p>W3C 组织为了解决 HTTP 1.0 遗留的问题，在 1997 年 1 月，发布 HTTP/1.1 版本，只比 1.0 版本晚了半年。它进一步完善了 HTTP 协议，一直用到了20年后的今天，直到现在还是最流行的版本。具体优化点：</p>
+<ol>
+<li>缓存处理。在 HTTP 1.0 中主要使用 header 里的 If-Modified-Since,Expires 来做为缓存判断的标准，HTTP 1.1则引入了更多的缓存控制策略例如 Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</li>
+<li>带宽优化及网络连接的使用。针对网络开销大的问题，HTTP 1.1 在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
+<li>错误通知的管理。在HTTP1.1中新增了24个错误状态响应码。<br>4 . 长链接。HTTP/1.1 加入 Connection：keep-alive 可以复用一部分连接，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟。</li>
+</ol>
+<p>随着网络的发展，HTTP 1.1 还是暴露出一些局限性。</p>
+<ol>
+<li>虽然加入 keep-alive 可以复用一部分连接，但域名分片等情况下仍然需要建立多个 connection，耗费资源，给服务器带来性能压力。</li>
+<li>pipeling 只部分解决了 HOLB。HTTP 1.1 尝试使用 pipeling 来解决队头阻塞问题，即浏览器可以一次性发出多个请求（同个域名、同一条 TCP 链接）。但 pipeling 要求返回是按序的，那么前一个请求如果很耗时（比如处理大图片），那么后面的请求即使服务器已经处理完，仍会等待前面的请求处理完才开始按序返回。</li>
+<li>协议开销大。HTTP/1 在使用时，header 里携带的内容过大，在一定程度上增加了传输的成本，并且每次请求 header 基本不怎么变化，尤其在移动端增加用户流量。</li>
+</ol>
+<h2 id="HTTP-2-0"><a href="#HTTP-2-0" class="headerlink" title="HTTP  2.0"></a>HTTP  2.0</h2><p>互联网的发展还是受到网络速度的限制。有个调侃的话，<strong>永远不要忽略一辆载满磁带的在高速公路上飞驰的卡车的带宽</strong>。大概意思说数据量大到一定程度时，物理运输无论是速度、安全性、便捷性都比网络传输好。</p>
+<p>谷歌是业务首先提出云计算的概念；加上谷歌的公司文化特点是自己内部信息公开、透明，每个人都能了解到其他任何人当前的工作计划、代码等。谷歌为了解决内部系统传输数据慢的问题，自行研发的 SPDY 协议，目的是以最小化网络延迟，提升网络速度，解决 HTTP/1.1 效率不高的问题。 </p>
+<p>SPDY 协议是在 TCP 协议之上。相比 HTTP/1 的文本格式，HTTP/2 采用二进制格式传输数据，解析起来更高效。同时，还支持对 Header 压缩，减少头部的包体积大小。</p>
+<p><img src="./images/img/148_1.png" alt></p>
+<p>HTTP 2.0 还引入了多路复用技术。多路复用很好地解决了浏览器限制同一个域名下的请求数量的问题，同时也更容易实现全速传输，毕竟新开一个 TCP 连接都需要慢慢提升传输速度。</p>
+<p>谷歌于2009 年公开了 SPDY 协议，W3C 组织协议不错。于是乎，W3C 将 SPDY 协议引入到 HTTP 协议中，在 2012 年发布 HTTP 2.0。</p>
+<h2 id="HTTP-3-0"><a href="#HTTP-3-0" class="headerlink" title="HTTP  3.0"></a>HTTP  3.0</h2><p>不得不说谷歌的技术确实牛逼，TCP 协议虽然能保证不丢包，但还是存在一些局限性。谷歌为了提高Web联网的速度决定推倒重来，吸收 TCP 快速打开的技术，缓存当前会话的上下文等优点，基于 UDP 协议研发一种名为QUIC （全称是“快速UDP互联网连接”）的实验性网络协议，并且使用运用在 Chrome 浏览器上。</p>
+<p>我们可以在 Chrome 浏览器地址栏上输入 <code>chrome://flags/</code> 来体验 QUIC。</p>
+<p><img src="./images/img/148_2.png" alt></p>
+<p>身兼 IETF 旗下 HTTP 工作组组长和 QUIC 工作组组长的马克•诺丁汉（Mark Nottingham）提议，将 HTTP-over-QUIC 实验性协议将被重命名为 HTTP/3，并有望成为 HTTP 协议的第三个正式版本。</p>
 
+            </div>   
+        
+        <br>
         <!-- 增加微信公众号首发说明 -->
         
         <div>
@@ -307,7 +277,7 @@ var _hmt = _hmt || [];
             </li>
             </ul>
         
-        <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
+            <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
         
         
         <hr style="height:1px;margin:1rem 0">
@@ -336,6 +306,8 @@ var _hmt = _hmt || [];
 
 
 
+
+
 <div class="card">
     <div class="card-content">
         <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
@@ -354,6 +326,7 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </div>
+
 
 
 
@@ -403,11 +376,13 @@ var _hmt = _hmt || [];
 </div>
 </div>
                 
+                
+                
 
 
 
 
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -474,9 +449,6 @@ var _hmt = _hmt || [];
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank" rel="external nofollow noopener noreferrer">
                 关注我</a>
-            <div clas="level" id="knowledge-qrcode" style="display: none; height: 330px; padding: 0px; margin: 0px; width: 242px; opacity: 1;">
-                <img src="https://s1.ax1x.com/2020/05/14/YBHCAU.png" alt="极客猴的公众号" width="100%">
-            </div>
         </div>
         
         
@@ -541,12 +513,32 @@ var _hmt = _hmt || [];
     </div>
 
     
+        <div class="card widget">
+  <div class="weight_card-content">
+    <div class="menu">
+      <h4 class="menu_weight" style="text-align:center;">更多内容,请关注公众号！</h4>
+      <div>
+        <img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" alt="极客猴的公众号" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <div class="card widget">
+    <div>
+      <a href="https://reg.huaweicloud.com/registerui/cn/register.html?bpInvite=7a2d288001c6466a&service=https%3A%2F%2Faccount.huaweicloud.com%2Fusercenter%2F%3Flocale%3Dzh-cn%26hws_route_url%3DregistSuccess%26bpInvite%3D7a2d288001c6466a%26bpName%3D5f9f98a29e2c40b780c1793086f29fe2%26inviteCode%3Dchanql123%26bindType%3D1#/register" target="_blank" rel="external nofollow noopener noreferrer">
+      <img src="https://s1.ax1x.com/2020/05/17/Y25LY6.png" alt="华为云新用户福利" width="100%">
+      </a>
+    </div>
+</div>
+    
         <!-- 侧边组件-专栏 -->
 
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 专栏
             </h3>
             <ul class="menu-list">
@@ -632,386 +624,387 @@ var _hmt = _hmt || [];
     <!-- 优化移动端显示，隐藏 archive  -->
     <div class="card-content is-hidden-mobile">
         <div class="menu">
-        <h3 class="menu-label">
+        <h3 class="menu_weight">
             归档
         </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">7</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
+
+            <div class="field is-grouped is-grouped-multiline">
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">7</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/05/">
+                            <span class="level-start">
+                                <span class="level-item">五月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                
+            </div>
         </div>
     </div>
 </div>
@@ -1019,940 +1012,883 @@ var _hmt = _hmt || [];
         <div class="card widget">
     <div class="card-content">
         <div class="menu">
-        <h3 class="menu-label">
-            我的好友
-        </h3>
-
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://python。iswbm.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="https://dp2px.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;水寒的博客</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.gcowsec.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Gcow 安全团队</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-    
-        <!-- -->
-        <div class="column-right-shadow 
-         
-        ">
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag">APScheduler</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">APScheduler</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Chrome/">
-                        <span class="tag">Chrome</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Chrome</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Debian/">
-                        <span class="tag">Debian</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Debian</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag">Django</span>
-                        <span class="tag is-grey">20</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Django</span>
+                        <span class="tag tag_count">20</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Djongo/">
-                        <span class="tag">Djongo</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Djongo</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Flask/">
-                        <span class="tag">Flask</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Flask</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Github/">
-                        <span class="tag">Github</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Github</span>
+                        <span class="tag tag_count">6</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag">HTTP</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">HTTP</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Hexo/">
-                        <span class="tag">Hexo</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Hexo</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IG/">
-                        <span class="tag">IG</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IG</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag">IP代理池</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IP代理池</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag">Iterable</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterable</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag">Iterator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Jekyll/">
-                        <span class="tag">Jekyll</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Jekyll</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag">Linux</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Linux</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MangoDB/">
-                        <span class="tag">MangoDB</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MangoDB</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Matplotlib</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mongo-Plugin/">
-                        <span class="tag">Mongo Plugin</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mongo Plugin</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MongoDB/">
-                        <span class="tag">MongoDB</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MongoDB</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mysql/">
-                        <span class="tag">Mysql</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mysql</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Nosqlclient/">
-                        <span class="tag">Nosqlclient</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Nosqlclient</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OAuth/">
-                        <span class="tag">OAuth</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OAuth</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag">OCR</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OCR</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/PEP/">
-                        <span class="tag">PEP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">PEP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pandas/">
-                        <span class="tag">Pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pycharm/">
-                        <span class="tag">Pycharm</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pycharm</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag">Python</span>
-                        <span class="tag is-grey">78</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Python</span>
+                        <span class="tag tag_count">78</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Redis</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Request/">
-                        <span class="tag">Request</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Request</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag">Requests</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Requests</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/SEO-%E4%BC%98%E5%8C%96/">
-                        <span class="tag">SEO 优化</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">SEO 优化</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag">Scrapy</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Scrapy</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Selenium/">
-                        <span class="tag">Selenium</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Selenium</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Session/">
-                        <span class="tag">Session</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Session</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/TCP/">
-                        <span class="tag">TCP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">TCP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Token/">
-                        <span class="tag">Token</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Token</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Ubuntu/">
-                        <span class="tag">Ubuntu</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Ubuntu</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Unicode/">
-                        <span class="tag">Unicode</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Unicode</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Vlog/">
-                        <span class="tag">Vlog</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Vlog</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag">Web</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Web</span>
+                        <span class="tag tag_count">19</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/WordPress/">
-                        <span class="tag">WordPress</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">WordPress</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag">Xpath</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Xpath</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/aiohttp/">
-                        <span class="tag">aiohttp</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">aiohttp</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag">beautifulSoup</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">beautifulSoup</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/codecs/">
-                        <span class="tag">codecs</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">codecs</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/csv/">
-                        <span class="tag">csv</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">csv</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag">datetime</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">datetime</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag">generator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">generator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag">lxml</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">lxml</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/os-path/">
-                        <span class="tag">os.path</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">os.path</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pandas/">
-                        <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag">pustil</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pustil</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pyecharts/">
-                        <span class="tag">pyecharts</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pyecharts</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag">sched</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">sched</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/session/">
-                        <span class="tag">session</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">session</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/the-fuck/">
-                        <span class="tag">the fuck</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">the fuck</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag">time</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">time</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/unsplash/">
-                        <span class="tag">unsplash</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">unsplash</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/web/">
-                        <span class="tag">web</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">web</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%83%E5%A4%95/">
-                        <span class="tag">七夕</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">七夕</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%AD%E9%97%B4%E9%94%AE/">
-                        <span class="tag">中间键</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">中间键</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B9%A6%E7%B1%8D/">
-                        <span class="tag">书籍</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">书籍</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        <span class="tag">二维码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">二维码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%A7%E5%93%81/">
-                        <span class="tag">产品</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">产品</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%90%86/">
-                        <span class="tag">代理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">代理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%89%AF%E4%B8%9A/">
-                        <span class="tag">副业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">副业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="tag">博客</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">博客</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag">反爬虫</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">反爬虫</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="tag">可视化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">可视化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
-                        <span class="tag">后台</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/">
-                        <span class="tag">后台架构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台架构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%95%86%E4%B8%9A/">
-                        <span class="tag">商业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">商业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%9B%BE%E8%A1%A8/">
-                        <span class="tag">图表</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">图表</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag">多线程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多线程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag">多进程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多进程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag">定时任务</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">定时任务</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%B9%B4%E6%80%BB%E7%BB%93/">
-                        <span class="tag">年总结</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">年总结</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/">
-                        <span class="tag">开发进阶</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开发进阶</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
-                        <span class="tag">开源项目</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开源项目</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag">当当</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">当当</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BF%85%E8%83%9C%E5%AE%A2/">
-                        <span class="tag">必胜客</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">必胜客</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag">思念</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">思念</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-                        <span class="tag">性能优化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">性能优化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="tag">总结</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">总结</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%84%9F%E6%82%9F/">
-                        <span class="tag">感悟</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">感悟</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%87%82%E7%82%B9%E7%B3%BB%E5%88%97/">
-                        <span class="tag">懂点系列</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">懂点系列</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag">技巧</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">技巧</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85/">
-                        <span class="tag">抓包</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
-                        <span class="tag">抓包工具</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包工具</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8B%96%E5%BB%B6%E7%97%87/">
-                        <span class="tag">拖延症</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">拖延症</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="tag">操作系统</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">操作系统</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag">数据分析</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据分析</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="tag">数据库</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据库</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag">数据结构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据结构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%99%A8/">
-                        <span class="tag">数据采集器</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据采集器</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="tag">数据集</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据集</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="tag">数组</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数组</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E4%BB%B6%E9%81%8D%E5%8E%86/">
-                        <span class="tag">文件遍历</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文件遍历</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-                        <span class="tag">文本操作</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文本操作</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag">方法论</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">方法论</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-                        <span class="tag">时间管理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">时间管理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <span class="tag">标准库</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">标准库</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag">正则表达式</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">正则表达式</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BA%90%E7%A0%81/">
-                        <span class="tag">源码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">源码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BC%AB%E5%A8%81/">
-                        <span class="tag">漫威</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">漫威</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag">爬虫实战</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">爬虫实战</span>
+                        <span class="tag tag_count">10</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag">电影</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">电影</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%99%BD%E8%9B%87%E7%BC%98%E8%B5%B7/">
-                        <span class="tag">白蛇缘起</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">白蛇缘起</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/">
-                        <span class="tag">短视频</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">短视频</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
-                        <span class="tag">社工库</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">社工库</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">
-                        <span class="tag">竞品分析</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">竞品分析</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
-                        <span class="tag">编码规范</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编码规范</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-                        <span class="tag">编程入门</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编程入门</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">
-                        <span class="tag">网易云音乐</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网易云音乐</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag">网络爬虫</span>
-                        <span class="tag is-grey">24</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网络爬虫</span>
+                        <span class="tag tag_count">24</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="tag">自学</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">自学</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag">认知</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">认知</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B1%86%E7%93%A3/">
-                        <span class="tag">豆瓣</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">豆瓣</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B4%A6%E5%8F%B7%E8%AE%A4%E8%AF%81/">
-                        <span class="tag">账号认证</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">账号认证</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag">阅读</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">阅读</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="tag">面试</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">面试</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="tag">项目实战</span>
-                        <span class="tag is-grey">14</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">项目实战</span>
+                        <span class="tag tag_count">14</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag">验证码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">验证码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
-                        <span class="tag">高并发</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">高并发</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag">鸡汤</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">鸡汤</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
@@ -1961,12 +1897,10 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
-        
-        </div>
+    
     
 </div>
 
-                
             </div>
         </div>
     </section>

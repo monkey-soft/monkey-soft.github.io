@@ -5,7 +5,7 @@
 <!百度站长工具验证>
 <meta name="baidu-site-verification" content="Cg06Zha1ae">
 
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.2.0">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,14 +15,20 @@
     <meta name="description" content="利用 Github+Hexo 搭建个人博客网站">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用 Github+Hexo 搭建个人博客网站">
-<meta property="og:url" content="https:&#x2F;&#x2F;geekmonkey.top&#x2F;11112.html">
+<meta property="og:url" content="https://geekmonkey.top/11112.html">
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="利用 Github+Hexo 搭建个人博客网站">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Yy1B3q.jpg">
-<meta property="og:updated_time" content="2020-05-15T14:11:48.358Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/15/Yy1B3q.jpg">
+<meta property="article:published_time" content="2019-11-25T09:28:07.000Z">
+<meta property="article:modified_time" content="2020-05-15T14:11:48.358Z">
+<meta property="article:author" content="极客猴">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Github">
+<meta property="article:tag" content="SEO 优化">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Yy1B3q.jpg">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/15/Yy1B3q.jpg">
 
 
 
@@ -110,7 +116,7 @@ var _hmt = _hmt || [];
 <body class="is-2-column">
     <div class="navbar-top">
     <div class="container">
-    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客|公众号『极客猴』</span></p>
     </div>    
 </div>
 <nav class="navbar navbar-main">
@@ -136,7 +142,7 @@ var _hmt = _hmt || [];
                 
                 <a class="navbar-item" href="/treasure">藏宝阁</a>
                 
-                <a class="navbar-item" href="/friends">友情</a>
+                <a class="navbar-item" href="/friends">友情链接</a>
                 
                 <a class="navbar-item" href="/about">关于我</a>
                 
@@ -145,13 +151,13 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
                 <!-- 右边搜索-->
-                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a> 
                 
@@ -205,9 +211,7 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
-
         <br>
-        
         <div class="content_container">
             <!-- 左边封面图 -->
             <div class="thumbnail-left">
@@ -215,169 +219,92 @@ var _hmt = _hmt || [];
             </div>
             <!-- 右边文章概要 -->
             
-                <div class="content">
-                    <p>我之前写过一篇文章<a href="https://geekmonkey.top/11111.html">《利用Github+Jeklly搭建个人博客网站》</a>，利用 Github 仓库提供的 github pages 来搭建个人博客。Jekyll 和 Hexo 可以说是最受欢迎、用户都非常多的两个<strong>静态博客生成系统</strong>。本文给大家介绍利用 Hexo 结合 Github pages 来搭建个人网站。</p>
-<a id="more"></a>
-
-<h2 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h2><p>Hexo 是一个基于 node.js 制作的快速、简洁且高效的博客框架。Hexo 可以将我们撰写的 Markdown 文档解析渲染成静态的 HTML 网页。</p>
-<h2 id="Hexo-VS-Jeklly"><a href="#Hexo-VS-Jeklly" class="headerlink" title="Hexo VS Jeklly"></a>Hexo VS Jeklly</h2><ul>
-<li>本地环境</li>
-</ul>
-<p>Jeklly 是由 Ruby 语言编写，需要到官网下载并安装 RubyInstaller。Hexo 则需要安装 Node.js 环境。网上经常看到很多人吐槽安装 Jekyll 经常碰到各种问题。我分别在 Windows 下安装过这两个环境。整个流程跑下来还是挺顺利的。</p>
-<ul>
-<li>速度</li>
-</ul>
-<p>说是比较 Hexo 和 Jeklly 这两个框架，其实要比较 Ruby 和 Node.js 的运行速度。Node.js 是一个 Javascrip t运行环境(Runtime)。实际上它是对 Google V8 引擎进行了封装。众所周知，Google JS Runtime 速度非常快，性能非常好。在本地预览上，Jekyll 是生成了页面然后进行预览，而 Hexo 是没有在根目录生成文件的，速度也快不少。因此，Hexo 在性能和速度上面更胜一筹。</p>
-<ul>
-<li>部署</li>
-</ul>
-<p>Jeklly 是将整个工程源码上传到 Github 仓库，然后 Github 会自动生成静态文件。而 Hexo 需要事先在本地生成整个站点页面，再将 Html 文件、资源文件等上传到 Github 上。</p>
-<ul>
-<li>主题</li>
-</ul>
-<p>Jekyll 使用 Liquid；它是有 Ruby 语言编写的开源模板语言。Hexo 使用的是 EJS；EJS 是 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。EJS 相对比较复杂，所以可实现的功能更加的多。从开发一个主题难度上看，Hexo 实现起来更方便、更简单些。</p>
-<ul>
-<li>生态</li>
-</ul>
-<p>一个产品能不能快速上手，要看其生态圈是否完善。在文档说明配套方面，Hexo 更加完善。我们能在 Hexo 官网上找到中文的文档说明。Jeklly 的中文文档还是广大网友自发组织翻译的。从主体方面上看，Hexo 官网就有主题跳转链接，目前一共有 280 个主题；这 Jeklly 是无法比拟的。再者，相比 Ruby，Node.js 使用的人群更广, 火爆程度更好。因此，我们通过搜索引擎搜索问题时，搜到 Hexo 的资料量会大于 Jeklly，这也是造成网友吐槽 Jeklly 的原因。</p>
-<h2 id="创建-Github-项目"><a href="#创建-Github-项目" class="headerlink" title="创建 Github 项目"></a>创建 Github 项目</h2><p>我们是将网页托管到 Github Pages 上，这部分就不再花篇幅去详细介绍，具体可以参考《利用Github+Jeklly搭建个人博客网站》的内容。简单来说，就是创建一个 Github 项目，项目名称命名格式是 <code>username.GitHub.io</code>。</p>
-<h2 id="搭建本地-Hexo-环境"><a href="#搭建本地-Hexo-环境" class="headerlink" title="搭建本地 Hexo 环境"></a>搭建本地 Hexo 环境</h2><p>首先我们需要到 Node.js 官网，根据自己系统平台以及系统版本下载 <a href="https://nodejs.org/en/download/" target="_blank" rel="external nofollow noopener noreferrer">Node.js 安装包</a>，安装的时候记得将 node.js 添加到系统变量中。</p>
-<p>安装后，分别以下命令来检测 Node.js 和 npm 是否安装成功</p>
-<p><img src="./images/img/157_1.jpg" alt></p>
-<p>能看到版本号，说明 Node.js 环境安装成功。然后我们使用 npm 来安装 Hexo。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<h2 id="构建本地项目"><a href="#构建本地项目" class="headerlink" title="构建本地项目"></a>构建本地项目</h2><p>在本地磁盘中，创建一个名为 Github_blog 的文件夹，用来保存网站项目的文件。接着，通过终端执行命令来初始化 Hexo 工程。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init monkey-soft.github.io  # 创建工程名，随意命名</span><br><span class="line">$ cd monkey-soft.github.io</span><br><span class="line">$ npm install # 安装 node 所需模块</span><br></pre></td></tr></table></figure>
-
-<p>执行完命令之后，我们能看到 Github_blog 多出一个 monkey-soft.github.io 的子文件夹，里面还有 Hexo 默认生成的文件。</p>
-<p><img src="./images/img/157_2.png" alt></p>
-<ul>
-<li>deploy_git<br>Hexo 借助 Git 推送网站信息到 Github 仓库所生成的文体。</li>
-<li>public<br>执行生成站点文件的命令，即<code>hexo g</code>，Hexo 将自动生成静态网页和资源文件都保存到这里</li>
-<li>scaffolds<br>模版 文件夹。当我们新建文章时，Hexo 会根据 scaffold 来建立 Markdown 文件。</li>
-<li>source<br>里面有个 <code>_posts</code> 文件夹，存放着我们以 Markdown 语法创造内容的文件。</li>
-<li>themes<br>Hexo 主题存放的文件夹</li>
-<li>_config.yml<br>Hexo 项目的配置文件，配置网站的基本信息、网页 URL 路径、时间格式、文章分页、扩展插件等信息。这里的 Site 配置建议都修改下。</li>
-</ul>
-<p><img src="./images/img/157_3.jpg" alt></p>
-<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>当我们创建 Hexo 项目之后，项目中默认会有一个名为 landscape 的主题。如果你觉得默认主题不够美观，可以自行到 Hexo 官网选择适合自己的主题。为了方便大家选择，猴哥推荐 10 大明星主题。排名根据目前 Github 上 Star 数依次降序排列。</p>
-<p>【iissnan / <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-next</a>】  Stars：14.9K<br>【litten / <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-yilia</a>】 Stars：7.1K<br>【theme-next / <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-next</a>】 Stars：4.6k<br>【viosey / <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-material</a>】 Stars：3.8K<br>【tufu9441 / <a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="external nofollow noopener noreferrer">maupassant-hexo</a>】 Stars：2.1K<br>【LouisBarranqueiro / <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-tranquilpeak</a>】 Stars：1.6K<br>【blinkfox / <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>】 Stars：1.4K<br>【ahonn / <a href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-even</a>】 Stars：1.1K<br>【forsigner / <a href="https://github.com/forsigner/fexo" target="_blank" rel="external nofollow noopener noreferrer">fexo</a>】 Stars：1K<br>【fi3ework / <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-archer</a>】 Stars：942</p>
-<p>萝卜青菜各有所爱，猴哥选择一款名为 <code>icarus</code> 的小众主题。如果你也想使用同款主题，在公众号回复关键字【hexo】即可获取。</p>
-<p>将从 Github 上下载的主题，复制到 theme 文件夹中。</p>
-<p><img src="./images/img/157_4.jpg" alt></p>
-<p>最后需要在 _config.yml 指定 Heox 主题。</p>
-<p><img src="./images/img/157_5.jpg" alt></p>
-<h2 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h2><p>在<code>source\_posts</code>目录下，新建一个 .md 文件。默认的命名方式是 <code>year-:month-:day-:title.md</code>。如果你想修改这个命名规则，可以在 Hexo 目录下的 _config.yml 文件中，找到 <code># Writing 字样</code>，然后进行修改。</p>
-<p><img src="./images/img/157_6.jpg" alt></p>
-<p>不过我不建议修改这命名规则，这格式能一目了然。知道我们创作文章是什么时候？文章的标题是什么？</p>
-<p><img src="./images/img/157_7.jpg" alt></p>
-<p>创建 md 文件之后，需要在文件头部指定一些信息。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: post</span><br><span class="line">title:  &quot;文章标题&quot;</span><br><span class="line">date:   2019-12-16 22:35:13</span><br><span class="line">categories: [文章分类]</span><br><span class="line">tags: [文章标签1, 文章标签2]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<h2 id="SEO-优化"><a href="#SEO-优化" class="headerlink" title="SEO 优化"></a>SEO 优化</h2><p>关于固定链接，还是“三不二建”的套路。<br>1.日期不要出现在固定链接中。会让搜索引擎爬虫认为是过期内容，导致不再爬取<br>2.链接的层次不要太深。默认的固定链接是 /年/月/日/文章名。这种层次过深，不方便搜索引擎爬虫的抓取，对搜索引擎的收录不太友好。<br>3.链接中不要出现中文。<br>4.建议使用 post_id 形式来设置固定链接。<br>5.建议使用英文缩写或英文来设置固定链接。</p>
-<p>不得不说， Hexo 很人性化，有考虑到网站开发者会做 SEO 优化工作，在模板语言的可选变量中就有 id 选项。因此，设置 post_id 的链接方法有两种。</p>
-<p>这里直接利用 <code>:id（文章ID）</code> 变量能实现效果。针对以上两种建议优化，我给出一个兼容两者的方案。Hexo 目录下的 _config.yml 文件中，修改永久链接的显示方式。</p>
-<p><img src="./images/img/157_8.jpg" alt></p>
-<p>这里 :urlname 变量可以显示为数字或者英文内容。我为了实现 post_id 形式，同时保证 post_id 有一定的跳跃性，在 id 后面拼接个月号数。</p>
-<p>接着，在 md 文件的头部信息中，需要增加一个 urlname 字段， 设置文章的 id 号。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urlname: 1</span><br></pre></td></tr></table></figure>
-
-<p>如果文章的名字是 2019-12-16-titie.md，那么显示的永久链接是 121.html</p>
-<p>网站有说法是百度搜索对 Hexo 站点搜索不友好，原因是百度搜索屏蔽了 Github pages。但其实也是有方法来规避这种规则。</p>
-<p>用户一般是通过关键字从搜索引擎搜索我们网页内容，所以我们需要给页面设置关键字和页面描述，能命中用户搜索的关键字。当然前提是要被搜索引擎收录。</p>
-<p>首先，在 md 文件中，增加两个字段。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keywords: [关键字1, 关键字2, 关键字3]</span><br><span class="line">description: 页面描述(一句话总结文章在讲什么？)</span><br></pre></td></tr></table></figure>
-
-<p>然后分别到百度搜索引擎提交入口和谷歌搜索引起提交入口，提交自己的域名地址。在这里之前，建议先购买一个域名，然后在 Github 设置域名重定向。</p>
-<p>百度域名提交地址：<a href="https://ziyuan.baidu.com/dashboard/index" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
-<p>谷歌域名提交地址：<a href="https://www.google.com/webmasters/tools/dashboard?hl=zh-CN" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
-<p>我们这么做是化被动为主动。自己网站会被搜索引擎爬虫收录，但不知道等到猴年马月。不如我们主动出击，自己主动我们网站地址，让搜索引擎知道我们网站，会加速收录速度。</p>
-<h2 id="个性化优化"><a href="#个性化优化" class="headerlink" title="个性化优化"></a>个性化优化</h2><p>Hexo 很多主题可玩性很高， 如果你感兴趣可以感觉个人喜好对主题内容进行一些定制化修改。这里涉及主题比较多，就是一一讲解。大家可以通过 Github 主题说明文档以及搜索引擎来了解相关信息。</p>
-
-                </div>             
-            
-            <!-- <p>我之前写过一篇文章<a href="https://geekmonkey.top/11111.html">《利用Github+Jeklly搭建个人博客网站》</a>，利用 Github 仓库提供的 github pages 来搭建个人博客。Jekyll 和 Hexo 可以说是最受欢迎、用户都非常多的两个<strong>静态博客生成系统</strong>。本文给大家介绍利用 Hexo 结合 Github pages 来搭建个人网站。</p>
-<a id="more"></a>
-
-<h2 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h2><p>Hexo 是一个基于 node.js 制作的快速、简洁且高效的博客框架。Hexo 可以将我们撰写的 Markdown 文档解析渲染成静态的 HTML 网页。</p>
-<h2 id="Hexo-VS-Jeklly"><a href="#Hexo-VS-Jeklly" class="headerlink" title="Hexo VS Jeklly"></a>Hexo VS Jeklly</h2><ul>
-<li>本地环境</li>
-</ul>
-<p>Jeklly 是由 Ruby 语言编写，需要到官网下载并安装 RubyInstaller。Hexo 则需要安装 Node.js 环境。网上经常看到很多人吐槽安装 Jekyll 经常碰到各种问题。我分别在 Windows 下安装过这两个环境。整个流程跑下来还是挺顺利的。</p>
-<ul>
-<li>速度</li>
-</ul>
-<p>说是比较 Hexo 和 Jeklly 这两个框架，其实要比较 Ruby 和 Node.js 的运行速度。Node.js 是一个 Javascrip t运行环境(Runtime)。实际上它是对 Google V8 引擎进行了封装。众所周知，Google JS Runtime 速度非常快，性能非常好。在本地预览上，Jekyll 是生成了页面然后进行预览，而 Hexo 是没有在根目录生成文件的，速度也快不少。因此，Hexo 在性能和速度上面更胜一筹。</p>
-<ul>
-<li>部署</li>
-</ul>
-<p>Jeklly 是将整个工程源码上传到 Github 仓库，然后 Github 会自动生成静态文件。而 Hexo 需要事先在本地生成整个站点页面，再将 Html 文件、资源文件等上传到 Github 上。</p>
-<ul>
-<li>主题</li>
-</ul>
-<p>Jekyll 使用 Liquid；它是有 Ruby 语言编写的开源模板语言。Hexo 使用的是 EJS；EJS 是 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。EJS 相对比较复杂，所以可实现的功能更加的多。从开发一个主题难度上看，Hexo 实现起来更方便、更简单些。</p>
-<ul>
-<li>生态</li>
-</ul>
-<p>一个产品能不能快速上手，要看其生态圈是否完善。在文档说明配套方面，Hexo 更加完善。我们能在 Hexo 官网上找到中文的文档说明。Jeklly 的中文文档还是广大网友自发组织翻译的。从主体方面上看，Hexo 官网就有主题跳转链接，目前一共有 280 个主题；这 Jeklly 是无法比拟的。再者，相比 Ruby，Node.js 使用的人群更广, 火爆程度更好。因此，我们通过搜索引擎搜索问题时，搜到 Hexo 的资料量会大于 Jeklly，这也是造成网友吐槽 Jeklly 的原因。</p>
-<h2 id="创建-Github-项目"><a href="#创建-Github-项目" class="headerlink" title="创建 Github 项目"></a>创建 Github 项目</h2><p>我们是将网页托管到 Github Pages 上，这部分就不再花篇幅去详细介绍，具体可以参考《利用Github+Jeklly搭建个人博客网站》的内容。简单来说，就是创建一个 Github 项目，项目名称命名格式是 <code>username.GitHub.io</code>。</p>
-<h2 id="搭建本地-Hexo-环境"><a href="#搭建本地-Hexo-环境" class="headerlink" title="搭建本地 Hexo 环境"></a>搭建本地 Hexo 环境</h2><p>首先我们需要到 Node.js 官网，根据自己系统平台以及系统版本下载 <a href="https://nodejs.org/en/download/" target="_blank" rel="external nofollow noopener noreferrer">Node.js 安装包</a>，安装的时候记得将 node.js 添加到系统变量中。</p>
-<p>安装后，分别以下命令来检测 Node.js 和 npm 是否安装成功</p>
-<p><img src="./images/img/157_1.jpg" alt></p>
-<p>能看到版本号，说明 Node.js 环境安装成功。然后我们使用 npm 来安装 Hexo。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<h2 id="构建本地项目"><a href="#构建本地项目" class="headerlink" title="构建本地项目"></a>构建本地项目</h2><p>在本地磁盘中，创建一个名为 Github_blog 的文件夹，用来保存网站项目的文件。接着，通过终端执行命令来初始化 Hexo 工程。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init monkey-soft.github.io  # 创建工程名，随意命名</span><br><span class="line">$ cd monkey-soft.github.io</span><br><span class="line">$ npm install # 安装 node 所需模块</span><br></pre></td></tr></table></figure>
-
-<p>执行完命令之后，我们能看到 Github_blog 多出一个 monkey-soft.github.io 的子文件夹，里面还有 Hexo 默认生成的文件。</p>
-<p><img src="./images/img/157_2.png" alt></p>
-<ul>
-<li>deploy_git<br>Hexo 借助 Git 推送网站信息到 Github 仓库所生成的文体。</li>
-<li>public<br>执行生成站点文件的命令，即<code>hexo g</code>，Hexo 将自动生成静态网页和资源文件都保存到这里</li>
-<li>scaffolds<br>模版 文件夹。当我们新建文章时，Hexo 会根据 scaffold 来建立 Markdown 文件。</li>
-<li>source<br>里面有个 <code>_posts</code> 文件夹，存放着我们以 Markdown 语法创造内容的文件。</li>
-<li>themes<br>Hexo 主题存放的文件夹</li>
-<li>_config.yml<br>Hexo 项目的配置文件，配置网站的基本信息、网页 URL 路径、时间格式、文章分页、扩展插件等信息。这里的 Site 配置建议都修改下。</li>
-</ul>
-<p><img src="./images/img/157_3.jpg" alt></p>
-<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>当我们创建 Hexo 项目之后，项目中默认会有一个名为 landscape 的主题。如果你觉得默认主题不够美观，可以自行到 Hexo 官网选择适合自己的主题。为了方便大家选择，猴哥推荐 10 大明星主题。排名根据目前 Github 上 Star 数依次降序排列。</p>
-<p>【iissnan / <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-next</a>】  Stars：14.9K<br>【litten / <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-yilia</a>】 Stars：7.1K<br>【theme-next / <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-next</a>】 Stars：4.6k<br>【viosey / <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-material</a>】 Stars：3.8K<br>【tufu9441 / <a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="external nofollow noopener noreferrer">maupassant-hexo</a>】 Stars：2.1K<br>【LouisBarranqueiro / <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-tranquilpeak</a>】 Stars：1.6K<br>【blinkfox / <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>】 Stars：1.4K<br>【ahonn / <a href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-even</a>】 Stars：1.1K<br>【forsigner / <a href="https://github.com/forsigner/fexo" target="_blank" rel="external nofollow noopener noreferrer">fexo</a>】 Stars：1K<br>【fi3ework / <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-archer</a>】 Stars：942</p>
-<p>萝卜青菜各有所爱，猴哥选择一款名为 <code>icarus</code> 的小众主题。如果你也想使用同款主题，在公众号回复关键字【hexo】即可获取。</p>
-<p>将从 Github 上下载的主题，复制到 theme 文件夹中。</p>
-<p><img src="./images/img/157_4.jpg" alt></p>
-<p>最后需要在 _config.yml 指定 Heox 主题。</p>
-<p><img src="./images/img/157_5.jpg" alt></p>
-<h2 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h2><p>在<code>source\_posts</code>目录下，新建一个 .md 文件。默认的命名方式是 <code>year-:month-:day-:title.md</code>。如果你想修改这个命名规则，可以在 Hexo 目录下的 _config.yml 文件中，找到 <code># Writing 字样</code>，然后进行修改。</p>
-<p><img src="./images/img/157_6.jpg" alt></p>
-<p>不过我不建议修改这命名规则，这格式能一目了然。知道我们创作文章是什么时候？文章的标题是什么？</p>
-<p><img src="./images/img/157_7.jpg" alt></p>
-<p>创建 md 文件之后，需要在文件头部指定一些信息。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: post</span><br><span class="line">title:  &quot;文章标题&quot;</span><br><span class="line">date:   2019-12-16 22:35:13</span><br><span class="line">categories: [文章分类]</span><br><span class="line">tags: [文章标签1, 文章标签2]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<h2 id="SEO-优化"><a href="#SEO-优化" class="headerlink" title="SEO 优化"></a>SEO 优化</h2><p>关于固定链接，还是“三不二建”的套路。<br>1.日期不要出现在固定链接中。会让搜索引擎爬虫认为是过期内容，导致不再爬取<br>2.链接的层次不要太深。默认的固定链接是 /年/月/日/文章名。这种层次过深，不方便搜索引擎爬虫的抓取，对搜索引擎的收录不太友好。<br>3.链接中不要出现中文。<br>4.建议使用 post_id 形式来设置固定链接。<br>5.建议使用英文缩写或英文来设置固定链接。</p>
-<p>不得不说， Hexo 很人性化，有考虑到网站开发者会做 SEO 优化工作，在模板语言的可选变量中就有 id 选项。因此，设置 post_id 的链接方法有两种。</p>
-<p>这里直接利用 <code>:id（文章ID）</code> 变量能实现效果。针对以上两种建议优化，我给出一个兼容两者的方案。Hexo 目录下的 _config.yml 文件中，修改永久链接的显示方式。</p>
-<p><img src="./images/img/157_8.jpg" alt></p>
-<p>这里 :urlname 变量可以显示为数字或者英文内容。我为了实现 post_id 形式，同时保证 post_id 有一定的跳跃性，在 id 后面拼接个月号数。</p>
-<p>接着，在 md 文件的头部信息中，需要增加一个 urlname 字段， 设置文章的 id 号。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urlname: 1</span><br></pre></td></tr></table></figure>
-
-<p>如果文章的名字是 2019-12-16-titie.md，那么显示的永久链接是 121.html</p>
-<p>网站有说法是百度搜索对 Hexo 站点搜索不友好，原因是百度搜索屏蔽了 Github pages。但其实也是有方法来规避这种规则。</p>
-<p>用户一般是通过关键字从搜索引擎搜索我们网页内容，所以我们需要给页面设置关键字和页面描述，能命中用户搜索的关键字。当然前提是要被搜索引擎收录。</p>
-<p>首先，在 md 文件中，增加两个字段。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keywords: [关键字1, 关键字2, 关键字3]</span><br><span class="line">description: 页面描述(一句话总结文章在讲什么？)</span><br></pre></td></tr></table></figure>
-
-<p>然后分别到百度搜索引擎提交入口和谷歌搜索引起提交入口，提交自己的域名地址。在这里之前，建议先购买一个域名，然后在 Github 设置域名重定向。</p>
-<p>百度域名提交地址：<a href="https://ziyuan.baidu.com/dashboard/index" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
-<p>谷歌域名提交地址：<a href="https://www.google.com/webmasters/tools/dashboard?hl=zh-CN" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
-<p>我们这么做是化被动为主动。自己网站会被搜索引擎爬虫收录，但不知道等到猴年马月。不如我们主动出击，自己主动我们网站地址，让搜索引擎知道我们网站，会加速收录速度。</p>
-<h2 id="个性化优化"><a href="#个性化优化" class="headerlink" title="个性化优化"></a>个性化优化</h2><p>Hexo 很多主题可玩性很高， 如果你感兴趣可以感觉个人喜好对主题内容进行一些定制化修改。这里涉及主题比较多，就是一一讲解。大家可以通过 Github 主题说明文档以及搜索引擎来了解相关信息。</p>
-  -->
         </div>
+        <!-- 文章页面显示全部内容 -->
+        
+            <div class="content">
+                <p>我之前写过一篇文章<a href="https://geekmonkey.top/11111.html">《利用Github+Jeklly搭建个人博客网站》</a>，利用 Github 仓库提供的 github pages 来搭建个人博客。Jekyll 和 Hexo 可以说是最受欢迎、用户都非常多的两个<strong>静态博客生成系统</strong>。本文给大家介绍利用 Hexo 结合 Github pages 来搭建个人网站。</p>
+<a id="more"></a>
 
+<h2 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h2><p>Hexo 是一个基于 node.js 制作的快速、简洁且高效的博客框架。Hexo 可以将我们撰写的 Markdown 文档解析渲染成静态的 HTML 网页。</p>
+<h2 id="Hexo-VS-Jeklly"><a href="#Hexo-VS-Jeklly" class="headerlink" title="Hexo VS Jeklly"></a>Hexo VS Jeklly</h2><ul>
+<li>本地环境</li>
+</ul>
+<p>Jeklly 是由 Ruby 语言编写，需要到官网下载并安装 RubyInstaller。Hexo 则需要安装 Node.js 环境。网上经常看到很多人吐槽安装 Jekyll 经常碰到各种问题。我分别在 Windows 下安装过这两个环境。整个流程跑下来还是挺顺利的。</p>
+<ul>
+<li>速度</li>
+</ul>
+<p>说是比较 Hexo 和 Jeklly 这两个框架，其实要比较 Ruby 和 Node.js 的运行速度。Node.js 是一个 Javascrip t运行环境(Runtime)。实际上它是对 Google V8 引擎进行了封装。众所周知，Google JS Runtime 速度非常快，性能非常好。在本地预览上，Jekyll 是生成了页面然后进行预览，而 Hexo 是没有在根目录生成文件的，速度也快不少。因此，Hexo 在性能和速度上面更胜一筹。</p>
+<ul>
+<li>部署</li>
+</ul>
+<p>Jeklly 是将整个工程源码上传到 Github 仓库，然后 Github 会自动生成静态文件。而 Hexo 需要事先在本地生成整个站点页面，再将 Html 文件、资源文件等上传到 Github 上。</p>
+<ul>
+<li>主题</li>
+</ul>
+<p>Jekyll 使用 Liquid；它是有 Ruby 语言编写的开源模板语言。Hexo 使用的是 EJS；EJS 是 JavaScript 模板库，用来从 JSON 数据中生成 HTML 字符串。EJS 相对比较复杂，所以可实现的功能更加的多。从开发一个主题难度上看，Hexo 实现起来更方便、更简单些。</p>
+<ul>
+<li>生态</li>
+</ul>
+<p>一个产品能不能快速上手，要看其生态圈是否完善。在文档说明配套方面，Hexo 更加完善。我们能在 Hexo 官网上找到中文的文档说明。Jeklly 的中文文档还是广大网友自发组织翻译的。从主体方面上看，Hexo 官网就有主题跳转链接，目前一共有 280 个主题；这 Jeklly 是无法比拟的。再者，相比 Ruby，Node.js 使用的人群更广, 火爆程度更好。因此，我们通过搜索引擎搜索问题时，搜到 Hexo 的资料量会大于 Jeklly，这也是造成网友吐槽 Jeklly 的原因。</p>
+<h2 id="创建-Github-项目"><a href="#创建-Github-项目" class="headerlink" title="创建 Github 项目"></a>创建 Github 项目</h2><p>我们是将网页托管到 Github Pages 上，这部分就不再花篇幅去详细介绍，具体可以参考《利用Github+Jeklly搭建个人博客网站》的内容。简单来说，就是创建一个 Github 项目，项目名称命名格式是 <code>username.GitHub.io</code>。</p>
+<h2 id="搭建本地-Hexo-环境"><a href="#搭建本地-Hexo-环境" class="headerlink" title="搭建本地 Hexo 环境"></a>搭建本地 Hexo 环境</h2><p>首先我们需要到 Node.js 官网，根据自己系统平台以及系统版本下载 <a href="https://nodejs.org/en/download/" target="_blank" rel="external nofollow noopener noreferrer">Node.js 安装包</a>，安装的时候记得将 node.js 添加到系统变量中。</p>
+<p>安装后，分别以下命令来检测 Node.js 和 npm 是否安装成功</p>
+<p><img src="./images/img/157_1.jpg" alt></p>
+<p>能看到版本号，说明 Node.js 环境安装成功。然后我们使用 npm 来安装 Hexo。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h2 id="构建本地项目"><a href="#构建本地项目" class="headerlink" title="构建本地项目"></a>构建本地项目</h2><p>在本地磁盘中，创建一个名为 Github_blog 的文件夹，用来保存网站项目的文件。接着，通过终端执行命令来初始化 Hexo 工程。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init monkey-soft.github.io  # 创建工程名，随意命名</span><br><span class="line">$ cd monkey-soft.github.io</span><br><span class="line">$ npm install # 安装 node 所需模块</span><br></pre></td></tr></table></figure>
+
+<p>执行完命令之后，我们能看到 Github_blog 多出一个 monkey-soft.github.io 的子文件夹，里面还有 Hexo 默认生成的文件。</p>
+<p><img src="./images/img/157_2.png" alt></p>
+<ul>
+<li>deploy_git<br>Hexo 借助 Git 推送网站信息到 Github 仓库所生成的文体。</li>
+<li>public<br>执行生成站点文件的命令，即<code>hexo g</code>，Hexo 将自动生成静态网页和资源文件都保存到这里</li>
+<li>scaffolds<br>模版 文件夹。当我们新建文章时，Hexo 会根据 scaffold 来建立 Markdown 文件。</li>
+<li>source<br>里面有个 <code>_posts</code> 文件夹，存放着我们以 Markdown 语法创造内容的文件。</li>
+<li>themes<br>Hexo 主题存放的文件夹</li>
+<li>_config.yml<br>Hexo 项目的配置文件，配置网站的基本信息、网页 URL 路径、时间格式、文章分页、扩展插件等信息。这里的 Site 配置建议都修改下。</li>
+</ul>
+<p><img src="./images/img/157_3.jpg" alt></p>
+<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>当我们创建 Hexo 项目之后，项目中默认会有一个名为 landscape 的主题。如果你觉得默认主题不够美观，可以自行到 Hexo 官网选择适合自己的主题。为了方便大家选择，猴哥推荐 10 大明星主题。排名根据目前 Github 上 Star 数依次降序排列。</p>
+<p>【iissnan / <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-next</a>】  Stars：14.9K<br>【litten / <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-yilia</a>】 Stars：7.1K<br>【theme-next / <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-next</a>】 Stars：4.6k<br>【viosey / <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-material</a>】 Stars：3.8K<br>【tufu9441 / <a href="https://github.com/tufu9441/maupassant-hexo" target="_blank" rel="external nofollow noopener noreferrer">maupassant-hexo</a>】 Stars：2.1K<br>【LouisBarranqueiro / <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-tranquilpeak</a>】 Stars：1.6K<br>【blinkfox / <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>】 Stars：1.4K<br>【ahonn / <a href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-even</a>】 Stars：1.1K<br>【forsigner / <a href="https://github.com/forsigner/fexo" target="_blank" rel="external nofollow noopener noreferrer">fexo</a>】 Stars：1K<br>【fi3ework / <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-archer</a>】 Stars：942</p>
+<p>萝卜青菜各有所爱，猴哥选择一款名为 <code>icarus</code> 的小众主题。如果你也想使用同款主题，在公众号回复关键字【hexo】即可获取。</p>
+<p>将从 Github 上下载的主题，复制到 theme 文件夹中。</p>
+<p><img src="./images/img/157_4.jpg" alt></p>
+<p>最后需要在 _config.yml 指定 Heox 主题。</p>
+<p><img src="./images/img/157_5.jpg" alt></p>
+<h2 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h2><p>在<code>source\_posts</code>目录下，新建一个 .md 文件。默认的命名方式是 <code>year-:month-:day-:title.md</code>。如果你想修改这个命名规则，可以在 Hexo 目录下的 _config.yml 文件中，找到 <code># Writing 字样</code>，然后进行修改。</p>
+<p><img src="./images/img/157_6.jpg" alt></p>
+<p>不过我不建议修改这命名规则，这格式能一目了然。知道我们创作文章是什么时候？文章的标题是什么？</p>
+<p><img src="./images/img/157_7.jpg" alt></p>
+<p>创建 md 文件之后，需要在文件头部指定一些信息。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: post</span><br><span class="line">title:  &quot;文章标题&quot;</span><br><span class="line">date:   2019-12-16 22:35:13</span><br><span class="line">categories: [文章分类]</span><br><span class="line">tags: [文章标签1, 文章标签2]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h2 id="SEO-优化"><a href="#SEO-优化" class="headerlink" title="SEO 优化"></a>SEO 优化</h2><p>关于固定链接，还是“三不二建”的套路。<br>1.日期不要出现在固定链接中。会让搜索引擎爬虫认为是过期内容，导致不再爬取<br>2.链接的层次不要太深。默认的固定链接是 /年/月/日/文章名。这种层次过深，不方便搜索引擎爬虫的抓取，对搜索引擎的收录不太友好。<br>3.链接中不要出现中文。<br>4.建议使用 post_id 形式来设置固定链接。<br>5.建议使用英文缩写或英文来设置固定链接。</p>
+<p>不得不说， Hexo 很人性化，有考虑到网站开发者会做 SEO 优化工作，在模板语言的可选变量中就有 id 选项。因此，设置 post_id 的链接方法有两种。</p>
+<p>这里直接利用 <code>:id（文章ID）</code> 变量能实现效果。针对以上两种建议优化，我给出一个兼容两者的方案。Hexo 目录下的 _config.yml 文件中，修改永久链接的显示方式。</p>
+<p><img src="./images/img/157_8.jpg" alt></p>
+<p>这里 :urlname 变量可以显示为数字或者英文内容。我为了实现 post_id 形式，同时保证 post_id 有一定的跳跃性，在 id 后面拼接个月号数。</p>
+<p>接着，在 md 文件的头部信息中，需要增加一个 urlname 字段， 设置文章的 id 号。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urlname: 1</span><br></pre></td></tr></table></figure>
+
+<p>如果文章的名字是 2019-12-16-titie.md，那么显示的永久链接是 121.html</p>
+<p>网站有说法是百度搜索对 Hexo 站点搜索不友好，原因是百度搜索屏蔽了 Github pages。但其实也是有方法来规避这种规则。</p>
+<p>用户一般是通过关键字从搜索引擎搜索我们网页内容，所以我们需要给页面设置关键字和页面描述，能命中用户搜索的关键字。当然前提是要被搜索引擎收录。</p>
+<p>首先，在 md 文件中，增加两个字段。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keywords: [关键字1, 关键字2, 关键字3]</span><br><span class="line">description: 页面描述(一句话总结文章在讲什么？)</span><br></pre></td></tr></table></figure>
+
+<p>然后分别到百度搜索引擎提交入口和谷歌搜索引起提交入口，提交自己的域名地址。在这里之前，建议先购买一个域名，然后在 Github 设置域名重定向。</p>
+<p>百度域名提交地址：<a href="https://ziyuan.baidu.com/dashboard/index" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
+<p>谷歌域名提交地址：<a href="https://www.google.com/webmasters/tools/dashboard?hl=zh-CN" target="_blank" rel="external nofollow noopener noreferrer">传送门</a></p>
+<p>我们这么做是化被动为主动。自己网站会被搜索引擎爬虫收录，但不知道等到猴年马月。不如我们主动出击，自己主动我们网站地址，让搜索引擎知道我们网站，会加速收录速度。</p>
+<h2 id="个性化优化"><a href="#个性化优化" class="headerlink" title="个性化优化"></a>个性化优化</h2><p>Hexo 很多主题可玩性很高， 如果你感兴趣可以感觉个人喜好对主题内容进行一些定制化修改。这里涉及主题比较多，就是一一讲解。大家可以通过 Github 主题说明文档以及搜索引擎来了解相关信息。</p>
+
+            </div>   
+        
+        <br>
         <!-- 增加微信公众号首发说明 -->
         
         <div>
@@ -397,7 +324,7 @@ var _hmt = _hmt || [];
             </li>
             </ul>
         
-        <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
+            <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
         
         
         <hr style="height:1px;margin:1rem 0">
@@ -426,6 +353,8 @@ var _hmt = _hmt || [];
 
 
 
+
+
 <div class="card">
     <div class="card-content">
         <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
@@ -444,6 +373,7 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </div>
+
 
 
 
@@ -493,11 +423,13 @@ var _hmt = _hmt || [];
 </div>
 </div>
                 
+                
+                
 
 
 
 
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -564,9 +496,6 @@ var _hmt = _hmt || [];
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank" rel="external nofollow noopener noreferrer">
                 关注我</a>
-            <div clas="level" id="knowledge-qrcode" style="display: none; height: 330px; padding: 0px; margin: 0px; width: 242px; opacity: 1;">
-                <img src="https://s1.ax1x.com/2020/05/14/YBHCAU.png" alt="极客猴的公众号" width="100%">
-            </div>
         </div>
         
         
@@ -647,12 +576,32 @@ var _hmt = _hmt || [];
     </div>
 
     
+        <div class="card widget">
+  <div class="weight_card-content">
+    <div class="menu">
+      <h4 class="menu_weight" style="text-align:center;">更多内容,请关注公众号！</h4>
+      <div>
+        <img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" alt="极客猴的公众号" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <div class="card widget">
+    <div>
+      <a href="https://reg.huaweicloud.com/registerui/cn/register.html?bpInvite=7a2d288001c6466a&service=https%3A%2F%2Faccount.huaweicloud.com%2Fusercenter%2F%3Flocale%3Dzh-cn%26hws_route_url%3DregistSuccess%26bpInvite%3D7a2d288001c6466a%26bpName%3D5f9f98a29e2c40b780c1793086f29fe2%26inviteCode%3Dchanql123%26bindType%3D1#/register" target="_blank" rel="external nofollow noopener noreferrer">
+      <img src="https://s1.ax1x.com/2020/05/17/Y25LY6.png" alt="华为云新用户福利" width="100%">
+      </a>
+    </div>
+</div>
+    
         <!-- 侧边组件-专栏 -->
 
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 专栏
             </h3>
             <ul class="menu-list">
@@ -738,386 +687,387 @@ var _hmt = _hmt || [];
     <!-- 优化移动端显示，隐藏 archive  -->
     <div class="card-content is-hidden-mobile">
         <div class="menu">
-        <h3 class="menu-label">
+        <h3 class="menu_weight">
             归档
         </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">7</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
+
+            <div class="field is-grouped is-grouped-multiline">
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">7</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/05/">
+                            <span class="level-start">
+                                <span class="level-item">五月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                
+            </div>
         </div>
     </div>
 </div>
@@ -1125,940 +1075,883 @@ var _hmt = _hmt || [];
         <div class="card widget">
     <div class="card-content">
         <div class="menu">
-        <h3 class="menu-label">
-            我的好友
-        </h3>
-
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://python。iswbm.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="https://dp2px.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;水寒的博客</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.gcowsec.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Gcow 安全团队</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-    
-        <!-- -->
-        <div class="column-right-shadow 
-         
-        ">
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag">APScheduler</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">APScheduler</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Chrome/">
-                        <span class="tag">Chrome</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Chrome</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Debian/">
-                        <span class="tag">Debian</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Debian</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag">Django</span>
-                        <span class="tag is-grey">20</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Django</span>
+                        <span class="tag tag_count">20</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Djongo/">
-                        <span class="tag">Djongo</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Djongo</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Flask/">
-                        <span class="tag">Flask</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Flask</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Github/">
-                        <span class="tag">Github</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Github</span>
+                        <span class="tag tag_count">6</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag">HTTP</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">HTTP</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Hexo/">
-                        <span class="tag">Hexo</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Hexo</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IG/">
-                        <span class="tag">IG</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IG</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag">IP代理池</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IP代理池</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag">Iterable</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterable</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag">Iterator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Jekyll/">
-                        <span class="tag">Jekyll</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Jekyll</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag">Linux</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Linux</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MangoDB/">
-                        <span class="tag">MangoDB</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MangoDB</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Matplotlib</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mongo-Plugin/">
-                        <span class="tag">Mongo Plugin</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mongo Plugin</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MongoDB/">
-                        <span class="tag">MongoDB</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MongoDB</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mysql/">
-                        <span class="tag">Mysql</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mysql</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Nosqlclient/">
-                        <span class="tag">Nosqlclient</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Nosqlclient</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OAuth/">
-                        <span class="tag">OAuth</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OAuth</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag">OCR</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OCR</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/PEP/">
-                        <span class="tag">PEP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">PEP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pandas/">
-                        <span class="tag">Pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pycharm/">
-                        <span class="tag">Pycharm</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pycharm</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag">Python</span>
-                        <span class="tag is-grey">78</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Python</span>
+                        <span class="tag tag_count">78</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Redis</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Request/">
-                        <span class="tag">Request</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Request</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag">Requests</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Requests</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/SEO-%E4%BC%98%E5%8C%96/">
-                        <span class="tag">SEO 优化</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">SEO 优化</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag">Scrapy</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Scrapy</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Selenium/">
-                        <span class="tag">Selenium</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Selenium</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Session/">
-                        <span class="tag">Session</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Session</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/TCP/">
-                        <span class="tag">TCP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">TCP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Token/">
-                        <span class="tag">Token</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Token</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Ubuntu/">
-                        <span class="tag">Ubuntu</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Ubuntu</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Unicode/">
-                        <span class="tag">Unicode</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Unicode</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Vlog/">
-                        <span class="tag">Vlog</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Vlog</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag">Web</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Web</span>
+                        <span class="tag tag_count">19</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/WordPress/">
-                        <span class="tag">WordPress</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">WordPress</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag">Xpath</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Xpath</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/aiohttp/">
-                        <span class="tag">aiohttp</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">aiohttp</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag">beautifulSoup</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">beautifulSoup</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/codecs/">
-                        <span class="tag">codecs</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">codecs</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/csv/">
-                        <span class="tag">csv</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">csv</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag">datetime</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">datetime</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag">generator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">generator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag">lxml</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">lxml</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/os-path/">
-                        <span class="tag">os.path</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">os.path</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pandas/">
-                        <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag">pustil</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pustil</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pyecharts/">
-                        <span class="tag">pyecharts</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pyecharts</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag">sched</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">sched</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/session/">
-                        <span class="tag">session</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">session</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/the-fuck/">
-                        <span class="tag">the fuck</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">the fuck</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag">time</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">time</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/unsplash/">
-                        <span class="tag">unsplash</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">unsplash</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/web/">
-                        <span class="tag">web</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">web</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%83%E5%A4%95/">
-                        <span class="tag">七夕</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">七夕</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%AD%E9%97%B4%E9%94%AE/">
-                        <span class="tag">中间键</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">中间键</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B9%A6%E7%B1%8D/">
-                        <span class="tag">书籍</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">书籍</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        <span class="tag">二维码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">二维码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%A7%E5%93%81/">
-                        <span class="tag">产品</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">产品</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%90%86/">
-                        <span class="tag">代理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">代理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%89%AF%E4%B8%9A/">
-                        <span class="tag">副业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">副业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="tag">博客</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">博客</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag">反爬虫</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">反爬虫</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="tag">可视化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">可视化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
-                        <span class="tag">后台</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/">
-                        <span class="tag">后台架构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台架构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%95%86%E4%B8%9A/">
-                        <span class="tag">商业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">商业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%9B%BE%E8%A1%A8/">
-                        <span class="tag">图表</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">图表</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag">多线程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多线程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag">多进程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多进程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag">定时任务</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">定时任务</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%B9%B4%E6%80%BB%E7%BB%93/">
-                        <span class="tag">年总结</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">年总结</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/">
-                        <span class="tag">开发进阶</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开发进阶</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
-                        <span class="tag">开源项目</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开源项目</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag">当当</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">当当</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BF%85%E8%83%9C%E5%AE%A2/">
-                        <span class="tag">必胜客</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">必胜客</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag">思念</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">思念</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-                        <span class="tag">性能优化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">性能优化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="tag">总结</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">总结</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%84%9F%E6%82%9F/">
-                        <span class="tag">感悟</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">感悟</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%87%82%E7%82%B9%E7%B3%BB%E5%88%97/">
-                        <span class="tag">懂点系列</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">懂点系列</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag">技巧</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">技巧</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85/">
-                        <span class="tag">抓包</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
-                        <span class="tag">抓包工具</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包工具</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8B%96%E5%BB%B6%E7%97%87/">
-                        <span class="tag">拖延症</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">拖延症</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="tag">操作系统</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">操作系统</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag">数据分析</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据分析</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="tag">数据库</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据库</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag">数据结构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据结构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%99%A8/">
-                        <span class="tag">数据采集器</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据采集器</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="tag">数据集</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据集</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="tag">数组</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数组</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E4%BB%B6%E9%81%8D%E5%8E%86/">
-                        <span class="tag">文件遍历</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文件遍历</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-                        <span class="tag">文本操作</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文本操作</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag">方法论</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">方法论</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-                        <span class="tag">时间管理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">时间管理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <span class="tag">标准库</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">标准库</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag">正则表达式</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">正则表达式</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BA%90%E7%A0%81/">
-                        <span class="tag">源码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">源码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BC%AB%E5%A8%81/">
-                        <span class="tag">漫威</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">漫威</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag">爬虫实战</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">爬虫实战</span>
+                        <span class="tag tag_count">10</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag">电影</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">电影</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%99%BD%E8%9B%87%E7%BC%98%E8%B5%B7/">
-                        <span class="tag">白蛇缘起</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">白蛇缘起</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/">
-                        <span class="tag">短视频</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">短视频</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
-                        <span class="tag">社工库</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">社工库</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">
-                        <span class="tag">竞品分析</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">竞品分析</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
-                        <span class="tag">编码规范</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编码规范</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-                        <span class="tag">编程入门</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编程入门</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">
-                        <span class="tag">网易云音乐</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网易云音乐</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag">网络爬虫</span>
-                        <span class="tag is-grey">24</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网络爬虫</span>
+                        <span class="tag tag_count">24</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="tag">自学</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">自学</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag">认知</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">认知</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B1%86%E7%93%A3/">
-                        <span class="tag">豆瓣</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">豆瓣</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B4%A6%E5%8F%B7%E8%AE%A4%E8%AF%81/">
-                        <span class="tag">账号认证</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">账号认证</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag">阅读</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">阅读</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="tag">面试</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">面试</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="tag">项目实战</span>
-                        <span class="tag is-grey">14</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">项目实战</span>
+                        <span class="tag tag_count">14</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag">验证码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">验证码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
-                        <span class="tag">高并发</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">高并发</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag">鸡汤</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">鸡汤</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
@@ -2067,12 +1960,10 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
-        
-        </div>
+    
     
 </div>
 
-                
             </div>
         </div>
     </section>

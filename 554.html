@@ -5,7 +5,7 @@
 <!百度站长工具验证>
 <meta name="baidu-site-verification" content="Cg06Zha1ae">
 
-<meta name="generator" content="Hexo 4.0.0">
+<meta name="generator" content="Hexo 4.2.0">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,14 +15,23 @@
     <meta name="description" content="我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么？">
-<meta property="og:url" content="https:&#x2F;&#x2F;geekmonkey.top&#x2F;554.html">
+<meta property="og:url" content="https://geekmonkey.top/554.html">
 <meta property="og:site_name" content="极客猴">
 <meta property="og:description" content="我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么？">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ysj0pV.jpg">
-<meta property="og:updated_time" content="2020-05-15T16:15:16.594Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/15/Ysj0pV.jpg">
+<meta property="article:published_time" content="2018-05-16T14:22:02.000Z">
+<meta property="article:modified_time" content="2020-05-15T16:15:16.594Z">
+<meta property="article:author" content="极客猴">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="复仇者联盟">
+<meta property="article:tag" content="网络爬虫">
+<meta property="article:tag" content="豆瓣">
+<meta property="article:tag" content="电影">
+<meta property="article:tag" content="爬虫实战">
+<meta property="article:tag" content="项目实战">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;15&#x2F;Ysj0pV.jpg">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/15/Ysj0pV.jpg">
 
 
 
@@ -110,7 +119,7 @@ var _hmt = _hmt || [];
 <body class="is-2-column">
     <div class="navbar-top">
     <div class="container">
-    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客</span></p>
+    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客|公众号『极客猴』</span></p>
     </div>    
 </div>
 <nav class="navbar navbar-main">
@@ -136,7 +145,7 @@ var _hmt = _hmt || [];
                 
                 <a class="navbar-item" href="/treasure">藏宝阁</a>
                 
-                <a class="navbar-item" href="/friends">友情</a>
+                <a class="navbar-item" href="/friends">友情链接</a>
                 
                 <a class="navbar-item" href="/about">关于我</a>
                 
@@ -145,13 +154,13 @@ var _hmt = _hmt || [];
             <div class="navbar-end">
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
                 <!-- 右边搜索-->
-                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a> 
                 
@@ -205,9 +214,7 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
-
         <br>
-        
         <div class="content_container">
             <!-- 左边封面图 -->
             <div class="thumbnail-left">
@@ -215,77 +222,46 @@ var _hmt = _hmt || [];
             </div>
             <!-- 右边文章概要 -->
             
-                <div class="content">
-                    <p>我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么？</p>
-<blockquote>
-<p>《复仇者联盟3：无限战争》于 2018 年 5 月 11 日在中国大陆上映。截止 5 月 16 日，它累计票房达到 15.25 亿。这票房纪录已经超过了漫威系列单部电影的票房纪录。不得不说，漫威电影已经成为一种文化潮流。</p>
-</blockquote>
-<a id="more"></a>
-<p><img src="./images/img/84_1.jpg" alt></p>
-<p>复联 3 作为漫威 10 年一剑的收官之作。漫威确认下了很多功夫， 给我们奉献一部精彩绝伦的电影。自己也利用周末时间去电影院观看。看完之后，个人觉得无论在打斗特效方面还是故事情节，都是给人愉悦的享受。同时，电影还保持以往幽默搞笑的风格，经常能把观众逗得捧腹大笑。</p>
-<p>如果还没有去观看的朋友，可以去电影院看看，确实值得一看。</p>
-<p>本文通过 Python 制作网络爬虫，爬取豆瓣电影评论，并分析然后制作豆瓣影评的云图。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>先通过影评网页确定爬取的内容。我要爬取的是用户名，是否看过，五星评论值，评论时间，有用数以及评论内容。</p>
-<p><img src="./images/img/84_2.png" alt></p>
-<p>然后确定每页评论的 url 结构。<br>第二页 url 地址：</p>
-<p><img src="./images/img/84_3.png" alt></p>
-<p>第三页 url 地址：</p>
-<p><img src="./images/img/84_4.png" alt></p>
-<p>最后发现其中的规律：除了首页，后面的每页 url 地址中只有 start= 的值逐页递增，其他都是不变的。</p>
-<h2 id="数据爬取"><a href="#数据爬取" class="headerlink" title="数据爬取"></a>数据爬取</h2><p>本文爬取数据，采用的主要是 requests 库和 lxml 库中 Xpath。豆瓣网站虽然对网络爬虫算是很友好，但是还是有反爬虫机制。如果你没有设置延迟，一下子发起大量请求，会被封 IP 的。另外，如果没有登录豆瓣，只能访问前 10 页的影片。因此，发起爬取数据的 HTTP 请求要带上自己账号的 cookie。搞到 cookie 也不是难事，可以通过浏览器登录豆瓣，然后在开发者模式中获取。</p>
-<p>我想从影评首页开始爬取，爬取入口是：<strong><a href="https://movie.douban.com/subject/24773958/comments?status=P" target="_blank" rel="external nofollow noopener noreferrer">https://movie.douban.com/subject/24773958/comments?status=P</a></strong>，然后依次获取页面中下一页的 url 地址以及需要爬取的内容，接着继续访问下一个页面的地址。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> jieba</span><br><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> random</span><br><span class="line"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_spider</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    base_url = <span class="hljs-string">'https://movie.douban.com/subject/24773958/comments'</span></span><br><span class="line">    start_url = base_url + <span class="hljs-string">'?start=0'</span> </span><br><span class="line"></span><br><span class="line">    number = <span class="hljs-number">1</span></span><br><span class="line">    html = request_get(start_url) </span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">while</span> html.status_code == <span class="hljs-number">200</span>:</span><br><span class="line">        <span class="hljs-comment"># 获取下一页的 url</span></span><br><span class="line">        selector = etree.HTML(html.text)</span><br><span class="line">        nextpage = selector.xpath(<span class="hljs-string">"//div[@id='paginator']/a[@class='next']/@href"</span>)</span><br><span class="line">        nextpage = nextpage[<span class="hljs-number">0</span>]</span><br><span class="line">        next_url = base_url + nextpage</span><br><span class="line">        <span class="hljs-comment"># 获取评论</span></span><br><span class="line">        comments = selector.xpath(<span class="hljs-string">"//div[@class='comment']"</span>)</span><br><span class="line">        marvelthree = []</span><br><span class="line">        <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> comments:</span><br><span class="line">            marvelthree.append(get_comments(each))</span><br><span class="line"></span><br><span class="line">        data = pd.DataFrame(marvelthree)</span><br><span class="line">        <span class="hljs-comment"># 写入csv文件,'a+'是追加模式</span></span><br><span class="line">        <span class="hljs-keyword">try</span>:</span><br><span class="line">            <span class="hljs-keyword">if</span> number == <span class="hljs-number">1</span>:</span><br><span class="line">                csv_headers = [<span class="hljs-string">'用户'</span>, <span class="hljs-string">'是否看过'</span>, <span class="hljs-string">'五星评分'</span>, <span class="hljs-string">'评论时间'</span>, <span class="hljs-string">'有用数'</span>, <span class="hljs-string">'评论内容'</span>]</span><br><span class="line">                data.to_csv(<span class="hljs-string">'./Marvel3_yingpping.csv'</span>, header=csv_headers, index=<span class="hljs-literal">False</span>, mode=<span class="hljs-string">'a+'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                data.to_csv(<span class="hljs-string">'./Marvel3_yingpping.csv'</span>, header=<span class="hljs-literal">False</span>, index=<span class="hljs-literal">False</span>, mode=<span class="hljs-string">'a+'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br><span class="line">        <span class="hljs-keyword">except</span> UnicodeEncodeError:</span><br><span class="line">            print(<span class="hljs-string">"编码错误, 该数据无法写到文件中, 直接忽略该数据"</span>)</span><br><span class="line"></span><br><span class="line">        data = []</span><br><span class="line"></span><br><span class="line">        html = request_get(next_url)</span><br></pre></td></tr></table></figure>
-
-<p>我在请求头中增加随机变化的 User-agent, 增加 cookie。最后增加请求的随机等待时间，防止请求过猛被封 IP。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">request_get</span><span class="hljs-params">(url)</span>:</span></span><br><span class="line">    <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">    使用 Session 能够跨请求保持某些参数。</span></span><br><span class="line"><span class="hljs-string">    它也会在同一个 Session 实例发出的所有请求之间保持 cookie</span></span><br><span class="line"><span class="hljs-string">    '''</span></span><br><span class="line">    timeout = <span class="hljs-number">3</span></span><br><span class="line"></span><br><span class="line">    UserAgent_List = [</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.3319.102 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2309.372 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2117.157 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36"</span>,</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    header = &#123;</span><br><span class="line">        <span class="hljs-string">'User-agent'</span>: random.choice(UserAgent_List),</span><br><span class="line">        <span class="hljs-string">'Host'</span>: <span class="hljs-string">'movie.douban.com'</span>,</span><br><span class="line">        <span class="hljs-string">'Referer'</span>: <span class="hljs-string">'https://movie.douban.com/subject/24773958/?from=showing'</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    session = requests.Session()</span><br><span class="line"></span><br><span class="line">    cookie = &#123;</span><br><span class="line">        <span class="hljs-string">'cookie'</span>: <span class="hljs-string">"你的 cookie 值"</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    time.sleep(random.randint(<span class="hljs-number">5</span>, <span class="hljs-number">15</span>))  </span><br><span class="line">    response = requests.get(url, headers=header, cookies=cookie_nologin, timeout = <span class="hljs-number">3</span>)</span><br><span class="line">    <span class="hljs-keyword">if</span> response.status_code != <span class="hljs-number">200</span>:</span><br><span class="line">        print(response.status_code)</span><br><span class="line">    <span class="hljs-keyword">return</span> response</span><br></pre></td></tr></table></figure>
-
-<p>最后一步就是数据获取：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_comments</span><span class="hljs-params">(eachComment)</span>:</span></span><br><span class="line">    commentlist = []</span><br><span class="line">    user = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/a/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 用户</span></span><br><span class="line">    watched = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[1]/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 是否看过</span></span><br><span class="line">    rating = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[2]/@title"</span>)  <span class="hljs-comment"># 五星评分</span></span><br><span class="line">    <span class="hljs-keyword">if</span> len(rating) &gt; <span class="hljs-number">0</span>:</span><br><span class="line">        rating = rating[<span class="hljs-number">0</span>]</span><br><span class="line"></span><br><span class="line">    comment_time = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[3]/@title"</span>)  <span class="hljs-comment"># 评论时间</span></span><br><span class="line">    <span class="hljs-keyword">if</span> len(comment_time) &gt; <span class="hljs-number">0</span>:</span><br><span class="line">        comment_time = comment_time[<span class="hljs-number">0</span>]</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-comment"># 有些评论是没有五星评分, 需赋空值</span></span><br><span class="line">        comment_time = rating</span><br><span class="line">        rating = <span class="hljs-string">''</span></span><br><span class="line"></span><br><span class="line">    votes = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-vote']/span/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># "有用"数</span></span><br><span class="line">    content = eachComment.xpath(<span class="hljs-string">"./p/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 评论内容</span></span><br><span class="line"></span><br><span class="line">    commentlist.append(user)</span><br><span class="line">    commentlist.append(watched)</span><br><span class="line">    commentlist.append(rating)</span><br><span class="line">    commentlist.append(comment_time)</span><br><span class="line">    commentlist.append(votes)</span><br><span class="line">    commentlist.append(content.strip())</span><br><span class="line">    <span class="hljs-comment"># print(list)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> commentlist</span><br></pre></td></tr></table></figure>
-
-<h2 id="制作云图"><a href="#制作云图" class="headerlink" title="制作云图"></a>制作云图</h2><p>因为爬取出来评论数据都是一大串字符串，所以需要对每个句子进行分词，然后统计每个词语出现的评论。我采用 <strong>jieba</strong> 库来进行分词，制作云图，我则是将分词后的数据丢给网站 <strong>worditout</strong> 处理。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">split_word</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">with</span> codecs.open(<span class="hljs-string">'Marvel3_yingpping.csv'</span>, <span class="hljs-string">'r'</span>, <span class="hljs-string">'utf-8'</span>) <span class="hljs-keyword">as</span> csvfile:</span><br><span class="line">        reader = csv.reader(csvfile)</span><br><span class="line">        content_list = []</span><br><span class="line">        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> reader:</span><br><span class="line">            <span class="hljs-keyword">try</span>:</span><br><span class="line">                content_list.append(row[<span class="hljs-number">5</span>])</span><br><span class="line">            <span class="hljs-keyword">except</span> IndexError:</span><br><span class="line">                <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line">        content = <span class="hljs-string">''</span>.join(content_list)</span><br><span class="line"></span><br><span class="line">        seg_list = jieba.cut(content, cut_all=<span class="hljs-literal">False</span>)</span><br><span class="line">        result = <span class="hljs-string">'\n'</span>.join(seg_list)</span><br><span class="line">        print(result)</span><br></pre></td></tr></table></figure>
-
-<p>最后制作出来的云图效果是：</p>
-<p><img src="./images/img/84_5.png" alt></p>
-<p>“灭霸”词语出现频率最高，其实这一点不意外。因为复联 3 整部电影的故事情节大概是，灭霸在宇宙各个星球上收集 6 颗无限宝石，然后每个超级英雄为了防止灭霸毁灭整个宇宙，组队来阻止灭霸。</p>
-
-                </div>             
-            
-            <!-- <p>我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么？</p>
-<blockquote>
-<p>《复仇者联盟3：无限战争》于 2018 年 5 月 11 日在中国大陆上映。截止 5 月 16 日，它累计票房达到 15.25 亿。这票房纪录已经超过了漫威系列单部电影的票房纪录。不得不说，漫威电影已经成为一种文化潮流。</p>
-</blockquote>
-<a id="more"></a>
-<p><img src="./images/img/84_1.jpg" alt></p>
-<p>复联 3 作为漫威 10 年一剑的收官之作。漫威确认下了很多功夫， 给我们奉献一部精彩绝伦的电影。自己也利用周末时间去电影院观看。看完之后，个人觉得无论在打斗特效方面还是故事情节，都是给人愉悦的享受。同时，电影还保持以往幽默搞笑的风格，经常能把观众逗得捧腹大笑。</p>
-<p>如果还没有去观看的朋友，可以去电影院看看，确实值得一看。</p>
-<p>本文通过 Python 制作网络爬虫，爬取豆瓣电影评论，并分析然后制作豆瓣影评的云图。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>先通过影评网页确定爬取的内容。我要爬取的是用户名，是否看过，五星评论值，评论时间，有用数以及评论内容。</p>
-<p><img src="./images/img/84_2.png" alt></p>
-<p>然后确定每页评论的 url 结构。<br>第二页 url 地址：</p>
-<p><img src="./images/img/84_3.png" alt></p>
-<p>第三页 url 地址：</p>
-<p><img src="./images/img/84_4.png" alt></p>
-<p>最后发现其中的规律：除了首页，后面的每页 url 地址中只有 start= 的值逐页递增，其他都是不变的。</p>
-<h2 id="数据爬取"><a href="#数据爬取" class="headerlink" title="数据爬取"></a>数据爬取</h2><p>本文爬取数据，采用的主要是 requests 库和 lxml 库中 Xpath。豆瓣网站虽然对网络爬虫算是很友好，但是还是有反爬虫机制。如果你没有设置延迟，一下子发起大量请求，会被封 IP 的。另外，如果没有登录豆瓣，只能访问前 10 页的影片。因此，发起爬取数据的 HTTP 请求要带上自己账号的 cookie。搞到 cookie 也不是难事，可以通过浏览器登录豆瓣，然后在开发者模式中获取。</p>
-<p>我想从影评首页开始爬取，爬取入口是：<strong><a href="https://movie.douban.com/subject/24773958/comments?status=P" target="_blank" rel="external nofollow noopener noreferrer">https://movie.douban.com/subject/24773958/comments?status=P</a></strong>，然后依次获取页面中下一页的 url 地址以及需要爬取的内容，接着继续访问下一个页面的地址。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> jieba</span><br><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> random</span><br><span class="line"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_spider</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    base_url = <span class="hljs-string">'https://movie.douban.com/subject/24773958/comments'</span></span><br><span class="line">    start_url = base_url + <span class="hljs-string">'?start=0'</span> </span><br><span class="line"></span><br><span class="line">    number = <span class="hljs-number">1</span></span><br><span class="line">    html = request_get(start_url) </span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">while</span> html.status_code == <span class="hljs-number">200</span>:</span><br><span class="line">        <span class="hljs-comment"># 获取下一页的 url</span></span><br><span class="line">        selector = etree.HTML(html.text)</span><br><span class="line">        nextpage = selector.xpath(<span class="hljs-string">"//div[@id='paginator']/a[@class='next']/@href"</span>)</span><br><span class="line">        nextpage = nextpage[<span class="hljs-number">0</span>]</span><br><span class="line">        next_url = base_url + nextpage</span><br><span class="line">        <span class="hljs-comment"># 获取评论</span></span><br><span class="line">        comments = selector.xpath(<span class="hljs-string">"//div[@class='comment']"</span>)</span><br><span class="line">        marvelthree = []</span><br><span class="line">        <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> comments:</span><br><span class="line">            marvelthree.append(get_comments(each))</span><br><span class="line"></span><br><span class="line">        data = pd.DataFrame(marvelthree)</span><br><span class="line">        <span class="hljs-comment"># 写入csv文件,'a+'是追加模式</span></span><br><span class="line">        <span class="hljs-keyword">try</span>:</span><br><span class="line">            <span class="hljs-keyword">if</span> number == <span class="hljs-number">1</span>:</span><br><span class="line">                csv_headers = [<span class="hljs-string">'用户'</span>, <span class="hljs-string">'是否看过'</span>, <span class="hljs-string">'五星评分'</span>, <span class="hljs-string">'评论时间'</span>, <span class="hljs-string">'有用数'</span>, <span class="hljs-string">'评论内容'</span>]</span><br><span class="line">                data.to_csv(<span class="hljs-string">'./Marvel3_yingpping.csv'</span>, header=csv_headers, index=<span class="hljs-literal">False</span>, mode=<span class="hljs-string">'a+'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                data.to_csv(<span class="hljs-string">'./Marvel3_yingpping.csv'</span>, header=<span class="hljs-literal">False</span>, index=<span class="hljs-literal">False</span>, mode=<span class="hljs-string">'a+'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br><span class="line">        <span class="hljs-keyword">except</span> UnicodeEncodeError:</span><br><span class="line">            print(<span class="hljs-string">"编码错误, 该数据无法写到文件中, 直接忽略该数据"</span>)</span><br><span class="line"></span><br><span class="line">        data = []</span><br><span class="line"></span><br><span class="line">        html = request_get(next_url)</span><br></pre></td></tr></table></figure>
-
-<p>我在请求头中增加随机变化的 User-agent, 增加 cookie。最后增加请求的随机等待时间，防止请求过猛被封 IP。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">request_get</span><span class="hljs-params">(url)</span>:</span></span><br><span class="line">    <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">    使用 Session 能够跨请求保持某些参数。</span></span><br><span class="line"><span class="hljs-string">    它也会在同一个 Session 实例发出的所有请求之间保持 cookie</span></span><br><span class="line"><span class="hljs-string">    '''</span></span><br><span class="line">    timeout = <span class="hljs-number">3</span></span><br><span class="line"></span><br><span class="line">    UserAgent_List = [</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.3319.102 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2309.372 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2117.157 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36"</span>,</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    header = &#123;</span><br><span class="line">        <span class="hljs-string">'User-agent'</span>: random.choice(UserAgent_List),</span><br><span class="line">        <span class="hljs-string">'Host'</span>: <span class="hljs-string">'movie.douban.com'</span>,</span><br><span class="line">        <span class="hljs-string">'Referer'</span>: <span class="hljs-string">'https://movie.douban.com/subject/24773958/?from=showing'</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    session = requests.Session()</span><br><span class="line"></span><br><span class="line">    cookie = &#123;</span><br><span class="line">        <span class="hljs-string">'cookie'</span>: <span class="hljs-string">"你的 cookie 值"</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    time.sleep(random.randint(<span class="hljs-number">5</span>, <span class="hljs-number">15</span>))  </span><br><span class="line">    response = requests.get(url, headers=header, cookies=cookie_nologin, timeout = <span class="hljs-number">3</span>)</span><br><span class="line">    <span class="hljs-keyword">if</span> response.status_code != <span class="hljs-number">200</span>:</span><br><span class="line">        print(response.status_code)</span><br><span class="line">    <span class="hljs-keyword">return</span> response</span><br></pre></td></tr></table></figure>
-
-<p>最后一步就是数据获取：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_comments</span><span class="hljs-params">(eachComment)</span>:</span></span><br><span class="line">    commentlist = []</span><br><span class="line">    user = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/a/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 用户</span></span><br><span class="line">    watched = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[1]/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 是否看过</span></span><br><span class="line">    rating = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[2]/@title"</span>)  <span class="hljs-comment"># 五星评分</span></span><br><span class="line">    <span class="hljs-keyword">if</span> len(rating) &gt; <span class="hljs-number">0</span>:</span><br><span class="line">        rating = rating[<span class="hljs-number">0</span>]</span><br><span class="line"></span><br><span class="line">    comment_time = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[3]/@title"</span>)  <span class="hljs-comment"># 评论时间</span></span><br><span class="line">    <span class="hljs-keyword">if</span> len(comment_time) &gt; <span class="hljs-number">0</span>:</span><br><span class="line">        comment_time = comment_time[<span class="hljs-number">0</span>]</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-comment"># 有些评论是没有五星评分, 需赋空值</span></span><br><span class="line">        comment_time = rating</span><br><span class="line">        rating = <span class="hljs-string">''</span></span><br><span class="line"></span><br><span class="line">    votes = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-vote']/span/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># "有用"数</span></span><br><span class="line">    content = eachComment.xpath(<span class="hljs-string">"./p/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 评论内容</span></span><br><span class="line"></span><br><span class="line">    commentlist.append(user)</span><br><span class="line">    commentlist.append(watched)</span><br><span class="line">    commentlist.append(rating)</span><br><span class="line">    commentlist.append(comment_time)</span><br><span class="line">    commentlist.append(votes)</span><br><span class="line">    commentlist.append(content.strip())</span><br><span class="line">    <span class="hljs-comment"># print(list)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> commentlist</span><br></pre></td></tr></table></figure>
-
-<h2 id="制作云图"><a href="#制作云图" class="headerlink" title="制作云图"></a>制作云图</h2><p>因为爬取出来评论数据都是一大串字符串，所以需要对每个句子进行分词，然后统计每个词语出现的评论。我采用 <strong>jieba</strong> 库来进行分词，制作云图，我则是将分词后的数据丢给网站 <strong>worditout</strong> 处理。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">split_word</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">with</span> codecs.open(<span class="hljs-string">'Marvel3_yingpping.csv'</span>, <span class="hljs-string">'r'</span>, <span class="hljs-string">'utf-8'</span>) <span class="hljs-keyword">as</span> csvfile:</span><br><span class="line">        reader = csv.reader(csvfile)</span><br><span class="line">        content_list = []</span><br><span class="line">        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> reader:</span><br><span class="line">            <span class="hljs-keyword">try</span>:</span><br><span class="line">                content_list.append(row[<span class="hljs-number">5</span>])</span><br><span class="line">            <span class="hljs-keyword">except</span> IndexError:</span><br><span class="line">                <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line">        content = <span class="hljs-string">''</span>.join(content_list)</span><br><span class="line"></span><br><span class="line">        seg_list = jieba.cut(content, cut_all=<span class="hljs-literal">False</span>)</span><br><span class="line">        result = <span class="hljs-string">'\n'</span>.join(seg_list)</span><br><span class="line">        print(result)</span><br></pre></td></tr></table></figure>
-
-<p>最后制作出来的云图效果是：</p>
-<p><img src="./images/img/84_5.png" alt></p>
-<p>“灭霸”词语出现频率最高，其实这一点不意外。因为复联 3 整部电影的故事情节大概是，灭霸在宇宙各个星球上收集 6 颗无限宝石，然后每个超级英雄为了防止灭霸毁灭整个宇宙，组队来阻止灭霸。</p>
-  -->
         </div>
+        <!-- 文章页面显示全部内容 -->
+        
+            <div class="content">
+                <p>我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么？</p>
+<blockquote>
+<p>《复仇者联盟3：无限战争》于 2018 年 5 月 11 日在中国大陆上映。截止 5 月 16 日，它累计票房达到 15.25 亿。这票房纪录已经超过了漫威系列单部电影的票房纪录。不得不说，漫威电影已经成为一种文化潮流。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="./images/img/84_1.jpg" alt></p>
+<p>复联 3 作为漫威 10 年一剑的收官之作。漫威确认下了很多功夫， 给我们奉献一部精彩绝伦的电影。自己也利用周末时间去电影院观看。看完之后，个人觉得无论在打斗特效方面还是故事情节，都是给人愉悦的享受。同时，电影还保持以往幽默搞笑的风格，经常能把观众逗得捧腹大笑。</p>
+<p>如果还没有去观看的朋友，可以去电影院看看，确实值得一看。</p>
+<p>本文通过 Python 制作网络爬虫，爬取豆瓣电影评论，并分析然后制作豆瓣影评的云图。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>先通过影评网页确定爬取的内容。我要爬取的是用户名，是否看过，五星评论值，评论时间，有用数以及评论内容。</p>
+<p><img src="./images/img/84_2.png" alt></p>
+<p>然后确定每页评论的 url 结构。<br>第二页 url 地址：</p>
+<p><img src="./images/img/84_3.png" alt></p>
+<p>第三页 url 地址：</p>
+<p><img src="./images/img/84_4.png" alt></p>
+<p>最后发现其中的规律：除了首页，后面的每页 url 地址中只有 start= 的值逐页递增，其他都是不变的。</p>
+<h2 id="数据爬取"><a href="#数据爬取" class="headerlink" title="数据爬取"></a>数据爬取</h2><p>本文爬取数据，采用的主要是 requests 库和 lxml 库中 Xpath。豆瓣网站虽然对网络爬虫算是很友好，但是还是有反爬虫机制。如果你没有设置延迟，一下子发起大量请求，会被封 IP 的。另外，如果没有登录豆瓣，只能访问前 10 页的影片。因此，发起爬取数据的 HTTP 请求要带上自己账号的 cookie。搞到 cookie 也不是难事，可以通过浏览器登录豆瓣，然后在开发者模式中获取。</p>
+<p>我想从影评首页开始爬取，爬取入口是：<strong><a href="https://movie.douban.com/subject/24773958/comments?status=P" target="_blank" rel="external nofollow noopener noreferrer">https://movie.douban.com/subject/24773958/comments?status=P</a></strong>，然后依次获取页面中下一页的 url 地址以及需要爬取的内容，接着继续访问下一个页面的地址。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> jieba</span><br><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> random</span><br><span class="line"><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_spider</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    base_url = <span class="hljs-string">'https://movie.douban.com/subject/24773958/comments'</span></span><br><span class="line">    start_url = base_url + <span class="hljs-string">'?start=0'</span> </span><br><span class="line"></span><br><span class="line">    number = <span class="hljs-number">1</span></span><br><span class="line">    html = request_get(start_url) </span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">while</span> html.status_code == <span class="hljs-number">200</span>:</span><br><span class="line">        <span class="hljs-comment"># 获取下一页的 url</span></span><br><span class="line">        selector = etree.HTML(html.text)</span><br><span class="line">        nextpage = selector.xpath(<span class="hljs-string">"//div[@id='paginator']/a[@class='next']/@href"</span>)</span><br><span class="line">        nextpage = nextpage[<span class="hljs-number">0</span>]</span><br><span class="line">        next_url = base_url + nextpage</span><br><span class="line">        <span class="hljs-comment"># 获取评论</span></span><br><span class="line">        comments = selector.xpath(<span class="hljs-string">"//div[@class='comment']"</span>)</span><br><span class="line">        marvelthree = []</span><br><span class="line">        <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> comments:</span><br><span class="line">            marvelthree.append(get_comments(each))</span><br><span class="line"></span><br><span class="line">        data = pd.DataFrame(marvelthree)</span><br><span class="line">        <span class="hljs-comment"># 写入csv文件,'a+'是追加模式</span></span><br><span class="line">        <span class="hljs-keyword">try</span>:</span><br><span class="line">            <span class="hljs-keyword">if</span> number == <span class="hljs-number">1</span>:</span><br><span class="line">                csv_headers = [<span class="hljs-string">'用户'</span>, <span class="hljs-string">'是否看过'</span>, <span class="hljs-string">'五星评分'</span>, <span class="hljs-string">'评论时间'</span>, <span class="hljs-string">'有用数'</span>, <span class="hljs-string">'评论内容'</span>]</span><br><span class="line">                data.to_csv(<span class="hljs-string">'./Marvel3_yingpping.csv'</span>, header=csv_headers, index=<span class="hljs-literal">False</span>, mode=<span class="hljs-string">'a+'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                data.to_csv(<span class="hljs-string">'./Marvel3_yingpping.csv'</span>, header=<span class="hljs-literal">False</span>, index=<span class="hljs-literal">False</span>, mode=<span class="hljs-string">'a+'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br><span class="line">        <span class="hljs-keyword">except</span> UnicodeEncodeError:</span><br><span class="line">            print(<span class="hljs-string">"编码错误, 该数据无法写到文件中, 直接忽略该数据"</span>)</span><br><span class="line"></span><br><span class="line">        data = []</span><br><span class="line"></span><br><span class="line">        html = request_get(next_url)</span><br></pre></td></tr></table></figure>
 
+<p>我在请求头中增加随机变化的 User-agent, 增加 cookie。最后增加请求的随机等待时间，防止请求过猛被封 IP。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">request_get</span><span class="hljs-params">(url)</span>:</span></span><br><span class="line">    <span class="hljs-string">'''</span></span><br><span class="line"><span class="hljs-string">    使用 Session 能够跨请求保持某些参数。</span></span><br><span class="line"><span class="hljs-string">    它也会在同一个 Session 实例发出的所有请求之间保持 cookie</span></span><br><span class="line"><span class="hljs-string">    '''</span></span><br><span class="line">    timeout = <span class="hljs-number">3</span></span><br><span class="line"></span><br><span class="line">    UserAgent_List = [</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.3319.102 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2309.372 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2117.157 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"</span>,</span><br><span class="line">        <span class="hljs-string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36"</span>,</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    header = &#123;</span><br><span class="line">        <span class="hljs-string">'User-agent'</span>: random.choice(UserAgent_List),</span><br><span class="line">        <span class="hljs-string">'Host'</span>: <span class="hljs-string">'movie.douban.com'</span>,</span><br><span class="line">        <span class="hljs-string">'Referer'</span>: <span class="hljs-string">'https://movie.douban.com/subject/24773958/?from=showing'</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    session = requests.Session()</span><br><span class="line"></span><br><span class="line">    cookie = &#123;</span><br><span class="line">        <span class="hljs-string">'cookie'</span>: <span class="hljs-string">"你的 cookie 值"</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    time.sleep(random.randint(<span class="hljs-number">5</span>, <span class="hljs-number">15</span>))  </span><br><span class="line">    response = requests.get(url, headers=header, cookies=cookie_nologin, timeout = <span class="hljs-number">3</span>)</span><br><span class="line">    <span class="hljs-keyword">if</span> response.status_code != <span class="hljs-number">200</span>:</span><br><span class="line">        print(response.status_code)</span><br><span class="line">    <span class="hljs-keyword">return</span> response</span><br></pre></td></tr></table></figure>
+
+<p>最后一步就是数据获取：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_comments</span><span class="hljs-params">(eachComment)</span>:</span></span><br><span class="line">    commentlist = []</span><br><span class="line">    user = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/a/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 用户</span></span><br><span class="line">    watched = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[1]/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 是否看过</span></span><br><span class="line">    rating = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[2]/@title"</span>)  <span class="hljs-comment"># 五星评分</span></span><br><span class="line">    <span class="hljs-keyword">if</span> len(rating) &gt; <span class="hljs-number">0</span>:</span><br><span class="line">        rating = rating[<span class="hljs-number">0</span>]</span><br><span class="line"></span><br><span class="line">    comment_time = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-info']/span[3]/@title"</span>)  <span class="hljs-comment"># 评论时间</span></span><br><span class="line">    <span class="hljs-keyword">if</span> len(comment_time) &gt; <span class="hljs-number">0</span>:</span><br><span class="line">        comment_time = comment_time[<span class="hljs-number">0</span>]</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-comment"># 有些评论是没有五星评分, 需赋空值</span></span><br><span class="line">        comment_time = rating</span><br><span class="line">        rating = <span class="hljs-string">''</span></span><br><span class="line"></span><br><span class="line">    votes = eachComment.xpath(<span class="hljs-string">"./h3/span[@class='comment-vote']/span/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># "有用"数</span></span><br><span class="line">    content = eachComment.xpath(<span class="hljs-string">"./p/text()"</span>)[<span class="hljs-number">0</span>]  <span class="hljs-comment"># 评论内容</span></span><br><span class="line"></span><br><span class="line">    commentlist.append(user)</span><br><span class="line">    commentlist.append(watched)</span><br><span class="line">    commentlist.append(rating)</span><br><span class="line">    commentlist.append(comment_time)</span><br><span class="line">    commentlist.append(votes)</span><br><span class="line">    commentlist.append(content.strip())</span><br><span class="line">    <span class="hljs-comment"># print(list)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> commentlist</span><br></pre></td></tr></table></figure>
+
+<h2 id="制作云图"><a href="#制作云图" class="headerlink" title="制作云图"></a>制作云图</h2><p>因为爬取出来评论数据都是一大串字符串，所以需要对每个句子进行分词，然后统计每个词语出现的评论。我采用 <strong>jieba</strong> 库来进行分词，制作云图，我则是将分词后的数据丢给网站 <strong>worditout</strong> 处理。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">split_word</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">with</span> codecs.open(<span class="hljs-string">'Marvel3_yingpping.csv'</span>, <span class="hljs-string">'r'</span>, <span class="hljs-string">'utf-8'</span>) <span class="hljs-keyword">as</span> csvfile:</span><br><span class="line">        reader = csv.reader(csvfile)</span><br><span class="line">        content_list = []</span><br><span class="line">        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> reader:</span><br><span class="line">            <span class="hljs-keyword">try</span>:</span><br><span class="line">                content_list.append(row[<span class="hljs-number">5</span>])</span><br><span class="line">            <span class="hljs-keyword">except</span> IndexError:</span><br><span class="line">                <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line">        content = <span class="hljs-string">''</span>.join(content_list)</span><br><span class="line"></span><br><span class="line">        seg_list = jieba.cut(content, cut_all=<span class="hljs-literal">False</span>)</span><br><span class="line">        result = <span class="hljs-string">'\n'</span>.join(seg_list)</span><br><span class="line">        print(result)</span><br></pre></td></tr></table></figure>
+
+<p>最后制作出来的云图效果是：</p>
+<p><img src="./images/img/84_5.png" alt></p>
+<p>“灭霸”词语出现频率最高，其实这一点不意外。因为复联 3 整部电影的故事情节大概是，灭霸在宇宙各个星球上收集 6 颗无限宝石，然后每个超级英雄为了防止灭霸毁灭整个宇宙，组队来阻止灭霸。</p>
+
+            </div>   
+        
+        <br>
         <!-- 增加微信公众号首发说明 -->
         
         <div>
@@ -305,7 +281,7 @@ var _hmt = _hmt || [];
             </li>
             </ul>
         
-        <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
+            <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
         
         
         <hr style="height:1px;margin:1rem 0">
@@ -334,6 +310,8 @@ var _hmt = _hmt || [];
 
 
 
+
+
 <div class="card">
     <div class="card-content">
         <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
@@ -352,6 +330,7 @@ var _hmt = _hmt || [];
         </div>
     </div>
 </div>
+
 
 
 
@@ -401,11 +380,13 @@ var _hmt = _hmt || [];
 </div>
 </div>
                 
+                
+                
 
 
 
 
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -472,9 +453,6 @@ var _hmt = _hmt || [];
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank" rel="external nofollow noopener noreferrer">
                 关注我</a>
-            <div clas="level" id="knowledge-qrcode" style="display: none; height: 330px; padding: 0px; margin: 0px; width: 242px; opacity: 1;">
-                <img src="https://s1.ax1x.com/2020/05/14/YBHCAU.png" alt="极客猴的公众号" width="100%">
-            </div>
         </div>
         
         
@@ -531,12 +509,32 @@ var _hmt = _hmt || [];
     </div>
 
     
+        <div class="card widget">
+  <div class="weight_card-content">
+    <div class="menu">
+      <h4 class="menu_weight" style="text-align:center;">更多内容,请关注公众号！</h4>
+      <div>
+        <img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" alt="极客猴的公众号" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <div class="card widget">
+    <div>
+      <a href="https://reg.huaweicloud.com/registerui/cn/register.html?bpInvite=7a2d288001c6466a&service=https%3A%2F%2Faccount.huaweicloud.com%2Fusercenter%2F%3Flocale%3Dzh-cn%26hws_route_url%3DregistSuccess%26bpInvite%3D7a2d288001c6466a%26bpName%3D5f9f98a29e2c40b780c1793086f29fe2%26inviteCode%3Dchanql123%26bindType%3D1#/register" target="_blank" rel="external nofollow noopener noreferrer">
+      <img src="https://s1.ax1x.com/2020/05/17/Y25LY6.png" alt="华为云新用户福利" width="100%">
+      </a>
+    </div>
+</div>
+    
         <!-- 侧边组件-专栏 -->
 
 <div class="card widget">
     <div class="card-content">
         <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 专栏
             </h3>
             <ul class="menu-list">
@@ -622,386 +620,387 @@ var _hmt = _hmt || [];
     <!-- 优化移动端显示，隐藏 archive  -->
     <div class="card-content is-hidden-mobile">
         <div class="menu">
-        <h3 class="menu-label">
+        <h3 class="menu_weight">
             归档
         </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">7</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">6</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/04/">
-                <span class="level-start">
-                    <span class="level-item">四月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">8</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2018/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2018</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">5</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/09/">
-                <span class="level-start">
-                    <span class="level-item">九月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/08/">
-                <span class="level-start">
-                    <span class="level-item">八月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/07/">
-                <span class="level-start">
-                    <span class="level-item">七月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">4</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/06/">
-                <span class="level-start">
-                    <span class="level-item">六月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">3</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2017/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2017</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/12/">
-                <span class="level-start">
-                    <span class="level-item">十二月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2016/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2016</span>
-                </span>
-                <span class="level-end">
-                    <span class="archive-list-item archive-list-count">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
+
+            <div class="field is-grouped is-grouped-multiline">
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2020/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2020</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2019/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2019</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">7</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">6</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/05/">
+                            <span class="level-start">
+                                <span class="level-item">五月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/04/">
+                            <span class="level-start">
+                                <span class="level-item">四月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">8</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/03/">
+                            <span class="level-start">
+                                <span class="level-item">三月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/02/">
+                            <span class="level-start">
+                                <span class="level-item">二月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2018/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2018</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">5</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/10/">
+                            <span class="level-start">
+                                <span class="level-item">十月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/09/">
+                            <span class="level-start">
+                                <span class="level-item">九月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/08/">
+                            <span class="level-start">
+                                <span class="level-item">八月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/07/">
+                            <span class="level-start">
+                                <span class="level-item">七月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">4</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/06/">
+                            <span class="level-start">
+                                <span class="level-item">六月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">3</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2017/01/">
+                            <span class="level-start">
+                                <span class="level-item">一月 2017</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/12/">
+                            <span class="level-start">
+                                <span class="level-item">十二月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">2</span>
+                            </span>
+                        </a>
+                    </div> 
+                 
+                    <div class="archive-container">
+                        <a class="level is-marginless" href="/archives/2016/11/">
+                            <span class="level-start">
+                                <span class="level-item">十一月 2016</span>
+                            </span>
+                            <span class="level-end">
+                                <span class="archive-list-item archive-list-count">1</span>
+                            </span>
+                        </a>
+                    </div> 
+                
+            </div>
         </div>
     </div>
 </div>
@@ -1009,940 +1008,883 @@ var _hmt = _hmt || [];
         <div class="card widget">
     <div class="card-content">
         <div class="menu">
-        <h3 class="menu-label">
-            我的好友
-        </h3>
-
-        <ul class="menu-list">
-        
-            <li>
-                <a class="level is-mobile" href="https://python。iswbm.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Python 编程时光</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.xianyucoder.cn/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;咸鱼自我满足的日常</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="https://dp2px.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;水寒的博客</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-            <li>
-                <a class="level is-mobile" href="http://www.gcowsec.com/" target="_blank" rel="external nofollow noopener noreferrer">
-                    <span class="level-left">
-                        <span class="level-item"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Gcow 安全团队</span>
-                    </span>
-                </a>
-            </li>
-            
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-    
-        <!-- -->
-        <div class="column-right-shadow 
-         
-        ">
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
+            <h3 class="menu_weight">
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag">APScheduler</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">APScheduler</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Chrome/">
-                        <span class="tag">Chrome</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Chrome</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Debian/">
-                        <span class="tag">Debian</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Debian</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag">Django</span>
-                        <span class="tag is-grey">20</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Django</span>
+                        <span class="tag tag_count">20</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Djongo/">
-                        <span class="tag">Djongo</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Djongo</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Flask/">
-                        <span class="tag">Flask</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Flask</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Github/">
-                        <span class="tag">Github</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Github</span>
+                        <span class="tag tag_count">6</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag">HTTP</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">HTTP</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Hexo/">
-                        <span class="tag">Hexo</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Hexo</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IG/">
-                        <span class="tag">IG</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IG</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag">IP代理池</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IP代理池</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag">Iterable</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterable</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag">Iterator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Jekyll/">
-                        <span class="tag">Jekyll</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Jekyll</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag">Linux</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Linux</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MangoDB/">
-                        <span class="tag">MangoDB</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MangoDB</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Matplotlib</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mongo-Plugin/">
-                        <span class="tag">Mongo Plugin</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mongo Plugin</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/MongoDB/">
-                        <span class="tag">MongoDB</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MongoDB</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Mysql/">
-                        <span class="tag">Mysql</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mysql</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Nosqlclient/">
-                        <span class="tag">Nosqlclient</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Nosqlclient</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OAuth/">
-                        <span class="tag">OAuth</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OAuth</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag">OCR</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OCR</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/PEP/">
-                        <span class="tag">PEP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">PEP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pandas/">
-                        <span class="tag">Pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Pycharm/">
-                        <span class="tag">Pycharm</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pycharm</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag">Python</span>
-                        <span class="tag is-grey">78</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Python</span>
+                        <span class="tag tag_count">78</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Redis</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Request/">
-                        <span class="tag">Request</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Request</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag">Requests</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Requests</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/SEO-%E4%BC%98%E5%8C%96/">
-                        <span class="tag">SEO 优化</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">SEO 优化</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag">Scrapy</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Scrapy</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Selenium/">
-                        <span class="tag">Selenium</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Selenium</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Session/">
-                        <span class="tag">Session</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Session</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/TCP/">
-                        <span class="tag">TCP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">TCP</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Token/">
-                        <span class="tag">Token</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Token</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Ubuntu/">
-                        <span class="tag">Ubuntu</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Ubuntu</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Unicode/">
-                        <span class="tag">Unicode</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Unicode</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Vlog/">
-                        <span class="tag">Vlog</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Vlog</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag">Web</span>
-                        <span class="tag is-grey">19</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Web</span>
+                        <span class="tag tag_count">19</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/WordPress/">
-                        <span class="tag">WordPress</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">WordPress</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag">Xpath</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Xpath</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/aiohttp/">
-                        <span class="tag">aiohttp</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">aiohttp</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag">beautifulSoup</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">beautifulSoup</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/codecs/">
-                        <span class="tag">codecs</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">codecs</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/csv/">
-                        <span class="tag">csv</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">csv</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag">datetime</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">datetime</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag">generator</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">generator</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag">lxml</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">lxml</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/os-path/">
-                        <span class="tag">os.path</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">os.path</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pandas/">
-                        <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pandas</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag">pustil</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pustil</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/pyecharts/">
-                        <span class="tag">pyecharts</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pyecharts</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag">sched</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">sched</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/session/">
-                        <span class="tag">session</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">session</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/the-fuck/">
-                        <span class="tag">the fuck</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">the fuck</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag">time</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">time</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/unsplash/">
-                        <span class="tag">unsplash</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">unsplash</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/web/">
-                        <span class="tag">web</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">web</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%83%E5%A4%95/">
-                        <span class="tag">七夕</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">七夕</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B8%AD%E9%97%B4%E9%94%AE/">
-                        <span class="tag">中间键</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">中间键</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%B9%A6%E7%B1%8D/">
-                        <span class="tag">书籍</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">书籍</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        <span class="tag">二维码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">二维码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BA%A7%E5%93%81/">
-                        <span class="tag">产品</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">产品</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%90%86/">
-                        <span class="tag">代理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">代理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%89%AF%E4%B8%9A/">
-                        <span class="tag">副业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">副业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="tag">博客</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">博客</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag">反爬虫</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">反爬虫</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="tag">可视化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">可视化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
-                        <span class="tag">后台</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/">
-                        <span class="tag">后台架构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台架构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%95%86%E4%B8%9A/">
-                        <span class="tag">商业</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">商业</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%9B%BE%E8%A1%A8/">
-                        <span class="tag">图表</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">图表</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag">多线程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多线程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag">多进程</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多进程</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag">定时任务</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">定时任务</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%B9%B4%E6%80%BB%E7%BB%93/">
-                        <span class="tag">年总结</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">年总结</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/">
-                        <span class="tag">开发进阶</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开发进阶</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
-                        <span class="tag">开源项目</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开源项目</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag">当当</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">当当</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E5%BF%85%E8%83%9C%E5%AE%A2/">
-                        <span class="tag">必胜客</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">必胜客</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag">思念</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">思念</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-                        <span class="tag">性能优化</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">性能优化</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="tag">总结</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">总结</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%84%9F%E6%82%9F/">
-                        <span class="tag">感悟</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">感悟</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%87%82%E7%82%B9%E7%B3%BB%E5%88%97/">
-                        <span class="tag">懂点系列</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">懂点系列</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag">技巧</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">技巧</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85/">
-                        <span class="tag">抓包</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
-                        <span class="tag">抓包工具</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包工具</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%8B%96%E5%BB%B6%E7%97%87/">
-                        <span class="tag">拖延症</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">拖延症</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="tag">操作系统</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">操作系统</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag">数据分析</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据分析</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="tag">数据库</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据库</span>
+                        <span class="tag tag_count">3</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag">数据结构</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据结构</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%99%A8/">
-                        <span class="tag">数据采集器</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据采集器</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="tag">数据集</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据集</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="tag">数组</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数组</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E4%BB%B6%E9%81%8D%E5%8E%86/">
-                        <span class="tag">文件遍历</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文件遍历</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-                        <span class="tag">文本操作</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文本操作</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag">方法论</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">方法论</span>
+                        <span class="tag tag_count">7</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-                        <span class="tag">时间管理</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">时间管理</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <span class="tag">标准库</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">标准库</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag">正则表达式</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">正则表达式</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BA%90%E7%A0%81/">
-                        <span class="tag">源码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">源码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E6%BC%AB%E5%A8%81/">
-                        <span class="tag">漫威</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">漫威</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag">爬虫实战</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">爬虫实战</span>
+                        <span class="tag tag_count">10</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag">电影</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">电影</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%99%BD%E8%9B%87%E7%BC%98%E8%B5%B7/">
-                        <span class="tag">白蛇缘起</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">白蛇缘起</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/">
-                        <span class="tag">短视频</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">短视频</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
-                        <span class="tag">社工库</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">社工库</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">
-                        <span class="tag">竞品分析</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">竞品分析</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
-                        <span class="tag">编码规范</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编码规范</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-                        <span class="tag">编程入门</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编程入门</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">
-                        <span class="tag">网易云音乐</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网易云音乐</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag">网络爬虫</span>
-                        <span class="tag is-grey">24</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网络爬虫</span>
+                        <span class="tag tag_count">24</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="tag">自学</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">自学</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag">认知</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">认知</span>
+                        <span class="tag tag_count">9</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B1%86%E7%93%A3/">
-                        <span class="tag">豆瓣</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">豆瓣</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E8%B4%A6%E5%8F%B7%E8%AE%A4%E8%AF%81/">
-                        <span class="tag">账号认证</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">账号认证</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag">阅读</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">阅读</span>
+                        <span class="tag tag_count">2</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="tag">面试</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">面试</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="tag">项目实战</span>
-                        <span class="tag is-grey">14</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">项目实战</span>
+                        <span class="tag tag_count">14</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag">验证码</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">验证码</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
-                        <span class="tag">高并发</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">高并发</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
-                <div class="control">
+                <div class="tag_control">
                     <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag">鸡汤</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">鸡汤</span>
+                        <span class="tag tag_count">1</span>
                     </a>
                 </div>
                 
@@ -1951,12 +1893,10 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
-        
-        </div>
+    
     
 </div>
 
-                
             </div>
         </div>
     </section>
