@@ -1,239 +1,694 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8">
-
-<meta name="baidu-site-verification" content="Cg06Zha1ae">
-<meta name="generator" content="Hexo 4.2.0">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-<meta name="description" content="10 张图带你了解后台服务架构演变">
-
-
-
-<meta name="keywords" content="高并发">
-
-
-<title>10 张图带你了解后台服务架构演变 - 极客猴</title>
-
-
-
-
-
-
-
-
-<link rel="icon" href="/images/favicon.png">
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
-
-
+<html>
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
     
-    
-<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+  <!-- 页面元数据 -->
+  
+  <title>10 张图带你了解后台服务架构演变 - 极客猴</title>
+  
+    <meta name="keywords" content="高并发">
+  
 
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+  
+    <meta name="description" content="上篇文章讲了一些高并发相关的知识，相信大家对高并发有些简单的认识。说到高并发，往往离不开分布式系统。人们经常将两者拿来一起讨论，因为高并发（High Concurrency）是互联网分布式系统架构设计中必须考虑的因素之一。可以这么说，目前应用商城上很多社交应用，网络游戏的后台服务都是分布式服务。那具体什么催生出今...">
+  
 
-    
-    
-    
-    
-<link rel="stylesheet" href="/css/back-to-top.css">
+  <!-- feed -->
+  
 
-    
-    
-    
-    <script>
-var _hmt = _hmt || [];
-(function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?a6ccc4c73948c9c6e7395fb65d736f66";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-</script>
-    
-    
-    
-    <link rel="stylesheet" href="/css/progressbar.css">
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-    
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
+  <!-- import meta -->
+  
 
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
 
-<!-- 自动推送链接 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
 
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
 <link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  
 </head>
-<!-- 文章页面内容有三栏布局修改为两栏布局-->
-<body class="is-2-column">
-    <div class="navbar-top">
-    <div class="container">
-    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客|公众号『极客猴』</span></p>
-    </div>    
-</div>
-<nav class="navbar navbar-main">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="/images/logo.png" alt="10 张图带你了解后台服务架构演变" height="28">
-            
+
+<body>
+  
+  
+  
+  <div class="cover-wrapper">
+    <cover class="cover post" style="display: none;">
+      <div class="cover-body">
+  <div class="a">
+    
+    
+      <p class="title">极客猴</p>
+    
+    
+      <p class="subtitle">猴哥的个人博客</p>
+    
+  </div>
+  <div class="b">
+    <div class="menu navigation dock">
+      <div class="list-h">
+        
+          
+            <a href="/" id="home">
+              <i class="fas fa-book fa-fw"></i><p>主页</p>
             </a>
-        </div>
-        <div class="navbar-menu">
+          
+            <a href="/archives/" id="archives">
+              <i class="fas fa-archive fa-fw"></i><p>归档</p>
+            </a>
+          
+            <a href="/treasure/" id="treasure">
+              <i class="fas fa-gift fa-fw"></i><p>藏宝阁</p>
+            </a>
+          
+            <a href="/about/" id="about">
+              <i class="fas fa-fan fa-spin fa-fw"></i><p>关于我</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    </cover>
+    <header class="l_header shadow floatable">
+  <div class="container">
+  <div class="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="/images/avatar.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
             
-            <div class="navbar-start">
-                
-                <a class="navbar-item" href="/">主页</a>
-                
-                <a class="navbar-item" href="/archives">归档</a>
-                
-                <a class="navbar-item" href="/categories">专栏</a>
-                
-                <a class="navbar-item" href="/tags">热门标签</a>
-                
-                <a class="navbar-item" href="/treasure">藏宝阁</a>
-                
-                <a class="navbar-item" href="/friends">友情链接</a>
-                
-                <a class="navbar-item" href="/about">关于我</a>
-                
-            </div>
             
-            <div class="navbar-end">
-                
-                
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-flag faa-tada fa-fw"></i>博客
                 </a>
                 
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fas fa-book faa-tada fa-fw"></i>Python教程
+                </a>
                 
-                <!-- 右边搜索-->
-                <a class="navbar-item search" title="搜索" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a> 
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A">
+                  <i class="fas fa-folder-open fa-fw"></i>Python 必知必会
+                </a>
                 
-            </div>
-        </div>
-    </div>
-</nav>
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" id="categoriesE7BD91E7BB9CE788ACE899AB">
+                  <i class="fas fa-fire fa-fw"></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" id="categoriesE695B0E68DAEE58886E69E90">
+                  <i class="fas fa-fire fa-fw"></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0">
+                  <i class="fas fa-folder-open fa-fw"></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/" id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96">
+                  <i class="fas fa-book faa-tada fa-fw"></i>建站
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/" id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5">
+                  <i class="fas fa-fan fa-spin fa-fw"></i>认知
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa fa-address-card fa-fw fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa fa-ellipsis-v fa-fw fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/treasure/" id="treasure">
+                  <i class="fas fa-gift fa-fw"></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-flag faa-tada fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fas fa-book faa-tada fa-fw"></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A">
+                  <i class="fas fa-folder-open fa-fw"></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" id="categoriesE7BD91E7BB9CE788ACE899AB">
+                  <i class="fas fa-fire fa-fw"></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" id="categoriesE695B0E68DAEE58886E69E90">
+                  <i class="fas fa-fire fa-fw"></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0">
+                  <i class="fas fa-folder-open fa-fw"></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/" id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96">
+                  <i class="fas fa-book faa-tada fa-fw"></i>建站
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/" id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5">
+                  <i class="fas fa-fan fa-spin fa-fw"></i>认知
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa fa-address-card fa-fw fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa fa-ellipsis-v fa-fw fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/treasure/" id="treasure">
+                  <i class="fas fa-gift fa-fw"></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  </div>
+  
+
+
+  <div class="l_body nocover">
+    <div class="body-wrapper" id="pjax-container">
+      
+        <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">10 张图带你了解后台服务架构演变</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path">none</div> 
+  <div id="pjax-comment-placeholder">none</div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover')[0].style.display = "none"; 
+    document.getElementsByClassName('l_body')[0].classList.add("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "blog") { // 半屏 
+      document.getElementsByClassName('cover')[0].classList.remove("full"); 
+      document.getElementsByClassName('cover')[0].classList.add("half"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "docs") { // 全屏 
+      document.getElementsByClassName('cover')[0].classList.remove("half"); 
+      document.getElementsByClassName('cover')[0].classList.add("full"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover')[0].style.display = ""; 
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+
+      
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
     
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
-<div class="card">
-    <div class="card-content article ">
-        <!-- 标题移动到文章信息上方 -->
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <span class="card-title-color">10 张图带你了解后台服务架构演变</span>
-            
-        </h1>
+      
+      
+        <a title="10 张图带你了解后台服务架构演变" href="/1081.html"><img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YyMx2V.jpg"></a>
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/1081.html">
+      10 张图带你了解后台服务架构演变
+    </a>
+  </h1>
+
 
         
-        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- 增加了icon-->
-                
-                <div class="level-item">
-                <i class="far fa-list-alt"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-                </div>
-                
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a class="author" href="/" rel="nofollow">
+    <img no-lazy src="/images/avatar.png">
+    <p>猴哥</p>
+  </a>
+</div>
 
-                
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2018-10-16(<time class="level-item has-text-grey" datetime="2018-10-16T04:16:33.000Z">2018-10-16</time>)</span>
-                
-                <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">猴哥</span>
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E9%9A%8F%E7%AC%94/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>随笔</p>
+    </a>
+  </div>
 
-                 
-                <i class="far fa-clock"></i>&nbsp;&nbsp;
-                <span class="level-item has-text-grey">
-                    
-                    
-                    13 分钟 读完 (大约 2018 个字)
-                </span>
-                
-                <!-- 浏览量
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>&nbsp;&nbsp;
-                    <span id="busuanzi_value_page_pv">0</span> 次浏览
-                </span>
-                 -->
-            </div>
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年10月16日</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.9k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：6分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/1081.html" class="leancloud_visitors" data-flag-title="10 张图带你了解后台服务架构演变">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/1081.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/1081.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+            
+          
         </div>
         
-        <br>
-        <div class="content_container">
-            <!-- 左边封面图 -->
-            <div class="thumbnail-left is-hidden-mobile">
-                
-            </div>
-            <!-- 右边文章概要 -->
-            
-        </div>
-        <!-- 文章页面显示全部内容 -->
+          <hr>
         
-            <div class="content">
-                <p>上篇文章讲了一些高并发相关的知识，相信大家对高并发有些简单的认识。说到高并发，往往离不开分布式系统。人们经常将两者拿来一起讨论，因为高并发（High Concurrency）是互联网分布式系统架构设计中必须考虑的因素之一。可以这么说，目前应用商城上很多社交应用，网络游戏的后台服务都是分布式服务。那具体什么催生出今天的分布式系统呢？文章的主要内容是讲讲大型网站的服务架构演变。</p>
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>上篇文章讲了一些高并发相关的知识，相信大家对高并发有些简单的认识。说到高并发，往往离不开分布式系统。人们经常将两者拿来一起讨论，因为高并发（High Concurrency）是互联网分布式系统架构设计中必须考虑的因素之一。可以这么说，目前应用商城上很多社交应用，网络游戏的后台服务都是分布式服务。那具体什么催生出今天的分布式系统呢？文章的主要内容是讲讲大型网站的服务架构演变。</p>
 <a id="more"></a>
-<h2 id="初始阶段的网站架构"><a href="#初始阶段的网站架构" class="headerlink" title="初始阶段的网站架构"></a>初始阶段的网站架构</h2><p>在互联网展露出萌芽的网络时代，网站基本都是小型网站。网站的访客也不是很多，通常会将应用程序、数据库、文件等所有资源都在一台服务器上。这里为 Java Web 服务为例。网站开发者可以使用 Tomcat 等 Web 容器直接运行 JSP 程序，然后将数据存储到数据库，文件直接存放到服务器的磁盘中。就像这样子：</p>
+<h2 id="1-初始阶段的网站架构"><a href="#1-初始阶段的网站架构" class="headerlink" title="1.初始阶段的网站架构"></a>1.初始阶段的网站架构</h2><p>在互联网展露出萌芽的网络时代，网站基本都是小型网站。网站的访客也不是很多，通常会将应用程序、数据库、文件等所有资源都在一台服务器上。这里为 Java Web 服务为例。网站开发者可以使用 Tomcat 等 Web 容器直接运行 JSP 程序，然后将数据存储到数据库，文件直接存放到服务器的磁盘中。就像这样子：</p>
 <p><img src="./images/img/114_1.jpg" alt></p>
-<h2 id="应用服务和数据服务分离"><a href="#应用服务和数据服务分离" class="headerlink" title="应用服务和数据服务分离"></a>应用服务和数据服务分离</h2><p>随着网站业务的发展和用户量的增加，一台服务器就无法再满足需求了。大量用户访问导致访问速度越来越慢，而逐渐增加的数据也会导致存储空间不足。<strong>这时需要将 Web 应用和数据分离，分别将存放到不同的服务器：应用服务器、文件服务器和数据库服务器</strong>。这样不仅提高了单台机器的负载能力，也提高了容灾能力。</p>
+<h2 id="2-应用服务和数据服务分离"><a href="#2-应用服务和数据服务分离" class="headerlink" title="2.应用服务和数据服务分离"></a>2.应用服务和数据服务分离</h2><p>随着网站业务的发展和用户量的增加，一台服务器就无法再满足需求了。大量用户访问导致访问速度越来越慢，而逐渐增加的数据也会导致存储空间不足。<strong>这时需要将 Web 应用和数据分离，分别将存放到不同的服务器：应用服务器、文件服务器和数据库服务器</strong>。这样不仅提高了单台机器的负载能力，也提高了容灾能力。</p>
 <p><img src="./images/img/114_2.jpg" alt></p>
-<h2 id="使用缓存改善网站性能"><a href="#使用缓存改善网站性能" class="headerlink" title="使用缓存改善网站性能"></a>使用缓存改善网站性能</h2><p>随着用户再增加，网站又会一次面临挑战：数据库压力太大导致整站访问效率再此下降，用户体验受到影响。</p>
+<h2 id="3-使用缓存改善网站性能"><a href="#3-使用缓存改善网站性能" class="headerlink" title="3.使用缓存改善网站性能"></a>3.使用缓存改善网站性能</h2><p>随着用户再增加，网站又会一次面临挑战：数据库压力太大导致整站访问效率再此下降，用户体验受到影响。</p>
 <p>一个网站往往 80% 的业务访问集中在 20% 的数据上。那么将这一小部分频繁读取的数据先提前缓存在内存中，而不是每次都去数据库读取。这样就可以减少数据库的访问压力，从而提高整个网站的访问速度。</p>
 <p>缓存分为本地缓存和分布式缓存服务器，前者更快但容量有限，后者理论上容量可以无限伸缩。</p>
 <p><img src="./images/img/114_3.jpg" alt></p>
-<h2 id="使用集群改善并发处理能力"><a href="#使用集群改善并发处理能力" class="headerlink" title="使用集群改善并发处理能力"></a>使用集群改善并发处理能力</h2><p>使用缓存后，数据访问压力得到了缓解.但是单一应用服务器能够处理的请求连接有限，在网站访问高峰期，应用服务器就成了整个网站的效率瓶颈。因此使用负载均衡处理器势在必然。通过负载均衡调度服务器，可将来自浏览器的访问请求分发到应用的集群中的任何一台服务器上。使用服务器集群也有个好处，Web 应用程序更新可以做到用户无感知。</p>
+<h2 id="4-使用集群改善并发处理能力"><a href="#4-使用集群改善并发处理能力" class="headerlink" title="4.使用集群改善并发处理能力"></a>4.使用集群改善并发处理能力</h2><p>使用缓存后，数据访问压力得到了缓解.但是单一应用服务器能够处理的请求连接有限，在网站访问高峰期，应用服务器就成了整个网站的效率瓶颈。因此使用负载均衡处理器势在必然。通过负载均衡调度服务器，可将来自浏览器的访问请求分发到应用的集群中的任何一台服务器上。使用服务器集群也有个好处，Web 应用程序更新可以做到用户无感知。</p>
 <p><img src="./images/img/114_4.jpg" alt></p>
 <p>大部分应用使用软件来实现负载均衡。常见的软件有 Nginx 等。</p>
-<h2 id="数据库读写分离"><a href="#数据库读写分离" class="headerlink" title="数据库读写分离"></a>数据库读写分离</h2><p>当用户达到一定规模后，数据库因为负载压力过高而成为网站的瓶颈。虽然前面使用缓存能满足查询的需求，但是大部分数据操作还是需要通过数据库来完成。而目前主流的数据库都提供主从热备功能，通过配置两台数据库主从关系，可以将一台数据库的数据更新同步到另一台服务器上。网站利用数据库这一功能实现数据库读写分离，从而改善数据库负载压力。</p>
+<h2 id="5-数据库读写分离"><a href="#5-数据库读写分离" class="headerlink" title="5.数据库读写分离"></a>5.数据库读写分离</h2><p>当用户达到一定规模后，数据库因为负载压力过高而成为网站的瓶颈。虽然前面使用缓存能满足查询的需求，但是大部分数据操作还是需要通过数据库来完成。而目前主流的数据库都提供主从热备功能，通过配置两台数据库主从关系，可以将一台数据库的数据更新同步到另一台服务器上。网站利用数据库这一功能实现数据库读写分离，从而改善数据库负载压力。</p>
 <p><img src="./images/img/114_5.jpg" alt></p>
 <p>应用服务器在写数据的时候，访问主数据库，主数据库通过主从复制机制将数据更新同步到从数据库，这样当应用服务器读数据的时候，就可以通过从数据库获得数据。为了便于应用程序访问读写分离后的数据库，通常在应用服务器端使用专门的数据访问模块，使数据库读写分离对应用透明。</p>
-<h2 id="反向代理和CDN加速"><a href="#反向代理和CDN加速" class="headerlink" title="反向代理和CDN加速"></a>反向代理和CDN加速</h2><p>随着网站名气越多越大，用户规模越来越大，网站业务也随着继续壮大。为了满足不同地区的用户快速访问网站的需求，需要提高网站的访问速度。主要手段有使用 CDN 和反向代理。</p>
+<h2 id="6-反向代理和CDN加速"><a href="#6-反向代理和CDN加速" class="headerlink" title="6.反向代理和CDN加速"></a>6.反向代理和CDN加速</h2><p>随着网站名气越多越大，用户规模越来越大，网站业务也随着继续壮大。为了满足不同地区的用户快速访问网站的需求，需要提高网站的访问速度。主要手段有使用 CDN 和反向代理。</p>
 <p>同时 Ajax 技术的出现，Web 应用会将数据（内容和图片）和页面框架（指 HTML 文件以及其中的标签）。页面框架内容存放到 CDN 服务器上，数据存放到数据库服务器上。当用户使用浏览器访问网站，会显示页面框架，然后页面框架发起 HTTP 请求加载数据。</p>
 <p>而反向代理是部署在网站的中心机房，当用户请求到达中心机房后，首先访问的反向代理，如果反向代理缓存着用户请求的资源，则直接返回给用户。</p>
 <p><img src="./images/img/114_6.jpg" alt></p>
 <p>因此，<strong>CDN 和反向代理的基本原理都是缓存</strong>。</p>
-<h2 id="使用分布式文件系统和分布式数据库系统"><a href="#使用分布式文件系统和分布式数据库系统" class="headerlink" title="使用分布式文件系统和分布式数据库系统"></a>使用分布式文件系统和分布式数据库系统</h2><p>任何强大的单一服务器都满足不了大型网站持续增长的业务需求。</p>
+<h2 id="7-使用分布式文件系统和分布式数据库系统"><a href="#7-使用分布式文件系统和分布式数据库系统" class="headerlink" title="7.使用分布式文件系统和分布式数据库系统"></a>7.使用分布式文件系统和分布式数据库系统</h2><p>任何强大的单一服务器都满足不了大型网站持续增长的业务需求。</p>
 <p>分布式数据库时网站数据库拆分的最后手段，只用在单表数据规模非常大的时候才使用。不到不得已时，网站更常用的数据库拆分手段是业务拆分，将不同业务的数据部署在不同的物理服务器上。</p>
 <p><img src="./images/img/114_7.jpg" alt></p>
-<h2 id="使用NoSQL和搜索引擎"><a href="#使用NoSQL和搜索引擎" class="headerlink" title="使用NoSQL和搜索引擎"></a>使用NoSQL和搜索引擎</h2><p>随着网站业务越来越复杂，对数据存储和检索的需求也越来越复杂。网站需要采用一些非关系数据库技术如 NoSQL 数据库和非数据库查询技术如搜索引擎。而常见的 NoSQL 数据库有 Mongodb、HBase等。</p>
+<h2 id="8-使用NoSQL和搜索引擎"><a href="#8-使用NoSQL和搜索引擎" class="headerlink" title="8.使用NoSQL和搜索引擎"></a>8.使用NoSQL和搜索引擎</h2><p>随着网站业务越来越复杂，对数据存储和检索的需求也越来越复杂。网站需要采用一些非关系数据库技术如 NoSQL 数据库和非数据库查询技术如搜索引擎。而常见的 NoSQL 数据库有 Mongodb、HBase等。</p>
 <p><img src="./images/img/114_8.jpg" alt></p>
-<h2 id="业务拆分"><a href="#业务拆分" class="headerlink" title="业务拆分"></a>业务拆分</h2><p>大型网站为了应对日益复杂的业务场景，通过使用分而治之的手段将真个网站业务拆分成不同的产品线。如大型购物交易网站都会将首页、商铺、订单、买家、卖家等拆分成不同的产品线，分归不同的业务团队负责。</p>
+<h2 id="9-业务拆分"><a href="#9-业务拆分" class="headerlink" title="9.业务拆分"></a>9.业务拆分</h2><p>大型网站为了应对日益复杂的业务场景，通过使用分而治之的手段将真个网站业务拆分成不同的产品线。如大型购物交易网站都会将首页、商铺、订单、买家、卖家等拆分成不同的产品线，分归不同的业务团队负责。</p>
 <p><img src="./images/img/114_9.jpg" alt></p>
-<h2 id="分布式服务"><a href="#分布式服务" class="headerlink" title="分布式服务"></a>分布式服务</h2><p>随着业务拆分越来越小，存储系统越来越庞大，应用系统的整体复杂度呈指数级增加，部署维护越来越困难。</p>
+<h2 id="10-分布式服务"><a href="#10-分布式服务" class="headerlink" title="10.分布式服务"></a>10.分布式服务</h2><p>随着业务拆分越来越小，存储系统越来越庞大，应用系统的整体复杂度呈指数级增加，部署维护越来越困难。</p>
 <p>既然每一个应用系统都需要执行许多相同的业务操作，比如用户管理、商品管理等，那么可以将这些共用的业务提取出来，独立部署。由这些可复用的业务连接数据库，提供共用业务服务，而应用系统只需要管理用户界面，通过分布式服务调用共用业务服务完成具体业务操作。</p>
 <p><img src="./images/img/114_10.jpg" alt></p>
 <p>大型网站的架构演化到这里，基本上大多数的技术问题都可以得以解决了。</p>
@@ -241,1861 +696,1011 @@ var _hmt = _hmt || [];
 <p>本文本分内容以及图片参考书籍《大型网站技术架构：核心原理与案例分析》作者: 李智慧。</p>
 </blockquote>
 
-            </div>   
-        
-        <br>
-        <!-- 增加微信公众号首发说明 -->
-        
-        <div>
-            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
-        </div>
-        
-
-        <!-- 增加版权说明 -->
-        
-            <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="https://geekmonkey.top/1081.html">10 张图带你了解后台服务架构演变</a></li>
-            <li><strong>本文作者：</strong><a href="https://geekmonkey.top">猴哥</a></li>
-            <li><strong>本文链接：</strong><a href="https://geekmonkey.top/1081.html">https://geekmonkey.top/1081.html</a></li>
-            <li><strong>发布时间：</strong>2018-10-16 12:16:33</li>
-            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
-            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
-            </li>
-            </ul>
-        
-            <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
-        
-        
-        <hr style="height:1px;margin:1rem 0">
-
-        <!-- 文章底部显示的文章标签 -->
-        <div class="level is-size-7">
-            <div class="level-start">
-                <div class="nexmoe-post-meta">
-                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="exmoefont icon-tag-fill-link" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/" rel="tag">后台架构</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        <!-- 屏蔽不用的分享图表 
-<div class="social-share"></div>-->
-<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
-    </div>
-</div>
-
-
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
-        <div class="buttons is-centered">
-            
+          
+            <div class="article_footer">
+              
                 
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
-
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/1082.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">详解 Scrapy 中间键的用法</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/1080.html">
-                <span class="level-item">高并发的那些事</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-    	avatar: 'wavatar',
-        el: '#valine-thread' ,
-        notify: false,
-        verify: false,
-        app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
-        app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
-        placeholder: '你有什么想说的？'
-    });
-</script>
-
-    </div>
-</div>
-</div>
-                
-                
-                
-
-
-
-
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
+  
     
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
         
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="is-rounded" src="/images/avatar.png" alt="极客猴">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        极客猴
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        不日进则日退
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>ShenZhen, China</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        118
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        专栏
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        10
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        125
-                    </p>
-                </div>
-            </div>
-        </nav>
+          
+            <p>本文永久链接：<a href="https://geekmonkey.top/1081.html">https://geekmonkey.top/1081.html</a></p>
+          
         
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank" rel="external nofollow noopener noreferrer">
-                关注我</a>
+          
+            <p>公众号转载：扫描公众号『极客猴』二维码联系猴哥申请开白!</p>
+
+          
+        
+          
+            <p>版权声明：本博客所有文章除特别声明外，均采用共享 4.0 国际 (CC BY-NC-SA 4.0) 许可协议。转载请注明出处！</p>
+
+          
+        
+          
+            <p>附：文章内容首发于微信公众号『极客猴』, 欢迎扫码关注第一时间接受推文~</p>
+
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class="content article-entry">
+    
+      
+        <div class="fancybox"><img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" height="256px"></div>
+      
+    
+      
+        <div class="fancybox"><img src="/images/weixin_reward.png" height="256px"></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
         </div>
         
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
         
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/monkey-soft" rel="external nofollow noopener noreferrer">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="知乎" href="https://www.zhihu.com/people/Geek_monkey/activities" rel="external nofollow noopener noreferrer">
-                
-                <i class="fab fa-zhihu"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-23T23:41:32+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年8月23日</p>
+  </a>
 </div>
-    
+
         
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>后台架构</p></a></div>
 
-    <!-- 目录粘性布局 -->
-    <div class="card widget column-left is-sticky" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#初始阶段的网站架构">
-        <span class="has-mr-6">1</span>
-        <span>初始阶段的网站架构</span>
-        </a></li><li>
-        <a class="is-flex" href="#应用服务和数据服务分离">
-        <span class="has-mr-6">2</span>
-        <span>应用服务和数据服务分离</span>
-        </a></li><li>
-        <a class="is-flex" href="#使用缓存改善网站性能">
-        <span class="has-mr-6">3</span>
-        <span>使用缓存改善网站性能</span>
-        </a></li><li>
-        <a class="is-flex" href="#使用集群改善并发处理能力">
-        <span class="has-mr-6">4</span>
-        <span>使用集群改善并发处理能力</span>
-        </a></li><li>
-        <a class="is-flex" href="#数据库读写分离">
-        <span class="has-mr-6">5</span>
-        <span>数据库读写分离</span>
-        </a></li><li>
-        <a class="is-flex" href="#反向代理和CDN加速">
-        <span class="has-mr-6">6</span>
-        <span>反向代理和CDN加速</span>
-        </a></li><li>
-        <a class="is-flex" href="#使用分布式文件系统和分布式数据库系统">
-        <span class="has-mr-6">7</span>
-        <span>使用分布式文件系统和分布式数据库系统</span>
-        </a></li><li>
-        <a class="is-flex" href="#使用NoSQL和搜索引擎">
-        <span class="has-mr-6">8</span>
-        <span>使用NoSQL和搜索引擎</span>
-        </a></li><li>
-        <a class="is-flex" href="#业务拆分">
-        <span class="has-mr-6">9</span>
-        <span>业务拆分</span>
-        </a></li><li>
-        <a class="is-flex" href="#分布式服务">
-        <span class="has-mr-6">10</span>
-        <span>分布式服务</span>
-        </a></li></ul>
-            </div>
-        </div>
-    </div>
 
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-        <div class="card widget">
-  <div class="weight_card-content">
-    <div class="menu">
-      <h4 class="menu_weight" style="text-align:center;">更多内容,请关注公众号！</h4>
-      <div>
-        <img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" alt="极客猴的公众号" width="100%">
-      </div>
-    </div>
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://geekmonkey.top/1081.html&title=10 张图带你了解后台服务架构演变 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YyMx2V.jpg&summary=上篇文章讲了一些高并发相关的知识，相信大家对高并发有些简单的认识。说到高并发，往往离不开分布式系统。人们经常将两者拿来一起讨论，因为高并发（High Concurrency）是互联网分布式系统架构设计中必须考虑的因素之一。可以这么说，目前应用商城上很多社交应用，网络游戏的后台服务都是分布式服务。那具体什么催生出今天的分布式系统呢？文章的主要内容是讲讲大型网站的服务架构演变。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://geekmonkey.top/1081.html&title=10 张图带你了解后台服务架构演变 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YyMx2V.jpg&summary=上篇文章讲了一些高并发相关的知识，相信大家对高并发有些简单的认识。说到高并发，往往离不开分布式系统。人们经常将两者拿来一起讨论，因为高并发（High Concurrency）是互联网分布式系统架构设计中必须考虑的因素之一。可以这么说，目前应用商城上很多社交应用，网络游戏的后台服务都是分布式服务。那具体什么催生出今天的分布式系统呢？文章的主要内容是讲讲大型网站的服务架构演变。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://geekmonkey.top/1081.html&title=10 张图带你了解后台服务架构演变 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YyMx2V.jpg&summary=上篇文章讲了一些高并发相关的知识，相信大家对高并发有些简单的认识。说到高并发，往往离不开分布式系统。人们经常将两者拿来一起讨论，因为高并发（High Concurrency）是互联网分布式系统架构设计中必须考虑的因素之一。可以这么说，目前应用商城上很多社交应用，网络游戏的后台服务都是分布式服务。那具体什么催生出今天的分布式系统呢？文章的主要内容是讲讲大型网站的服务架构演变。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTUlEQVR42u3dQW7DQAgF0Nz/0u0BoijwmaYxfrNL6+J5rAgg9fFz0/MABwcHBwdfBH+E5yngMM7H3gMODg4ODr4QXi4Ais9XYe+g6ftf3gMcHBwcHHwxvFpoVC9SjRNDuvcFBwcHBwcHfwuoNhK6CQIHBwcHBwf/O3i3oZAmCBwcHBwcHPxAg344IKjG/7pJCjg4ODg4+BfBp4t5n/7875uN4ODg4ODgXwCfnu7gv/tcWgi9vC84ODg4OPgieFogdBsA1cR1Bw3d+4GDg4ODg98B3i0kqot7abxpHHBwcHBw8I3w6gurv58WHGmCxx0YcHBwcHDwC8KrBUv6XDpISBsab+ODg4ODg4Mvgk8bDukC4DSR8f3BwcHBwcFvAI+/6A8T+PGBAjg4ODg4+AJ4esFuodFtKEwLqPIkBRwcHBwc/MLwKajbiKg2KtLFhPZAARwcHBwcfAH81ELftIHRjXN8kgIODg4ODn4BeFp4VAuQUwmcLiKAg4ODg4NvhqcFRtpY6Cay26goFzDg4ODg4OCL4KcWAbqDgVOJLw8UwMHBwcHBF8LTQuRUQyM95YSDg4ODg4Mvgk9PtxGQgk/9PTg4ODg4+Cb4tGDoLghMGxXjhQNwcHBwcPCF8GnBkv58DDk9UAAHBwcHB78wfDog6Cby1KChXDiBg4ODg4ODt/8xW7pwcGowAQ4ODg4ODj5f/OsOGo4PPsDBwcHBwRfD04ZBd/BwKrHdwgocHBwcHHwjPC0M0kZEGnd8H3BwcHBw8EXwux1wcHBwcPAF5xdWtQYQjJxPcwAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
   </div>
 </div>
 
-    
-        <div class="card widget">
-    <div>
-      <a href="https://reg.huaweicloud.com/registerui/cn/register.html?bpInvite=7a2d288001c6466a&service=https%3A%2F%2Faccount.huaweicloud.com%2Fusercenter%2F%3Flocale%3Dzh-cn%26hws_route_url%3DregistSuccess%26bpInvite%3D7a2d288001c6466a%26bpName%3D5f9f98a29e2c40b780c1793086f29fe2%26inviteCode%3Dchanql123%26bindType%3D1#/register" target="_blank" rel="external nofollow noopener noreferrer">
-      <img src="https://s1.ax1x.com/2020/05/17/Y25LY6.png" alt="华为云新用户福利" width="100%">
-      </a>
-    </div>
-</div>
-    
-        <!-- 侧边组件-专栏 -->
 
-<div class="card widget">
-    <div class="card-content is-hidden-mobile">
-        <div class="menu">
-            <h3 class="menu_weight">
-                专栏
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-            <span class="level-start">
-                <span class="level-item">Django 学习笔记</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">19</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
-            <span class="level-start">
-                <span class="level-item">Python 必知必会</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">20</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/">
-            <span class="level-start">
-                <span class="level-item">建站与优化</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">
-            <span class="level-start">
-                <span class="level-item">思维与认知</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">11</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-            <span class="level-start">
-                <span class="level-item">数据分析</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">9</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-            <span class="level-start">
-                <span class="level-item">数据库</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-            <span class="level-start">
-                <span class="level-item">网络爬虫</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">32</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-            <span class="level-start">
-                <span class="level-item">计算机网络</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E8%AE%A4%E7%9F%A5/">
-            <span class="level-start">
-                <span class="level-item">认知</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/">
-            <span class="level-start">
-                <span class="level-item">随笔</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">18</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <!-- 优化移动端显示，隐藏 archive  -->
-    <div class="card-content is-hidden-mobile">
-        <div class="menu">
-        <h3 class="menu_weight">
-            归档
-        </h3>
 
-            <div class="field is-grouped is-grouped-multiline">
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2020/05/">
-                            <span class="level-start">
-                                <span class="level-item">五月 2020</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2020/04/">
-                            <span class="level-start">
-                                <span class="level-item">四月 2020</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">2</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2020/03/">
-                            <span class="level-start">
-                                <span class="level-item">三月 2020</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2020/01/">
-                            <span class="level-start">
-                                <span class="level-item">一月 2020</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/11/">
-                            <span class="level-start">
-                                <span class="level-item">十一月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/10/">
-                            <span class="level-start">
-                                <span class="level-item">十月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/09/">
-                            <span class="level-start">
-                                <span class="level-item">九月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/08/">
-                            <span class="level-start">
-                                <span class="level-item">八月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/07/">
-                            <span class="level-start">
-                                <span class="level-item">七月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/06/">
-                            <span class="level-start">
-                                <span class="level-item">六月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/03/">
-                            <span class="level-start">
-                                <span class="level-item">三月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/02/">
-                            <span class="level-start">
-                                <span class="level-item">二月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/01/">
-                            <span class="level-start">
-                                <span class="level-item">一月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/12/">
-                            <span class="level-start">
-                                <span class="level-item">十二月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/11/">
-                            <span class="level-start">
-                                <span class="level-item">十一月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">6</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/10/">
-                            <span class="level-start">
-                                <span class="level-item">十月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/09/">
-                            <span class="level-start">
-                                <span class="level-item">九月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">2</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/08/">
-                            <span class="level-start">
-                                <span class="level-item">八月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">7</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/07/">
-                            <span class="level-start">
-                                <span class="level-item">七月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">6</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/06/">
-                            <span class="level-start">
-                                <span class="level-item">六月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">6</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/05/">
-                            <span class="level-start">
-                                <span class="level-item">五月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">8</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/04/">
-                            <span class="level-start">
-                                <span class="level-item">四月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">8</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/03/">
-                            <span class="level-start">
-                                <span class="level-item">三月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/02/">
-                            <span class="level-start">
-                                <span class="level-item">二月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/01/">
-                            <span class="level-start">
-                                <span class="level-item">一月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">5</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/12/">
-                            <span class="level-start">
-                                <span class="level-item">十二月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">5</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/11/">
-                            <span class="level-start">
-                                <span class="level-item">十一月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/10/">
-                            <span class="level-start">
-                                <span class="level-item">十月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/09/">
-                            <span class="level-start">
-                                <span class="level-item">九月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/08/">
-                            <span class="level-start">
-                                <span class="level-item">八月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/07/">
-                            <span class="level-start">
-                                <span class="level-item">七月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/06/">
-                            <span class="level-start">
-                                <span class="level-item">六月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/01/">
-                            <span class="level-start">
-                                <span class="level-item">一月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2016/12/">
-                            <span class="level-start">
-                                <span class="level-item">十二月 2016</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">2</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2016/11/">
-                            <span class="level-start">
-                                <span class="level-item">十一月 2016</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
         
-<div class="card widget">
-    <div class="card-content is-hidden-mobile">
-        <div class="menu">
-            <h3 class="menu_weight">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">APScheduler</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Chrome/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Chrome</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Debian/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Debian</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Django</span>
-                        <span class="tag tag_count">20</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Djongo/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Djongo</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Flask/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Flask</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Github/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Github</span>
-                        <span class="tag tag_count">6</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">HTTP</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Hexo/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Hexo</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/IG/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IG</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IP代理池</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterable</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterator</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Jekyll/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Jekyll</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Linux</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/MangoDB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MangoDB</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Matplotlib</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Mongo-Plugin/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mongo Plugin</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/MongoDB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MongoDB</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Mysql/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mysql</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Nosqlclient/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Nosqlclient</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/OAuth/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OAuth</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OCR</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/PEP/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">PEP</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Pandas/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pandas</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Pycharm/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pycharm</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Python</span>
-                        <span class="tag tag_count">78</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Redis</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Request/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Request</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Requests</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/SEO-%E4%BC%98%E5%8C%96/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">SEO 优化</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Scrapy</span>
-                        <span class="tag tag_count">7</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Selenium/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Selenium</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Session/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Session</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/TCP/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">TCP</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Token/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Token</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Ubuntu/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Ubuntu</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Unicode/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Unicode</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Vlog/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Vlog</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Web</span>
-                        <span class="tag tag_count">19</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/WordPress/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">WordPress</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Xpath</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/aiohttp/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">aiohttp</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">beautifulSoup</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/codecs/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">codecs</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/csv/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">csv</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">datetime</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">generator</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">lxml</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/os-path/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">os.path</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/pandas/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pandas</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pustil</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/pyecharts/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pyecharts</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">sched</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/session/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">session</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/the-fuck/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">the fuck</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">time</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/unsplash/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">unsplash</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/web/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">web</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%B8%83%E5%A4%95/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">七夕</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%B8%AD%E9%97%B4%E9%94%AE/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">中间键</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%B9%A6%E7%B1%8D/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">书籍</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">二维码</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%BA%A7%E5%93%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">产品</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%90%86/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">代理</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%89%AF%E4%B8%9A/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">副业</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">博客</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">反爬虫</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">可视化</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台架构</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%95%86%E4%B8%9A/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">商业</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%9B%BE%E8%A1%A8/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">图表</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多线程</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多进程</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">定时任务</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%B9%B4%E6%80%BB%E7%BB%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">年总结</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开发进阶</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开源项目</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">当当</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%BF%85%E8%83%9C%E5%AE%A2/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">必胜客</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">思念</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">性能优化</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">总结</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%84%9F%E6%82%9F/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">感悟</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%87%82%E7%82%B9%E7%B3%BB%E5%88%97/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">懂点系列</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">技巧</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包工具</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%8B%96%E5%BB%B6%E7%97%87/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">拖延症</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">操作系统</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据分析</span>
-                        <span class="tag tag_count">9</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据库</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据结构</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%99%A8/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据采集器</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据集</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数组</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%96%87%E4%BB%B6%E9%81%8D%E5%8E%86/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文件遍历</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文本操作</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">方法论</span>
-                        <span class="tag tag_count">7</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">时间管理</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">标准库</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">正则表达式</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%BA%90%E7%A0%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">源码</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%BC%AB%E5%A8%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">漫威</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">爬虫实战</span>
-                        <span class="tag tag_count">10</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">电影</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%99%BD%E8%9B%87%E7%BC%98%E8%B5%B7/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">白蛇缘起</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">短视频</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">社工库</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">竞品分析</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编码规范</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编程入门</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网易云音乐</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网络爬虫</span>
-                        <span class="tag tag_count">24</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">自学</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">认知</span>
-                        <span class="tag tag_count">10</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E8%B1%86%E7%93%A3/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">豆瓣</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E8%B4%A6%E5%8F%B7%E8%AE%A4%E8%AF%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">账号认证</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">阅读</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">面试</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">项目实战</span>
-                        <span class="tag tag_count">14</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">验证码</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">高并发</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">鸡汤</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
+      
     </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class="prev" href="/1082.html">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>详解 Scrapy 中间键的用法</p>
+                <p class="content">Scrapy 爬虫框架的出现，确实能让我们更加专注于数据抓取。同时，我们借助 Scrapy 框架来爬取整个站点数据也显得更加容易。虽然 Scarpy 负责 url 调度、网络请求、页面数据下载等...</p>
+              </a>
+            
+            
+              <a class="next" href="/1080.html">
+                <p class="title">高并发的那些事<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">“高并发”对后台开发同学来说，既熟悉又陌生。熟悉是因为面试和工作经常会提及它。陌生的原由是服务器因高并发导致出现各位问题的情况少之又少。同时，想收获这方面的经验也是”摸着石头过河”， 需要大量学...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class="fas fa-comments"></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-    
-    
-</div>
-
-            </div>
-        </div>
+      </section>
     </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="outer has-text-centered-mobile">
-            <p class>
-                &copy; 猴哥 版权所有. 2019-2020<br>
-                由 <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> 强力驱动. 
-                Theme by <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a> v2.6.0.
-                <a href="/sitemap.xml" target="_blank">站点地图</a>.
-                
-                <br>
-                <span id="busuanzi_container_site_pv">
-                本站总访问量 <span id="busuanzi_value_site_pv">0</span> 次
-                </span>.
-                <span id="busuanzi_container_site_uv">
-                有 <span id="busuanzi_value_site_uv">0</span> 人访问过我的博客啦
-                </span> 
-                
-                <br>
-                <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
-                <script>
-                    var now = new Date(); 
-                    function createtime() {
-                        var grt= new Date("10/27/2019 18:10:26");//此处修改你的建站时间或者网站上线时间 
-                        console.log(grt)
-                        now.setTime(now.getTime()+250); 
-                        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
-                        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
-                        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
-                        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
-                        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
-                        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-                        document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
-                        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
-                    } 
-                    setInterval("createtime()",250);
-                </script>
-            </p>
-        </div>
-        <!-- 取消右边图表栏  -->
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class="l_side">
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9D%E5%A7%8B%E9%98%B6%E6%AE%B5%E7%9A%84%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84"><span class="toc-text">1.初始阶段的网站架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%92%8C%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E7%A6%BB"><span class="toc-text">2.应用服务和数据服务分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E6%94%B9%E5%96%84%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD"><span class="toc-text">3.使用缓存改善网站性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8%E9%9B%86%E7%BE%A4%E6%94%B9%E5%96%84%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86%E8%83%BD%E5%8A%9B"><span class="toc-text">4.使用集群改善并发处理能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="toc-text">5.数据库读写分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8CCDN%E5%8A%A0%E9%80%9F"><span class="toc-text">6.反向代理和CDN加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%BD%BF%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F"><span class="toc-text">7.使用分布式文件系统和分布式数据库系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E4%BD%BF%E7%94%A8NoSQL%E5%92%8C%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E"><span class="toc-text">8.使用NoSQL和搜索引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E4%B8%9A%E5%8A%A1%E6%8B%86%E5%88%86"><span class="toc-text">9.业务拆分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1"><span class="toc-text">10.分布式服务</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow desktop">
+  
+  <header>
+    
+      <i class="fa fa-heart fa-fw" aria-hidden="true"></i><span class="name">微信公众号</span>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>关注微信公众号『极客猴』，第一时间接受文章推送</p>
+
+    
+      <p><a href><img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" height="200px"></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\124.html" title="每逢佳节倍思亲" rel="bookmark">每逢佳节倍思亲</a></h3></div></li></ul>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
 
     </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("zh-CN");</script>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
 
-<script>
-var IcarusThemeSettings = {
-    article: {
-        highlight: {
-            clipboard: true,
-            fold: 'unfolded'
+  
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.3" loop="all" order="list" fixed="false" list-max-height="320px" server="netease" type="playlist" id="961306140" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/monkey-soft" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://blog.csdn.net/chanql123" class="social fab fa-cuttlefish flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/playlist?id=961306140" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+          <script>
+              var now = new Date(); 
+              function createtime() {
+                  var grt= new Date("10/27/2019 18:10:26");//此处修改你的建站时间或者网站上线时间 
+                  console.log(grt)
+                  now.setTime(now.getTime()+250); 
+                  days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                  hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                  if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                  mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                  seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                  snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                  document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
+                  document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+              } 
+              setInterval("createtime()",250);
+          </script>
+        本站由 Hexo 强力驱动，使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis </a>
+        作为主题
+        
+          ，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class="copyright">
+          <p><a href="/">Copyright © 2019-2020 极客猴</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  <div>
+    
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class="option">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand("copy")"><i class="fa fa-copy fa-fw"></i>复制文本</a>
+        <hr id="hr-text">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
+        <hr id="hr-href">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
+        <hr id="hr-src">
+      </li>
+      <li class="navigation">
+        <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+        <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+        <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+        <a class="nav icon-only fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+      </li>
+      <hr>
+      
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title fix-cursor-default"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav icon-only backward fix-cursor-default" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav icon-only toggle fix-cursor-default" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav icon-only forward fix-cursor-default" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
         }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          copyText.style.display = 'block';
+          hrText.style.display = 'block';
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
-};
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '961306140';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.3';
+  </script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+    
+<script src="/js/aplayer.js"></script>
+
+  
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
+      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
+      "来都来了，留下你的评论" : $.trim($('#pjax-comment-placeholder').text());
+
+    let ALLPATH = '';
+    if(ALLPATH != '') pageUrl = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: pageUrl,
+      appId: "wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI",
+      appKey: "HVwymGTYvDdOlyFFX2h2PomH",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
 </script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
 
 
+<!-- darkmodejs -->
 
-    
-    
-<script src="/js/animation.js"></script>
 
-    
-    
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/js/gallery.js" defer></script>
+<!-- 复制 -->
 
-    
-    
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="external nofollow noopener noreferrer">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
-</script>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    MathJax.Hub.Config({
-        'HTML-CSS': {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
         }
     });
-});
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
 </script>
-    
-    
-<a id="back-to-top" title="回到顶端" ">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
-<script src="/js/main.js" defer></script>
+<!-- scrollreveal -->
 
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
-                UNTITLED: '(无标题)',
-            },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
 </script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
+
+<!-- ******************************** -->
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
     
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3.0/js/search.js"></script>
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+
+      try{
+        pjax_fancybox();
+        
+          
+          if ('.cover') {
+            $('.cover').backstretch("resize");
+          } else {
+            $.backstretch("resize");
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
 </body>
 </html>

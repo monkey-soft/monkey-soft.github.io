@@ -1,2114 +1,1723 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8">
-
-<meta name="baidu-site-verification" content="Cg06Zha1ae">
-<meta name="generator" content="Hexo 4.2.0">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-<meta name="description" content="学会运用爬虫框架 Scrapy (二)">
-
-
-
-<meta name="keywords" content="Python,网络爬虫,Scrapy,爬虫实战,爬虫实战">
-
-
-<title>学会运用爬虫框架 Scrapy (二) - 极客猴</title>
-
-
-
-
-
-
-
-
-<link rel="icon" href="/images/favicon.png">
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
-
-
+<html>
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
     
-    
-<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+  <!-- 页面元数据 -->
+  
+  <title>学会运用爬虫框架 Scrapy (二) - 极客猴</title>
+  
+    <meta name="keywords" content="Python,网络爬虫,Scrapy,爬虫实战,爬虫实战">
+  
 
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+  
+    <meta name="description" content="上篇文章介绍了爬虫框架 Scrapy 如何安装，以及其特性、架构、数据流程。相信大家已经对 Scrapy 有人了初步的认识。本文是 Scrapy 系列文章的第二篇，主要通过一个实例讲解 scrapy 的用法。">
+  
 
-    
-    
-    
-    
-<link rel="stylesheet" href="/css/back-to-top.css">
+  <!-- feed -->
+  
 
-    
-    
-    
-    <script>
-var _hmt = _hmt || [];
-(function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?a6ccc4c73948c9c6e7395fb65d736f66";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-</script>
-    
-    
-    
-    <link rel="stylesheet" href="/css/progressbar.css">
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-    
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
+  <!-- import meta -->
+  
 
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
 
-<!-- 自动推送链接 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
 
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
 <link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  
 </head>
-<!-- 文章页面内容有三栏布局修改为两栏布局-->
-<body class="is-2-column">
-    <div class="navbar-top">
-    <div class="container">
-    <p class="p-title">极客猴<span class="span-subtitle">猴哥的个人博客|公众号『极客猴』</span></p>
-    </div>    
-</div>
-<nav class="navbar navbar-main">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="/images/logo.png" alt="学会运用爬虫框架 Scrapy (二)" height="28">
-            
-            </a>
-        </div>
-        <div class="navbar-menu">
-            
-            <div class="navbar-start">
-                
-                <a class="navbar-item" href="/">主页</a>
-                
-                <a class="navbar-item" href="/archives">归档</a>
-                
-                <a class="navbar-item" href="/categories">专栏</a>
-                
-                <a class="navbar-item" href="/tags">热门标签</a>
-                
-                <a class="navbar-item" href="/treasure">藏宝阁</a>
-                
-                <a class="navbar-item" href="/friends">友情链接</a>
-                
-                <a class="navbar-item" href="/about">关于我</a>
-                
-            </div>
-            
-            <div class="navbar-end">
-                
-                
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-                
-                
-                <!-- 右边搜索-->
-                <a class="navbar-item search" title="搜索" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a> 
-                
-            </div>
-        </div>
-    </div>
-</nav>
+
+<body>
+  
+  
+  
+  <div class="cover-wrapper">
+    <cover class="cover post" style="display: none;">
+      <div class="cover-body">
+  <div class="a">
     
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
-<div class="card">
-    <div class="card-content article ">
-        <!-- 标题移动到文章信息上方 -->
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <span class="card-title-color">学会运用爬虫框架 Scrapy (二)</span>
-            
-        </h1>
-
-        
-        <div class="level article-meta is-size-7 is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- 增加了icon-->
-                
-                <div class="level-item">
-                <i class="far fa-list-alt"></i>&nbsp;
-                <a class="has-link-grey -link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
-                </div>
-                
-
-                
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">2017-09-11(<time class="level-item has-text-grey" datetime="2017-09-11T13:43:47.000Z">2017-09-11</time>)</span>
-                
-                <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="level-item has-text-grey">猴哥</span>
-
-                 
-                <i class="far fa-clock"></i>&nbsp;&nbsp;
-                <span class="level-item has-text-grey">
-                    
-                    
-                    14 分钟 读完 (大约 2043 个字)
-                </span>
-                
-                <!-- 浏览量
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>&nbsp;&nbsp;
-                    <span id="busuanzi_value_page_pv">0</span> 次浏览
-                </span>
-                 -->
-            </div>
-        </div>
-        
-        <br>
-        <div class="content_container">
-            <!-- 左边封面图 -->
-            <div class="thumbnail-left is-hidden-mobile">
-                
-            </div>
-            <!-- 右边文章概要 -->
-            
-        </div>
-        <!-- 文章页面显示全部内容 -->
-        
-            <div class="content">
-                <p>上篇文章介绍了爬虫框架 Scrapy 如何安装，以及其特性、架构、数据流程。相信大家已经对 Scrapy 有人了初步的认识。本文是 Scrapy 系列文章的第二篇，主要通过一个实例讲解 scrapy 的用法。</p>
-<a id="more"></a>
-<h2 id="选取目标"><a href="#选取目标" class="headerlink" title="选取目标"></a>选取目标</h2><p>网络爬虫，顾名思义是对某个网站或者系列网站，按照一定规则进行爬取信息。爬取程序的首要工作当然是选定爬取目标。本次爬取目标选择是<code>V电影</code>，网址是<code>http://www.vmovier.com/</code>。爬取内容是[最新推荐]栏目的前15条短视频数据信息。具体信息包括封面、标题、详细说明以及视频播放地址。</p>
-<p><img src="./images/img/40_1.png" alt></p>
-<h2 id="定义-Item"><a href="#定义-Item" class="headerlink" title="定义 Item"></a>定义 Item</h2><p>为什么将爬取信息定义清楚呢？因为接下来 Item 需要用到。在 Item.py 文件中，我们以类的形式以及 Field 对象来声明。其中 Field 对象其实是一个字典类型，用于保存爬取到的数据。而定义出来的字段，可以简单理解为数据库表中的字段，但是它没有数据类型。Item 则复制了标准的 dict API，存放以及读取跟字典没有差别。</p>
-<p>V电影的 Item，我们可以这样定义：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScrapyDemoItem</span><span class="hljs-params">(scrapy.Item)</span>:</span></span><br><span class="line">    <span class="hljs-comment"># define the fields for your item here like:</span></span><br><span class="line">    <span class="hljs-comment"># name = scrapy.Field()</span></span><br><span class="line">    <span class="hljs-comment"># 封面</span></span><br><span class="line">    cover = scrapy.Field()</span><br><span class="line">    <span class="hljs-comment"># 标题</span></span><br><span class="line">    title = scrapy.Field()</span><br><span class="line">    <span class="hljs-comment"># 简述</span></span><br><span class="line">    dec = scrapy.Field()</span><br><span class="line">    <span class="hljs-comment"># 播放地址</span></span><br><span class="line">    playUrl = scrapy.Field()</span><br></pre></td></tr></table></figure>
-
-<h2 id="编写-Spider"><a href="#编写-Spider" class="headerlink" title="编写 Spider"></a>编写 Spider</h2><p>Spider 目录是我们爬虫程序爬取网站以及提取信息的模块。我们首先在目录下新建一个名为 VmoiveSpider 的文件。同时，该类继承<code>scrapy.Spider</code>。</p>
-<p>这里我们用到的<code>scrapy.spider.Spider</code> 是 Scrapy 中最简单的内置 spider。继承 spider 的类需要定义父类中的属性以及实现重要的方法。</p>
-<ul>
-<li><code>name</code></li>
-</ul>
-<p>这个属性是非常重要的，所以必须定义它。定义 name 目的是为爬虫程序命名。因此，还要保持 name 属性是唯一的。它是 String 类型，我们在 VmoiveSpider 可以定义：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="hljs-string">'vmoive'</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>start_urls</code></li>
-</ul>
-<p>start_urls 是 Url 列表，也是必须被定义。可以把它理解为存放爬虫程序的主入口 url 地址的容器。</p>
-<ul>
-<li><code>allowed_domains</code></li>
-</ul>
-<p>可选字段。包含了spider允许爬取的域名(domain)列表(list)。 当 OffsiteMiddleware 启用时， 域名不在列表中的URL不会被跟进。根据 V 电影的 url 地址，我们可以这样定义：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allowed_domains = [<span class="hljs-string">'vmovier.com'</span>]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>parse(response)</code></li>
-</ul>
-<p>parser 方法是Scrapy处理下载的response的默认方法。它同样必须被实现。parse 主要负责处理 response 并返回处理的数据以及跟进的URL。该方法及其他的Request回调函数必须返回一个包含 Request 及(或) Item 的可迭代的对象。</p>
-<p>在 scrapy_demo/sipders/VmoiveSpider 的完整代码如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="hljs-comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> scrapy</span><br><span class="line"><span class="hljs-keyword">from</span> scrapy_demo.items <span class="hljs-keyword">import</span> ScrapyDemoItem</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VmoiveSpider</span><span class="hljs-params">(scrapy.Spider)</span>:</span></span><br><span class="line">    <span class="hljs-comment"># name是spider最重要的属性, 它必须被定义。同时它也必须保持唯一</span></span><br><span class="line">    name = <span class="hljs-string">'vmoive'</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 可选定义。包含了spider允许爬取的域名(domain)列表(list)</span></span><br><span class="line">    allowed_domains = [<span class="hljs-string">'vmovier.com'</span>]</span><br><span class="line"></span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="hljs-string">'http://www.vmovier.com/'</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span><span class="hljs-params">(self, response)</span>:</span></span><br><span class="line">        self.log(<span class="hljs-string">'item page url is ==== '</span> + response.url)</span><br><span class="line"></span><br><span class="line">        moivelist = response.xpath(<span class="hljs-string">"//li[@class='clearfix']"</span>)</span><br><span class="line">        <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> moivelist:</span><br><span class="line">            item = ScrapyDemoItem()</span><br><span class="line">            item[<span class="hljs-string">'cover'</span>] = m.xpath(<span class="hljs-string">'./a/img/@src'</span>)[<span class="hljs-number">0</span>].extract()</span><br><span class="line">            item[<span class="hljs-string">'title'</span>] = m.xpath(<span class="hljs-string">'./a/@title'</span>)[<span class="hljs-number">0</span>].extract()</span><br><span class="line">            item[<span class="hljs-string">'dec'</span>] = m.xpath(<span class="hljs-string">"./div/div[@class='index-intro']/a/text()"</span>)[<span class="hljs-number">0</span>].extract()</span><br><span class="line">            print(item)</span><br><span class="line">            <span class="hljs-keyword">yield</span> item</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h2><p>在项目目录下打开终端，并执行以下命令。我们没有<code>pipelines.py</code>中将爬取结果进行存储，所以我们使用 scrapy 提供的导出数据命令，将 15 条电影信息导出到名为 items.json 文件中。其中 vmoive 为刚才在 VmoiveSpider 中定义的 name 属性的值。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl vmoive -o items.json</span><br></pre></td></tr></table></figure>
-
-<p>运行的部分结果如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="hljs-string">'cover'</span>: <span class="hljs-string">'http://cs.vmoiver.com/Uploads/cover/2017-09-08/59b25a504e4e0_cut.jpeg@600w_400h_1e_1c.jpg'</span>,</span><br><span class="line"> <span class="hljs-string">'dec'</span>: <span class="hljs-string">'15年过去了，但我依然有话说'</span>,</span><br><span class="line"> <span class="hljs-string">'title'</span>: <span class="hljs-string">'灾难反思纪录短片《“911”之殇》'</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="深究"><a href="#深究" class="headerlink" title="深究"></a>深究</h2><p>在阅读上述代码过程中，大家可能会有两个疑问。第一，为什么要在 xpath 方法后面添加[0]？ 第二，为什么要在 [0] 后面添加 extract()方法 ? 请听我慢慢道来。</p>
-<p>1) 添加个[0], 因为 xpath() 返回的结果是列表类型。我以获取标题内容为例子讲解不添加[0]会出现什么问题。那么代码则变为</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.xpath(<span class="hljs-string">'./a/@title'</span>).extract()</span><br></pre></td></tr></table></figure>
-<p>运行结果会返回一个列表，而不是文本信息。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="hljs-string">'灾难反思纪录短片《“911”之殇》'</span>]</span><br></pre></td></tr></table></figure>
-
-<p>2）这里涉及到内建选择器 Selecter 的知识。extract()方法的作用是串行化并将匹配到的节点返回一个unicode字符串列表。看了定义，是不是更加懵逼了。那就看下运行结果来压压惊。<br>不加上 extract() 的运行结果如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Selector xpath=<span class="hljs-string">'./a/@title'</span> data=<span class="hljs-string">'灾难反思纪录短片《“911”之殇》'</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>上述代码只是在 V电影主页中提取信息，而进入电影详情页面中匹配搜索信息。因此，我们是获取不到电影的播放地址的。如何搞定这难题？我们可以在 parse 方法中做文章。parse() 前文提到它必须返回一个 Reuqest 对象或者 Item。再者， Request 中就包含 url。换句话说，我们只有获取到电影详情页的 url 地址，并在传递给返回的 Request 对象中。</p>
-<p>因此，代码可以这么改进：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="hljs-comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> scrapy</span><br><span class="line"><span class="hljs-keyword">from</span> scrapy_demo.items <span class="hljs-keyword">import</span> ScrapyDemoItem</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VmoiveSpider</span><span class="hljs-params">(scrapy.Spider)</span>:</span></span><br><span class="line">    <span class="hljs-comment"># name是spider最重要的属性, 它必须被定义。同时它也必须保持唯一</span></span><br><span class="line">    name = <span class="hljs-string">'vmoive'</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 可选定义。包含了spider允许爬取的域名(domain)列表(list)</span></span><br><span class="line">    allowed_domains = [<span class="hljs-string">'vmovier.com'</span>]</span><br><span class="line"></span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="hljs-string">'http://www.vmovier.com/'</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span><span class="hljs-params">(self, response)</span>:</span></span><br><span class="line">        self.log(<span class="hljs-string">'item page url is ==== '</span> + response.url)</span><br><span class="line"></span><br><span class="line">        moivelist = response.xpath(<span class="hljs-string">"//li[@class='clearfix']"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> moivelist:</span><br><span class="line">            item = ScrapyDemoItem()</span><br><span class="line">            item[<span class="hljs-string">'cover'</span>] = m.xpath(<span class="hljs-string">'./a/img/@src'</span>)[<span class="hljs-number">0</span>].extract()</span><br><span class="line">            item[<span class="hljs-string">'title'</span>] = m.xpath(<span class="hljs-string">'./a/@title'</span>)[<span class="hljs-number">0</span>].extract()</span><br><span class="line">            item[<span class="hljs-string">'dec'</span>] = m.xpath(<span class="hljs-string">"./div/div[@class='index-intro']/a/text()"</span>)[<span class="hljs-number">0</span>].extract()</span><br><span class="line">            <span class="hljs-comment"># print(item)</span></span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment"># 提取电影详细页面 url 地址 </span></span><br><span class="line">            urlitem = m.xpath(<span class="hljs-string">'./a/@href'</span>)[<span class="hljs-number">0</span>].extract()</span><br><span class="line">            url = response.urljoin(urlitem)</span><br><span class="line">            <span class="hljs-comment"># 如果你想将上面的 item 字段传递给 parse_moive, 使用 meta 参数</span></span><br><span class="line">            <span class="hljs-keyword">yield</span> scrapy.Request(url, callback=self.parse_moive, meta=&#123;</span><br><span class="line">                <span class="hljs-string">'cover'</span>:item[<span class="hljs-string">'cover'</span>],</span><br><span class="line">                <span class="hljs-string">'title'</span>: item[<span class="hljs-string">'title'</span>],</span><br><span class="line">                <span class="hljs-string">'dec'</span>: item[<span class="hljs-string">'dec'</span>],</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse_moive</span><span class="hljs-params">(self, response)</span>:</span></span><br><span class="line">        item = ScrapyDemoItem()</span><br><span class="line">        item[<span class="hljs-string">'cover'</span>] = response.meta[<span class="hljs-string">'cover'</span>]</span><br><span class="line">        item[<span class="hljs-string">'title'</span>] = response.meta[<span class="hljs-string">'title'</span>]</span><br><span class="line">        item[<span class="hljs-string">'dec'</span>] = response.meta[<span class="hljs-string">'dec'</span>]</span><br><span class="line">        item[<span class="hljs-string">'playUrl'</span>] = response.xpath(<span class="hljs-string">"//div[@class='p00b204e980']/p/iframe/@src"</span>)[<span class="hljs-number">0</span>].extract()</span><br><span class="line">        <span class="hljs-keyword">yield</span> item</span><br></pre></td></tr></table></figure>
-
-<p>再次运行程序，查看运行结果。<br><img src="./images/img/40_2.png" alt></p>
-<h2 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h2><p>在实际生产中，我们很少把数据导出到 json 文件中。因为后期维护、数据查询、数据修改都是一件麻烦的事情。我们通常是将数据保存到数据库中。</p>
-<p>我们先定义并创建数据库表</p>
-<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> vmoive</span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> vmoive(</span><br><span class="line">  <span class="hljs-keyword">id</span> <span class="hljs-built_in">INT</span>(<span class="hljs-number">6</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT PRIMARY <span class="hljs-keyword">KEY</span> ,</span><br><span class="line">  cover <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>),</span><br><span class="line">  title <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>),</span><br><span class="line">  mdec <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>),</span><br><span class="line">  playUrl <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>)</span><br><span class="line">) <span class="hljs-keyword">DEFAULT</span>  <span class="hljs-keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
-
-<p>在 settings 文件中增加数据库的配置</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Configure item pipelines  这里默认是注释的</span></span><br><span class="line"><span class="hljs-comment"># See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="hljs-string">'scrapy_demo.pipelines.ScrapyDemoPipeline'</span>: <span class="hljs-number">300</span>,     <span class="hljs-comment"># 保存到 mysql 数据库中</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Mysql 配置信息</span></span><br><span class="line"><span class="hljs-comment"># 根据你的环境修改</span></span><br><span class="line">MYSQL_HOST = <span class="hljs-string">'127.0.0.1'</span></span><br><span class="line">MYSQL_DBNAME = <span class="hljs-string">'vmoive'</span>     <span class="hljs-comment"># 数据库名</span></span><br><span class="line">MYSQL_USER = <span class="hljs-string">'root'</span>         <span class="hljs-comment"># 数据库用户</span></span><br><span class="line">MYSQL_PASSWORD = <span class="hljs-string">'123456'</span>   <span class="hljs-comment"># 数据库密码</span></span><br></pre></td></tr></table></figure>
-
-<p>在 scrapy 中，我们要在 pipeline 文件中编写处理数据存储的代码。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="hljs-keyword">import</span> pymysql</span><br><span class="line"><span class="hljs-keyword">from</span> scrapy_demo <span class="hljs-keyword">import</span> settings</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScrapyDemoPipeline</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,)</span>:</span></span><br><span class="line">        self.conn = pymysql.connect(</span><br><span class="line">            host        = settings.MYSQL_HOST,</span><br><span class="line">            db          = settings.MYSQL_DBNAME,</span><br><span class="line">            user        = settings.MYSQL_USER,</span><br><span class="line">            passwd      = settings.MYSQL_PASSWORD,</span><br><span class="line">            charset     = <span class="hljs-string">'utf8'</span>,  <span class="hljs-comment"># 编码要加上，否则可能出现中文乱码问题</span></span><br><span class="line">            use_unicode = <span class="hljs-literal">False</span> )</span><br><span class="line">        self.cursor = self.conn.cursor()</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># pipeline 默认调用</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_item</span><span class="hljs-params">(self, item, spider)</span>:</span></span><br><span class="line">        <span class="hljs-comment"># 调用插入数据的方法</span></span><br><span class="line">        self.insertData(item)</span><br><span class="line">        <span class="hljs-keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 插入数据方法</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insertData</span><span class="hljs-params">(self, item)</span>:</span></span><br><span class="line">        sql = <span class="hljs-string">"insert into vmoive(cover, title, mdec, playUrl) VALUES(%s, %s, %s, %s);"</span></span><br><span class="line">        params = (item[<span class="hljs-string">'cover'</span>], item[<span class="hljs-string">'title'</span>], item[<span class="hljs-string">'dec'</span>], item[<span class="hljs-string">'playUrl'</span>])</span><br><span class="line">        self.cursor.execute(sql, params)</span><br><span class="line">        self.conn.commit()</span><br></pre></td></tr></table></figure>
-            </div>   
-        
-        <br>
-        <!-- 增加微信公众号首发说明 -->
-        
-        <div>
-            <p class="official_accounts_tips">本文原创发布于微信公众号『极客猴』，欢迎关注第一时间获取更多原创分享</p>
-        </div>
-        
-
-        <!-- 增加版权说明 -->
-        
-            <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="https://geekmonkey.top/917.html">学会运用爬虫框架 Scrapy (二)</a></li>
-            <li><strong>本文作者：</strong><a href="https://geekmonkey.top">猴哥</a></li>
-            <li><strong>本文链接：</strong><a href="https://geekmonkey.top/917.html">https://geekmonkey.top/917.html</a></li>
-            <li><strong>发布时间：</strong>2017-09-11 21:43:47</li>
-            <li><strong>公众号转载：</strong>扫描公众号『极客猴』二维码联系猴哥申请长白!</li>
-            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
-            </li>
-            </ul>
-        
-            <br><img src="https://s1.ax1x.com/2020/05/14/YBHgbV.png"> <!--/images/official_accounts_qrcode.png-->
-        
-        
-        <hr style="height:1px;margin:1rem 0">
-
-        <!-- 文章底部显示的文章标签 -->
-        <div class="level is-size-7">
-            <div class="level-start">
-                <div class="nexmoe-post-meta">
-                    <!--<span class="is-size-6 has-text-grey has-mr-7">#</span>-->
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="exmoefont icon-tag-fill-link" href="/tags/Python/" rel="tag">Python</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/Scrapy/" rel="tag">Scrapy</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="tag">爬虫实战</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">网络爬虫</a>&nbsp;&nbsp;<a class="exmoefont icon-tag-fill-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="tag">项目实战</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        <!-- 屏蔽不用的分享图表 
-<div class="social-share"></div>-->
-<div class="social-share" data-disabled="tencent,diandian,facebook,twitter,google"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
-    </div>
-</div>
-
-
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">如果你觉得文章写得不错，给猴哥加个鸡腿</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/weixin_reward.png" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
-
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/918.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">学会运用爬虫框架 Scrapy (三)</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/916.html">
-                <span class="level-item">学会运用爬虫框架 Scrapy (一)</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-    	avatar: 'wavatar',
-        el: '#valine-thread' ,
-        notify: false,
-        verify: false,
-        app_id: 'wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI',
-        app_key: 'HVwymGTYvDdOlyFFX2h2PomH',
-        placeholder: '你有什么想说的？'
-    });
-</script>
-
-    </div>
-</div>
-</div>
-                
-                
-                
-
-
-
-
-<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-3 column-right ">
     
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="is-rounded" src="/images/avatar.png" alt="极客猴">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        极客猴
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        不日进则日退
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>ShenZhen, China</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        118
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        专栏
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        10
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        125
-                    </p>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/monkey-soft" target="_blank" rel="external nofollow noopener noreferrer">
-                关注我</a>
-        </div>
-        
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/monkey-soft" rel="external nofollow noopener noreferrer">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="知乎" href="https://www.zhihu.com/people/Geek_monkey/activities" rel="external nofollow noopener noreferrer">
-                
-                <i class="fab fa-zhihu"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
+      <p class="title">极客猴</p>
     
-        
-
-    <!-- 目录粘性布局 -->
-    <div class="card widget column-left is-sticky" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#选取目标">
-        <span class="has-mr-6">1</span>
-        <span>选取目标</span>
-        </a></li><li>
-        <a class="is-flex" href="#定义-Item">
-        <span class="has-mr-6">2</span>
-        <span>定义 Item</span>
-        </a></li><li>
-        <a class="is-flex" href="#编写-Spider">
-        <span class="has-mr-6">3</span>
-        <span>编写 Spider</span>
-        </a></li><li>
-        <a class="is-flex" href="#运行程序">
-        <span class="has-mr-6">4</span>
-        <span>运行程序</span>
-        </a></li><li>
-        <a class="is-flex" href="#深究">
-        <span class="has-mr-6">5</span>
-        <span>深究</span>
-        </a></li><li>
-        <a class="is-flex" href="#进阶">
-        <span class="has-mr-6">6</span>
-        <span>进阶</span>
-        </a></li><li>
-        <a class="is-flex" href="#数据持久化">
-        <span class="has-mr-6">7</span>
-        <span>数据持久化</span>
-        </a></li></ul>
-            </div>
-        </div>
-    </div>
-
     
-        <div class="card widget">
-  <div class="weight_card-content">
-    <div class="menu">
-      <h4 class="menu_weight" style="text-align:center;">更多内容,请关注公众号！</h4>
-      <div>
-        <img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" alt="极客猴的公众号" width="100%">
+      <p class="subtitle">猴哥的个人博客</p>
+    
+  </div>
+  <div class="b">
+    <div class="menu navigation dock">
+      <div class="list-h">
+        
+          
+            <a href="/" id="home">
+              <i class="fas fa-book fa-fw"></i><p>主页</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <i class="fas fa-archive fa-fw"></i><p>归档</p>
+            </a>
+          
+            <a href="/treasure/" id="treasure">
+              <i class="fas fa-gift fa-fw"></i><p>藏宝阁</p>
+            </a>
+          
+            <a href="/about/" id="about">
+              <i class="fas fa-fan fa-spin fa-fw"></i><p>关于我</p>
+            </a>
+          
+        
       </div>
     </div>
   </div>
 </div>
 
-    
-        <div class="card widget">
-    <div>
-      <a href="https://reg.huaweicloud.com/registerui/cn/register.html?bpInvite=7a2d288001c6466a&service=https%3A%2F%2Faccount.huaweicloud.com%2Fusercenter%2F%3Flocale%3Dzh-cn%26hws_route_url%3DregistSuccess%26bpInvite%3D7a2d288001c6466a%26bpName%3D5f9f98a29e2c40b780c1793086f29fe2%26inviteCode%3Dchanql123%26bindType%3D1#/register" target="_blank" rel="external nofollow noopener noreferrer">
-      <img src="https://s1.ax1x.com/2020/05/17/Y25LY6.png" alt="华为云新用户福利" width="100%">
-      </a>
-    </div>
-</div>
-    
-        <!-- 侧边组件-专栏 -->
-
-<div class="card widget">
-    <div class="card-content is-hidden-mobile">
-        <div class="menu">
-            <h3 class="menu_weight">
-                专栏
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-            <span class="level-start">
-                <span class="level-item">Django 学习笔记</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">19</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">
-            <span class="level-start">
-                <span class="level-item">Python 必知必会</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">20</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/">
-            <span class="level-start">
-                <span class="level-item">建站与优化</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/">
-            <span class="level-start">
-                <span class="level-item">思维与认知</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">11</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-            <span class="level-start">
-                <span class="level-item">数据分析</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">9</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-            <span class="level-start">
-                <span class="level-item">数据库</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-            <span class="level-start">
-                <span class="level-item">网络爬虫</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">32</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-            <span class="level-start">
-                <span class="level-item">计算机网络</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E8%AE%A4%E7%9F%A5/">
-            <span class="level-start">
-                <span class="level-item">认知</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/">
-            <span class="level-start">
-                <span class="level-item">随笔</span>
-            </span>
-            <span class="level-end">
-                <span class="category-list-item category-list-count">18</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <!-- 优化移动端显示，隐藏 archive  -->
-    <div class="card-content is-hidden-mobile">
-        <div class="menu">
-        <h3 class="menu_weight">
-            归档
-        </h3>
-
-            <div class="field is-grouped is-grouped-multiline">
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2020/05/">
-                            <span class="level-start">
-                                <span class="level-item">五月 2020</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2020/04/">
-                            <span class="level-start">
-                                <span class="level-item">四月 2020</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">2</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2020/03/">
-                            <span class="level-start">
-                                <span class="level-item">三月 2020</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2020/01/">
-                            <span class="level-start">
-                                <span class="level-item">一月 2020</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/11/">
-                            <span class="level-start">
-                                <span class="level-item">十一月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/10/">
-                            <span class="level-start">
-                                <span class="level-item">十月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/09/">
-                            <span class="level-start">
-                                <span class="level-item">九月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/08/">
-                            <span class="level-start">
-                                <span class="level-item">八月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/07/">
-                            <span class="level-start">
-                                <span class="level-item">七月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/06/">
-                            <span class="level-start">
-                                <span class="level-item">六月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/03/">
-                            <span class="level-start">
-                                <span class="level-item">三月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/02/">
-                            <span class="level-start">
-                                <span class="level-item">二月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2019/01/">
-                            <span class="level-start">
-                                <span class="level-item">一月 2019</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/12/">
-                            <span class="level-start">
-                                <span class="level-item">十二月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/11/">
-                            <span class="level-start">
-                                <span class="level-item">十一月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">6</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/10/">
-                            <span class="level-start">
-                                <span class="level-item">十月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/09/">
-                            <span class="level-start">
-                                <span class="level-item">九月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">2</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/08/">
-                            <span class="level-start">
-                                <span class="level-item">八月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">7</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/07/">
-                            <span class="level-start">
-                                <span class="level-item">七月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">6</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/06/">
-                            <span class="level-start">
-                                <span class="level-item">六月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">6</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/05/">
-                            <span class="level-start">
-                                <span class="level-item">五月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">8</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/04/">
-                            <span class="level-start">
-                                <span class="level-item">四月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">8</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/03/">
-                            <span class="level-start">
-                                <span class="level-item">三月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/02/">
-                            <span class="level-start">
-                                <span class="level-item">二月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2018/01/">
-                            <span class="level-start">
-                                <span class="level-item">一月 2018</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">5</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/12/">
-                            <span class="level-start">
-                                <span class="level-item">十二月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">5</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/11/">
-                            <span class="level-start">
-                                <span class="level-item">十一月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/10/">
-                            <span class="level-start">
-                                <span class="level-item">十月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/09/">
-                            <span class="level-start">
-                                <span class="level-item">九月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/08/">
-                            <span class="level-start">
-                                <span class="level-item">八月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/07/">
-                            <span class="level-start">
-                                <span class="level-item">七月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">4</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/06/">
-                            <span class="level-start">
-                                <span class="level-item">六月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">3</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2017/01/">
-                            <span class="level-start">
-                                <span class="level-item">一月 2017</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2016/12/">
-                            <span class="level-start">
-                                <span class="level-item">十二月 2016</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">2</span>
-                            </span>
-                        </a>
-                    </div> 
-                 
-                    <div class="archive-container">
-                        <a class="level is-marginless" href="/archives/2016/11/">
-                            <span class="level-start">
-                                <span class="level-item">十一月 2016</span>
-                            </span>
-                            <span class="level-end">
-                                <span class="archive-list-item archive-list-count">1</span>
-                            </span>
-                        </a>
-                    </div> 
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
+      <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    </cover>
+    <header class="l_header shadow floatable">
+  <div class="container">
+  <div class="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-<div class="card widget">
-    <div class="card-content is-hidden-mobile">
-        <div class="menu">
-            <h3 class="menu_weight">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/APScheduler/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">APScheduler</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Chrome/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Chrome</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Debian/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Debian</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Django/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Django</span>
-                        <span class="tag tag_count">20</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Djongo/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Djongo</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Flask/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Flask</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Github/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Github</span>
-                        <span class="tag tag_count">6</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/HTTP/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">HTTP</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Hexo/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Hexo</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/IG/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IG</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/IP%E4%BB%A3%E7%90%86%E6%B1%A0/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">IP代理池</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Iterable/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterable</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Iterator/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Iterator</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Jekyll/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Jekyll</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Linux</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/MangoDB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MangoDB</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Matplotlib/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Matplotlib</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Mongo-Plugin/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mongo Plugin</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/MongoDB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">MongoDB</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Mysql/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Mysql</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Nosqlclient/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Nosqlclient</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/OAuth/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OAuth</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/OCR/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">OCR</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/PEP/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">PEP</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Pandas/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pandas</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Pycharm/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Pycharm</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Python/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Python</span>
-                        <span class="tag tag_count">78</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Redis/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Redis</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Request/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Request</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Requests/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Requests</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/SEO-%E4%BC%98%E5%8C%96/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">SEO 优化</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Scrapy/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Scrapy</span>
-                        <span class="tag tag_count">7</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Selenium/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Selenium</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Session/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Session</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/TCP/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">TCP</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Token/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Token</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Ubuntu/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Ubuntu</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Unicode/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Unicode</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Vlog/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Vlog</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Web/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Web</span>
-                        <span class="tag tag_count">19</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/WordPress/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">WordPress</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/Xpath/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">Xpath</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/aiohttp/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">aiohttp</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/beautifulSoup/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">beautifulSoup</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/codecs/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">codecs</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/csv/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">csv</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/datetime/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">datetime</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/generator/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">generator</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/lxml/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">lxml</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/os-path/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">os.path</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/pandas/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pandas</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/pustil/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pustil</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/pyecharts/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">pyecharts</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/sched/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">sched</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/session/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">session</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/the-fuck/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">the fuck</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/time/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">time</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/unsplash/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">unsplash</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/web/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">web</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%B8%83%E5%A4%95/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">七夕</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%B8%AD%E9%97%B4%E9%94%AE/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">中间键</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%B9%A6%E7%B1%8D/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">书籍</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">二维码</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%BA%A7%E5%93%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">产品</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%90%86/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">代理</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%89%AF%E4%B8%9A/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">副业</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">博客</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%8F%8D%E7%88%AC%E8%99%AB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">反爬虫</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">可视化</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%90%8E%E5%8F%B0%E6%9E%B6%E6%9E%84/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">后台架构</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%95%86%E4%B8%9A/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">商业</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%9B%BE%E8%A1%A8/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">图表</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多线程</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">多进程</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">定时任务</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%B9%B4%E6%80%BB%E7%BB%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">年总结</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开发进阶</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">开源项目</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%BD%93%E5%BD%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">当当</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E5%BF%85%E8%83%9C%E5%AE%A2/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">必胜客</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%80%9D%E5%BF%B5/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">思念</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">性能优化</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">总结</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%84%9F%E6%82%9F/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">感悟</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%87%82%E7%82%B9%E7%B3%BB%E5%88%97/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">懂点系列</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">技巧</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">抓包工具</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%8B%96%E5%BB%B6%E7%97%87/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">拖延症</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">操作系统</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据分析</span>
-                        <span class="tag tag_count">9</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据库</span>
-                        <span class="tag tag_count">3</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据结构</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%99%A8/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据采集器</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数据集</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">数组</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%96%87%E4%BB%B6%E9%81%8D%E5%8E%86/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文件遍历</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">文本操作</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">方法论</span>
-                        <span class="tag tag_count">7</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">时间管理</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%A0%87%E5%87%86%E5%BA%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">标准库</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">正则表达式</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%BA%90%E7%A0%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">源码</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E6%BC%AB%E5%A8%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">漫威</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">爬虫实战</span>
-                        <span class="tag tag_count">10</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%94%B5%E5%BD%B1/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">电影</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%99%BD%E8%9B%87%E7%BC%98%E8%B5%B7/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">白蛇缘起</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">短视频</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%A4%BE%E5%B7%A5%E5%BA%93/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">社工库</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">竞品分析</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编码规范</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">编程入门</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网易云音乐</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">网络爬虫</span>
-                        <span class="tag tag_count">24</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E8%87%AA%E5%AD%A6/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">自学</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E8%AE%A4%E7%9F%A5/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">认知</span>
-                        <span class="tag tag_count">10</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E8%B1%86%E7%93%A3/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">豆瓣</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E8%B4%A6%E5%8F%B7%E8%AE%A4%E8%AF%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">账号认证</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%98%85%E8%AF%BB/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">阅读</span>
-                        <span class="tag tag_count">2</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">面试</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">项目实战</span>
-                        <span class="tag tag_count">14</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">验证码</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">高并发</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-                <div class="tag_control">
-                    <a class="tags has-addons" href="/tags/%E9%B8%A1%E6%B1%A4/">
-                        <span class="tag tag_name" style="background-color:randomBackgroundColor()">鸡汤</span>
-                        <span class="tag tag_count">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
     </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="/images/avatar.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-flag faa-tada fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fas fa-book faa-tada fa-fw"></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A">
+                  <i class="fas fa-folder-open fa-fw"></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" id="categoriesE7BD91E7BB9CE788ACE899AB">
+                  <i class="fas fa-fire fa-fw"></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" id="categoriesE695B0E68DAEE58886E69E90">
+                  <i class="fas fa-fire fa-fw"></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0">
+                  <i class="fas fa-folder-open fa-fw"></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/" id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96">
+                  <i class="fas fa-book faa-tada fa-fw"></i>建站
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/" id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5">
+                  <i class="fas fa-fan fa-spin fa-fw"></i>认知
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa fa-address-card fa-fw fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa fa-ellipsis-v fa-fw fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/treasure/" id="treasure">
+                  <i class="fas fa-gift fa-fw"></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-flag faa-tada fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fas fa-book faa-tada fa-fw"></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A">
+                  <i class="fas fa-folder-open fa-fw"></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" id="categoriesE7BD91E7BB9CE788ACE899AB">
+                  <i class="fas fa-fire fa-fw"></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" id="categoriesE695B0E68DAEE58886E69E90">
+                  <i class="fas fa-fire fa-fw"></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0">
+                  <i class="fas fa-folder-open fa-fw"></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/" id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96">
+                  <i class="fas fa-book faa-tada fa-fw"></i>建站
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/" id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5">
+                  <i class="fas fa-fan fa-spin fa-fw"></i>认知
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fa fa-address-card fa-fw fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fa fa-ellipsis-v fa-fw fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/treasure/" id="treasure">
+                  <i class="fas fa-gift fa-fw"></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  </div>
+  
+
+
+  <div class="l_body nocover">
+    <div class="body-wrapper" id="pjax-container">
+      
+        <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">学会运用爬虫框架 Scrapy (二)</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path">none</div> 
+  <div id="pjax-comment-placeholder">none</div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover')[0].style.display = "none"; 
+    document.getElementsByClassName('l_body')[0].classList.add("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "blog") { // 半屏 
+      document.getElementsByClassName('cover')[0].classList.remove("full"); 
+      document.getElementsByClassName('cover')[0].classList.add("half"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "docs") { // 全屏 
+      document.getElementsByClassName('cover')[0].classList.remove("half"); 
+      document.getElementsByClassName('cover')[0].classList.add("full"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover')[0].style.display = ""; 
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+
+      
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+      
+      
+        <a title="学会运用爬虫框架 Scrapy (二)" href="/917.html"><img class="thumbnail" src="https://s1.ax1x.com/2020/05/15/YsbFtf.jpg"></a>
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/917.html">
+      学会运用爬虫框架 Scrapy (二)
+    </a>
+  </h1>
+
+
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a class="author" href="/" rel="nofollow">
+    <img no-lazy src="/images/avatar.png">
+    <p>猴哥</p>
+  </a>
 </div>
 
-    
-    
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>网络爬虫</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2017年9月11日</p>
+  </a>
 </div>
 
-            </div>
+            
+          
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：2.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：8分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/917.html" class="leancloud_visitors" data-flag-title="学会运用爬虫框架 Scrapy (二)">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/917.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/917.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+            
+          
         </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>上篇文章介绍了爬虫框架 Scrapy 如何安装，以及其特性、架构、数据流程。相信大家已经对 Scrapy 有人了初步的认识。本文是 Scrapy 系列文章的第二篇，主要通过一个实例讲解 scrapy 的用法。</p>
+<a id="more"></a>
+<h2 id="1-选取目标"><a href="#1-选取目标" class="headerlink" title="1.选取目标"></a>1.选取目标</h2><p>网络爬虫，顾名思义是对某个网站或者系列网站，按照一定规则进行爬取信息。爬取程序的首要工作当然是选定爬取目标。本次爬取目标选择是<code>V电影</code>，网址是<code>http://www.vmovier.com/</code>。爬取内容是[最新推荐]栏目的前15条短视频数据信息。具体信息包括封面、标题、详细说明以及视频播放地址。</p>
+<p><img src="./images/img/40_1.png" alt></p>
+<h2 id="2-定义-Item"><a href="#2-定义-Item" class="headerlink" title="2.定义 Item"></a>2.定义 Item</h2><p>为什么将爬取信息定义清楚呢？因为接下来 Item 需要用到。在 Item.py 文件中，我们以类的形式以及 Field 对象来声明。其中 Field 对象其实是一个字典类型，用于保存爬取到的数据。而定义出来的字段，可以简单理解为数据库表中的字段，但是它没有数据类型。Item 则复制了标准的 dict API，存放以及读取跟字典没有差别。</p>
+<p>V电影的 Item，我们可以这样定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrapyDemoItem</span>(<span class="params">scrapy.Item</span>):</span></span><br><span class="line">    <span class="comment"># define the fields for your item here like:</span></span><br><span class="line">    <span class="comment"># name = scrapy.Field()</span></span><br><span class="line">    <span class="comment"># 封面</span></span><br><span class="line">    cover = scrapy.Field()</span><br><span class="line">    <span class="comment"># 标题</span></span><br><span class="line">    title = scrapy.Field()</span><br><span class="line">    <span class="comment"># 简述</span></span><br><span class="line">    dec = scrapy.Field()</span><br><span class="line">    <span class="comment"># 播放地址</span></span><br><span class="line">    playUrl = scrapy.Field()</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-编写-Spider"><a href="#3-编写-Spider" class="headerlink" title="3.编写 Spider"></a>3.编写 Spider</h2><p>Spider 目录是我们爬虫程序爬取网站以及提取信息的模块。我们首先在目录下新建一个名为 VmoiveSpider 的文件。同时，该类继承<code>scrapy.Spider</code>。</p>
+<p>这里我们用到的<code>scrapy.spider.Spider</code> 是 Scrapy 中最简单的内置 spider。继承 spider 的类需要定义父类中的属性以及实现重要的方法。</p>
+<h3 id="3-1-name"><a href="#3-1-name" class="headerlink" title="3-1.name"></a>3-1.<code>name</code></h3><p>这个属性是非常重要的，所以必须定义它。定义 name 目的是为爬虫程序命名。因此，还要保持 name 属性是唯一的。它是 String 类型，我们在 VmoiveSpider 可以定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&#x27;vmoive&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-start-urls"><a href="#3-2-start-urls" class="headerlink" title="3-2. start_urls"></a>3-2. <code>start_urls</code></h3><p>start_urls 是 Url 列表，也是必须被定义。可以把它理解为存放爬虫程序的主入口 url 地址的容器。</p>
+<h3 id="3-3-allowed-domains"><a href="#3-3-allowed-domains" class="headerlink" title="3-3.allowed_domains"></a>3-3.<code>allowed_domains</code></h3><p>可选字段。包含了spider允许爬取的域名(domain)列表(list)。 当 OffsiteMiddleware 启用时， 域名不在列表中的URL不会被跟进。根据 V 电影的 url 地址，我们可以这样定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allowed_domains = [<span class="string">&#x27;vmovier.com&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-parse-response"><a href="#3-4-parse-response" class="headerlink" title="3-4.parse(response)"></a>3-4.<code>parse(response)</code></h3><p>parser 方法是Scrapy处理下载的response的默认方法。它同样必须被实现。parse 主要负责处理 response 并返回处理的数据以及跟进的URL。该方法及其他的Request回调函数必须返回一个包含 Request 及(或) Item 的可迭代的对象。</p>
+<p>在 scrapy_demo/sipders/VmoiveSpider 的完整代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapy_demo.items <span class="keyword">import</span> ScrapyDemoItem</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VmoiveSpider</span>(<span class="params">scrapy.Spider</span>):</span></span><br><span class="line">    <span class="comment"># name是spider最重要的属性, 它必须被定义。同时它也必须保持唯一</span></span><br><span class="line">    name = <span class="string">&#x27;vmoive&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 可选定义。包含了spider允许爬取的域名(domain)列表(list)</span></span><br><span class="line">    allowed_domains = [<span class="string">&#x27;vmovier.com&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">&#x27;http://www.vmovier.com/&#x27;</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span>(<span class="params">self, response</span>):</span></span><br><span class="line">        self.log(<span class="string">&#x27;item page url is ==== &#x27;</span> + response.url)</span><br><span class="line"></span><br><span class="line">        moivelist = response.xpath(<span class="string">&quot;//li[@class=&#x27;clearfix&#x27;]&quot;</span>)</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> moivelist:</span><br><span class="line">            item = ScrapyDemoItem()</span><br><span class="line">            item[<span class="string">&#x27;cover&#x27;</span>] = m.xpath(<span class="string">&#x27;./a/img/@src&#x27;</span>)[<span class="number">0</span>].extract()</span><br><span class="line">            item[<span class="string">&#x27;title&#x27;</span>] = m.xpath(<span class="string">&#x27;./a/@title&#x27;</span>)[<span class="number">0</span>].extract()</span><br><span class="line">            item[<span class="string">&#x27;dec&#x27;</span>] = m.xpath(<span class="string">&quot;./div/div[@class=&#x27;index-intro&#x27;]/a/text()&quot;</span>)[<span class="number">0</span>].extract()</span><br><span class="line">            print(item)</span><br><span class="line">            <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-运行程序"><a href="#4-运行程序" class="headerlink" title="4.运行程序"></a>4.运行程序</h2><p>在项目目录下打开终端，并执行以下命令。我们没有<code>pipelines.py</code>中将爬取结果进行存储，所以我们使用 scrapy 提供的导出数据命令，将 15 条电影信息导出到名为 items.json 文件中。其中 vmoive 为刚才在 VmoiveSpider 中定义的 name 属性的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl vmoive -o items.json</span><br></pre></td></tr></table></figure>
+
+<p>运行的部分结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&#x27;cover&#x27;</span>: <span class="string">&#x27;http://cs.vmoiver.com/Uploads/cover/2017-09-08/59b25a504e4e0_cut.jpeg@600w_400h_1e_1c.jpg&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;dec&#x27;</span>: <span class="string">&#x27;15年过去了，但我依然有话说&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;title&#x27;</span>: <span class="string">&#x27;灾难反思纪录短片《“911”之殇》&#x27;</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-深究"><a href="#5-深究" class="headerlink" title="5.深究"></a>5.深究</h2><p>在阅读上述代码过程中，大家可能会有两个疑问。第一，为什么要在 xpath 方法后面添加[0]？ 第二，为什么要在 [0] 后面添加 extract()方法 ? 请听我慢慢道来。</p>
+<p>1) 添加个[0], 因为 xpath() 返回的结果是列表类型。我以获取标题内容为例子讲解不添加[0]会出现什么问题。那么代码则变为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.xpath(<span class="string">&#x27;./a/@title&#x27;</span>).extract()</span><br></pre></td></tr></table></figure>
+<p>运行结果会返回一个列表，而不是文本信息。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;灾难反思纪录短片《“911”之殇》&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>2）这里涉及到内建选择器 Selecter 的知识。extract()方法的作用是串行化并将匹配到的节点返回一个unicode字符串列表。看了定义，是不是更加懵逼了。那就看下运行结果来压压惊。<br>不加上 extract() 的运行结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Selector xpath=<span class="string">&#x27;./a/@title&#x27;</span> data=<span class="string">&#x27;灾难反思纪录短片《“911”之殇》&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-进阶"><a href="#6-进阶" class="headerlink" title="6.进阶"></a>6.进阶</h2><p>上述代码只是在 V电影主页中提取信息，而进入电影详情页面中匹配搜索信息。因此，我们是获取不到电影的播放地址的。如何搞定这难题？我们可以在 parse 方法中做文章。parse() 前文提到它必须返回一个 Reuqest 对象或者 Item。再者， Request 中就包含 url。换句话说，我们只有获取到电影详情页的 url 地址，并在传递给返回的 Request 对象中。</p>
+<p>因此，代码可以这么改进：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapy_demo.items <span class="keyword">import</span> ScrapyDemoItem</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VmoiveSpider</span>(<span class="params">scrapy.Spider</span>):</span></span><br><span class="line">    <span class="comment"># name是spider最重要的属性, 它必须被定义。同时它也必须保持唯一</span></span><br><span class="line">    name = <span class="string">&#x27;vmoive&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 可选定义。包含了spider允许爬取的域名(domain)列表(list)</span></span><br><span class="line">    allowed_domains = [<span class="string">&#x27;vmovier.com&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">&#x27;http://www.vmovier.com/&#x27;</span></span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span>(<span class="params">self, response</span>):</span></span><br><span class="line">        self.log(<span class="string">&#x27;item page url is ==== &#x27;</span> + response.url)</span><br><span class="line"></span><br><span class="line">        moivelist = response.xpath(<span class="string">&quot;//li[@class=&#x27;clearfix&#x27;]&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> moivelist:</span><br><span class="line">            item = ScrapyDemoItem()</span><br><span class="line">            item[<span class="string">&#x27;cover&#x27;</span>] = m.xpath(<span class="string">&#x27;./a/img/@src&#x27;</span>)[<span class="number">0</span>].extract()</span><br><span class="line">            item[<span class="string">&#x27;title&#x27;</span>] = m.xpath(<span class="string">&#x27;./a/@title&#x27;</span>)[<span class="number">0</span>].extract()</span><br><span class="line">            item[<span class="string">&#x27;dec&#x27;</span>] = m.xpath(<span class="string">&quot;./div/div[@class=&#x27;index-intro&#x27;]/a/text()&quot;</span>)[<span class="number">0</span>].extract()</span><br><span class="line">            <span class="comment"># print(item)</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 提取电影详细页面 url 地址 </span></span><br><span class="line">            urlitem = m.xpath(<span class="string">&#x27;./a/@href&#x27;</span>)[<span class="number">0</span>].extract()</span><br><span class="line">            url = response.urljoin(urlitem)</span><br><span class="line">            <span class="comment"># 如果你想将上面的 item 字段传递给 parse_moive, 使用 meta 参数</span></span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url, callback=self.parse_moive, meta=&#123;</span><br><span class="line">                <span class="string">&#x27;cover&#x27;</span>:item[<span class="string">&#x27;cover&#x27;</span>],</span><br><span class="line">                <span class="string">&#x27;title&#x27;</span>: item[<span class="string">&#x27;title&#x27;</span>],</span><br><span class="line">                <span class="string">&#x27;dec&#x27;</span>: item[<span class="string">&#x27;dec&#x27;</span>],</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_moive</span>(<span class="params">self, response</span>):</span></span><br><span class="line">        item = ScrapyDemoItem()</span><br><span class="line">        item[<span class="string">&#x27;cover&#x27;</span>] = response.meta[<span class="string">&#x27;cover&#x27;</span>]</span><br><span class="line">        item[<span class="string">&#x27;title&#x27;</span>] = response.meta[<span class="string">&#x27;title&#x27;</span>]</span><br><span class="line">        item[<span class="string">&#x27;dec&#x27;</span>] = response.meta[<span class="string">&#x27;dec&#x27;</span>]</span><br><span class="line">        item[<span class="string">&#x27;playUrl&#x27;</span>] = response.xpath(<span class="string">&quot;//div[@class=&#x27;p00b204e980&#x27;]/p/iframe/@src&quot;</span>)[<span class="number">0</span>].extract()</span><br><span class="line">        <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+
+<p>再次运行程序，查看运行结果。<br><img src="./images/img/40_2.png" alt></p>
+<h2 id="7-数据持久化"><a href="#7-数据持久化" class="headerlink" title="7.数据持久化"></a>7.数据持久化</h2><p>在实际生产中，我们很少把数据导出到 json 文件中。因为后期维护、数据查询、数据修改都是一件麻烦的事情。我们通常是将数据保存到数据库中。</p>
+<p>我们先定义并创建数据库表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> vmoive</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> vmoive(</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">INT</span>(<span class="number">6</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span> ,</span><br><span class="line">  cover <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  title <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  mdec <span class="built_in">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">  playUrl <span class="built_in">VARCHAR</span>(<span class="number">255</span>)</span><br><span class="line">) <span class="keyword">DEFAULT</span>  <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
+
+<p>在 settings 文件中增加数据库的配置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Configure item pipelines  这里默认是注释的</span></span><br><span class="line"><span class="comment"># See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="string">&#x27;scrapy_demo.pipelines.ScrapyDemoPipeline&#x27;</span>: <span class="number">300</span>,     <span class="comment"># 保存到 mysql 数据库中</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mysql 配置信息</span></span><br><span class="line"><span class="comment"># 根据你的环境修改</span></span><br><span class="line">MYSQL_HOST = <span class="string">&#x27;127.0.0.1&#x27;</span></span><br><span class="line">MYSQL_DBNAME = <span class="string">&#x27;vmoive&#x27;</span>     <span class="comment"># 数据库名</span></span><br><span class="line">MYSQL_USER = <span class="string">&#x27;root&#x27;</span>         <span class="comment"># 数据库用户</span></span><br><span class="line">MYSQL_PASSWORD = <span class="string">&#x27;123456&#x27;</span>   <span class="comment"># 数据库密码</span></span><br></pre></td></tr></table></figure>
+
+<p>在 scrapy 中，我们要在 pipeline 文件中编写处理数据存储的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">from</span> scrapy_demo <span class="keyword">import</span> settings</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrapyDemoPipeline</span>(<span class="params">object</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,</span>):</span></span><br><span class="line">        self.conn = pymysql.connect(</span><br><span class="line">            host        = settings.MYSQL_HOST,</span><br><span class="line">            db          = settings.MYSQL_DBNAME,</span><br><span class="line">            user        = settings.MYSQL_USER,</span><br><span class="line">            passwd      = settings.MYSQL_PASSWORD,</span><br><span class="line">            charset     = <span class="string">&#x27;utf8&#x27;</span>,  <span class="comment"># 编码要加上，否则可能出现中文乱码问题</span></span><br><span class="line">            use_unicode = <span class="literal">False</span> )</span><br><span class="line">        self.cursor = self.conn.cursor()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># pipeline 默认调用</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span>(<span class="params">self, item, spider</span>):</span></span><br><span class="line">        <span class="comment"># 调用插入数据的方法</span></span><br><span class="line">        self.insertData(item)</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 插入数据方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertData</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        sql = <span class="string">&quot;insert into vmoive(cover, title, mdec, playUrl) VALUES(%s, %s, %s, %s);&quot;</span></span><br><span class="line">        params = (item[<span class="string">&#x27;cover&#x27;</span>], item[<span class="string">&#x27;title&#x27;</span>], item[<span class="string">&#x27;dec&#x27;</span>], item[<span class="string">&#x27;playUrl&#x27;</span>])</span><br><span class="line">        self.cursor.execute(sql, params)</span><br><span class="line">        self.conn.commit()</span><br></pre></td></tr></table></figure>
+          
+            <div class="article_footer">
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p>本文永久链接：<a href="https://geekmonkey.top/917.html">https://geekmonkey.top/917.html</a></p>
+          
+        
+          
+            <p>公众号转载：扫描公众号『极客猴』二维码联系猴哥申请开白!</p>
+
+          
+        
+          
+            <p>版权声明：本博客所有文章除特别声明外，均采用共享 4.0 国际 (CC BY-NC-SA 4.0) 许可协议。转载请注明出处！</p>
+
+          
+        
+          
+            <p>附：文章内容首发于微信公众号『极客猴』, 欢迎扫码关注第一时间接受推文~</p>
+
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class="content article-entry">
+    
+      
+        <div class="fancybox"><img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" height="256px"></div>
+      
+    
+      
+        <div class="fancybox"><img src="/images/weixin_reward.png" height="256px"></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-23T14:59:34+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年8月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>网络爬虫</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>爬虫实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>项目实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scrapy/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scrapy</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://geekmonkey.top/917.html&title=学会运用爬虫框架 Scrapy (二) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsbFtf.jpg&summary=上篇文章介绍了爬虫框架 Scrapy 如何安装，以及其特性、架构、数据流程。相信大家已经对 Scrapy 有人了初步的认识。本文是 Scrapy 系列文章的第二篇，主要通过一个实例讲解 scrapy 的用法。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://geekmonkey.top/917.html&title=学会运用爬虫框架 Scrapy (二) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsbFtf.jpg&summary=上篇文章介绍了爬虫框架 Scrapy 如何安装，以及其特性、架构、数据流程。相信大家已经对 Scrapy 有人了初步的认识。本文是 Scrapy 系列文章的第二篇，主要通过一个实例讲解 scrapy 的用法。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://geekmonkey.top/917.html&title=学会运用爬虫框架 Scrapy (二) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsbFtf.jpg&summary=上篇文章介绍了爬虫框架 Scrapy 如何安装，以及其特性、架构、数据流程。相信大家已经对 Scrapy 有人了初步的认识。本文是 Scrapy 系列文章的第二篇，主要通过一个实例讲解 scrapy 的用法。">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class="hoverbox">
+          <a class="share"><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png"></a>
+          <div class="target">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACR0lEQVR42u3dy07FMAwFwP7/T8Me6ap+UYI72VVKezNmc2RH4vp66brAwcHBwcEXwa/i+vl++gDJ3xk7Lzg4ODg4+EJ49sB3z3eFuoNFn9PnBQcHBwcHXwyvBpZq4LjbHy1M9Lzg4ODg4ODg8QBTbUhMByZwcHBwcHDw+0bAdCGOT27g4ODg4OAHwbMN+ux3ugU4ZpICDg4ODg5+EHzqgt9Tz8fdbAQHBwcHB/8DeHdlB/3dfe3zgoODg4ODL4JHBwDRIJO9uFcdOFQHGeDg4ODg4Jvg0Q9GLwRUA0v2e9lzgYODg4ODb4RXYeXBfHLgXx1ofPweODg4ODj4Inh0IJ8NLtP7sgUrJzdwcHBwcPB/CM8OALr7qwGlG7DAwcHBwcE3wacG9dkg0Q045UKCg4ODg4MvgmcDSPZgvz04AAcHBwcHfzO8OwCYvggQfa8adMDBwcHBwTfBs42FqaDRvXBQHUSAg4ODg4O/CV5tOFQHAdnCpM8NDg4ODg6+CD7VIKjuizZEusEFHBwcHBx8IzwbEKYb/o8HJXBwcHBw8IXw9sA9uKL7s98NBytwcHBwcPCF8OrKNhq6hWgXHBwcHBwcfBG8GxCyDYrqoH/q98DBwcHBwTfCq4El+/50QAIHBwcHBwcfvEDXHEhMDSo+PoODg4ODg4OXBwFXc3X/QODg4ODg4OD9f8A6ddEg2ygBBwcHBwffDO82+KsNhm5AenySAg4ODg4OfhB8qiEQDhJDA4R0wcHBwcHBwRfB37bAwcHBwcEXrG+MH0EbVrX9WQAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class="prev" href="/918.html">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>学会运用爬虫框架 Scrapy (三)</p>
+                <p class="content">上篇文章介绍 Scrapy 框架爬取网站的基本用法。但是爬虫程序比较粗糙，很多细节还需打磨。本文主要是讲解 Scrapy 一些小技巧，能让爬虫程序更加完善。
+
+
+1.设置 User-agentS...</p>
+              </a>
+            
+            
+              <a class="next" href="/916.html">
+                <p class="title">学会运用爬虫框架 Scrapy (一)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">对于规模小、爬取数据量小、对爬取速度不敏感的爬虫程序， 使用 Requests 能轻松搞定。这些爬虫程序主要功能是爬取网页、玩转网页。如果我们需要爬取网站以及系列网站，要求爬虫具备爬取失败能复盘...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class="fas fa-comments"></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
     </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="outer has-text-centered-mobile">
-            <p class>
-                &copy; 猴哥 版权所有. 2019-2020<br>
-                由 <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> 强力驱动. 
-                Theme by <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a> v2.6.0.
-                <a href="/sitemap.xml" target="_blank">站点地图</a>.
-                
-                <br>
-                <span id="busuanzi_container_site_pv">
-                本站总访问量 <span id="busuanzi_value_site_pv">0</span> 次
-                </span>.
-                <span id="busuanzi_container_site_uv">
-                有 <span id="busuanzi_value_site_uv">0</span> 人访问过我的博客啦
-                </span> 
-                
-                <br>
-                <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
-                <script>
-                    var now = new Date(); 
-                    function createtime() {
-                        var grt= new Date("10/27/2019 18:10:26");//此处修改你的建站时间或者网站上线时间 
-                        console.log(grt)
-                        now.setTime(now.getTime()+250); 
-                        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
-                        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
-                        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
-                        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
-                        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
-                        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-                        document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
-                        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
-                    } 
-                    setInterval("createtime()",250);
-                </script>
-            </p>
-        </div>
-        <!-- 取消右边图表栏  -->
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class="l_side">
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%89%E5%8F%96%E7%9B%AE%E6%A0%87"><span class="toc-text">1.选取目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89-Item"><span class="toc-text">2.定义 Item</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%96%E5%86%99-Spider"><span class="toc-text">3.编写 Spider</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-name"><span class="toc-text">3-1.name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-start-urls"><span class="toc-text">3-2. start_urls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-allowed-domains"><span class="toc-text">3-3.allowed_domains</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-parse-response"><span class="toc-text">3-4.parse(response)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F"><span class="toc-text">4.运行程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%B7%B1%E7%A9%B6"><span class="toc-text">5.深究</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%BF%9B%E9%98%B6"><span class="toc-text">6.进阶</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-text">7.数据持久化</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow desktop">
+  
+  <header>
+    
+      <i class="fa fa-heart fa-fw" aria-hidden="true"></i><span class="name">微信公众号</span>
+    
+  </header>
+
+
+  <div class="content">
+    
+      <p>关注微信公众号『极客猴』，第一时间接受文章推送</p>
+
+    
+      <p><a href><img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" height="200px"></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\919.html" title="学会运用爬虫框架 Scrapy (四)  —— 高效下载图片" rel="bookmark">学会运用爬虫框架 Scrapy (四)  —— 高效下载图片</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\79.html" title="爬虫实战一：爬取当当网所有 Python 书籍" rel="bookmark">爬虫实战一：爬取当当网所有 Python 书籍</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\554.html" title="我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么？" rel="bookmark">我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么？</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\659.html" title="爬取网易云音乐精彩评论" rel="bookmark">爬取网易云音乐精彩评论</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\62.html" title="学爬虫之道" rel="bookmark">学爬虫之道</a></h3></div></li></ul>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
 
     </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("zh-CN");</script>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
 
-<script>
-var IcarusThemeSettings = {
-    article: {
-        highlight: {
-            clipboard: true,
-            fold: 'unfolded'
+  
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.3" loop="all" order="list" fixed="false" list-max-height="320px" server="netease" type="playlist" id="961306140" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/monkey-soft" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://blog.csdn.net/chanql123" class="social fab fa-cuttlefish flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/playlist?id=961306140" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+          <script>
+              var now = new Date(); 
+              function createtime() {
+                  var grt= new Date("10/27/2019 18:10:26");//此处修改你的建站时间或者网站上线时间 
+                  console.log(grt)
+                  now.setTime(now.getTime()+250); 
+                  days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                  hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                  if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                  mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                  seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                  snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                  document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
+                  document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+              } 
+              setInterval("createtime()",250);
+          </script>
+        本站由 Hexo 强力驱动，使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename" rel="external nofollow noopener noreferrer">Volantis </a>
+        作为主题
+        
+          ，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class="copyright">
+          <p><a href="/">Copyright © 2019-2020 极客猴</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  <div>
+    
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class="option">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand("copy")"><i class="fa fa-copy fa-fw"></i>复制文本</a>
+        <hr id="hr-text">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-external-link-square-alt fa-fw"></i>在新标签页打开</a>
+        <hr id="hr-href">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
+        <hr id="hr-src">
+      </li>
+      <li class="navigation">
+        <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+        <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+        <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+        <a class="nav icon-only fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+      </li>
+      <hr>
+      
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title fix-cursor-default"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav icon-only backward fix-cursor-default" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav icon-only toggle fix-cursor-default" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav icon-only forward fix-cursor-default" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
         }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          copyText.style.display = 'block';
+          hrText.style.display = 'block';
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
-};
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '961306140';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.3';
+  </script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+    
+<script src="/js/aplayer.js"></script>
+
+  
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
+      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
+      "来都来了，留下你的评论" : $.trim($('#pjax-comment-placeholder').text());
+
+    let ALLPATH = '';
+    if(ALLPATH != '') pageUrl = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: pageUrl,
+      appId: "wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI",
+      appKey: "HVwymGTYvDdOlyFFX2h2PomH",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
 </script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
 
 
+<!-- darkmodejs -->
 
-    
-    
-<script src="/js/animation.js"></script>
 
-    
-    
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/js/gallery.js" defer></script>
+<!-- 复制 -->
 
-    
-    
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="external nofollow noopener noreferrer">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
-</script>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    MathJax.Hub.Config({
-        'HTML-CSS': {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
         }
     });
-});
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
 </script>
-    
-    
-<a id="back-to-top" title="回到顶端" ">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
-<script src="/js/main.js" defer></script>
+<!-- scrollreveal -->
 
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
-                UNTITLED: '(无标题)',
-            },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
 </script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
+
+<!-- ******************************** -->
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
     
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3.0/js/search.js"></script>
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+
+      try{
+        pjax_fancybox();
+        
+          
+          if ('.cover') {
+            $('.cover').backstretch("resize");
+          } else {
+            $.backstretch("resize");
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
 </body>
 </html>
