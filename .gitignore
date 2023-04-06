@@ -6,6 +6,3 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
-db.json
-package.json
-package-lock.json

@@ -6,7 +6,7 @@
 title: 极客猴
 subtitle: '猴哥的个人博客'
 description: '猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。'
-keywords: 'Python, 网络爬虫, 数据分析, 思维, 认知, 自我提升'
+keywords: 'Python, 网络爬虫, 数据分析, 长期主义, 个人成长'
 author: 猴哥
 language: zh-CN
 # 网站图标，更多尺寸等图标请使用import方式批量导入
@@ -19,8 +19,8 @@ timezone: 'Asia/Shanghai'
 url: https://monkey-soft.github.io
 root: /
 # 文章链接格式, 伪 /%post_id.html%/
-permalink: /:i_month:urlname.html
 # permalink: /:year/:month/:day/:title
+permalink: /posts/:title.html
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing index.html from permalinks
