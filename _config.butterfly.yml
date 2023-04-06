@@ -503,7 +503,7 @@ site_verification:
 
 theme_color:
   enable: true
-  main: "#59C173"
+  main: "#6DC1F7"
   paginator: "#00c4b6"
   button_hover: "#5d26c1"
   text_selection: "#00c4b6"
