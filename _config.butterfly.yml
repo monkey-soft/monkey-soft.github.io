@@ -856,7 +856,7 @@ snackbar:
   bg_dark: '#1f1f1f' # The background color of Toast Notification in dark mode
 
 # https://instant.page/
-# prefetch (預加載)
+# 预加载, 当鼠标悬停到链接上超过 65 毫秒时
 instantpage: false
 
 # https://github.com/vinta/pangu.js

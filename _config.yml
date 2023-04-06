@@ -5,7 +5,7 @@
 # Site
 title: 极客猴
 subtitle: '猴哥的个人博客'
-description: '猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。'
+description: '猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。博客先记录个人成长。'
 keywords: 'Python, 网络爬虫, 数据分析, 长期主义, 个人成长'
 author: 猴哥
 language: zh-CN
@@ -109,11 +109,11 @@ theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/zh-cn/docs/one-command-deployment
-deploy:
-- type: 'git'
-  repo: 'https://github.com/monkey-soft/monkey-soft.github.io.git'
-  branch: master
-  message: "猴哥 push at {{ now('YYYY-MM-DD HH:mm:ss Z') }}"
+# deploy:
+# - type: 'git'
+#   repo: 'https://github.com/monkey-soft/monkey-soft.github.io.git'
+#   branch: master
+#   message: "猴哥 push at {{ now('YYYY-MM-DD HH:mm:ss Z') }}"
 
 
 # 自动生成sitemap
