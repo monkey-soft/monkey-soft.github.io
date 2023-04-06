@@ -6,14 +6,17 @@
 title: 极客猴
 subtitle: '猴哥的个人博客'
 description: '猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。此外还输出自己的思考内容，涉猎产品知识、个人成长等，每周给你带来头脑大爆炸。'
-keywords: 'Python, 网络爬虫, 数据分析, Web 开发, Django'
-author: 极客猴
+keywords: 'Python, 网络爬虫, 数据分析, 思维, 认知, 自我提升'
+author: 猴哥
 language: zh-CN
-timezone: ''
+# 网站图标，更多尺寸等图标请使用import方式批量导入
+favicon: https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico
+timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://geekmonkey.top
+# url: https://geekmonkey.top
+url: https://monkey-soft.github.io
 root: /
 # 文章链接格式, 伪 /%post_id.html%/
 permalink: /:i_month:urlname.html
@@ -30,7 +33,10 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: 
+  - README.md
+  - CNAME
+  - robots.txt
 
 # Writing
 new_post_name: :year-:month-:day-:title.md # File name of new posts
@@ -50,6 +56,8 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace: ''
+  wrap: true
+  hljs: false
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -64,6 +72,10 @@ index_generator:
 default_category: uncategorized
 category_map:
 tag_map:
+
+# 归档页面 archives
+archive_generator:
+  per_page: 0
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -87,17 +99,25 @@ pagination_dir: page
 ## include:/exclude: options only apply to the 'source/' folder
 include:
 exclude:
-ignore:
+ignore: 
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: landscape
-theme: icarus
+# theme: landscape、icarus、butterfly
+theme: butterfly
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/zh-cn/docs/one-command-deployment
 deploy:
-  type: 'git'
+- type: 'git'
   repo: 'https://github.com/monkey-soft/monkey-soft.github.io.git'
   branch: master
+  message: "猴哥 push at {{ now('YYYY-MM-DD HH:mm:ss Z') }}"
+
+
+# 自动生成sitemap
+sitemap:
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml

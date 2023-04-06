@@ -5,4 +5,6 @@ urlname:
 thumbnail:
 categories:
 tags:
+keywords: 
+description: 
 ---
