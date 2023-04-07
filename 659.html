@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>爬取网易云音乐精彩评论 - 极客猴</title>
+  
+    <meta name="keywords" content="Python,网络爬虫,网易云音乐,爬虫实战,项目实战">
+  
+
+  
+    <meta name="description" content="(一)故事的小黄花从出生那年就飘着童年的荡秋千随记忆一直晃到现在
+Re So So Si Do Si LaSo La Si Si Si Si La Si La So吹着前奏望着天空我想起花瓣试着掉落……
+小编猴哥有个爱好，喜欢一边听着熟悉的旋律，一边看着网易云音乐歌曲中的评论，特别是精彩评论。">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  
+</head>
+
+<body>
+  
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post' style="display: none;">
+      <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title">极客猴</p>
+    
+    
+      <p class="subtitle">猴哥的个人博客</p>
+    
+  </div>
+  <div class='b'>
+    <div class='menu navigation dock'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <i class='fas fa-book fa-fw'></i><p>主页</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fas fa-archive fa-fw'></i><p>归档</p>
+            </a>
+          
+            <a href="/treasure/"
+              
+              
+              id="treasure">
+              <i class='fas fa-gift fa-fw'></i><p>藏宝阁</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <i class='fas fa-fan fa-spin fa-fw'></i><p>关于我</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    </cover>
+    <header class="l_header shadow floatable">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/avatar.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-flag faa-tada fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/
+                  
+                  
+                  
+                    id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+                  
+                  
+                  
+                    id="categoriesE7BD91E7BB9CE788ACE899AB"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+                  
+                  
+                  
+                    id="categoriesE695B0E68DAEE58886E69E90"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+                  
+                  
+                  
+                    id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/
+                  
+                  
+                  
+                    id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96"
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>建站
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/
+                  
+                  
+                  
+                    id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5"
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>认知
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fa fa-address-card fa-fw fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-ellipsis-v fa-fw fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/treasure/
+                  
+                  
+                  
+                    id="treasure"
+                  >
+                  <i class='fas fa-gift fa-fw'></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-flag faa-tada fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/
+                  
+                  
+                  
+                    id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+                  
+                  
+                  
+                    id="categoriesE7BD91E7BB9CE788ACE899AB"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+                  
+                  
+                  
+                    id="categoriesE695B0E68DAEE58886E69E90"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+                  
+                  
+                  
+                    id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/
+                  
+                  
+                  
+                    id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96"
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>建站
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/
+                  
+                  
+                  
+                    id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5"
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>认知
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fa fa-address-card fa-fw fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-ellipsis-v fa-fw fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/treasure/
+                  
+                  
+                  
+                    id="treasure"
+                  >
+                  <i class='fas fa-gift fa-fw'></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  </div>
+  
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper' id="pjax-container">
+      
+        <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">爬取网易云音乐精彩评论</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path">none</div> 
+  <div id="pjax-comment-placeholder">none</div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover')[0].style.display = "none"; 
+    document.getElementsByClassName('l_body')[0].classList.add("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "blog") { // 半屏 
+      document.getElementsByClassName('cover')[0].classList.remove("full"); 
+      document.getElementsByClassName('cover')[0].classList.add("half"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "docs") { // 全屏 
+      document.getElementsByClassName('cover')[0].classList.remove("half"); 
+      document.getElementsByClassName('cover')[0].classList.add("full"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover')[0].style.display = ""; 
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+
+      
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+        <a title='爬取网易云音乐精彩评论' href='/659.html'><img class='thumbnail' src='https://s1.ax1x.com/2020/05/15/YsvFNn.jpg'></a>
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/659.html">
+      爬取网易云音乐精彩评论
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/images/avatar.png">
+    <p>猴哥</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>网络爬虫</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年6月7日</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.4k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：6分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/659.html" class="leancloud_visitors" data-flag-title="爬取网易云音乐精彩评论">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/659.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/659.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>(一)<br>故事的小黄花<br>从出生那年就飘着<br>童年的荡秋千<br>随记忆一直晃到现在</p>
+<p>Re So So Si Do Si La<br>So La Si Si Si Si La Si La So<br>吹着前奏望着天空<br>我想起花瓣试着掉落<br>……</p>
+<p>小编猴哥有个爱好，喜欢一边听着熟悉的旋律，一边看着网易云音乐歌曲中的评论，特别是精彩评论。</p>
+<a id="more"></a>
+<p>评论内容，让人泫然流涕的故事，就是让人深思的段子。</p>
+<p>（二）<br>某天，猴哥突发奇想，想将自己平时喜欢听的歌曲的精彩评论爬取下来。以后就可以直接阅读这些评论，无须打开网页。</p>
+<p>说干就干。猴哥打开浏览器访问网易云音乐，随便点击某个歌曲页面。现在大多数网站都采用 Ajax 技术来获取数据。所以需要先判断网页是否采用该技术。</p>
+<p>有个谷歌浏览器插件名为 <strong>Toggle JavaScript</strong>，它能控制页面中 javascript 启用或者禁用。</p>
+<p>正常的页面长这样：</p>
+<p><img src="./images/img/90_1.png" alt=""></p>
+<p>当禁用页面 JavaScript 脚本之后，正常显示数据页面会变成一个空白页面。</p>
+<p><img src="./images/img/90_2.png" alt=""></p>
+<p>因此，可以断定网易云音乐加载数据方式采用 Ajax。</p>
+<p><strong>Ajax 技术可以在不刷新页面的情况下，利用嵌在 HTML 文档中的 JavaScript 脚本向服务器请求数据，然后更新到页面。想进一步确认数据来源，需要知道请求域名以及请求参数。</strong></p>
+<p>这就需要借助浏览器的开发者工具(一般按 F12 键会显示)，根据抓取数据包进行分析。因为我们已经确定网站采用 Ajax ，所以直接在选择 <strong>XHR</strong> 过滤器过滤出所有请求。</p>
+<p><img src="./images/img/90_3.png" alt=""></p>
+<p>然后依次对每个 url 链接的 HTTP 请求进行分析，着重观察 <strong>Headers</strong>，<strong>Preview</strong> 选项。最后，猴哥发现 <strong>R_SO_4_186001?csrf_token=</strong> 请求中有我们需要的信息。<strong>Preview</strong> 中有字段跟精彩评论中用户名一致。</p>
+<p><img src="./images/img/90_4.png" alt=""></p>
+<p>继续切换到 <strong>Headers</strong> 确认请求域名以及请求需要携带的参数。</p>
+<p><img src="./images/img/90_5.png" alt=""></p>
+<p>那么爬取思路是：使用 POST 方式携带参数 <strong>params</strong> 和 <strong>encSecKey</strong> 向该地址 <strong><a target="_blank" rel="noopener" href="http://music.163.com/weapi/v1/resource/comments/R_SO_4_186001?csrf_token=">http://music.163.com/weapi/v1/resource/comments/R_SO_4_186001?csrf_token=</a></strong> 发起HTTP 请求。返回结果中的 Json 数据就是用户评论数据。</p>
+<p>（三）<br>既然思路明确，编写代码就是容易多了。</p>
+<p>这里，猴哥使用列表来保存想爬取精彩评论的歌曲。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">songs_url_list = [</span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=186016&#x27;</span>,  <span class="comment"># 晴天</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=186001&#x27;</span>,  <span class="comment"># 七里香</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=27876900&#x27;</span>,  <span class="comment"># Here We Are Again 《喜剧之王》电影插曲</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=439915614&#x27;</span>,  <span class="comment"># 刚好遇见你</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=139774&#x27;</span>,  <span class="comment"># The truth that you leave</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=29567189&#x27;</span>,  <span class="comment"># 理想</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=308353&#x27;</span>,  <span class="comment"># 钟无艳</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=31445772&#x27;</span>,  <span class="comment"># 理想三旬</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=439915614&#x27;</span>,  <span class="comment"># 刚好遇见你</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=28815250&#x27;</span>,  <span class="comment"># 平凡之路</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=25706282&#x27;</span>,  <span class="comment"># 夜空中最亮的星</span></span><br><span class="line">    <span class="string">&#x27;http://music.163.com/#/song?id=436514312&#x27;</span>,  <span class="comment"># 成都</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>然后截取每个链接中 id 字段的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_song_id</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 从 url 中截取歌曲的 id &quot;&quot;&quot;</span></span><br><span class="line">    song_id = url.split(<span class="string">&#x27;=&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> song_id</span><br></pre></td></tr></table></figure>
+
+<p>接着根据 id 拼接处请求的 url 地址，再使用 requests 发起 HTTP 请求。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> each <span class="keyword">in</span> songs_url_list:</span><br><span class="line">    start_spider(get_song_id(each))</span><br><span class="line">    time.sleep(random.randint(<span class="number">5</span>, <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_spider</span>(<span class="params">song_id</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 评论数据采用 AJAX 技术获得, 下面才是获取评论的请求地址 &quot;&quot;&quot;</span></span><br><span class="line">    url = <span class="string">&#x27;http://music.163.com/weapi/v1/resource/comments/R_SO_4_&#123;&#125;?csrf_token=&#x27;</span>.format(song_id)</span><br><span class="line"></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;User-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.3964.2 Safari/537.36&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Origin&#x27;</span>: <span class="string">&#x27;http://music.163.com&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;http://music.163.com/song?id=&#123;&#125;&#x27;</span>.format(song_id),</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    formdata = &#123;</span><br><span class="line">        <span class="string">&#x27;params&#x27;</span>: <span class="string">&#x27;57Wh2mgebLOOPQVBc+B2wz4sCCH/nXZFEoTc/XNySiqT0V7ZxUADzDNgTXXhYgAJ5BNMryMgxhdwNzF1GyxDZo3iR9/YYbWgCAQHC5DCDuObqvxNcOcnQDaRqJCrqQcrEABW1SwKitfbD3wMEyB4tJu+rU8goSwg2FP/PBBLs9DVs1iWdWGjV6CdrocA36Rs&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;encSecKey&#x27;</span>: <span class="string">&#x27;63774137ba4f5cc60d1b6a3bc14985a9563a7bfdec4f3e74297ffc07514adf18f90620933a01c2db4ca989cc4e1dfc49789981424c294a34e48c2cbe7aa51533a5cc5b5776a9e499cd08770bc596655dbe8e001d1ed5fd47a27dd195128480820cc67a799d341f95d447e3522851f2b64ad1cb8350e2015b265b9e684179351c&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    response = requests.post(url, headers=headers, data=formdata)</span><br><span class="line">    print(<span class="string">&#x27;请求 [ &#x27;</span> + url + <span class="string">&#x27; ], 状态码为 &#x27;</span>)</span><br><span class="line">    print(response.status_code)</span><br><span class="line">    <span class="comment"># get_hot_comments(response.text)</span></span><br><span class="line">    <span class="comment"># 将数据写到 CSV 文件中</span></span><br><span class="line">    write_to_file(get_hot_comments(response.text))</span><br></pre></td></tr></table></figure>
+
+<p>因为请求返回结果是 Json 数据，我们只需要精彩评论(HotComments)内容，所以需要对数据进行处理下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_hot_comments</span>(<span class="params">response</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot; 获取精彩评论</span></span><br><span class="line"><span class="string">    请求返回结果是 Json 数据格式, 使用 json.loads(response) 将其转化为字典类型, 就可以使用 key-value 形式获取值</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    data_list = []</span><br><span class="line">    data = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> comment <span class="keyword">in</span> json.loads(response)[<span class="string">&#x27;hotComments&#x27;</span>]:</span><br><span class="line">        data[<span class="string">&#x27;userId&#x27;</span>] = comment[<span class="string">&#x27;user&#x27;</span>][<span class="string">&#x27;userId&#x27;</span>]</span><br><span class="line">        data[<span class="string">&#x27;nickname&#x27;</span>] = comment[<span class="string">&#x27;user&#x27;</span>][<span class="string">&#x27;nickname&#x27;</span>]</span><br><span class="line">        data[<span class="string">&#x27;content&#x27;</span>] = comment[<span class="string">&#x27;content&#x27;</span>]</span><br><span class="line">        data[<span class="string">&#x27;likedCount&#x27;</span>] = comment[<span class="string">&#x27;likedCount&#x27;</span>]</span><br><span class="line">        data_list.append(data)</span><br><span class="line">        data = &#123;&#125;</span><br><span class="line">    <span class="comment"># print(data_list)</span></span><br><span class="line">    <span class="keyword">return</span> data_list</span><br></pre></td></tr></table></figure>
+
+
+<p>最后将数据保存到 CSV 文件中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_file</span>(<span class="params">datalist</span>):</span></span><br><span class="line">    print(<span class="string">&#x27;开始将数据持久化……&#x27;</span>)</span><br><span class="line">    file_name = <span class="string">&#x27;网易云音乐精彩评论.csv&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> codecs.open(file_name, <span class="string">&#x27;a+&#x27;</span>, <span class="string">&#x27;GBK&#x27;</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">        filednames = [<span class="string">&#x27;用户Id&#x27;</span>, <span class="string">&#x27;昵称&#x27;</span>, <span class="string">&#x27;评论内容&#x27;</span>, <span class="string">&#x27;点赞数&#x27;</span>]</span><br><span class="line">        writer = csv.DictWriter(csvfile, fieldnames=filednames)</span><br><span class="line"></span><br><span class="line">        writer.writeheader()</span><br><span class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> datalist:</span><br><span class="line">            print(data)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                writer.writerow(&#123;filednames[<span class="number">0</span>]: data[<span class="string">&#x27;userId&#x27;</span>],</span><br><span class="line">                                 filednames[<span class="number">1</span>]: data[<span class="string">&#x27;nickname&#x27;</span>],</span><br><span class="line">                                 filednames[<span class="number">2</span>]: data[<span class="string">&#x27;content&#x27;</span>],</span><br><span class="line">                                 filednames[<span class="number">3</span>]: data[<span class="string">&#x27;likedCount&#x27;</span>]&#125;)</span><br><span class="line">            <span class="keyword">except</span> UnicodeEncodeError:</span><br><span class="line">                print(<span class="string">&quot;编码错误, 该数据无法写到文件中, 直接忽略该数据&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>写到这里，小伙伴们应该了解如何爬取运用 Ajax 技术加载数据的网站了。可能某些网站的请求携带的参数只能使用一次，那就进一步数据包中 js 代码。推断出加密方式，自己再用代码还原。</p>
+<p>哈哈，这里请允许我贴下爬取结果。</p>
+<p><img src="./images/img/90_6.png" alt=""></p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>本文永久链接：<a href=https://monkey-soft.github.io/659.html>https://monkey-soft.github.io/659.html</a></p>
+          
+        
+          
+            <p>公众号转载：扫描公众号『极客猴』二维码联系猴哥申请开白!</p>
+
+          
+        
+          
+            <p>版权声明：本博客所有文章除特别声明外，均采用共享 4.0 国际 (CC BY-NC-SA 4.0) 许可协议。转载请注明出处！</p>
+
+          
+        
+          
+            <p>附：文章内容首发于微信公众号『极客猴』, 欢迎扫码关注第一时间接受推文~</p>
+
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://s1.ax1x.com/2020/05/17/Y24rUx.jpg'
+        
+          height='256px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='/images/weixin_reward.png'
+        
+          height='256px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-23T22:54:10+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年8月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>网络爬虫</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>爬虫实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>项目实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>网易云音乐</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://monkey-soft.github.io/659.html&title=爬取网易云音乐精彩评论 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsvFNn.jpg&summary=(一)故事的小黄花从出生那年就飘着童年的荡秋千随记忆一直晃到现在
+Re So So Si Do Si LaSo La Si Si Si Si La Si La So吹着前奏望着天空我想起花瓣试着掉落……
+小编猴哥有个爱好，喜欢一边听着熟悉的旋律，一边看着网易云音乐歌曲中的评论，特别是精彩评论。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://monkey-soft.github.io/659.html&title=爬取网易云音乐精彩评论 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsvFNn.jpg&summary=(一)故事的小黄花从出生那年就飘着童年的荡秋千随记忆一直晃到现在
+Re So So Si Do Si LaSo La Si Si Si Si La Si La So吹着前奏望着天空我想起花瓣试着掉落……
+小编猴哥有个爱好，喜欢一边听着熟悉的旋律，一边看着网易云音乐歌曲中的评论，特别是精彩评论。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://monkey-soft.github.io/659.html&title=爬取网易云音乐精彩评论 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsvFNn.jpg&summary=(一)故事的小黄花从出生那年就飘着童年的荡秋千随记忆一直晃到现在
+Re So So Si Do Si LaSo La Si Si Si Si La Si La So吹着前奏望着天空我想起花瓣试着掉落……
+小编猴哥有个爱好，喜欢一边听着熟悉的旋律，一边看着网易云音乐歌曲中的评论，特别是精彩评论。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACO0lEQVR42u3aS46DQAwFwNz/0pkDRCP86yiY6h0SNK5m82Tzej90vcDBwcHBwRfBX8X1sWHzuav9puoFBwcHBwffCA8HgCAgWnj2fd16wcHBwcHBN8MvA8CX788e8OX7wcHBwcHBwdP3pxsGxaAEDg4ODg4OnodHGxDdQQQ4ODg4ODj43EChO9jP7v8zkxRwcHBwcPAfgk81DL51Xa4XHBwcHBx8Eby7soP8amNirF5wcHBwcPBF8GpAeA+v6L7d+sDBwcHBwTfCs7BTP+xVGw5jAwVwcHBwcPAbwU83EE4Foerz4ODg4ODgG+HV4FH9YSC7f/Yg/t0XHBwcHBx8ETz6QBZQhVYDytgkBRwcHBwc/IbwbqHdBkG2nvFJCjg4ODg4+EJ4tFHRDRxZ8PEAAw4ODg4OfgN4NSB0g8+phkZ6kgIODg4ODr4Q3m0AZAvsBqSxAAMODg4ODn4j+FQj4dSgIPvD/+U1ODg4ODj4Qvj04KAL6B5gOMCAg4ODg4MvgneDSrQhET3gYwMFcHBwcHDwB8KrhUSDTTUIhQcU4ODg4ODgi+DdVW0oRINS9cOAg4ODg4M/AX6q8Z9tTIQDSLFxAQ4ODg4OvhneHQx0C68OMrLPg4ODg4ODb4Z3A8RUUOkOFNIBBhwcHBwc/MHwbiDpNj7KAwVwcHBwcHDwY0Ek+r5wHeDg4ODg4Ivh1YF+NYhk96t+IHBwcHBw8M3wajBIv3h4wJA+SHBwcHBw8EXwpy1wcHBwcPAF6w++Z4DbEJRsggAAAABJRU5ErkJggg==">
+          </div>
+        </div>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/660.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>爬取《Five Hundred Miles》在网易云音乐的所有评论</p>
+                <p class='content'>在使用 Ajax 技术加载数据的网站中， JavaScript 发起的 HTTP 请求通常需要带上参数，而且参数的值都是经过加密的。如果我们想利用网站的 REST API 来爬取数据，就必须知道...</p>
+              </a>
+            
+            
+              <a class='next' href='/558.html'>
+                <p class='title'>618 购物节买什么？当然是书<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>时光荏苒，2018年已经过半。又到一年一度的的”618”购物节，是时候来一波”买买买”。如果你目前想改变下自己，为自己的未来奋斗。可以少买一两件衣服，少买一两箱零食，腾出一两百块钱来买几本书。
+...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow desktop">
+  
+  <header>
+    
+      <i class="fa fa-heart fa-fw" aria-hidden="true"></i><span class='name'>微信公众号</span>
+    
+  </header>
+
+
+  <div class='content'>
+    
+      <p>关注微信公众号『极客猴』，第一时间接受文章推送</p>
+
+    
+      <p><a href=""><img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" height="200px"></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class='name'>相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\660.html" title="爬取《Five Hundred Miles》在网易云音乐的所有评论" rel="bookmark">爬取《Five Hundred Miles》在网易云音乐的所有评论</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\79.html" title="爬虫实战一：爬取当当网所有 Python 书籍" rel="bookmark">爬虫实战一：爬取当当网所有 Python 书籍</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\917.html" title="学会运用爬虫框架 Scrapy (二)" rel="bookmark">学会运用爬虫框架 Scrapy (二)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\919.html" title="学会运用爬虫框架 Scrapy (四)  —— 高效下载图片" rel="bookmark">学会运用爬虫框架 Scrapy (四)  —— 高效下载图片</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\62.html" title="学爬虫之道" rel="bookmark">学爬虫之道</a></h3></div></li></ul>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+    </div>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.3'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='961306140'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/monkey-soft"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://blog.csdn.net/chanql123"
+                class="social fab fa-cuttlefish flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/playlist?id=961306140"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br/>
+          <script>
+              var now = new Date(); 
+              function createtime() {
+                  var grt= new Date("10/27/2019 18:10:26");//此处修改你的建站时间或者网站上线时间 
+                  console.log(grt)
+                  now.setTime(now.getTime()+250); 
+                  days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                  hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                  if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                  mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                  seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                  snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                  document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
+                  document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+              } 
+              setInterval("createtime()",250);
+          </script>
+        本站由 Hexo 强力驱动，使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename">Volantis </a>
+        作为主题
+        
+          ，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+          <p><a href="/">Copyright © 2019-2020 极客猴</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <div>
+    
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      <li class='navigation'>
+        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+      </li>
+      <hr>
+      
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          copyText.style.display = 'block';
+          hrText.style.display = 'block';
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '961306140';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.3';
+  </script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+    
+<script src="/js/aplayer.js"></script>
+
+  
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
+      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
+      "来都来了，留下你的评论" : $.trim($('#pjax-comment-placeholder').text());
+
+    let ALLPATH = '';
+    if(ALLPATH != '') pageUrl = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: pageUrl,
+      appId: "wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI",
+      appKey: "HVwymGTYvDdOlyFFX2h2PomH",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+<!-- darkmodejs -->
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+<!-- scrollreveal -->
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3.0/js/search.js"></script>
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+
+      try{
+        pjax_fancybox();
+        
+          
+          if ('.cover') {
+            $('.cover').backstretch("resize");
+          } else {
+            $.backstretch("resize");
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

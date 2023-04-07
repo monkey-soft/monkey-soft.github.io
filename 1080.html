@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>高并发的那些事 - 极客猴</title>
+  
+    <meta name="keywords" content="高并发">
+  
+
+  
+    <meta name="description" content="“高并发”对后台开发同学来说，既熟悉又陌生。熟悉是因为面试和工作经常会提及它。陌生的原由是服务器因高并发导致出现各位问题的情况少之又少。同时，想收获这方面的经验也是”摸着石头过河”， 需要大量学习理论知识，再去探索。
+如果是客户端开发的同学，字典中是没有“高并发”这个名词。这验证一句老话，”隔行如隔山”。客户端开...">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  
+</head>
+
+<body>
+  
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post' style="display: none;">
+      <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title">极客猴</p>
+    
+    
+      <p class="subtitle">猴哥的个人博客</p>
+    
+  </div>
+  <div class='b'>
+    <div class='menu navigation dock'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <i class='fas fa-book fa-fw'></i><p>主页</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fas fa-archive fa-fw'></i><p>归档</p>
+            </a>
+          
+            <a href="/treasure/"
+              
+              
+              id="treasure">
+              <i class='fas fa-gift fa-fw'></i><p>藏宝阁</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <i class='fas fa-fan fa-spin fa-fw'></i><p>关于我</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    </cover>
+    <header class="l_header shadow floatable">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/avatar.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-flag faa-tada fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/
+                  
+                  
+                  
+                    id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+                  
+                  
+                  
+                    id="categoriesE7BD91E7BB9CE788ACE899AB"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+                  
+                  
+                  
+                    id="categoriesE695B0E68DAEE58886E69E90"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+                  
+                  
+                  
+                    id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/
+                  
+                  
+                  
+                    id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96"
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>建站
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/
+                  
+                  
+                  
+                    id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5"
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>认知
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fa fa-address-card fa-fw fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-ellipsis-v fa-fw fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/treasure/
+                  
+                  
+                  
+                    id="treasure"
+                  >
+                  <i class='fas fa-gift fa-fw'></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-flag faa-tada fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/
+                  
+                  
+                  
+                    id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+                  
+                  
+                  
+                    id="categoriesE7BD91E7BB9CE788ACE899AB"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+                  
+                  
+                  
+                    id="categoriesE695B0E68DAEE58886E69E90"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+                  
+                  
+                  
+                    id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/
+                  
+                  
+                  
+                    id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96"
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>建站
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/
+                  
+                  
+                  
+                    id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5"
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>认知
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fa fa-address-card fa-fw fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-ellipsis-v fa-fw fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/treasure/
+                  
+                  
+                  
+                    id="treasure"
+                  >
+                  <i class='fas fa-gift fa-fw'></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  </div>
+  
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper' id="pjax-container">
+      
+        <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">高并发的那些事</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path">none</div> 
+  <div id="pjax-comment-placeholder">none</div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover')[0].style.display = "none"; 
+    document.getElementsByClassName('l_body')[0].classList.add("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "blog") { // 半屏 
+      document.getElementsByClassName('cover')[0].classList.remove("full"); 
+      document.getElementsByClassName('cover')[0].classList.add("half"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "docs") { // 全屏 
+      document.getElementsByClassName('cover')[0].classList.remove("half"); 
+      document.getElementsByClassName('cover')[0].classList.add("full"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover')[0].style.display = ""; 
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+
+      
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+        <a title='高并发的那些事' href='/1080.html'><img class='thumbnail' src='https://s1.ax1x.com/2020/05/15/YyMv80.jpg'></a>
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/1080.html">
+      高并发的那些事
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/images/avatar.png">
+    <p>猴哥</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E9%9A%8F%E7%AC%94/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>随笔</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年10月5日</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.7k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：5分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/1080.html" class="leancloud_visitors" data-flag-title="高并发的那些事">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/1080.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/1080.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>“高并发”对后台开发同学来说，既熟悉又陌生。熟悉是因为面试和工作经常会提及它。陌生的原由是服务器因高并发导致出现各位问题的情况少之又少。同时，想收获这方面的经验也是”摸着石头过河”， 需要大量学习理论知识，再去探索。</p>
+<p>如果是客户端开发的同学，字典中是没有“高并发”这个名词。这验证一句老话，”隔行如隔山”。客户端开发，特别是手机应用开发，更多地是考虑如何优化应用的性能，降低 App 的卡顿率等。</p>
+<p>本文是一篇科普文，分享自己近来学到的知识。</p>
+<a id="more"></a>
+<h2 id="1-什么是高并发？"><a href="#1-什么是高并发？" class="headerlink" title="1.什么是高并发？"></a>1.什么是高并发？</h2><p>由于分布式系统的问世，高并发（High Concurrency）通常是指通过设计保证系统能够同时并行处理很多请求。通俗来讲，高并发是指在同一个时间点，有很多用户同时的访问同一 API 接口或者 Url 地址。它经常会发生在有大活跃用户量，用户高聚集的业务场景中。</p>
+<p>其实，高并发也离我们的生活并不遥远，例如大学学校的选课系统。一到选课的时候，一大批学生同时选课，导致系统出现“不良反应”；再如淘宝的 618 和 双 11 的购物活动；遇到节假日，12306 上演的“抢票大战”。另外，DDos 攻击也能算高并发的场景。</p>
+<h2 id="2-高并发会来带的后果"><a href="#2-高并发会来带的后果" class="headerlink" title="2.高并发会来带的后果"></a>2.高并发会来带的后果</h2><ul>
+<li>服务端：<br>  高并发会导致站点服务器/DB服务器资源被占满崩溃，甚至出现服务器宕机的情况；数据的存储不完整，数据更新异常问题。</li>
+<li>用户端：<br>  服务端的问题是高并发的直接反馈，而客户端是间隔反馈。它反馈给用户情况是糟糕的体验。</li>
+</ul>
+<h2 id="3-提高系统并发能力的方式"><a href="#3-提高系统并发能力的方式" class="headerlink" title="3.提高系统并发能力的方式"></a>3.提高系统并发能力的方式</h2><p>在这个“云”的时代，提高分布式系统并发能力的方式，方法论上主要有两种：<strong>垂直扩展（Scale Up）</strong>与<strong>水平扩展（Scale Out）</strong>。</p>
+<h3 id="3-1-垂直扩展"><a href="#3-1-垂直扩展" class="headerlink" title="3-1.垂直扩展"></a>3-1.垂直扩展</h3><p>提升单机处理能力。垂直扩展的方式又有两种：</p>
+<ul>
+<li><p>增强单机硬件性能，例如：增加 CPU 核数如 32 核，升级更好的网卡如万兆，升级更好的硬盘如 SSD，扩充硬盘容量如 2T，扩充系统内存如 128G；</p>
+</li>
+<li><p>提升单机架构性能，例如：使用 Cache 来减少 I/O 次数，使用异步来增加单服务吞吐量，使用无锁数据结构来减少响应时间；</p>
+</li>
+</ul>
+<h3 id="3-2-水平扩展"><a href="#3-2-水平扩展" class="headerlink" title="3-2.水平扩展"></a>3-2.水平扩展</h3><p>只要增加服务器数量，就能线性扩充系统性能。虚拟化技术的出现，让水平扩展变得轻松且简单。现在的云主机几乎是虚拟主机，而不是物理主机。这样的话，线性扩充也就是分分钟的事，前提是要有足够的物理主机支撑。</p>
+<h2 id="4-高并发的三个经典问题"><a href="#4-高并发的三个经典问题" class="headerlink" title="4.高并发的三个经典问题"></a>4.高并发的三个经典问题</h2><h3 id="4-1-单台服务器最大并发"><a href="#4-1-单台服务器最大并发" class="headerlink" title="4-1.单台服务器最大并发"></a>4-1.单台服务器最大并发</h3><p>单台服务器最大并发问题，一般是指一台服务器能够支持多少TCP并发连接.</p>
+<p>一种理论说法是受到端口号范围限制。操作系统上端口号 1024 以下是系统保留的，从 1024-65535 是用户使用的。由于每个TCP连接都要占一个端口号，所以我们最多可以有 60000 多个并发连接。</p>
+<p>但实际上单机并发连接数肯定要受硬件资源（内存、网卡）、网络资源（带宽）的限制。特别是网卡处理数据的能力，它是最大并发的瓶颈。</p>
+<h3 id="4-2-C10K并发连接问题"><a href="#4-2-C10K并发连接问题" class="headerlink" title="4-2.C10K并发连接问题"></a>4-2.C10K并发连接问题</h3><p>C10K并发连接问题是指单机 1 万个并发连接问题。如何突破单机性能局限，是高性能网络编程所必须要直面的问题。这些局限和问题最早被 Dan Kegel 进行了归纳和总结，并首次成系统地分析和提出解决方案，后来这种普遍的网络现象和技术局限都被大家称为 C10K 问题 。</p>
+<p>C10K问题本质上是操作系统的问题。对于 Web1.0/2.0 时代的操作系统而言， 传统的同步阻塞 I/O 模型都是一样的，处理的方式都是 requests per second，并发 10K 和 100 的区别关键在于CPU。</p>
+<p>创建的进程线程多了，数据拷贝频繁（缓存I/O、内核将数据拷贝到用户进程空间、阻塞）， 进程/线程上下文切换消耗大， 导致操作系统崩溃，这就是C10K问题的本质！</p>
+<h3 id="4-3-C10M并发连接问题"><a href="#4-3-C10M并发连接问题" class="headerlink" title="4-3.C10M并发连接问题"></a>4-3.C10M并发连接问题</h3><p>回顾了过去的10年里，我们面临高性能网络编程领域著名的C10K问题，最终也成功提出解决方案。下一个10年，是时候考虑C10M并发问题了。</p>
+<p>C10M 并发连接问题指的是单机服务器实现 C10M（即单机千万并发连接）。</p>
+<h2 id="5-Django-与高并发的联系"><a href="#5-Django-与高并发的联系" class="headerlink" title="5.Django 与高并发的联系"></a>5.Django 与高并发的联系</h2><p>想弄清楚这个问题，首先要了解下 Django 在服务器中所处的位置。</p>
+<p><img src="./images/img/113_1.jpg" alt=""></p>
+<p>上图中讲到 Django 应用服务器可以分为三层：</p>
+<ul>
+<li><p>Web 框架层<br>  Web框架层就是我们开发出来的 Django Web 应用程序。它负责处理 HTTP 请求的动态数据。</p>
+</li>
+<li><p>WSGI 层<br>  WSGI 不是用于与程序交互的API，也不是真实的代码，WSGI 只是一种接口。它只适用于 Python 语言，其全称为 Web Server Gateway Interface。其定义了 web服务器和 web应用之间的接口规范。</p>
+</li>
+<li><p>Web 服务器层<br>  Web 服务层作用是主要是接收 HTTP 请求并返回响应。常见的 web服务器有 Nginx，Apache，IIS等。</p>
+<p>  特别是 Nginx, 它的出现是为了解决 C10K 问题。Nginx 依靠异步事件驱动架构来帮助其处理大量的并发会话，由于其对资源的轻量利用和伸缩自如的特性，它成为了广受欢迎的 web 服务器。</p>
+</li>
+</ul>
+<p>Django 框架注重的数据交互。所以考虑的问题是 Django 适不适合于高并发的场景。<br>它是一个经过大型网站规模验证的框架。Instagram 支撑上亿日活，所以 Django 能适用于高并发场景。所以不是想着 Django 框架能支撑到多大的并发量，而是我们想要抗住很大的并发量，怎么优化现有框架。</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>本文永久链接：<a href=https://monkey-soft.github.io/1080.html>https://monkey-soft.github.io/1080.html</a></p>
+          
+        
+          
+            <p>公众号转载：扫描公众号『极客猴』二维码联系猴哥申请开白!</p>
+
+          
+        
+          
+            <p>版权声明：本博客所有文章除特别声明外，均采用共享 4.0 国际 (CC BY-NC-SA 4.0) 许可协议。转载请注明出处！</p>
+
+          
+        
+          
+            <p>附：文章内容首发于微信公众号『极客猴』, 欢迎扫码关注第一时间接受推文~</p>
+
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://s1.ax1x.com/2020/05/17/Y24rUx.jpg'
+        
+          height='256px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='/images/weixin_reward.png'
+        
+          height='256px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-23T23:40:46+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年8月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>高并发</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://monkey-soft.github.io/1080.html&title=高并发的那些事 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YyMv80.jpg&summary=“高并发”对后台开发同学来说，既熟悉又陌生。熟悉是因为面试和工作经常会提及它。陌生的原由是服务器因高并发导致出现各位问题的情况少之又少。同时，想收获这方面的经验也是”摸着石头过河”， 需要大量学习理论知识，再去探索。
+如果是客户端开发的同学，字典中是没有“高并发”这个名词。这验证一句老话，”隔行如隔山”。客户端开发，特别是手机应用开发，更多地是考虑如何优化应用的性能，降低 App 的卡顿率等。
+本文是一篇科普文，分享自己近来学到的知识。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://monkey-soft.github.io/1080.html&title=高并发的那些事 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YyMv80.jpg&summary=“高并发”对后台开发同学来说，既熟悉又陌生。熟悉是因为面试和工作经常会提及它。陌生的原由是服务器因高并发导致出现各位问题的情况少之又少。同时，想收获这方面的经验也是”摸着石头过河”， 需要大量学习理论知识，再去探索。
+如果是客户端开发的同学，字典中是没有“高并发”这个名词。这验证一句老话，”隔行如隔山”。客户端开发，特别是手机应用开发，更多地是考虑如何优化应用的性能，降低 App 的卡顿率等。
+本文是一篇科普文，分享自己近来学到的知识。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://monkey-soft.github.io/1080.html&title=高并发的那些事 - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YyMv80.jpg&summary=“高并发”对后台开发同学来说，既熟悉又陌生。熟悉是因为面试和工作经常会提及它。陌生的原由是服务器因高并发导致出现各位问题的情况少之又少。同时，想收获这方面的经验也是”摸着石头过河”， 需要大量学习理论知识，再去探索。
+如果是客户端开发的同学，字典中是没有“高并发”这个名词。这验证一句老话，”隔行如隔山”。客户端开发，特别是手机应用开发，更多地是考虑如何优化应用的性能，降低 App 的卡顿率等。
+本文是一篇科普文，分享自己近来学到的知识。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACS0lEQVR42u3cQXLCMAwFUO5/6XbfTsbStzOA8rwDnETPbISk4fXz0PUCBwcHBwcfBH+F6+/1/x5QfH+172p/HC84ODg4OPhAeDkBWAS+evDqvqv92/GCg4ODg4MPhqcJSzXBSBOdU/GCg4ODg4ODX+/v7ksLFODg4ODg4ODnEpjX5vrazA0cHBwcHPyD4N0C/enAuonR2zop4ODg4ODgHwSPB+be9DqOFxwcHBwcfBB8d3UTllMDCHG84ODg4ODgg+DdRv8KlB7M3Y0GcHBwcHDwJ8HjGxf3VQ8sPaB4IgIcHBwcHPyL4d0HV/d3odWDa+8HBwcHBwcfBO8mLtVEYTfwU42H5WAAODg4ODj4IPipRKUa0KnBgHJhAhwcHBwc/AHwtOB/CrrbQFgOBoCDg4ODgw+Ep4FUA0wHDMqFBnBwcHBw8AfB04B3CxNpgyFtJICDg4ODg0+GnyoYnBoY2C2EgIODg4ODPwG+G+BuArN7cO37gYODg4ODD4J3CwZpoT8tOKRfxOX14ODg4ODgg+DpD/3uwEDa4D/VgAAHBwcHB58M34Wm+7oHuHvQ4ODg4ODgE+HpSg+i+vmpAwMHBwcHB58I300Qqu+n4O6AwbJwAQ4ODg4OPhDeTViqB3dXIwEcHBwcHBz83B+5d/fdNXhQbiiAg4ODg4ODx6+riUka5+V14ODg4ODg4Lf/IXxcaFjFBw4ODg4OPhjebQCkjfxTDYO3dVLAwcHBwcE/CN5d3UQiLUQcfz44ODg4OPgg+NMWODg4ODj4gPULosJF0PQGmW8AAAAASUVORK5CYII=">
+          </div>
+        </div>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/1081.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>10 张图带你了解后台服务架构演变</p>
+                <p class='content'>上篇文章讲了一些高并发相关的知识，相信大家对高并发有些简单的认识。说到高并发，往往离不开分布式系统。人们经常将两者拿来一起讨论，因为高并发（High Concurrency）是互联网分布式系统架...</p>
+              </a>
+            
+            
+              <a class='next' href='/979.html'>
+                <p class='title'>中秋佳节，不妨读一本好书<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>时光荏苒，又值中秋佳节。因为中秋节是我国重要的传统节日，又是非常古老的节日。所以它包括许多民俗文化活动。例如：祭祀月亮以怀念嫦娥, 合家团聚吃月饼，赏月等。
+我的故乡——潮汕还是能很好传承古代的...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E9%AB%98%E5%B9%B6%E5%8F%91%EF%BC%9F"><span class="toc-text">1.什么是高并发？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%AB%98%E5%B9%B6%E5%8F%91%E4%BC%9A%E6%9D%A5%E5%B8%A6%E7%9A%84%E5%90%8E%E6%9E%9C"><span class="toc-text">2.高并发会来带的后果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8F%90%E9%AB%98%E7%B3%BB%E7%BB%9F%E5%B9%B6%E5%8F%91%E8%83%BD%E5%8A%9B%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-text">3.提高系统并发能力的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%9E%82%E7%9B%B4%E6%89%A9%E5%B1%95"><span class="toc-text">3-1.垂直扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%B0%B4%E5%B9%B3%E6%89%A9%E5%B1%95"><span class="toc-text">3-2.水平扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E4%B8%89%E4%B8%AA%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98"><span class="toc-text">4.高并发的三个经典问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%8D%95%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%80%E5%A4%A7%E5%B9%B6%E5%8F%91"><span class="toc-text">4-1.单台服务器最大并发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-C10K%E5%B9%B6%E5%8F%91%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98"><span class="toc-text">4-2.C10K并发连接问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-C10M%E5%B9%B6%E5%8F%91%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98"><span class="toc-text">4-3.C10M并发连接问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Django-%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E8%81%94%E7%B3%BB"><span class="toc-text">5.Django 与高并发的联系</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow desktop">
+  
+  <header>
+    
+      <i class="fa fa-heart fa-fw" aria-hidden="true"></i><span class='name'>微信公众号</span>
+    
+  </header>
+
+
+  <div class='content'>
+    
+      <p>关注微信公众号『极客猴』，第一时间接受文章推送</p>
+
+    
+      <p><a href=""><img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" height="200px"></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class='name'>相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\124.html" title="每逢佳节倍思亲" rel="bookmark">每逢佳节倍思亲</a></h3></div></li></ul>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+    </div>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.3'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='961306140'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/monkey-soft"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://blog.csdn.net/chanql123"
+                class="social fab fa-cuttlefish flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/playlist?id=961306140"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br/>
+          <script>
+              var now = new Date(); 
+              function createtime() {
+                  var grt= new Date("10/27/2019 18:10:26");//此处修改你的建站时间或者网站上线时间 
+                  console.log(grt)
+                  now.setTime(now.getTime()+250); 
+                  days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                  hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                  if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                  mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                  seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                  snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                  document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
+                  document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+              } 
+              setInterval("createtime()",250);
+          </script>
+        本站由 Hexo 强力驱动，使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename">Volantis </a>
+        作为主题
+        
+          ，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+          <p><a href="/">Copyright © 2019-2020 极客猴</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <div>
+    
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      <li class='navigation'>
+        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+      </li>
+      <hr>
+      
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          copyText.style.display = 'block';
+          hrText.style.display = 'block';
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '961306140';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.3';
+  </script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+    
+<script src="/js/aplayer.js"></script>
+
+  
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
+      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
+      "来都来了，留下你的评论" : $.trim($('#pjax-comment-placeholder').text());
+
+    let ALLPATH = '';
+    if(ALLPATH != '') pageUrl = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: pageUrl,
+      appId: "wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI",
+      appKey: "HVwymGTYvDdOlyFFX2h2PomH",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+<!-- darkmodejs -->
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+<!-- scrollreveal -->
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3.0/js/search.js"></script>
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+
+      try{
+        pjax_fancybox();
+        
+          
+          if ('.cover') {
+            $('.cover').backstretch("resize");
+          } else {
+            $.backstretch("resize");
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

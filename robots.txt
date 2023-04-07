@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/ 
+Disallow: /images/
+Disallow: /js/
+Disallow: /css/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: https://geekmonkey.top/sitemap.xml
+Sitemap: https://geekmonkey.top/baidusitemap.xml

@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>学会运用爬虫框架 Scrapy (三) - 极客猴</title>
+  
+    <meta name="keywords" content="Python,网络爬虫,Scrapy">
+  
+
+  
+    <meta name="description" content="上篇文章介绍 Scrapy 框架爬取网站的基本用法。但是爬虫程序比较粗糙，很多细节还需打磨。本文主要是讲解 Scrapy 一些小技巧，能让爬虫程序更加完善。">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  
+</head>
+
+<body>
+  
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post' style="display: none;">
+      <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title">极客猴</p>
+    
+    
+      <p class="subtitle">猴哥的个人博客</p>
+    
+  </div>
+  <div class='b'>
+    <div class='menu navigation dock'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <i class='fas fa-book fa-fw'></i><p>主页</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fas fa-archive fa-fw'></i><p>归档</p>
+            </a>
+          
+            <a href="/treasure/"
+              
+              
+              id="treasure">
+              <i class='fas fa-gift fa-fw'></i><p>藏宝阁</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <i class='fas fa-fan fa-spin fa-fw'></i><p>关于我</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    </cover>
+    <header class="l_header shadow floatable">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/avatar.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-flag faa-tada fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/
+                  
+                  
+                  
+                    id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+                  
+                  
+                  
+                    id="categoriesE7BD91E7BB9CE788ACE899AB"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+                  
+                  
+                  
+                    id="categoriesE695B0E68DAEE58886E69E90"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+                  
+                  
+                  
+                    id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/
+                  
+                  
+                  
+                    id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96"
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>建站
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/
+                  
+                  
+                  
+                    id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5"
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>认知
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fa fa-address-card fa-fw fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-ellipsis-v fa-fw fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/treasure/
+                  
+                  
+                  
+                    id="treasure"
+                  >
+                  <i class='fas fa-gift fa-fw'></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-flag faa-tada fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/
+                  
+                  
+                  
+                    id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+                  
+                  
+                  
+                    id="categoriesE7BD91E7BB9CE788ACE899AB"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+                  
+                  
+                  
+                    id="categoriesE695B0E68DAEE58886E69E90"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+                  
+                  
+                  
+                    id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/
+                  
+                  
+                  
+                    id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96"
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>建站
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/
+                  
+                  
+                  
+                    id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5"
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>认知
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fa fa-address-card fa-fw fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-ellipsis-v fa-fw fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/treasure/
+                  
+                  
+                  
+                    id="treasure"
+                  >
+                  <i class='fas fa-gift fa-fw'></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  </div>
+  
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper' id="pjax-container">
+      
+        <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">学会运用爬虫框架 Scrapy (三)</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path">none</div> 
+  <div id="pjax-comment-placeholder">none</div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover')[0].style.display = "none"; 
+    document.getElementsByClassName('l_body')[0].classList.add("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "blog") { // 半屏 
+      document.getElementsByClassName('cover')[0].classList.remove("full"); 
+      document.getElementsByClassName('cover')[0].classList.add("half"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "docs") { // 全屏 
+      document.getElementsByClassName('cover')[0].classList.remove("half"); 
+      document.getElementsByClassName('cover')[0].classList.add("full"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover')[0].style.display = ""; 
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+
+      
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+        <a title='学会运用爬虫框架 Scrapy (三)' href='/918.html'><img class='thumbnail' src='https://s1.ax1x.com/2020/05/15/Ysbkh8.jpg'></a>
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/918.html">
+      学会运用爬虫框架 Scrapy (三)
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/images/avatar.png">
+    <p>猴哥</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>网络爬虫</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2017年9月15日</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：2.5k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：11分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/918.html" class="leancloud_visitors" data-flag-title="学会运用爬虫框架 Scrapy (三)">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/918.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/918.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>上篇文章介绍 Scrapy 框架爬取网站的基本用法。但是爬虫程序比较粗糙，很多细节还需打磨。本文主要是讲解 Scrapy 一些小技巧，能让爬虫程序更加完善。</p>
+<a id="more"></a>
+
+<h2 id="1-设置-User-agent"><a href="#1-设置-User-agent" class="headerlink" title="1.设置 User-agent"></a>1.设置 User-agent</h2><p>Scrapy 官方建议使用 User-Agent 池, 轮流选择其中一个常用浏览器的 User-Agent来作为 User-Agent。scrapy 发起的 http 请求中 headers 部分中 User-Agent 字段的默认值是<code>Scrapy/VERSION (+http://scrapy.org)</code>，我们需要修改该字段伪装成浏览器访问网站。</p>
+<p>1）同样在 setting.py 中新建存储 User-Agent 列表, </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">UserAgent_List = [</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (X11; OpenBSD i386) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1944.0 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.3319.102 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2309.372 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2117.157 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/4E423F&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20130401 Firefox/31.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Opera/9.80 (X11; Linux i686; Ubuntu/14.10) Presto/2.12.388 Version/12.16&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0 Opera 12.14&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0) Opera 12.14&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Opera/9.80 (Windows NT 5.1; U; zh-sg) Presto/2.9.181 Version/12.00&quot;</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>2）在 middlewares.py 文件中新建一个名为<code>RandomUserAgentMiddleware</code>的代理中间层类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scrapy_demo.settings <span class="keyword">import</span> UserAgent_List</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomUserAgentMiddleware</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;动态随机设置 User-agent&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span>(<span class="params">self, request, spider</span>):</span></span><br><span class="line"></span><br><span class="line">        ua = random.choice(UserAgent_List)</span><br><span class="line">        <span class="keyword">if</span> ua:</span><br><span class="line">            request.headers.setdefault(<span class="string">&#x27;User-Agent&#x27;</span>, ua)</span><br><span class="line">            print(request.headers)</span><br></pre></td></tr></table></figure>
+
+<p>3）在 settings.py 中配置 RandomUserAgentMiddleware , 激活中间件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DOWNLOADER_MIDDLEWARES = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第二行的填写规则</span></span><br><span class="line">    <span class="comment">#  yourproject.middlewares(文件名).middleware类</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置 User-Agent</span></span><br><span class="line">    <span class="string">&#x27;scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware&#x27;</span>: <span class="literal">None</span>,</span><br><span class="line">    <span class="string">&#x27;scrapy_demo.middlewares.RandomUserAgentMiddleware&#x27;</span>: <span class="number">400</span>,  <span class="comment"># scrapy_demo 是你项目的名称</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-禁用cookies"><a href="#2-禁用cookies" class="headerlink" title="2.禁用cookies"></a>2.禁用cookies</h2><p>有些站点会使用 cookies 来发现爬虫的轨迹。因此，我们最好禁用 cookies</p>
+<p>在 settings.py 文件中新增以下配置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认是被注释的, 也就是运行使用 cookies</span></span><br><span class="line"><span class="comment"># Disable cookies (enabled by default)</span></span><br><span class="line">COOKIES_ENABLED = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-设置下载延迟"><a href="#3-设置下载延迟" class="headerlink" title="3.设置下载延迟"></a>3.设置下载延迟</h2><p>当 scrapy 的下载器在下载同一个网站下一个页面前需要等待的时间。我们设置下载延迟, 可以有效避免下载器获取到下载地址就立刻执行下载任务的情况发生。从而可以限制爬取速度, 减轻服务器压力。</p>
+<p>在<code>settings.py</code>文件中新增以下配置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认是被注释的</span></span><br><span class="line"><span class="comment"># Configure a delay for requests for the same website (default: 0)</span></span><br><span class="line"><span class="comment"># See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay</span></span><br><span class="line"><span class="comment"># See also autothrottle settings and docs</span></span><br><span class="line">DOWNLOAD_DELAY = <span class="number">3</span> </span><br><span class="line"><span class="comment"># 单位是秒,  上述设置是延迟 3s。 </span></span><br><span class="line"><span class="comment"># 同时还支持设置小数, 例 0.3, 延迟 300 ms</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-设置代理"><a href="#4-设置代理" class="headerlink" title="4.设置代理"></a>4.设置代理</h2><p>有些网站设置反爬虫机制，这使得我们的爬虫程序可能爬到一定数量网页就爬取不下去了。我们需要装饰下爬虫，让它访问网站行为更像类人行为。使用 IP 代理池能突破大部分网站的限制。</p>
+<p>1）我们可以通过国内一些知名代理网站(例如：迅代理、西刺代理)获取代理服务器地址。</p>
+<p>我将自己收集一些代理地址以列表形式保存到<code>settings.py</code>文件中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 代理地址具有一定的使用期限, 不保证以下地址都可用。</span></span><br><span class="line">PROXY_LIST = [</span><br><span class="line">    <span class="string">&quot;https://175.9.77.240:80&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://61.135.217.7:80&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://113.77.101.113:3128&quot;</span></span><br><span class="line">    <span class="string">&quot;http://121.12.42.180:61234&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://58.246.59.59:8080&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://27.40.144.98:808&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://119.5.177.167:4386&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://210.26.54.43:808&quot;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+<p>2）在 middlewares.py 文件中新建一个名为<code>ProxyMiddleware</code>的代理中间层类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scrapy_demo.settings <span class="keyword">import</span> PROXY_LIST</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxyMiddleware</span>(<span class="params">object</span>):</span></span><br><span class="line">    <span class="comment"># overwrite process request</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span>(<span class="params">self, request, spider</span>):</span></span><br><span class="line">        <span class="comment"># Set the location of the proxy</span></span><br><span class="line">        <span class="comment"># request.meta[&#x27;proxy&#x27;] = &quot;https://175.9.77.240:80&quot;</span></span><br><span class="line">        request.meta[<span class="string">&#x27;proxy&#x27;</span>] = random.choice(PROXY_LIST)</span><br></pre></td></tr></table></figure>
+
+
+<p>3）在 settings.py 文件中增加代理配置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DOWNLOADER_MIDDLEWARES = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第二行的填写规则</span></span><br><span class="line">    <span class="comment">#  yourproject.middlewares(文件名).middleware类</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置代理</span></span><br><span class="line">    <span class="string">&#x27;scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware&#x27;</span>: <span class="number">110</span>,</span><br><span class="line">    <span class="string">&#x27;scrapy_demo.middlewares.ProxyMiddleware&#x27;</span>: <span class="number">100</span>,  <span class="comment"># scrapy_demo 是你项目的名称</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除此之外，如果你比较狠的话，可以采用 VPN + Tor 方式来突破反爬虫机制。</p>
+<h2 id="5-减小下载超时"><a href="#5-减小下载超时" class="headerlink" title="5.减小下载超时"></a>5.减小下载超时</h2><p>如果您对一个非常慢的连接进行爬取(一般对通用爬虫来说并不重要)， 减小下载超时能让卡住的连接能被快速的放弃并解放处理其他站点的能力。</p>
+<p>在 settings.py 文件中增加配置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOWNLOAD_TIMEOUT = <span class="number">15</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-页面跟随规则"><a href="#6-页面跟随规则" class="headerlink" title="6.页面跟随规则"></a>6.页面跟随规则</h2><p>在爬取网站时，可能一些页面是我们不想爬取的。如果使用 最基本的 Spider，它还是会将这些页面爬取下来。因此，我们需要使用更加强大的爬取类<code>CrawlSpider</code>。</p>
+<p>我们的爬取类继承 CrawlSpider，必须新增定义一个 rules 属性。rules  是一个包含至少一个 Rule（爬取规则）对象的 list。 每个 Rule 对爬取网站的动作定义了特定表现。CrawlSpider 也是继承 Spider 类，所以具有Spider的所有函数。</p>
+<p>Rule 对象的构造方法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rule(link_extractor, callback=<span class="literal">None</span>, cb_kwargs=<span class="literal">None</span>, follow=<span class="literal">None</span>, process_links=<span class="literal">None</span>, process_request=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p>我们在使用 Rule 一般只会用到前面几个参数，它们作用如下：</p>
+<ul>
+<li><code>link_extractor</code>： 它是一个 Link Extractor 对象。 其定义了如何从爬取到的页面提取链接。<br>link_extractor既可以自己定义，也可以使用已有LinkExtractor类，主要参数为：<ul>
+<li><code>allow</code>：满足括号中“正则表达式”的值会被提取，如果为空，则全部匹配。</li>
+<li><code>deny</code>：与这个正则表达式(或正则表达式列表)不匹配的 Url 一定不提取。 </li>
+<li><code>allow_domains</code>：会被提取的链接的domains。</li>
+<li><code>deny_domains</code>：一定不会被提取链接的domains。</li>
+<li><code>restrict_xpaths</code>：使用xpath表达式，和allow共同作用过滤链接。还有一个类似的<code>restrict_css</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>callback</code>：从 link_extractor 中每获取到链接时将会调用该函数。它指定一个回调方法。会返回一个包含 Item 对象的列表。</p>
+</li>
+<li><p><code>follow</code>：它 是一个布尔(boolean)值，指定了根据该规则从 response 提取的链接是否需要跟进。 如果 callback 为None， follow 默认设置为 True ，否则默认为 False 。</p>
+</li>
+<li><p><code>process_links</code>：从link_extractor中获取到链接列表时将会调用该函数。它同样需要指定一个方法，该方法主要用来过滤 Url。</p>
+</li>
+</ul>
+<p>我以爬取豆瓣电影 Top 250 页面为例子进行讲解如何利用 rules 进行翻页爬取。</p>
+<p><img src="./images/img/41_1.png" alt=""></p>
+<p>在页面的底部，有这样的分页。我们想通过抓取翻页 url 进行下一个页面爬取。</p>
+<p><img src="./images/img/41_2.png" alt=""></p>
+<p>通过分析页面可知，链接的规则是</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://movie.douban.com/top250?start=当前分页第一个电影序号&amp;filter=分页数</span><br></pre></td></tr></table></figure>
+
+<p>我使用 xpath 来匹配，当然你也可以使用正则表达式或者 CSS 选择器。rules 可以这样定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rules = (</span><br><span class="line">    Rule(LinkExtractor(allow=(), restrict_xpaths=(<span class="string">&#x27;//div[@class=&quot;paginator&quot;]&#x27;</span>,)),</span><br><span class="line">         follow=<span class="literal">True</span>,</span><br><span class="line">         callback=<span class="string">&#x27;parse_item&#x27;</span>,</span><br><span class="line">         process_links=<span class="string">&#x27;process_links&#x27;</span>,</span><br><span class="line">         ),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>完整的 spider 代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> scrapy.spiders <span class="keyword">import</span> CrawlSpider, Rule</span><br><span class="line"><span class="keyword">from</span> scrapy.linkextractors <span class="keyword">import</span> LinkExtractor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubanTop250</span>(<span class="params">CrawlSpider</span>):</span></span><br><span class="line">    name = <span class="string">&#x27;movie_douban&#x27;</span></span><br><span class="line">    allowed_domains = [<span class="string">&#x27;douban.com&#x27;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;https://movie.douban.com/top250&quot;</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    rules = (</span><br><span class="line">        Rule(LinkExtractor(allow=(), restrict_xpaths=(<span class="string">&#x27;//div[@class=&quot;paginator&quot;]&#x27;</span>,)),</span><br><span class="line">             follow=<span class="literal">True</span>,</span><br><span class="line">             callback=<span class="string">&#x27;parse_item&#x27;</span>,</span><br><span class="line">             process_links=<span class="string">&#x27;process_links&#x27;</span>,</span><br><span class="line">             ),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_item</span>(<span class="params">self, response</span>):</span></span><br><span class="line">            <span class="comment"># 解析 response, 将其转化为 item</span></span><br><span class="line">            <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+
+<p>另外，LinkExtractor 参数中的 allow() 和 deny() ，我们也是经常使用到。规定爬取哪些页面是否要进行爬取。</p>
+<h2 id="7-动态创建Item类"><a href="#7-动态创建Item类" class="headerlink" title="7.动态创建Item类"></a>7.动态创建Item类</h2><p>对于有些应用，item的结构由用户输入或者其他变化的情况所控制。我们可以动态创建class。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.item <span class="keyword">import</span> DictItem, Field</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_item_class</span>(<span class="params">class_name, field_list</span>):</span></span><br><span class="line">    fields = &#123;</span><br><span class="line">        field_name: Field() <span class="keyword">for</span> field_name <span class="keyword">in</span> field_list</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> type(class_name, (DictItem,), &#123;<span class="string">&#x27;fields&#x27;</span>: fields&#125;)</span><br></pre></td></tr></table></figure>
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>本文永久链接：<a href=https://monkey-soft.github.io/918.html>https://monkey-soft.github.io/918.html</a></p>
+          
+        
+          
+            <p>公众号转载：扫描公众号『极客猴』二维码联系猴哥申请开白!</p>
+
+          
+        
+          
+            <p>版权声明：本博客所有文章除特别声明外，均采用共享 4.0 国际 (CC BY-NC-SA 4.0) 许可协议。转载请注明出处！</p>
+
+          
+        
+          
+            <p>附：文章内容首发于微信公众号『极客猴』, 欢迎扫码关注第一时间接受推文~</p>
+
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://s1.ax1x.com/2020/05/17/Y24rUx.jpg'
+        
+          height='256px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='/images/weixin_reward.png'
+        
+          height='256px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-23T17:11:50+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年8月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>网络爬虫</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scrapy/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scrapy</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://monkey-soft.github.io/918.html&title=学会运用爬虫框架 Scrapy (三) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/Ysbkh8.jpg&summary=上篇文章介绍 Scrapy 框架爬取网站的基本用法。但是爬虫程序比较粗糙，很多细节还需打磨。本文主要是讲解 Scrapy 一些小技巧，能让爬虫程序更加完善。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://monkey-soft.github.io/918.html&title=学会运用爬虫框架 Scrapy (三) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/Ysbkh8.jpg&summary=上篇文章介绍 Scrapy 框架爬取网站的基本用法。但是爬虫程序比较粗糙，很多细节还需打磨。本文主要是讲解 Scrapy 一些小技巧，能让爬虫程序更加完善。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://monkey-soft.github.io/918.html&title=学会运用爬虫框架 Scrapy (三) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/Ysbkh8.jpg&summary=上篇文章介绍 Scrapy 框架爬取网站的基本用法。但是爬虫程序比较粗糙，很多细节还需打磨。本文主要是讲解 Scrapy 一些小技巧，能让爬虫程序更加完善。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACUklEQVR42u3aS3LCMBAFQN//0sk+VZTmIxEYtXZgG6vN5tUbPz+XrgccHBwcHHwQ/Cmu8I0W162+/3u8u19wcHBwcPCJ8Cwkeny18ez9uvsFBwcHBwefDF8GgGSgWAWTLKy9X3BwcHBwcPCnGljChUGwuAAHBwcHBwc/H2CygaZ7f3BwcHBw8Bvh1YK/WkRUBxL/PkkBBwcHBwf/IPiuwuBdn8v7BQcHBwcHHwTvrmygqBYT2/YLDg4ODg4+CF4NCFnIrgdY3R84ODg4OPhkeLeA6A4YqsAldFcDAw4ODg4O/oHwaFCIBp5dQeNYAQIODg4ODn4BfAWrBpFd1y2DyqvfBQcHBwcHHwjPFg3V77vntf8gcHBwcHDwQfDuiwCnCoZdLwC2Jyng4ODg4OAD4NXBQbY46BYax17wAwcHBwcH/0D4qY10f7dafGwbKICDg4ODg38BfNfAvjoQyAak7QMFcHBwcHDwAfDsxrPXdQcU2WIkPVAABwcHBwf/Ynh349HioftCQbbICCc3cHBwcHDwQfBoMIgCqg/4bQMFcHBwcHDwC+BdYPWBZYuIl8fBwcHBwcEHwbvrdMGQHWyAg4ODg4PfBO8O4rNBqBuUqsEKHBwcHBx8MjwbWLqfs8EkPTjINjDg4ODg4OAD4NUAUQ4UhwYK6QADDg4ODg5+MbwbXHYPJN4WYMDBwcHBwQfAo8VA9j7R68KDD3BwcHBw8MHw7EDh9Hm7XiAABwcHBwefDK8Gg2rAiBYJ1QFEeKAADg4ODg7+xfDbFjg4ODg4+ID1C72aBR9hqjuRAAAAAElFTkSuQmCC">
+          </div>
+        </div>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/919.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>学会运用爬虫框架 Scrapy (四)  —— 高效下载图片</p>
+                <p class='content'>爬虫程序爬取的目标通常不仅仅是文字资源，经常也会爬取图片资源。这就涉及如何高效下载图片的问题。这里高效下载指的是既能把图片完整下载到本地又不会对网站服务器造成压力。也许你会这么做，在 pipel...</p>
+              </a>
+            
+            
+              <a class='next' href='/917.html'>
+                <p class='title'>学会运用爬虫框架 Scrapy (二)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>上篇文章介绍了爬虫框架 Scrapy 如何安装，以及其特性、架构、数据流程。相信大家已经对 Scrapy 有人了初步的认识。本文是 Scrapy 系列文章的第二篇，主要通过一个实例讲解 scra...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AE%BE%E7%BD%AE-User-agent"><span class="toc-text">1.设置 User-agent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%A6%81%E7%94%A8cookies"><span class="toc-text">2.禁用cookies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AE%BE%E7%BD%AE%E4%B8%8B%E8%BD%BD%E5%BB%B6%E8%BF%9F"><span class="toc-text">3.设置下载延迟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-text">4.设置代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%87%8F%E5%B0%8F%E4%B8%8B%E8%BD%BD%E8%B6%85%E6%97%B6"><span class="toc-text">5.减小下载超时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%A1%B5%E9%9D%A2%E8%B7%9F%E9%9A%8F%E8%A7%84%E5%88%99"><span class="toc-text">6.页面跟随规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAItem%E7%B1%BB"><span class="toc-text">7.动态创建Item类</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow desktop">
+  
+  <header>
+    
+      <i class="fa fa-heart fa-fw" aria-hidden="true"></i><span class='name'>微信公众号</span>
+    
+  </header>
+
+
+  <div class='content'>
+    
+      <p>关注微信公众号『极客猴』，第一时间接受文章推送</p>
+
+    
+      <p><a href=""><img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" height="200px"></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class='name'>相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\917.html" title="学会运用爬虫框架 Scrapy (二)" rel="bookmark">学会运用爬虫框架 Scrapy (二)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\916.html" title="学会运用爬虫框架 Scrapy (一)" rel="bookmark">学会运用爬虫框架 Scrapy (一)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\919.html" title="学会运用爬虫框架 Scrapy (四)  —— 高效下载图片" rel="bookmark">学会运用爬虫框架 Scrapy (四)  —— 高效下载图片</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\1020.html" title="学会运用爬虫框架 Scrapy (五)  —— 部署爬虫" rel="bookmark">学会运用爬虫框架 Scrapy (五)  —— 部署爬虫</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\62.html" title="学爬虫之道" rel="bookmark">学爬虫之道</a></h3></div></li></ul>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+    </div>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.3'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='961306140'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/monkey-soft"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://blog.csdn.net/chanql123"
+                class="social fab fa-cuttlefish flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/playlist?id=961306140"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br/>
+          <script>
+              var now = new Date(); 
+              function createtime() {
+                  var grt= new Date("10/27/2019 18:10:26");//此处修改你的建站时间或者网站上线时间 
+                  console.log(grt)
+                  now.setTime(now.getTime()+250); 
+                  days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                  hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                  if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                  mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                  seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                  snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                  document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
+                  document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+              } 
+              setInterval("createtime()",250);
+          </script>
+        本站由 Hexo 强力驱动，使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename">Volantis </a>
+        作为主题
+        
+          ，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+          <p><a href="/">Copyright © 2019-2020 极客猴</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <div>
+    
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      <li class='navigation'>
+        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+      </li>
+      <hr>
+      
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          copyText.style.display = 'block';
+          hrText.style.display = 'block';
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '961306140';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.3';
+  </script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+    
+<script src="/js/aplayer.js"></script>
+
+  
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
+      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
+      "来都来了，留下你的评论" : $.trim($('#pjax-comment-placeholder').text());
+
+    let ALLPATH = '';
+    if(ALLPATH != '') pageUrl = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: pageUrl,
+      appId: "wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI",
+      appKey: "HVwymGTYvDdOlyFFX2h2PomH",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+<!-- darkmodejs -->
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+<!-- scrollreveal -->
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3.0/js/search.js"></script>
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+
+      try{
+        pjax_fancybox();
+        
+          
+          if ('.cover') {
+            $('.cover').backstretch("resize");
+          } else {
+            $.backstretch("resize");
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

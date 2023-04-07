@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>Python 定时任务(下) - 极客猴</title>
+  
+    <meta name="keywords" content="Python,datetime,time,APScheduler">
+  
+
+  
+    <meta name="description" content="Python 定时任务(下)">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+  
+</head>
+
+<body>
+  
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post' style="display: none;">
+      <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title">极客猴</p>
+    
+    
+      <p class="subtitle">猴哥的个人博客</p>
+    
+  </div>
+  <div class='b'>
+    <div class='menu navigation dock'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <i class='fas fa-book fa-fw'></i><p>主页</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fas fa-archive fa-fw'></i><p>归档</p>
+            </a>
+          
+            <a href="/treasure/"
+              
+              
+              id="treasure">
+              <i class='fas fa-gift fa-fw'></i><p>藏宝阁</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <i class='fas fa-fan fa-spin fa-fw'></i><p>关于我</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    </cover>
+    <header class="l_header shadow floatable">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/avatar.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-flag faa-tada fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/
+                  
+                  
+                  
+                    id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+                  
+                  
+                  
+                    id="categoriesE7BD91E7BB9CE788ACE899AB"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+                  
+                  
+                  
+                    id="categoriesE695B0E68DAEE58886E69E90"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+                  
+                  
+                  
+                    id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/
+                  
+                  
+                  
+                    id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96"
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>建站
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/
+                  
+                  
+                  
+                    id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5"
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>认知
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fa fa-address-card fa-fw fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-ellipsis-v fa-fw fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/treasure/
+                  
+                  
+                  
+                    id="treasure"
+                  >
+                  <i class='fas fa-gift fa-fw'></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-flag faa-tada fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>Python教程
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/
+                  
+                  
+                  
+                    id="categoriesPython-E5BF85E79FA5E5BF85E4BC9A"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Python 必知必会
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+                  
+                  
+                  
+                    id="categoriesE7BD91E7BB9CE788ACE899AB"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 网络爬虫
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/
+                  
+                  
+                  
+                    id="categoriesE695B0E68DAEE58886E69E90"
+                  >
+                  <i class='fas fa-fire fa-fw'></i>Python 与数据分析
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/Django-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
+                  
+                  
+                  
+                    id="categoriesDjango-E5ADA6E4B9A0E7AC94E8AEB0"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>Django 学习笔记
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E5%BB%BA%E7%AB%99%E4%B8%8E%E4%BC%98%E5%8C%96/
+                  
+                  
+                  
+                    id="categoriesE5BBBAE7AB99E4B88EE4BC98E58C96"
+                  >
+                  <i class='fas fa-book faa-tada fa-fw'></i>建站
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AE%A4%E7%9F%A5/
+                  
+                  
+                  
+                    id="categoriesE6809DE7BBB4E4B88EE8AEA4E79FA5"
+                  >
+                  <i class='fas fa-fan fa-spin fa-fw'></i>认知
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fa fa-address-card fa-fw fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fa fa-ellipsis-v fa-fw fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/treasure/
+                  
+                  
+                  
+                    id="treasure"
+                  >
+                  <i class='fas fa-gift fa-fw'></i>藏宝阁
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  </div>
+  
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper' id="pjax-container">
+      
+        <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">Python 定时任务(下)</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path">none</div> 
+  <div id="pjax-comment-placeholder">none</div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover')[0].style.display = "none"; 
+    document.getElementsByClassName('l_body')[0].classList.add("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "blog") { // 半屏 
+      document.getElementsByClassName('cover')[0].classList.remove("full"); 
+      document.getElementsByClassName('cover')[0].classList.add("half"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "docs") { // 全屏 
+      document.getElementsByClassName('cover')[0].classList.remove("half"); 
+      document.getElementsByClassName('cover')[0].classList.add("full"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover')[0].style.display = ""; 
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+
+      
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+        <a title='Python 定时任务(下)' href='/1227.html'><img class='thumbnail' src='https://s1.ax1x.com/2020/05/15/YsqqzD.jpg'></a>
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/1227.html">
+      Python 定时任务(下)
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/images/avatar.png">
+    <p>猴哥</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Python-%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Python 必知必会</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2017年12月8日</p>
+  </a>
+</div>
+
+            
+          
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：2.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：9分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/1227.html" class="leancloud_visitors" data-flag-title="Python 定时任务(下)">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/1227.html#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/1227.html">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是<code>APScheduler</code>。</p>
+<a id="more"></a>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p><code>APScheduler</code>的全称是<code>Advanced Python Scheduler</code>。它是一个轻量级的 Python 定时任务调度框架。APScheduler 支持三种调度任务：<code>固定时间间隔</code>，<code>固定时间点（日期）</code>，<code>Linux 下的 Crontab 命令</code>。同时，它还支持异步执行、后台执行调度任务。</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>使用 pip 包管理工具安装 APScheduler 是最方便快捷的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install APScheduler</span><br><span class="line"><span class="comment"># 如果出现因下载失败导致安装不上的情况，建议使用代理</span></span><br><span class="line">pip --proxy http://代理ip:端口 install APScheduler</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-使用步骤"><a href="#3-使用步骤" class="headerlink" title="3.使用步骤"></a>3.使用步骤</h2><p>APScheduler 使用起来还算是比较简单。运行一个调度任务只需要以下三部曲。</p>
+<p>1) 新建一个 schedulers (调度器) 。<br>2) 添加一个调度任务(job stores)。<br>3) 运行调度任务。</p>
+<p>下面是执行每 2 秒报时的简单示例代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> apscheduler.schedulers.background <span class="keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timedTask</span>():</span></span><br><span class="line">    print(datetime.datetime.utcnow().strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S.%f&quot;</span>)[:<span class="number">-3</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 创建后台执行的 schedulers</span></span><br><span class="line">    scheduler = BackgroundScheduler()  </span><br><span class="line">    <span class="comment"># 添加调度任务</span></span><br><span class="line">    <span class="comment"># 调度方法为 timedTask，触发器选择 interval(间隔性)，间隔时长为 2 秒</span></span><br><span class="line">    scheduler.add_job(timedTask, <span class="string">&#x27;interval&#x27;</span>, seconds=<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 启动调度任务</span></span><br><span class="line">    scheduler.start()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        print(time.time())</span><br><span class="line">        time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-基础组件"><a href="#4-基础组件" class="headerlink" title="4.基础组件"></a>4.基础组件</h2><p>APScheduler 有四种组件，分别是：<code>调度器(scheduler)</code>，<code>作业存储(job store)</code>，<code>触发器(trigger)</code>，<code>执行器(executor)</code>。</p>
+<ul>
+<li><p>schedulers（调度器）<br>它是任务调度器，属于控制器角色。它配置作业存储器和执行器可以在调度器中完成，例如添加、修改和移除作业。</p>
+</li>
+<li><p>triggers（触发器）<br>描述调度任务被触发的条件。不过触发器完全是无状态的。</p>
+</li>
+<li><p>job stores（作业存储器）<br>任务持久化仓库，默认保存任务在内存中，也可将任务保存都各种数据库中，任务中的数据序列化后保存到持久化数据库，从数据库加载后又反序列化。</p>
+</li>
+<li><p>executors（执行器）<br>负责处理作业的运行，它们通常通过在作业中提交指定的可调用对象到一个线程或者进城池来进行。当作业完成时，执行器将会通知调度器。</p>
+</li>
+</ul>
+<h3 id="4-1-schedulers（调度器）"><a href="#4-1-schedulers（调度器）" class="headerlink" title="4-1.schedulers（调度器）"></a>4-1.schedulers（调度器）</h3><p>我个人觉得 APScheduler 非常好用的原因。它提供 7 种调度器，能够满足我们各种场景的需要。例如：后台执行某个操作，异步执行操作等。调度器分别是：</p>
+<ul>
+<li>BlockingScheduler : 调度器在当前进程的主线程中运行，也就是会阻塞当前线程。</li>
+<li>BackgroundScheduler : 调度器在后台线程中运行，不会阻塞当前线程。</li>
+<li>AsyncIOScheduler : 结合 <code>asyncio</code> 模块（一个异步框架）一起使用。</li>
+<li>GeventScheduler : 程序中使用 <code>gevent</code>（高性能的Python并发框架）作为IO模型，和 <code>GeventExecutor</code> 配合使用。</li>
+<li>TornadoScheduler : 程序中使用 <code>Tornado</code>（一个web框架）的IO模型，用 <code>ioloop.add_timeout</code> 完成定时唤醒。</li>
+<li>TwistedScheduler : 配合 <code>TwistedExecutor</code>，用 <code>reactor.callLater</code> 完成定时唤醒。</li>
+<li>QtScheduler : 你的应用是一个 Qt 应用，需使用QTimer完成定时唤醒。</li>
+</ul>
+<h3 id="4-2-triggers（触发器）"><a href="#4-2-triggers（触发器）" class="headerlink" title="4-2.triggers（触发器）"></a>4-2.triggers（触发器）</h3><p>APScheduler 有三种内建的 trigger:<br>1）date 触发器<br>date 是最基本的一种调度，作业任务只会执行一次。它表示特定的时间点触发。它的参数如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">run_date (datetime 或 str)</td>
+<td align="left">作业的运行日期或时间</td>
+</tr>
+<tr>
+<td align="center">timezone (datetime.tzinfo 或 str)</td>
+<td align="left">指定时区</td>
+</tr>
+</tbody></table>
+<p>date 触发器使用示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date</span><br><span class="line"><span class="keyword">from</span> apscheduler.schedulers.background <span class="keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">job_func</span>(<span class="params">text</span>):</span></span><br><span class="line">    print(text)</span><br><span class="line"></span><br><span class="line">scheduler = BackgroundScheduler()</span><br><span class="line"><span class="comment"># 在 2017-12-13 时刻运行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="string">&#x27;date&#x27;</span>, run_date=date(<span class="number">2017</span>, <span class="number">12</span>, <span class="number">13</span>), args=[<span class="string">&#x27;text&#x27;</span>])</span><br><span class="line"><span class="comment"># 在 2017-12-13 14:00:00 时刻运行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="string">&#x27;date&#x27;</span>, run_date=datetime(<span class="number">2017</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">0</span>, <span class="number">0</span>), args=[<span class="string">&#x27;text&#x27;</span>])</span><br><span class="line"><span class="comment"># 在 2017-12-13 14:00:01 时刻运行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="string">&#x27;date&#x27;</span>, run_date=<span class="string">&#x27;2017-12-13 14:00:01&#x27;</span>, args=[<span class="string">&#x27;text&#x27;</span>])</span><br><span class="line"></span><br><span class="line">scheduler.start()</span><br></pre></td></tr></table></figure>
+
+<p>2）interval 触发器<br>固定时间间隔触发。interval 间隔调度，参数如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">weeks (int)</td>
+<td align="left">间隔几周</td>
+</tr>
+<tr>
+<td align="center">days (int)</td>
+<td align="left">间隔几天</td>
+</tr>
+<tr>
+<td align="center">hours (int)</td>
+<td align="left">间隔几小时</td>
+</tr>
+<tr>
+<td align="center">minutes (int)</td>
+<td align="left">间隔几分钟</td>
+</tr>
+<tr>
+<td align="center">seconds (int)</td>
+<td align="left">间隔多少秒</td>
+</tr>
+<tr>
+<td align="center">start_date (datetime 或 str)</td>
+<td align="left">开始日期</td>
+</tr>
+<tr>
+<td align="center">end_date (datetime 或 str)</td>
+<td align="left">结束日期</td>
+</tr>
+<tr>
+<td align="center">timezone (datetime.tzinfo 或str)</td>
+<td align="left">时区</td>
+</tr>
+</tbody></table>
+<p>interval 触发器使用示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> apscheduler.schedulers.background <span class="keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">job_func</span>(<span class="params">text</span>):</span></span><br><span class="line">    print(datetime.datetime.utcnow().strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S.%f&quot;</span>)[:<span class="number">-3</span>])</span><br><span class="line"></span><br><span class="line">scheduler = BackgroundScheduler()</span><br><span class="line"><span class="comment"># 每隔两分钟执行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="string">&#x27;interval&#x27;</span>, minutes=<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 在 2017-12-13 14:00:01 ~ 2017-12-13 14:00:10 之间, 每隔两分钟执行一次 job_func 方法</span></span><br><span class="line">scheduler .add_job(job_func, <span class="string">&#x27;interval&#x27;</span>, minutes=<span class="number">2</span>, start_date=<span class="string">&#x27;2017-12-13 14:00:01&#x27;</span> , end_date=<span class="string">&#x27;2017-12-13 14:00:10&#x27;</span>)</span><br><span class="line"></span><br><span class="line">scheduler.start()</span><br></pre></td></tr></table></figure>
+
+<p>3）cron 触发器<br> 在特定时间周期性地触发，和Linux crontab格式兼容。它是功能最强大的触发器。<br> 我们先了解 cron 参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">year (int 或 str)</td>
+<td align="left">年，4位数字</td>
+</tr>
+<tr>
+<td align="center">month (int 或 str)</td>
+<td align="left">月 (范围1-12)</td>
+</tr>
+<tr>
+<td align="center">day (int 或 str)</td>
+<td align="left">日 (范围1-31</td>
+</tr>
+<tr>
+<td align="center">week (int 或 str)</td>
+<td align="left">周 (范围1-53)</td>
+</tr>
+<tr>
+<td align="center">day_of_week (int 或 str)</td>
+<td align="left">周内第几天或者星期几 (范围0-6 或者 mon,tue,wed,thu,fri,sat,sun)</td>
+</tr>
+<tr>
+<td align="center">hour (int 或 str)</td>
+<td align="left">时 (范围0-23)</td>
+</tr>
+<tr>
+<td align="center">minute (int 或 str)</td>
+<td align="left">分 (范围0-59)</td>
+</tr>
+<tr>
+<td align="center">second (int 或 str)</td>
+<td align="left">秒 (范围0-59)</td>
+</tr>
+<tr>
+<td align="center">start_date (datetime 或 str)</td>
+<td align="left">最早开始日期(包含)</td>
+</tr>
+<tr>
+<td align="center">end_date (datetime 或 str)</td>
+<td align="left">最晚结束时间(包含)</td>
+</tr>
+<tr>
+<td align="center">timezone (datetime.tzinfo 或str)</td>
+<td align="left">指定时区</td>
+</tr>
+</tbody></table>
+<p>这些参数是支持算数表达式，取值格式有如下：<br><img src="./images/img/51_4.png" alt=""></p>
+<p>cron 触发器使用示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> apscheduler.schedulers.background <span class="keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">job_func</span>(<span class="params">text</span>):</span></span><br><span class="line">    print(<span class="string">&quot;当前时间：&quot;</span>, datetime.datetime.utcnow().strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S.%f&quot;</span>)[:<span class="number">-3</span>])</span><br><span class="line"></span><br><span class="line">scheduler = BackgroundScheduler()</span><br><span class="line"><span class="comment"># 在每年 1-3、7-9 月份中的每个星期一、二中的 00:00, 01:00, 02:00 和 03:00 执行 job_func 任务</span></span><br><span class="line">scheduler .add_job(job_func, <span class="string">&#x27;cron&#x27;</span>, month=<span class="string">&#x27;1-3,7-9&#x27;</span>,day=<span class="string">&#x27;0, tue&#x27;</span>, hour=<span class="string">&#x27;0-3&#x27;</span>)</span><br><span class="line"></span><br><span class="line">scheduler.start()</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-作业存储-job-store"><a href="#4-3-作业存储-job-store" class="headerlink" title="4-3.作业存储(job store)"></a>4-3.作业存储(job store)</h3><p>该组件是对调度任务的管理。<br>1）添加 job<br>有两种添加方法，其中一种上述代码用到的 <code>add_job()</code>， 另一种则是<code>scheduled_job()</code>修饰器来修饰函数。</p>
+<p>这个两种办法的区别是：第一种方法返回一个 apscheduler.job.Job 的实例，可以用来改变或者移除 job。第二种方法只适用于应用运行期间不会改变的 job。</p>
+<p>第二种添加任务方式的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> apscheduler.schedulers.background <span class="keyword">import</span> BackgroundScheduler</span><br><span class="line"></span><br><span class="line"><span class="meta">@scheduler.scheduled_job(job_func, &#x27;interval&#x27;, minutes=2)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">job_func</span>(<span class="params">text</span>):</span></span><br><span class="line">    print(datetime.datetime.utcnow().strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S.%f&quot;</span>)[:<span class="number">-3</span>])</span><br><span class="line"></span><br><span class="line">scheduler = BackgroundScheduler()</span><br><span class="line">scheduler.start()</span><br></pre></td></tr></table></figure>
+
+<p>2）移除 job<br>移除 job 也有两种方法：<code>remove_job()</code> 和 <code>job.remove()</code>。<br>remove_job() 是根据 job 的 id 来移除，所以要在 job 创建的时候指定一个 id。<br>job.remove() 则是对 job 执行 remove 方法即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scheduler.add_job(job_func, <span class="string">&#x27;interval&#x27;</span>, minutes=<span class="number">2</span>, id=<span class="string">&#x27;job_one&#x27;</span>)</span><br><span class="line">scheduler.remove_job(job_one)</span><br><span class="line"></span><br><span class="line">job = add_job(job_func, <span class="string">&#x27;interval&#x27;</span>, minutes=<span class="number">2</span>, id=<span class="string">&#x27;job_one&#x27;</span>)</span><br><span class="line">job.remvoe()</span><br></pre></td></tr></table></figure>
+
+<p>3）获取 job 列表<br>通过 <code>scheduler.get_jobs()</code> 方法能够获取当前调度器中的所有 job 的列表</p>
+<p>4) 修改 job<br>如果你因计划改变要对 job 进行修改，可以使用<code>Job.modify()</code> 或者 <code>modify_job()</code>方法来修改 job 的属性。但是值得注意的是，job 的 id 是无法被修改的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scheduler.add_job(job_func, <span class="string">&#x27;interval&#x27;</span>, minutes=<span class="number">2</span>, id=<span class="string">&#x27;job_one&#x27;</span>)</span><br><span class="line">scheduler.start()</span><br><span class="line"><span class="comment"># 将触发时间间隔修改成 5分钟</span></span><br><span class="line">scheduler.modify_job(<span class="string">&#x27;job_one&#x27;</span>, minutes=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">job = scheduler.add_job(job_func, <span class="string">&#x27;interval&#x27;</span>, minutes=<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 将触发时间间隔修改成 5分钟</span></span><br><span class="line">job.modify(minutes=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>5）关闭 job<br>默认情况下调度器会等待所有正在运行的作业完成后，关闭所有的调度器和作业存储。如果你不想等待，可以将 wait 选项设置为 False。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scheduler.shutdown()</span><br><span class="line">scheduler.shutdown(wait=false)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-执行器-executor"><a href="#4-4-执行器-executor" class="headerlink" title="4-4.执行器(executor)"></a>4-4.执行器(executor)</h3><p>执行器顾名思义是执行调度任务的模块。最常用的 executor 有两种：<code>ProcessPoolExecutor</code> 和 <code>ThreadPoolExecutor</code></p>
+<p>下面是显式设置 job store(使用mongo存储)和 executor 的代码的示例。<br>注：本代码来源于网络</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"><span class="keyword">from</span> apscheduler.schedulers.blocking <span class="keyword">import</span> BlockingScheduler</span><br><span class="line"><span class="keyword">from</span> apscheduler.jobstores.mongodb <span class="keyword">import</span> MongoDBJobStore</span><br><span class="line"><span class="keyword">from</span> apscheduler.jobstores.memory <span class="keyword">import</span> MemoryJobStore</span><br><span class="line"><span class="keyword">from</span> apscheduler.executors.pool <span class="keyword">import</span> ThreadPoolExecutor, ProcessPoolExecutor</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_job</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">host = <span class="string">&#x27;127.0.0.1&#x27;</span></span><br><span class="line">port = <span class="number">27017</span></span><br><span class="line">client = MongoClient(host, port)</span><br><span class="line"> </span><br><span class="line">jobstores = &#123;</span><br><span class="line">    <span class="string">&#x27;mongo&#x27;</span>: MongoDBJobStore(collection=<span class="string">&#x27;job&#x27;</span>, database=<span class="string">&#x27;test&#x27;</span>, client=client),</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: MemoryJobStore()</span><br><span class="line">&#125;</span><br><span class="line">executors = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: ThreadPoolExecutor(<span class="number">10</span>),</span><br><span class="line">    <span class="string">&#x27;processpool&#x27;</span>: ProcessPoolExecutor(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">job_defaults = &#123;</span><br><span class="line">    <span class="string">&#x27;coalesce&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line">    <span class="string">&#x27;max_instances&#x27;</span>: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">scheduler = BlockingScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults)</span><br><span class="line">scheduler.add_job(my_job, <span class="string">&#x27;interval&#x27;</span>, seconds=<span class="number">5</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    scheduler.start()</span><br><span class="line"><span class="keyword">except</span> SystemExit:</span><br><span class="line">    client.close() </span><br></pre></td></tr></table></figure>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>本文永久链接：<a href=https://monkey-soft.github.io/1227.html>https://monkey-soft.github.io/1227.html</a></p>
+          
+        
+          
+            <p>公众号转载：扫描公众号『极客猴』二维码联系猴哥申请开白!</p>
+
+          
+        
+          
+            <p>版权声明：本博客所有文章除特别声明外，均采用共享 4.0 国际 (CC BY-NC-SA 4.0) 许可协议。转载请注明出处！</p>
+
+          
+        
+          
+            <p>附：文章内容首发于微信公众号『极客猴』, 欢迎扫码关注第一时间接受推文~</p>
+
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://s1.ax1x.com/2020/05/17/Y24rUx.jpg'
+        
+          height='256px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='/images/weixin_reward.png'
+        
+          height='256px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-23T17:10:15+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年8月23日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>定时任务</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/APScheduler/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>APScheduler</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://monkey-soft.github.io/1227.html&title=Python 定时任务(下) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsqqzD.jpg&summary=上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是APScheduler。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://monkey-soft.github.io/1227.html&title=Python 定时任务(下) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsqqzD.jpg&summary=上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是APScheduler。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://monkey-soft.github.io/1227.html&title=Python 定时任务(下) - 极客猴&pics=https://s1.ax1x.com/2020/05/15/YsqqzD.jpg&summary=上篇文章，我们了解到有三种办法能实现定时任务，但是都无法做到循环执行定时任务。因此，需要一个能够担当此重任的库。它就是APScheduler。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4CAAAAADkunTXAAACTklEQVR42u3bQY4CMQwEQP7/afYBK0Ta9gjGVG4gdkhlLy13eDx/dD3AwcHBwcEXwR/F9e+Bh59/9/rV86b2Cw4ODg4OvhF+HADebDTdePp93f2Cg4ODg4NvhlcDyOmBVN8f2y84ODg4ODh4HCjSA6oGJXBwcHBwcPA6vBpwuoUEODg4ODg4eGFAf3hxYCrIfE2TAg4ODg4O/kXw8oW5D73++M1GcHBwcHDwL4B3VxowuoOF9n7BwcHBwcEXwasBIR00pAOI0+fH+wMHBwcHB18Iv6rw7xYBU/8IcHBwcHDwjfA0SKQB5qpBQ/nvwMHBwcHBF8GnN9ItGE4DUjUwgYODg4ODb4KnRUBaCJzCpgcXx8kNHBwcHBz8xvCrwN3PVQ9srEkBBwcHBwe/Ebw6OEgvBnQvAHYHF+Dg4ODg4JvgXWA6KBgrBqpFBTg4ODg4+CJ4GiiqAeRdkJl+7lihAA4ODg4OfgN4d2A/fUEwXacBCBwcHBwcfDP8dCNpgTA16OheVAAHBwcHB/8leDywDwNFNRCNFQrg4ODg4OAL4WlxX31OenEvLSDiQQQ4ODg4OPiN4N01VfCfFgTtgwEHBwcHB18E7xbxpxsfCyDdiwzg4ODg4OAL4d1BRDqoSINJWhy83A84ODg4OPhieDVAVA/iqkIhDjDg4ODg4ODgz24wSgcLcbEBDg4ODg4OPv5D+3SAUS4+wMHBwcHBF8PTQqE6kOgWC9WBBDg4ODg4+EZ4NRhcdRHgtGCIDxIcHBwcHHwR/NcWODg4ODj4gvUH0JMAalaCYYYAAAAASUVORK5CYII=">
+          </div>
+        </div>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/1228.html'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Python 实现识别弱图片验证码</p>
+                <p class='content'>目前，很多网站为了防止爬虫肆意模拟浏览器登录，采用增加验证码的方式来拦截爬虫。验证码的形式有多种，最常见的就是图片验证码。其他验证码的形式有音频验证码，滑动验证码等。图片验证码越来越高级，识别难...</p>
+              </a>
+            
+            
+              <a class='next' href='/1226.html'>
+                <p class='title'>Python 定时任务(上)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+在项目中，我们可能遇到有定时任务的需求。其一：定时执行任务。例如每天早上 8 点定时推送早报。其二：每隔一个时间段就执行任务。比如：每隔一个小时提醒自己起来走动走动，避免长时间坐着。今天，我跟...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85"><span class="toc-text">2.安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-text">3.使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6"><span class="toc-text">4.基础组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-schedulers%EF%BC%88%E8%B0%83%E5%BA%A6%E5%99%A8%EF%BC%89"><span class="toc-text">4-1.schedulers（调度器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-triggers%EF%BC%88%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%89"><span class="toc-text">4-2.triggers（触发器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E4%BD%9C%E4%B8%9A%E5%AD%98%E5%82%A8-job-store"><span class="toc-text">4-3.作业存储(job store)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%89%A7%E8%A1%8C%E5%99%A8-executor"><span class="toc-text">4-4.执行器(executor)</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow desktop">
+  
+  <header>
+    
+      <i class="fa fa-heart fa-fw" aria-hidden="true"></i><span class='name'>微信公众号</span>
+    
+  </header>
+
+
+  <div class='content'>
+    
+      <p>关注微信公众号『极客猴』，第一时间接受文章推送</p>
+
+    
+      <p><a href=""><img src="https://s1.ax1x.com/2020/05/17/Y24rUx.jpg" height="200px"></a></p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class='name'>相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\1226.html" title="Python 定时任务(上)" rel="bookmark">Python 定时任务(上)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\123.html" title="常用 Python 标准库" rel="bookmark">常用 Python 标准库</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\62.html" title="学爬虫之道" rel="bookmark">学爬虫之道</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\66.html" title="详解 python3 urllib" rel="bookmark">详解 python3 urllib</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\815.html" title="用 Python 学习数据结构, 有它就不用愁" rel="bookmark">用 Python 学习数据结构, 有它就不用愁</a></h3></div></li></ul>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+    </div>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.3'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='961306140'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/monkey-soft"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://blog.csdn.net/chanql123"
+                class="social fab fa-cuttlefish flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/playlist?id=961306140"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br/>
+          <script>
+              var now = new Date(); 
+              function createtime() {
+                  var grt= new Date("10/27/2019 18:10:26");//此处修改你的建站时间或者网站上线时间 
+                  console.log(grt)
+                  now.setTime(now.getTime()+250); 
+                  days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                  hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                  if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                  mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                  seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                  snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                  document.getElementById("timeDate").innerHTML = "本站已萌萌哒运行 "+dnum+" 天 "; 
+                  document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+              } 
+              setInterval("createtime()",250);
+          </script>
+        本站由 Hexo 强力驱动，使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename">Volantis </a>
+        作为主题
+        
+          ，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+          <p><a href="/">Copyright © 2019-2020 极客猴</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <div>
+    
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      <li class='navigation'>
+        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+      </li>
+      <hr>
+      
+        
+      
+        
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          copyText.style.display = 'block';
+          hrText.style.display = 'block';
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '961306140';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.3';
+  </script>
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+    
+<script src="/js/aplayer.js"></script>
+
+  
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
+      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
+      "来都来了，留下你的评论" : $.trim($('#pjax-comment-placeholder').text());
+
+    let ALLPATH = '';
+    if(ALLPATH != '') pageUrl = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: pageUrl,
+      appId: "wnhi3dwacbrm9dkWgPO0zaBL-MdYXbMMI",
+      appKey: "HVwymGTYvDdOlyFFX2h2PomH",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+<!-- darkmodejs -->
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+<!-- scrollreveal -->
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3.0/js/search.js"></script>
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+
+      try{
+        pjax_fancybox();
+        
+          
+          if ('.cover') {
+            $('.cover').backstretch("resize");
+          } else {
+            $.backstretch("resize");
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
