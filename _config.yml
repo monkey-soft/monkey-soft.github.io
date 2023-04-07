@@ -5,8 +5,8 @@
 # Site
 title: 极客猴
 subtitle: '猴哥的个人博客'
-description: '猴哥的个人博客: 极客猴。分享自己总结的Python爬虫，Web开发，数据分析的心得。博客先记录个人成长。'
-keywords: 'Python, 网络爬虫, 数据分析, 长期主义, 个人成长'
+description: '猴哥的个人博客: 极客猴。分享自己总结的Python、量化交易的心得。博客先记录个人成长。'
+keywords: 'python, 网络爬虫, 长期主义, 个人成长'
 author: 猴哥
 language: zh-CN
 # 网站图标，更多尺寸等图标请使用import方式批量导入
@@ -15,8 +15,8 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-# url: https://geekmonkey.top
-url: https://monkey-soft.github.io
+# url: https://monkey-soft.github.io
+url: http://jikehou.cn/
 root: /
 # 文章链接格式, 伪 /%post_id.html%/
 # permalink: /:year/:month/:day/:title
@@ -117,7 +117,7 @@ theme: butterfly
 
 
 # 自动生成sitemap
-sitemap:
-    path: sitemap.xml
-baidusitemap:
-    path: baidusitemap.xml
+# sitemap:
+#     path: sitemap.xml
+# baidusitemap:
+#     path: baidusitemap.xml

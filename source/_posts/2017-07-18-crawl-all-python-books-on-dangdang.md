@@ -5,8 +5,8 @@ date:   2017-07-18 10:56:03 +0800
 urlname: 9
 cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-07-18.jpg
 categories: [Python爬虫实战]
-tags: [Python, 网络爬虫, 爬虫实战, 项目实战, 当当]
-keywords: [Python, 网络爬虫, 爬虫实战, 项目实战, 当当]
+tags: [Python, 网络爬虫, 爬虫实战, 当当]
+keywords: [Python, 网络爬虫, 爬虫实战, 当当]
 ---
 我们已经学习 urllib、re、BeautifulSoup 这三个库的用法。
 
