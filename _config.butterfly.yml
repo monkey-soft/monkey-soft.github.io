@@ -86,11 +86,11 @@ katex:
   per_page: false
   hide_scrollbar: true
 
-# Image (圖片設置)
+# Image (图片设置)
 # --------------------------------------
 
-# Favicon（網站圖標）
-favicon: /img/favicon.png
+# Favicon（网站原标）
+favicon: https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico
 
 # Avatar (头像)
 avatar:
@@ -140,7 +140,7 @@ cover:
   default_cover:
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
 
-# Replace Broken Images (替換無法顯示的圖片)
+# Replace Broken Images (替代无法显示的图片)
 error_img:
   flink: /img/friend_404.gif
   post_page: /img/404.jpg
@@ -194,7 +194,7 @@ anchor:
 # Post
 # --------------------------------------
 
-# toc (目錄)
+# toc (目录)
 toc:
   post: true
   page: false
@@ -238,8 +238,8 @@ related_post:
   limit: 3 # Number of posts displayed
   date_type: created # or created or updated 文章日期顯示創建日或者更新日
 
-# figcaption (圖片描述文字)
-photofigcaption: false
+# figcaption (图片描述文字)
+photofigcaption: true
 
 # post_pagination 
 # 文章分页按钮
@@ -249,7 +249,7 @@ photofigcaption: false
 # false: 关闭分页按钮
 post_pagination: 1
 
-# Displays outdated notice for a post (文章過期提醒)
+# Displays outdated notice for a post (文章过期提醒)
 noticeOutdate:
   enable: false
   style: flat # style: simple/flat
