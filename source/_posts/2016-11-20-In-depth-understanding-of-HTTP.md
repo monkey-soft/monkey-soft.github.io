@@ -3,7 +3,7 @@ layout: post
 title:  "深入理解HTTP"
 date:   2016-11-20 22:35:13 +0800
 urlname: 1
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2016-11-20.jpg
+cover: https://s1.ax1x.com/2020/05/14/YBbFVf.jpg
 categories: [网络基础]
 tags: [HTTP]
 keywords: [HTTP, HTTP协议, Headers, User-Agent, 计算机网络]
