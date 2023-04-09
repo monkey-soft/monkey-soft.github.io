@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Scrapy 框架插件之IP代理池"
-date:   2017-12-24 21:06:41 +0800
+date:   2017-12-24 21:06:41
 urlname: 29
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-12-24.jpg
+cover: https://img.jikehou.cn/cover/2017-12-24.jpg
 categories: [Python爬虫实战]
 tags: [Python, Scrapy, IP代理池]
 keywords: [Python, Scrapy, IP代理池, 网络爬虫]

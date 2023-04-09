@@ -3,7 +3,7 @@ layout: post
 title:  "Python 实现识别弱图片验证码"
 date:   2017-12-19 18:49:51 +0800
 urlname: 28
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-12-19.jpg
+cover: https://img.jikehou.cn/cover/2017-12-19.jpg
 categories: [Python爬虫入门]
 tags: [Python, 验证码]
 keywords: [Python, OCR, Tesseract-OCR, 验证码]
@@ -18,20 +18,20 @@ keywords: [Python, OCR, Tesseract-OCR, 验证码]
 图片验证码主要采用加干扰线、字符粘连、字符扭曲方式来增强识别难度。
 - 加干扰线
 加干扰线也分为两种，一种是线条跟字符同等颜色，另一种则线条的颜色是五颜六色。
-![线条跟字符同等颜色](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/52_1.jpg) 
-![线条的颜色是五颜六色](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/52_2.jpg)
+![线条跟字符同等颜色](https://img.jikehou.cn/img/52_1.jpg) 
+![线条的颜色是五颜六色](https://img.jikehou.cn/img/52_2.jpg)
 
 - 字符粘连
 各个字符之间的间隔比较小，互相依靠，能以分割。
-![字符粘连的验证码](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/52_3.jpg)
+![字符粘连的验证码](https://img.jikehou.cn/img/52_3.jpg)
 
 - 字符扭曲
 字符显示的位置相对标准旋转一定角度。
-![位置相对标准旋转一定角度的验证码](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/52_4.jpg)
-![位置相对标准旋转一定角度的验证码](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/52_5.jpg)
+![位置相对标准旋转一定角度的验证码](https://img.jikehou.cn/img/52_4.jpg)
+![位置相对标准旋转一定角度的验证码](https://img.jikehou.cn/img/52_5.jpg)
 
 其中最弱的验证码为不具备以上的特征，干扰因素比较小。如下：
-![干扰因素比较小的验证码](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/52_6.jpg)
+![干扰因素比较小的验证码](https://img.jikehou.cn/img/52_6.jpg)
 
 ## 2.识别思路
 首先对图片做二值化来降噪处理，去掉图片中的噪点，干扰线等。然后将图片中的单个字符切分出来。最后识别每个字符。
@@ -125,7 +125,7 @@ def convert_Image(img, standard=127.5):
 ### 4-3.识别
 经过上述处理，图片验证码中的字符已经变成很清晰了。
 
-![图片验证码中的字符已经变成很清晰](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/52_7.jpg)
+![图片验证码中的字符已经变成很清晰](https://img.jikehou.cn/img/52_7.jpg)
 
 最后一步是直接用 pytesseract 库识别。
 ```python

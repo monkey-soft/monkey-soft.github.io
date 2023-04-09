@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "常用 Python 标准库"
-date:   2016-12-05 03:47:47 +0800
+date:   2016-12-05 03:47:47
 urlname: 3
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2016-12-05.jpg
+cover: https://img.jikehou.cn/cover/2016-12-05.jpg
 categories: [小白入门Python]
 tags: [Python]
 keywords: [Python, Python 标准库，re, csv, time, io, thread, json, datetime]

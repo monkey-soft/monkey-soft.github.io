@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "用 Python 学习数据结构, 有它就不用愁"
-date:   2017-08-29 09:36:17 +0800
+date:   2017-08-29 21:36:17
 urlname: 15
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-08-29.jpg
+cover: https://img.jikehou.cn/cover/2017-08-29.jpg
 categories: [小白入门Python]
 tags: [Python, 数据结构]
 keywords: [Python, 数据结构, Pygorithm]

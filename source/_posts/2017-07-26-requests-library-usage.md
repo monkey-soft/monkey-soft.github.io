@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "详解 Requests 库的用法"
-date:   2017-07-26 16:08:04 +0800
+date:   2017-07-26 16:08:04
 urlname: 11
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-07-26.jpg
+cover: https://img.jikehou.cn/cover/2017-07-26.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, Requests]
 keywords: [Python, 网络爬虫, Requests]

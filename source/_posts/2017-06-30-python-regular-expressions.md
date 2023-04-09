@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Python 正则表达式"
-date:   2017-06-30 15:53:38 +0800
+date:   2017-06-30 15:53:38
 urlname: 7
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-06-30.jpg
+cover: https://img.jikehou.cn/cover/2017-06-30.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, 正则表达式]
 keywords: [Python, 网络爬虫, 正则表达式, re]
@@ -25,7 +25,7 @@ keywords: [Python, 网络爬虫, 正则表达式, re]
 ## 1.正则表达式
 下面是一张关于正则表达式字符的图，图片资料来自CSDN。先把图中字符了解清楚，基本上算是入门。
 
-![正则表达式语法](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/30_re.jpg)
+![正则表达式语法](https://img.jikehou.cn/img/30_re.jpg)
 
 ## 2.re 模块
 

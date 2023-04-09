@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "学会运用爬虫框架 Scrapy (四)  —— 高效下载图片"
-date:   2017-09-26 23:03:35 +0800
+date:   2017-09-26 23:03:35
 urlname: 19
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-09-26.jpg
+cover: https://img.jikehou.cn/cover/2017-09-26.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, Scrapy, 爬虫实战,]
 keywords: [Python, 网络爬虫, Scrapy, 爬虫实战, 下载图片]
@@ -168,12 +168,12 @@ pip --proxy http://代理ip:端口 install pillow
 
 安装之后，重新运行爬虫程序。Scrapy 会运行结果中显示我们定义的`image_urls` 和` images_path`字段。
 
-![重新运行爬虫程序，运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/42_1.png)
+![重新运行爬虫程序，运行结果](https://img.jikehou.cn/img/42_1.png)
 
 ### 2-6.运行结果
 我们会发现在 D 盘有个名为`freebuf`的文件夹。在该文件夹中有个`full`文件夹，里面存放我们刚才爬取到的图片。
 
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/42_2.png)
+![运行结果](https://img.jikehou.cn/img/42_2.png)
 
 如果有在 setting.py 文件中设置生成缩略图。
 ```python

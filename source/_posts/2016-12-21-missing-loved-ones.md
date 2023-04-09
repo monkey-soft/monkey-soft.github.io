@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "每逢佳节倍思亲"
-date:   2016-12-21 08:14:01 +0800
+date:   2016-12-21 08:14:01
 urlname: 4
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2016-12-21.jpg
+cover: https://img.jikehou.cn/cover/2016-12-21.jpg
 categories: [随笔]
 tags: [随笔]
 keywords: [随笔, 思念, 冬至]

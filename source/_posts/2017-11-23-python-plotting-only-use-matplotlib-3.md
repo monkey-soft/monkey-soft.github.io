@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Python 绘图,我只用 Matplotlib(三)"
-date:   2017-11-23 11:07:19 +0800
+date:   2017-11-23 11:07:19
 urlname: 25
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-11-23.jpg
+cover: https://img.jikehou.cn/cover/2017-11-23.jpg
 categories: [数据分析]
 tags: [Python, 数据分析, Matplotlib]
 keywords: [Python, 数据分析, Matplotlib, 数据可视化]
@@ -53,7 +53,7 @@ keywords: [Python, 数据分析, Matplotlib, 数据可视化]
 这个参数很有趣, 对`xerr`或者`yerr`的补充说明。一般为其设置一个整数，例如 10。如果你已经设置了 
 yerr 参数，那么设置 capsize 参数，会在每跟柱子顶部线段上面的首尾部分增加两条垂直原来线段的线段。对 xerr 参数也是同样道理。可能看说明会觉得绕，如果你看下图就一目了然了。
 
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/49_3.png)
+![运行结果](https://img.jikehou.cn/img/49_1.png)
 
 - error_kw
 设置 xerr 和 yerr 参数显示线段的参数，它是个字典类型。如果你在该参数中又重新定义了 ecolor 和 capsize，那么显示效果以这个为准。
@@ -110,7 +110,7 @@ plt.show()
 ```
 
 运行结果为：
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/49_1.png)
+![运行结果](https://img.jikehou.cn/img/49_2.png)
 
 
 ## 2.进阶
@@ -163,7 +163,7 @@ plt.show()
 ```
 
 运行结果如下：
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/49_2.png)
+![运行结果](https://img.jikehou.cn/img/49_3.png)
 
 
 开动你的大脑，想想还能绘制出什么样式的柱形图。

@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "你为何要那么拼命？"
-date:   2017-01-09 11:01:27 +0800
+date:   2017-01-09 11:01:27
 urlname: 5
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-01-09.jpg
+cover: https://img.jikehou.cn/cover/2017-01-09.jpg
 categories: [个人成长]
 tags: [思考]
 keywords: [思考, 个人成长, 奋斗, 认知, 思维]

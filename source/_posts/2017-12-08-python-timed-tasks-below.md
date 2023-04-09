@@ -3,7 +3,7 @@ layout: post
 title:  "Python 定时任务(下)"
 date:   2017-12-08 19:45:35 +0800
 urlname: 27
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-12-08.jpg
+cover: https://img.jikehou.cn/cover/2017-12-08.jpg
 categories: [小白入门Python]
 tags: [Python, 定时任务, APScheduler]
 keywords: [Python, datetime, time, APScheduler]
@@ -168,7 +168,7 @@ scheduler.start()
 | timezone (datetime.tzinfo 或str)  | 指定时区 |
 
 这些参数是支持算数表达式，取值格式有如下：
-![取值格式](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/51_4.png)
+![取值格式](https://img.jikehou.cn/img/51_4.png)
 
 cron 触发器使用示例如下：
 ```python

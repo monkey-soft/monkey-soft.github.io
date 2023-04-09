@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "学会运用爬虫框架 Scrapy (三)"
-date:   2017-09-15 10:16:07 +0800
+date:   2017-09-15 10:16:07
 urlname: 18
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-09-15.jpg
-categories: [[Python爬虫入门]]
+cover: https://img.jikehou.cn/cover/2017-09-15.jpg
+categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, Scrapy]
 keywords: [Python, 网络爬虫, Scrapy]
 ---
@@ -210,11 +210,11 @@ link_extractor既可以自己定义，也可以使用已有LinkExtractor类，�
 
 我以爬取豆瓣电影 Top 250 页面为例子进行讲解如何利用 rules 进行翻页爬取。
 
-![爬取豆瓣电影 Top 250 页面](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/41_1.png)
+![爬取豆瓣电影 Top 250 页面](https://img.jikehou.cn/img/41_1.png)
 
 在页面的底部，有这样的分页。我们想通过抓取翻页 url 进行下一个页面爬取。
 
-![通过抓取翻页 url 进行下一个页面爬取](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/41_2.png)
+![通过抓取翻页 url 进行下一个页面爬取](https://img.jikehou.cn/img/41_2.png)
 
 通过分析页面可知，链接的规则是
 ```python

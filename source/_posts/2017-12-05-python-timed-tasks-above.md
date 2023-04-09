@@ -1,9 +1,9 @@
 ﻿---
 layout: post
 title:  "Python 定时任务(上)"
-date:   2017-12-05 21:27:59 +0800
+date:   2017-12-05 21:27:59
 urlname: 26
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-12-05.jpg
+cover: https://img.jikehou.cn/cover/2017-12-05.jpg
 categories: [小白入门Python]
 tags: [Python, 定时任务, sched]
 keywords: [Python, datetime, time, sched模块]

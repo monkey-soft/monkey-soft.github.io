@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "彻底理解 Iterable、Iterator、generator"
-date:   2017-11-21 15:06:17 +0800
+date:   2017-11-21 15:06:17
 urlname: 24
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-11-21.jpg
+cover: https://img.jikehou.cn/cover/2017-11-21.jpg
 categories: [小白入门Python]
 tags: [Python, generator, iterator, iterable]
 keywords: [Python, generator, iterator, iterable]
@@ -28,7 +28,7 @@ print(numlist.__getitem__)  # 调用__getitem__方法
 ```
 
 运行结果如下：
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/48_1.png)
+![运行结果](https://img.jikehou.cn/img/48_1.png)
 
 根据运行结果，我们可知列表就是个可迭代对象。
 
@@ -42,7 +42,7 @@ isinstance(999, Iterable)
 ```
 
 运行结果为：
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/48_2.png)
+![运行结果](https://img.jikehou.cn/img/48_2.png)
 
 如果我们每次都要使用这个函数来判断一个对象是否为可迭代对象，这样操作有点麻烦。
 
@@ -91,7 +91,9 @@ while True:
 值得注意的是一个 Iterator 只能遍历一次。
 
 ## 3.generator
-generator 翻译成中文是生成器。生成器也是一种特殊迭代器。它其实是生成器函数返回生成器的迭代，“生成器的迭代器”这个术语通常被称作”生成器”。yield 是生成器实现`__next__() `方法的关键。
+generator 翻译成中文是生成器。生成器也是一种特殊迭代器。它其实是生成器函数返回生成器的迭代，“生成器的迭代器”这个术语通常被称作”生成器”。
+
+yield 是生成器实现`__next__() `方法的关键。
 
 它作为生成器执行的暂停恢复点，可以对 yield 表达式进行赋值，也可以将 yield 表达式的值返回。任何包含 yield 语句的函数被称为生成器。
 
@@ -110,7 +112,7 @@ for i in gen:
 ```
 
 运行结果如下：
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/48_3.png)
+![运行结果](https://img.jikehou.cn/img/48_3.png)
 
 带有 yield 关键字 的例子。重点关注运行结果，这能让你对 yield 有更深的认识。
 ```python
@@ -130,4 +132,4 @@ if __name__ == '__main__':
 ```
 
 运行结果如下：
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/48_4.png)
+![运行结果]https://img.jikehou.cn/img/48_4.png)

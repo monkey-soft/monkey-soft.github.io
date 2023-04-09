@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "爬虫与反爬虫的博弈"
-date:   2017-10-09 17:23:49 +0800
+date:   2017-10-09 17:23:49
 urlname: 21
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-10-09.jpg
+cover: https://img.jikehou.cn/cover/2017-10-09.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, 反爬虫]
 keywords: [Python, 网络爬虫, 反爬虫]
@@ -37,7 +37,7 @@ keywords: [Python, 网络爬虫, 反爬虫]
 
 `攻`：只要在 http 请求的 headers 中带上对于的字段即可。下图中的七个字段被大多数浏览器用来初始化所有网络请求。建议将以下所有字段都带上。
 
-![建议将以下所有字段都带上](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/44_1.png)
+![建议将以下所有字段都带上](https://img.jikehou.cn/img/44_1.png)
 
 ### 3-2.场景二
 

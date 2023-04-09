@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "爬虫实战一：爬取当当网所有 Python 书籍"
-date:   2017-07-18 10:56:03 +0800
+date:   2017-07-18 10:56:03
 urlname: 9
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-07-18.jpg
+cover: https://img.jikehou.cn/cover/2017-07-18.jpg
 categories: [Python爬虫实战]
 tags: [Python, 网络爬虫, 爬虫实战, 当当]
 keywords: [Python, 网络爬虫, 爬虫实战, 当当]
@@ -20,7 +20,7 @@ keywords: [Python, 网络爬虫, 爬虫实战, 当当]
 
 具体如下图所示：
 
-![当当网所有Python书籍的信息](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/32_1.png)
+![当当网所有Python书籍的信息](https://img.jikehou.cn/img/32_1.png)
 
 本次爬取结果有三项：
 - 图书的封面图片
@@ -40,15 +40,15 @@ keywords: [Python, 网络爬虫, 爬虫实战, 当当]
 
 搜索结果页面为 1 时，URL 地址如下：
 
-![搜索结果页面为 1 时](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/32_2.png)
+![搜索结果页面为 1 时](https://img.jikehou.cn/img/32_2.png)
 
 搜索结果页面为 3 时，URL 地址如下：
 
-![搜索结果页面为 3 时](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/32_3.png)
+![搜索结果页面为 3 时](https://img.jikehou.cn/img/32_3.png)
 
 搜索结果页面为 21 时，即最后一页，URL 地址如下：
 
-![最后一页](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/32_4.png)
+![最后一页](https://img.jikehou.cn/img/32_4.png)
 
 从上面的图片中，我们发现 URL 地址的差异就在于 page_index 的值，
 
@@ -82,7 +82,7 @@ keywords: [Python, 网络爬虫, 爬虫实战, 当当]
 
 我们按下 F12 键盘，依次对每本书进行元素检查（在页面使用鼠标右键，点击“检查”即可），具体结果如下：
 
-![具体结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/32_5.png)
+![具体结果](https://img.jikehou.cn/img/32_5.png)
 
 从上图可以得知解析规则：每本书的节点是一个 a 标签，a 标签具有 title，href，子标签 img 的 src 三个属性，
 
@@ -114,7 +114,7 @@ print(books)
 
 运行结果如下：
 
-![运行结果如下](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/32_6.png)
+![运行结果如下](https://img.jikehou.cn/img/32_6.png)
 
 这证明刚才制定规则是正确爬取我们所需的内容。
 
@@ -181,7 +181,7 @@ with codecs.open(fileName, 'w', 'utf-8') as csvfile:
 
 我就把爬取结果截下图：
 
-![爬取结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/32_7.png)
+![爬取结果](https://img.jikehou.cn/img/32_7.png)
 
 ## 4.写在最后
 这次实战算是结束了，但是我们不能简单地满足，看下程序是否有优化的地方。我把该程序不足的地方写出来。

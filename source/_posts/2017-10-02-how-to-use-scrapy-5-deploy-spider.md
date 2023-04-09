@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "学会运用爬虫框架 Scrapy (五)  —— 部署爬虫"
-date:   2017-10-02 10:39:20 +0800
+date:   2017-10-02 10:39:20
 urlname: 20
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-10-02.jpg
+cover: https://img.jikehou.cn/cover/2017-10-02.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, Scrapy]
 keywords: [Python, 网络爬虫, Scrapy, 爬虫实战, 部署爬虫]
@@ -38,7 +38,7 @@ scrapyd
 ```
 启动服务结果如下：
 
-![启动服务结果如下](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/43_1.png)
+![启动服务结果如下](https://img.jikehou.cn/img/43_1.png)
 
 scrapyd 也提供了 web 的接口。方便我们查看和管理爬虫程序。
 
@@ -46,7 +46,7 @@ scrapyd 也提供了 web 的接口。方便我们查看和管理爬虫程序。
 
 在本机上使用浏览器访问 `http://localhost:6800/`地址即可查看到当前可以运行的项目。
 
-![浏览器访问](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/43_2.png)
+![浏览器访问](https://img.jikehou.cn/img/43_2.png)
 
 
 ## 3.项目部署

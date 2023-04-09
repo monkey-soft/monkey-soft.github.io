@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "干将莫邪” —— Xpath 与 lxml 库"
-date:   2017-08-07 14:55:51 +0800
+date:   2017-08-07 14:55:51
 urlname: 13
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-08-07.jpg
+cover: https://img.jikehou.cn/cover/2017-08-07.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, Xpath, lxml]
 keywords: [Python, 网络爬虫, Xpath, lxml]

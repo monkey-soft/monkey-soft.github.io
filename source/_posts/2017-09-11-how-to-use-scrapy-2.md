@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "学会运用爬虫框架 Scrapy (二)"
-date:   2017-09-11 21:43:47 +0800
+date:   2017-09-11 21:43:47
 urlname: 17
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-09-11.jpg
+cover: https://img.jikehou.cn/cover/2017-09-11.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, Scrapy, 爬虫实战]
 keywords: [Python, 网络爬虫, Scrapy, 爬虫实战]
@@ -23,7 +23,7 @@ keywords: [Python, 网络爬虫, Scrapy, 爬虫实战]
 
 爬取内容是[最新推荐]栏目的前15条短视频数据信息。具体信息包括封面、标题、详细说明以及视频播放地址。
 
-![最新推荐](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/40_1.png)
+![最新推荐](https://img.jikehou.cn/img/40_1.png)
 
 ## 2.定义 Item
 为什么将爬取信息定义清楚呢？
@@ -228,7 +228,7 @@ class VmoiveSpider(scrapy.Spider):
 ```
 
 再次运行程序，查看运行结果。
-![运行结果](https://cdn.jsdelivr.net/gh/monkey-soft/img@master/imgs/40_2.png)
+![运行结果](https://img.jikehou.cn/img/40_2.png)
 
 ## 7.数据持久化
 在实际生产中，我们很少把数据导出到 json 文件中。

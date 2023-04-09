@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "内容提取神器 beautifulSoup 的用法"
-date:   2017-07-15 15:57:22 +0800
+date:   2017-07-15 15:57:22
 urlname: 8
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-07-15.jpg
+cover: https://img.jikehou.cn/cover/2017-07-15.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, beautifulSoup]
 keywords: [Python, 网络爬虫, beautifulSoup, 内容提取, bs]

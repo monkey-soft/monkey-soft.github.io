@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "应该如何阅读？"
-date:   2017-08-05 09:37:43 +0800
+date:   2017-08-05 09:37:43
 urlname: 12
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-08-05.jpg
+cover: https://img.jikehou.cn/cover/2017-08-05.jpg
 categories: [个人成长]
 tags: [阅读, 个人成长, 认知]
 keywords: [阅读, 个人成长, 认知]

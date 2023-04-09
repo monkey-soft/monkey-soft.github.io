@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "学爬虫之道"
-date:   2017-06-25 01:05:52 +0800
+date:   2017-06-25 01:05:52
 urlname: 2
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-06-25.jpg
+cover: https://img.jikehou.cn/cover/2017-06-25.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫]
 keywords: [Python, 网络爬虫，爬虫, urlib, requests, BeautifulSoup, Selenium, Scrapy, MySql, MongoDB, NumPy, Pandas, Matplotlib]

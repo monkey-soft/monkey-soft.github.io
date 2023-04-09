@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Python 多进程与多线程"
-date:   2017-07-20 16:28:12 +0800
+date:   2017-07-20 16:28:12
 urlname: 10
-cover: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/cover/2017-07-20.jpg
+cover: https://img.jikehou.cn/cover/2017-07-20.jpg
 categories: [Python爬虫入门]
 tags: [Python, 网络爬虫, 多线程, 多进程]
 keywords: [Python, 网络爬虫, 多线程, GIL, 多进程]
