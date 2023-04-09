@@ -14,7 +14,7 @@ menu:
   关于我: /about/ || fas fa-heart
 
 nav:
-  logo: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/config/avatar.png
+  logo: https://img.jikehou.cn/config/avatar.png
   display_title: true
   fixed: true # fixed navigation bar
 
@@ -90,11 +90,11 @@ katex:
 # --------------------------------------
 
 # Favicon（网站原标）
-favicon: https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico
+favicon: https://img.jikehou.cn/config/favicon.ico
 
 # Avatar (头像)
 avatar:
-  img: https://cdn.jsdelivr.net/gh/monkey-soft/img@master/config/avatar.png
+  img: https://img.jikehou.cn/config/avatar.png
   effect: false # true 头像会一直转圈
 
 # Disable all banner image
