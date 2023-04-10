@@ -5,7 +5,7 @@ date:   2017-12-08 19:45:35 +0800
 urlname: 27
 cover: https://img.jikehou.cn/cover/2017-12-08.jpg
 categories: [小白入门Python]
-tags: [Python, 定时任务, APScheduler]
+tags: [Python, 定时任务]
 keywords: [Python, datetime, time, APScheduler]
 description: Python 定时任务(下)
 ---

@@ -5,7 +5,7 @@ date:   2017-08-07 14:55:51
 urlname: 13
 cover: https://img.jikehou.cn/cover/2017-08-07.jpg
 categories: [Python爬虫入门]
-tags: [Python, 网络爬虫, Xpath, lxml]
+tags: [Python, 网络爬虫]
 keywords: [Python, 网络爬虫, Xpath, lxml]
 ---
 前面的文章，我们已经学会正则表达式以及 BeautifulSoup库的用法。

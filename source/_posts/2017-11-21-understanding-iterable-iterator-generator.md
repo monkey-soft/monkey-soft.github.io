@@ -5,7 +5,7 @@ date:   2017-11-21 15:06:17
 urlname: 24
 cover: https://img.jikehou.cn/cover/2017-11-21.jpg
 categories: [小白入门Python]
-tags: [Python, generator, iterator, iterable]
+tags: [Python]
 keywords: [Python, generator, iterator, iterable]
 ---
 本文介绍猴哥对于Python中的Iterable、Iterator、generator的理解。

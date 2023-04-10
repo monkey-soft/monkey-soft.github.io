@@ -5,7 +5,7 @@ date:   2017-06-30 15:53:38
 urlname: 7
 cover: https://img.jikehou.cn/cover/2017-06-30.jpg
 categories: [Python爬虫入门]
-tags: [Python, 网络爬虫, 正则表达式]
+tags: [Python, 网络爬虫]
 keywords: [Python, 网络爬虫, 正则表达式, re]
 ---
 我们能够使用 urllib 向网页请求并获取其网页数据。

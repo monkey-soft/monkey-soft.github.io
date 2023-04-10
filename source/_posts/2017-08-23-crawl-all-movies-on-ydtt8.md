@@ -5,7 +5,7 @@ date:   2017-08-23 20:30:29
 urlname: 14
 cover: https://img.jikehou.cn/cover/2017-08-23.jpg
 categories: [Python爬虫实战]
-tags: [Python, 网络爬虫, 电影, 爬虫实战]
+tags: [Python, 网络爬虫, 爬虫实战]
 keywords: [Python, 网络爬虫, 电影天堂, 电影, 爬虫实战]
 ---
 前面两篇文章介绍 requests 和 xpath 的用法。我们推崇学以致用，所以本文讲解利用这两个工具进行实战。

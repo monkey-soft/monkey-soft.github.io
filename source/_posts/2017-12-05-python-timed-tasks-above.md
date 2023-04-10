@@ -5,7 +5,7 @@ date:   2017-12-05 21:27:59
 urlname: 26
 cover: https://img.jikehou.cn/cover/2017-12-05.jpg
 categories: [小白入门Python]
-tags: [Python, 定时任务, sched]
+tags: [Python, 定时任务]
 keywords: [Python, datetime, time, sched模块]
 ---
 > 在项目中，我们可能遇到有定时任务的需求。其一：定时执行任务。例如每天早上 8 点定时推送早报。其二：每隔一个时间段就执行任务。比如：每隔一个小时提醒自己起来走动走动，避免长时间坐着。

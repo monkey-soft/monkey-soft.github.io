@@ -5,7 +5,7 @@ date:   2017-07-15 15:57:22
 urlname: 8
 cover: https://img.jikehou.cn/cover/2017-07-15.jpg
 categories: [Python爬虫入门]
-tags: [Python, 网络爬虫, beautifulSoup]
+tags: [Python, 网络爬虫]
 keywords: [Python, 网络爬虫, beautifulSoup, 内容提取, bs]
 ---
 

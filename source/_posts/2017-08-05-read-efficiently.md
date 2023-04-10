@@ -5,7 +5,7 @@ date:   2017-08-05 09:37:43
 urlname: 12
 cover: https://img.jikehou.cn/cover/2017-08-05.jpg
 categories: [个人成长]
-tags: [阅读, 个人成长, 认知]
+tags: [个人成长]
 keywords: [阅读, 个人成长, 认知]
 ---
 我最近阅读民主与建设出版社出版的《如何阅读一本书》，自己收获颇多。
