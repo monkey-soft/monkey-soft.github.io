@@ -4,7 +4,7 @@ title:  "多线程爬取 unsplash 图库"
 date:   2018-06-20 19:53:59
 urlname: 62
 cover: https://img.jikehou.cn/cover/2018-06-20.jpg
-categories: [网络爬虫]
+categories: [Python爬虫实战]
 tags: [Python, 网络爬虫, 爬虫实战, 多线程]
 keywords: [Python, 网络爬虫, unsplash, 爬虫实战, 项目实战]
 ---
