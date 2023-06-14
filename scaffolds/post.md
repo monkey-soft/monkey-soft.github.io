@@ -1,10 +1,9 @@
 ---
 title: {{ title }}
 date: {{ date }}
-urlname:
-thumbnail:
-categories:
-tags:
-keywords: 
+cover: https://img.jikehou.cn/cover/{{ date }}.jpg
+categories: []
+tags: []
+keywords: []
 description: 
 ---
