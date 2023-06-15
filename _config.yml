@@ -6,7 +6,7 @@
 title: 极客猴
 subtitle: '猴哥的个人博客'
 description: '猴哥的个人博客: 极客猴。分享自己总结的Python爬虫、量化交易的心得。博客记录个人成长。'
-keywords: 'python, 网络爬虫, 长期主义, 个人成长'
+keywords: 'python, 读书, 网络爬虫，长期主义, 个人成长'
 author: 猴哥
 language: zh-CN
 # 网站图标，更多尺寸等图标请使用import方式批量导入
@@ -116,8 +116,8 @@ theme: butterfly
 #   message: "猴哥 push at {{ now('YYYY-MM-DD HH:mm:ss Z') }}"
 
 
-# 自动生成sitemap
-# sitemap:
-#     path: sitemap.xml
-# baidusitemap:
-#     path: baidusitemap.xml
+# 自动生成站点地图
+sitemap:
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml

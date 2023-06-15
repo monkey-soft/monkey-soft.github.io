@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: .json$
+Disallow: .sh$
+Sitemap: https://jikehou.cn/sitemap.xml
