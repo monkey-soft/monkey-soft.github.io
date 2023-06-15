@@ -637,7 +637,7 @@ hr_icon:
 
 # the subtitle on homepage (主页subtitle)
 subtitle:
-  enable: false
+  enable: true
   # Typewriter Effect (打字效果)
   effect: true
   # Customize typed.js (配置typed.js)
@@ -653,6 +653,7 @@ subtitle:
   # 如果關閉打字效果，subtitle 只會顯示 sub 的第一行文字
   sub:
     - 把读书当做事业的前程序员。
+    - 不日进则日退。
 
 # Loading Animation (加載动画)
 preloader:
