@@ -490,10 +490,14 @@ google_adsense:
 # --------------------------------------
 
 site_verification:
+  # Google Webmaster tools verification.
+  # See: https://search.google.com/search-console
   # - name: google-site-verification
   #   content: xxxxxx
-  # - name: baidu-site-verification
-  #   content: xxxxxxx
+  # Baidu Webmaster tools verification.
+  # See: https://ziyuan.baidu.com/site
+  - name: baidu-site-verification
+    content: TRltKAayjDsxQ7dA
 
 # Beautify/Effect (美化/效果)
 # --------------------------------------
