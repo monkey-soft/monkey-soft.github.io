@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ChatGPT 4.0，AI 创造未来的无限可能"
+title:  "一个开放的未来之门"
 date:   2023-03-30 14:41:33
 cover: https://img.jikehou.cn/cover/2023-03-30.png
 categories: [AIGC研究]

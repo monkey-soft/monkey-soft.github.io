@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ChatGPT 4.0，AI 创造未来的无限可能"
+title:  "AI 革命下的内卷风暴"
 date:   2023-04-19 19:08:33
 cover: https://img.jikehou.cn/cover/2023-04-19.png
 categories: [AIGC研究]
