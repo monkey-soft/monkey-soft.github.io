@@ -1,0 +1,26 @@
+[
+  {
+    "class_name": "友情链接",
+    "class_desc": "猴哥的好友们",
+    "link_list": [
+      {
+        "name": "咸鱼学Python",
+        "link": "http://www.xianyucoder.cn",
+        "avatar": "https://avatars.githubusercontent.com/u/38454239",
+        "descr": "擅长JS逆向的Python大佬"
+      },
+      {
+        "name": "写代码的明哥",
+        "link": "https://iswbm.com",
+        "avatar": "http://image.iswbm.com/20200925130928.png",
+        "descr": "Python和GO双修的云计算工程师"
+      },
+      {
+        "name": "洛竹的博客",
+        "link": "https://youngjuning.js.org",
+        "avatar": "https://cdn.jsdelivr.net/gh/youngjuning/images@main/1680450378978.png",
+        "descr": "怕什么真理无穷，进一寸有一寸的欢喜。"
+      }
+    ]
+  }
+]
