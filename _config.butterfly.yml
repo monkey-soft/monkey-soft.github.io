@@ -542,7 +542,7 @@ tag_ui: # 留空或 index
 background: 
 
 # Footer Background
-footer_bg: false
+footer_bg: true
 
 # the position of bottom right button/default unit: px (右下角按鈕距離底部的距離/默認單位為px)
 rightside-bottom:
@@ -608,7 +608,7 @@ ClickShowText:
   random: false
   mobile: false
 
-# Default display mode (網站默認的顯示模式)
+# Default display mode (网站默认的显示模式)
 # light (default) / dark
 display_mode: light
 
@@ -619,7 +619,7 @@ beautify:
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: '#F47466'
 
-# Global font settings
+# 自定义字体和字体大小
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
   global-font-size:
@@ -743,7 +743,7 @@ aside:
       link: https://github.com/monkey-soft
   card_announcement:
     enable: true
-    content: 猴哥的个人博客，记录我的成长
+    content: 猴哥的个人博客，把读书当做事业的前程序员，记录我的成长
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -863,7 +863,7 @@ snackbar:
 
 # https://instant.page/
 # 预加载, 当鼠标悬停到链接上超过 65 毫秒时
-instantpage: false
+instantpage: true
 
 # https://github.com/vinta/pangu.js
 # Insert a space between Chinese character and English character (中英文之间添加空格)
@@ -912,6 +912,7 @@ css_prefix: true
 inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4286736_46jc9emrum5.css">
   bottom:
     # - <script src="xxxx"></script>
 

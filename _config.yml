@@ -5,8 +5,8 @@
 # Site
 title: 极客猴
 subtitle: '猴哥的个人博客'
-description: '猴哥的个人博客: 极客猴。分享自己总结的Python爬虫、量化交易的心得。博客记录个人成长。'
-keywords: 'python, 读书, 网络爬虫，长期主义, 个人成长'
+description: '猴哥的个人博客。一个每日阅读过万的读书人，推荐和拆解好书，把读书当做事业来做。前程序员，专栏有Python、网络爬虫、量化交易等技术文章。'
+keywords: '读书, 个人成长, 长期主义, python, 网络爬虫'
 author: 猴哥
 language: zh-CN
 # 网站图标，更多尺寸等图标请使用import方式批量导入
