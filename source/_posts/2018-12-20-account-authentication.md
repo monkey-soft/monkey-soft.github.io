@@ -21,6 +21,7 @@ QQ 承载着我们一代人的青春和记忆，一个账号和密码就能体�
 因此，让我们来扒一扒其中的一些原理。
 <!-- more -->
 ## 1.基本身份验证
+
 我们写的爬虫都是采用 HTTP/HTTPS 协议。
 
 HTTP 协议中有种名为 Basic Authentication（基本身份验证）的验证方式。
@@ -37,6 +38,7 @@ HTTP 协议中有种名为 Basic Authentication（基本身份验证）的验证
 
 
 ## 2.基于 Session 的认证
+
 因为 HTTP 协议是无状态的，所以有人提出 Session 机制来维护服务器和用户之间的状态。
 
 如果需要验证身份，那么在服务端生成用户相关的 Session 数据，然后发给客户端 Session_id 存放到 Cookies 中。
@@ -74,6 +76,7 @@ HTTP 协议中有种名为 Basic Authentication（基本身份验证）的验证
 JWT 全称是“JSON Web Token”，它是一种基于 Token 的认证标准。
 
 ## 4.OAuth
+
 OAuth 是一种认证协议，允许用户对没有密码的服务器执行认证。 
 
 OAuth 存在很多版本，OAuth 1.0，OAuth 1.0a 和 OAuth 2.0。
@@ -81,11 +84,15 @@ OAuth 存在很多版本，OAuth 1.0，OAuth 1.0a 和 OAuth 2.0。
 OAuth 认证也是很好理解，就是一些网站或者应用支持第三方登录（QQ、微信、微博等）。
 
 ## 5.OpenID
+
 OpenId 是另一种不需要密码的身份验证协议（类似于OAuth）。
 
 它们两者的区别是 ：
+
 ### OpenID 强调 `验证 Authentication`
+
 例如使用 QQ 方式登录知乎。最开始是要请求认证，用户输入 QQ 号和密码，点击登录。腾讯会先进行验证该用户是否为腾讯 QQ 的用户；如果是我的用户，那么腾讯 QQ 会通知知乎说“刚才登录是我腾讯 QQ 的用户，验证没有问题，可以你知乎社区”，这个过程就是认证（Authentication）。
 
 ### OAuth 强调 `授权 Authorization`
+
 微信一开始是支持 QQ 方式登录，登录时微信会乎会询问允许获取你的 QQ 昵称、头像、性别等信息。这个就是授权（Authorization）。

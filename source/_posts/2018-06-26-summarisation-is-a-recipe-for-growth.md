@@ -7,7 +7,6 @@ cover: https://img.jikehou.cn/cover/2018-06-26.jpg
 categories: [个人成长]
 tags: [个人成长]
 keywords: [个人成长, 认知, 总结, 方法论]
-
 ---
 时光荏苒，2018 年已经过去半年。
 
@@ -51,4 +50,4 @@ keywords: [个人成长, 认知, 总结, 方法论]
 
 写在最后，我给各位小伙伴送上一份福利 —— Python 爬虫知识的框架图
 
-![Python 爬虫知识的框架图](https://img.jikehou.cn/img/94_1.png)
+![Python 爬虫知识的框架图](https://img.jikehou.cn/img/20180626_1.png)

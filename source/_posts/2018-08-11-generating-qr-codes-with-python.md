@@ -43,7 +43,7 @@ QR code 是一种矩阵式二维条码（又称棋盘式二维条码）。
 
 根据标准（ISO/IEC 18004），我们可以了解到 QR 码结构如下：
 
-![QR 码结构](https://img.jikehou.cn/img/106_1.jpg)
+![QR 码结构](https://img.jikehou.cn/img/20180811_1.jpg)
 
 
 ### 2-1 功能图形
@@ -122,7 +122,7 @@ myqr https://github.com -p github.jpg -c
 
 上述命令作用是将 github 主页写到彩色二维码中。
 
-![彩色二维码](https://img.jikehou.cn/img/106_2.jpg)
+![彩色二维码](https://img.jikehou.cn/img/20180811_2.jpg)
 
 该库还支持生成 gif 的彩色二维码图片，具体用法如下：
 
@@ -131,7 +131,7 @@ myqr https://github.com -p github.gif -c -con 1.5 -bri 1.6
 ```
 
 效果图如下：
-![效果图](https://img.jikehou.cn/img/106_3.gif)
+![效果图](https://img.jikehou.cn/img/20180811_3.gif)
 
 
 最后补上该库的 [Github 仓库地址](https://github.com/sylnsfar/qrcode)

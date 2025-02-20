@@ -33,15 +33,16 @@ keywords: [数据采集器, 网络爬虫, 火车头, 八爪鱼, GooSeeker 集搜
 其实不然，猴哥介绍几个能快速获取网上数据的工具。
 
 ## 1.Microsoft Excel
+
 你没有看错，就是 Office 三剑客之一的 Excel。
 
 Excel 是一个强大的工具，能抓取数据就是它的功能之一。
 
 我以耳机作为关键字，抓取京东的商品列表。
 
-![抓取京东的商品列表-1](https://img.jikehou.cn/img/163_1.jpg)
+![抓取京东的商品列表-1](https://img.jikehou.cn/img/20200408_1.jpg)
 
-![抓取京东的商品列表-2](https://img.jikehou.cn/img/163_2.jpg)
+![抓取京东的商品列表-2](https://img.jikehou.cn/img/20200408_2.jpg)
 
 等待几秒后，Excel 会将页面上所有的文字信息抓取到表格中。
 
@@ -51,7 +52,7 @@ Excel 是一个强大的工具，能抓取数据就是它的功能之一。
 
 ## 2.火车头采集器
 
-![火车头采集器](https://img.jikehou.cn/img/163_3.jpg)
+![火车头采集器](https://img.jikehou.cn/img/20200408_3.jpg)
 
 火车头是爬虫界的老品牌了，是目前使用人数最多的互联网数据抓取、处理、分析，挖掘软件。
 
@@ -65,7 +66,7 @@ Excel 是一个强大的工具，能抓取数据就是它的功能之一。
 
 ## 3.八爪鱼采集器
 
-![八爪鱼采集器](https://img.jikehou.cn/img/163_4.jpg)
+![八爪鱼采集器](https://img.jikehou.cn/img/20200408_4.jpg)
 
 八爪鱼采集器是一款非常适合新手的采集器。它具有简单易用的特点，让你能几分钟中就快手上手。八爪鱼提供一些常见抓取网站的模板，使用模板就能快速抓取数据。如果想抓取没有模板的网站，官网也提供非常详细的图文教程和视频教程。
 
@@ -75,15 +76,15 @@ Excel 是一个强大的工具，能抓取数据就是它的功能之一。
 
 ## 4.GooSeeker 集搜客
 
-![GooSeeker](https://img.jikehou.cn/img/163_5.jpg)
+![GooSeeker](https://img.jikehou.cn/img/20200408_5.jpg)
 
-集搜客也是一款容易上手的可视化采集数据工具。同样能抓取动态网页，也支持可以抓取手机网站上的数据，还支持抓取在指数图表上悬浮显示的数据。集搜客是以浏览器插件形式抓取数据。虽然具有前面所述的有点，但缺点也有，无法多线程采集数据，出现浏览器卡顿也在所难免。
+集搜客也是一款容易上手的可视化采集数据工具。同样能抓取动态网页，也支持可以抓取手机网站上的数据，还支持抓取在指数图表上悬浮显示的数据。集搜客是以浏览器插件形式抓取数据。虽然具有前面所述的优点，但缺点也有，无法多线程采集数据，出现浏览器卡顿也在所难免。
 
 {% btn 'https://www.gooseeker.com/', 集搜客官网地址, far fa-hand-point-right,blue larger %}
 
 ## 5.Scrapinghub
 
-![Scrapinghub](https://img.jikehou.cn/img/163_6.jpg)
+![Scrapinghub](https://img.jikehou.cn/img/20200408_6.jpg)
 
 如果你想抓取国外的网站数据，可以考虑 Scrapinghub。Scrapinghub 是一个基于Python 的 Scrapy 框架的云爬虫平台。Scrapehub 算是市场上非常复杂和强大的网络抓取平台，提供数据抓取的解决方案商。
 
@@ -92,7 +93,7 @@ Excel 是一个强大的工具，能抓取数据就是它的功能之一。
 
 ## 6.WebScraper
 
-![WebScraper](https://img.jikehou.cn/img/163_7.jpg)
+![WebScraper](https://img.jikehou.cn/img/20200408_7.jpg)
 
 WebScraper 是一款优秀国外的浏览器插件。同样也是一款适合新手抓取数据的可视化工具。我们通过简单设置一些抓取规则，剩下的就交给浏览器去工作。
 

@@ -57,18 +57,18 @@ python manage.py createsuperuser
 ```
 
 打开终端之后，依次输入用户名，邮箱和密码即可创建。成功创建换管理员结果如下：
-![成功创建换管理员结果](https://img.jikehou.cn/img/68_1.png)
+![成功创建换管理员结果](https://img.jikehou.cn/img/20180320_1.png)
 
 Django 在密码校验这块做的还不错。我使用弱密码 'admin'和'1234678'，Django 都不让我通过。
 
 成功创建超级用户之后，使用浏览器访问后台管理系统： `127.0.0.1:8000/admin`。
 
-![后台管理系统](https://img.jikehou.cn/img/68_2.png)
+![后台管理系统](https://img.jikehou.cn/img/20180320_2.png)
 
 输入用户名和密码并进行登录，会看到以下界面。因为是空项目，所以没有数据，只有显示用户账号的信息。
 
 你可以对 admin 进行二次开发，这样你就能在后台对数据库数据进行操作。
-![能在后台对数据库数据进行操作](https://img.jikehou.cn/img/68_3.png)
+![能在后台对数据库数据进行操作](https://img.jikehou.cn/img/20180320_3.png)
 
 ## 3.常用的 admin 应用
 

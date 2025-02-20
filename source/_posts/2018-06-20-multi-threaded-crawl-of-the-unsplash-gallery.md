@@ -28,7 +28,7 @@ keywords: [Python, 网络爬虫, unsplash, 爬虫实战, 项目实战]
 ## 1.分析
 Unsplash 网站采用瀑布流样式来呈现图片。
 
-首页以开始只会呈现一部分图片，当我们滑动滚动条到底部时，网页才会继续加载部分图片。
+首页一开始只会呈现一部分图片，当我们滑动滚动条到底部时，网页才会继续加载部分图片。
 
 这网站经常使用 Ajax 技术来加载图片。
 
@@ -40,7 +40,7 @@ Unsplash 网站采用瀑布流样式来呈现图片。
 
 我使用浏览器的开发者工具来查看网络请求。
 
-![开发者工具来查看网络请求](https://img.jikehou.cn/img/93_1.png)
+![开发者工具来查看网络请求](https://img.jikehou.cn/img/20180620_1.png)
 
 查看首页的数据包，只能得到知首页是经过重定向的信息。
 
@@ -48,21 +48,21 @@ Unsplash 网站采用瀑布流样式来呈现图片。
 
 自己只要在代码中搜索下 `http` 字样，说不定还有意外的收获。
 
-![说不定还有意外的收获](https://img.jikehou.cn/img/93_2.png)
+![说不定还有意外的收获](https://img.jikehou.cn/img/20180620_2.png)
 
 结果希望又落空。只能接着分析。
 
 经过一番漫长的分析之后，最后发现两个很有价值的信息。
 
-![第一个很有价值的信息](https://img.jikehou.cn/img/93_3.png)
+![第一个很有价值的信息](https://img.jikehou.cn/img/20180620_3.png)
 
-![第二个很有价值的信息](https://img.jikehou.cn/img/93_4.png)
+![第二个很有价值的信息](https://img.jikehou.cn/img/20180620_4.png)
 
 这个 url 地址十有八九是图片的请求地址。
 
 自己使用浏览器访问这个地址，证实自己的猜想是正确的。
 
-![证实自己的猜想是正确的](https://img.jikehou.cn/img/93_5.png)
+![证实自己的猜想是正确的](https://img.jikehou.cn/img/20180620_5.png)
 
 根据英语单词，可以推断出各个参数的意思。
 
@@ -74,7 +74,7 @@ per_page 表示每页拉去的图片数, order_by 表示按时间从现在到以
 
 目的是验证网站是否有反爬虫机制，结果发现没有。
 
-![结果发现没有反爬虫机制](https://img.jikehou.cn/img/93_6.png)
+![结果发现没有反爬虫机制](https://img.jikehou.cn/img/20180620_6.png)
 
 
 ## 2.爬取思路
@@ -199,7 +199,7 @@ class Unsplash(threading.Thread):
 
 我是将爬虫程序运行在云主机上，所以就只显示本地爬取的 100 多张图片。
 
-![只显示本地爬取的 100 多张图片](https://img.jikehou.cn/img/93_7.png)
+![只显示本地爬取的 100 多张图片](https://img.jikehou.cn/img/20180620_7.png)
 
 ## 5.源码
 

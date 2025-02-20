@@ -10,7 +10,7 @@ keywords: [Python, web, Django]
 ---
 本文是自己 Django 学习笔记系列的第四篇原创文章。
 
-主要接着篇文章的视图内容，讲解模板的用法。
+主要接这篇文章的视图内容，讲解模板的用法。
 
 另外也说下 Django 学习笔记系列的安排。
 
@@ -177,7 +177,7 @@ keywords: [Python, web, Django]
 
 在每个 {百分号 for  百分号}循环中有一个被称为 ** forloop ** 的模板变量。这变量提供一些带有循环进度信息的属性。
 
-* **forloop.counter** 表示当前循环的执行次数的总数。这个计数器是从 1 开始记录，所以在第一次循环操作是，forloop.counter 会被设置为 1。
+* **forloop.counter** 表示当前循环的执行次数的总数。这个计数器是从 1 开始记录，所以在第一次循环操作时，forloop.counter 会被设置为 1。
 * **forloop.counter0** 类似于 forloop.counter ，但是它是从0计数的。 第一次执行循环时这个变量会被设置为0。
 * **forloop.revcounter** 是记录循环中还没有被遍历项的总数。循环初次执行时 forloop.revcounter 将被设置为序列的长度。 最后一次循环执行中，这个变量将被置1。
 * **forloop.revcounter0** 类似于 forloop.revcounter ，但它以0做为结束索引。因此，第一次循环执行的时候，该变量的值为 序列的长度减 1。
@@ -187,7 +187,7 @@ keywords: [Python, web, Django]
 
 ### 2-3.ifequal 标签
 
-比较两个变量的值是在是太常见了，所以 Django 模板提供了 {百分号 ifequal 百分号} 标签提供我们使用。
+比较两个变量的值实在是太常见了，所以 Django 模板提供了 {百分号 ifequal 百分号} 标签提供我们使用。
 
 {百分号 ifequal 百分号} 标签比较两个值，当它们相等时，显示在 {百分号 ifequal 百分号} 和 {百分号 endifequal 百分号} 之中所有的值。
 
@@ -287,7 +287,7 @@ Django 提供模板功能目的是为了让视图和前端页面内容隔开来�
 
 同时，前端设计师可能对 HTML 编码比较熟悉，但完全不懂 Python。
 
-Python 工程是不一定都熟悉前端的知识。
+Python 工程师不一定都熟悉前端的知识。
 
 因此，不提倡直接在 视图中混入模板内容。
 

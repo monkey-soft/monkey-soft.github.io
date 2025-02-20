@@ -30,16 +30,16 @@ PC 端抓取数据有难度，我们可以从手机端入手。
 <!-- more -->
 举个栗子，假如我要抓取淘宝首页的数据。我先用手机浏览器访问淘宝网站。
 
-![用手机浏览器访问淘宝网站](https://img.jikehou.cn/img//99_1.png)
+![用手机浏览器访问淘宝网站](https://img.jikehou.cn/img/20180717_1.png)
 
 然后获取到手机端淘宝首页的 url 地址。
 
-![获取到手机端淘宝首页的 url 地址](https://img.jikehou.cn/img/99_2.png)
+![获取到手机端淘宝首页的 url 地址](https://img.jikehou.cn/img/20180717_2.png)
 
 从图中，我们可知淘宝 web 手机端首页地址是：`https://h5.m.taobao.com/`。接着我们再用 PC 浏览器访问。
 
-![接着我们再用 PC 浏览器访问](https://img.jikehou.cn/img/99_3.png)
+![接着我们再用 PC 浏览器访问](https://img.jikehou.cn/img/20180717_3.png)
 
 PC 端浏览器能正常访问，说明我们能使用浏览器自带的开发者工具来进行抓包分析。
 
-![进行抓包分析](https://img.jikehou.cn/img/99_4.png)
+![进行抓包分析](https://img.jikehou.cn/img/20180717_4.png)

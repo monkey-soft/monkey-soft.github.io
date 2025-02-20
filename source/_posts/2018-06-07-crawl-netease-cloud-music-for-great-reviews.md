@@ -45,11 +45,11 @@ So La Si Si Si Si La Si La So
 
 正常的页面长这样：
 
-![正常的页面长这样](https://img.jikehou.cn/img/90_1.png)
+![正常的页面长这样](https://img.jikehou.cn/img/20180607_1.png)
 
 当禁用页面 JavaScript 脚本之后，正常显示数据页面会变成一个空白页面。
 
-![正常显示数据页面会变成一个空白页面](https://img.jikehou.cn/img/90_2.png)
+![正常显示数据页面会变成一个空白页面](https://img.jikehou.cn/img/20180607_2.png)
 
 因此，可以断定网易云音乐加载数据方式采用 Ajax。
 
@@ -59,7 +59,7 @@ So La Si Si Si Si La Si La So
 
 因为我们已经确定网站采用 Ajax ，所以直接在选择 **XHR** 过滤器过滤出所有请求。
 
-![过滤出所有请求](https://img.jikehou.cn/img/90_3.png)
+![过滤出所有请求](https://img.jikehou.cn/img/20180607_3.png)
 
 然后依次对每个 url 链接的 HTTP 请求进行分析，着重观察 **Headers**，**Preview** 选项。
 
@@ -67,11 +67,11 @@ So La Si Si Si Si La Si La So
 
 **Preview** 中有字段跟精彩评论中用户名一致。
 
-![有字段跟精彩评论中用户名一致](https://img.jikehou.cn/img/90_4.png)
+![有字段跟精彩评论中用户名一致](https://img.jikehou.cn/img/20180607_4.png)
 
 继续切换到 **Headers** 确认请求域名以及请求需要携带的参数。
 
-![确认请求域名以及请求需要携带的参数](https://img.jikehou.cn/img/90_5.png)
+![确认请求域名以及请求需要携带的参数](https://img.jikehou.cn/img/20180607_5.png)
 
 那么爬取思路是：使用 POST 方式携带参数 **params** 和 **encSecKey** 向该地址 `http://music.163.com/weapi/v1/resource/comments/R_SO_4_186001?csrf_token=` 发起HTTP 请求。
 
@@ -188,4 +188,4 @@ def write_to_file(datalist):
 
 哈哈，这里请允许我贴下爬取结果。
 
-![爬取结果](https://img.jikehou.cn/img/90_6.png)
+![爬取结果](https://img.jikehou.cn/img/20180607_6.png)

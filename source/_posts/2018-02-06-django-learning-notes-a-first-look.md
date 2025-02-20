@@ -29,7 +29,7 @@ Django 是一个遵循 MVC 开发模式的框架 。
 
 我们先看下 MVC 的数据流向，了解 MVC 的工作流程。
 
-![MVC 的工作流程](https://img.jikehou.cn/img/62_1.png)
+![MVC 的工作流程](https://img.jikehou.cn/img/20180206_1.png)
 
 M 是 Model 的意思 ，它是一个抽象层，用来构建和操作 Web 应用中的数据。同时，Model 层跟数据库打交道的层次，执行数据库数据的增删改查操作。
 
@@ -39,14 +39,14 @@ V 指的是 View  层。在 Django 项目中，**templates** 文件夹中各个�
 
 C 全称是 Controller 。它通常是负责从视图读取数据，控制用户输入，并向模型发送数据。在 Django 项目中，**urls.py** （文件路由）中定义的各种 url 访问入口 和 **view.py** 中定义的各种处理函数（被称为 Django 视图函数）代表控制器（Controller ）。**urls.py** 接受用户在浏览器中输入不同 url 地址的请求，然后分发给 view.py 。**view.py** 再根据文件中对应的函数与数据模型和视图交互，响应用户的请求。即将数据填充到模板（templates）中，呈现给用户。
 
-![图片来源于网络](https://img.jikehou.cn/img/62_2.png)
+![图片来源于网络](https://img.jikehou.cn/img/20180206_2.png)
 
 在实际开发过程中，开发者主要操作对象是 models.py、view.py、templates 文件夹中各个模版文件。这就弱化 C 层的概念， 更加注重关注的是模型（Model）、模板(Template)和视图（Views），所以 Django 也被称为 MTV 框架 。
 
 ## 2.Django 工作流程
 了解 Django 的模式，我们来了解 Django 程序是处理一个 HTTP 请求的流程。
 
-![图片来源于网络](https://img.jikehou.cn/img/62_3.png)
+![图片来源于网络](https://img.jikehou.cn/img/20180206_3.png)
 
 图中显示 Django 程度接受到一个 HTTP 请求到返回请求内容的过程。各个路径的含义如下：
 1. 用户使用浏览器浏览网页，浏览器向 Web 服务器发起 HTTP 请求。

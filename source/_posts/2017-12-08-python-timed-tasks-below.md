@@ -168,7 +168,7 @@ scheduler.start()
 | timezone (datetime.tzinfo 或str)  | 指定时区 |
 
 这些参数是支持算数表达式，取值格式有如下：
-![取值格式](https://img.jikehou.cn/img/51_4.png)
+![取值格式](https://img.jikehou.cn/img/20171208_4.png)
 
 cron 触发器使用示例如下：
 ```python

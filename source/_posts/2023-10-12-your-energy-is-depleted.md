@@ -28,7 +28,7 @@ keywords: [读书系列, 精力管理]
 `今天，我就给大家带来一本，专门讲精力管理的知识。`
 
 
-![《精力管理》](https://img.jikehou.cn/img/172_1.png)
+![《精力管理》](https://img.jikehou.cn/img/20231012_1.png)
 
 ## 01 什么是精力？
 

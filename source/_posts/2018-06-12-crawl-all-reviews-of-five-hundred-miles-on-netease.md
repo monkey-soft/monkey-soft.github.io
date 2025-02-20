@@ -53,7 +53,7 @@ Webdriver 是浏览器驱动。selenium 通过 Webdriver 来操作浏览器。
 
 webdriver 下载解压完成之后，将其放到 Python 目录下的 Script 文件夹中。
 
-![Script 文件夹](https://img.jikehou.cn/img/91_1.png)
+![Script 文件夹](https://img.jikehou.cn/img/20180612_1.png)
 
 ### 1-4.MongoDB
 
@@ -234,7 +234,7 @@ def go_nextpage(brower):
 
 所以爬取所有评论大概需要 69 个小时。目前我只跑了 9 个小时，我贴下暂时爬取的结果。
 
-![暂时爬取的结果](https://img.jikehou.cn/img/91_2.png)
+![暂时爬取的结果](https://img.jikehou.cn/img/20180612_2.png)
 
 ## 5.扩展知识
 这部分内容跟上述内容联系不大, 属于服务器技术范畴。
@@ -245,8 +245,8 @@ def go_nextpage(brower):
 
 我们访问普通网站的整个过程：
 
-![访问普通网站的整个过程](https://img.jikehou.cn/img/91_3.png)
+![访问普通网站的整个过程](https://img.jikehou.cn/img/20180612_3.png)
 
 我们访问使用 Ajax 加载数据的网站的整个过程：
 
-![访问使用 Ajax 加载数据的网站的整个过程](https://img.jikehou.cn/img/91_4.png)
+![访问使用 Ajax 加载数据的网站的整个过程](https://img.jikehou.cn/img/20180612_4.png)

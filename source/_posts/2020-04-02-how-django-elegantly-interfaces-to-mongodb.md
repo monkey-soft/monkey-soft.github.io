@@ -17,11 +17,11 @@ keywords: [Django, Python, Djongo, MongoDB]
 
 Django 更新迭代速度真的是快，现在最新版本都 3.0.5 了。如果有留意 Django 在 GitHub 上的仓库，不难发现几乎每天都有人在提交。
 
-![Django 更新迭代速度真的是快](https://img.jikehou.cn/img/162_1.png)
+![Django 更新迭代速度真的是快](https://img.jikehou.cn/img/20200402_1.png)
 
 不得不能说 Django 官方团队好积极呀。
 
-软件的版本更新快，其实也算是一件好事。如果我们在使用过程中发现问题和缺陷，提交给团队，能很快得到修复。但这不意味着我们要跟着版本更新的节奏走，建议跟进自身情况来定。
+软件的版本更新快，其实也算是一件好事。如果我们在使用过程中发现问题和缺陷，提交给团队，能很快得到修复。但这不意味着我们要跟着版本更新的节奏走，建议根据自身情况来定。
 
 个人研究和学习，使用最新版本倒不是问题。
 
@@ -29,9 +29,9 @@ Django 更新迭代速度真的是快，现在最新版本都 3.0.5 了。如果
 
 目前，Django 团队对各个版本的支持情况。
 
-![各个版本的支持情况-1](https://img.jikehou.cn/img/162_2.png)
+![各个版本的支持情况-1](https://img.jikehou.cn/img/20200402_2.png)
 
-![各个版本的支持情况-2](https://img.jikehou.cn/img/162_3.png)
+![各个版本的支持情况-2](https://img.jikehou.cn/img/20200402_3.png)
 
 不难看出，Django 3.0 版本也算是一个过渡版本。
 
@@ -68,7 +68,7 @@ django.db.backends.postgresql_psycopg2
 
 我在 Django 官网 WIKI 文档中了解到，Django 也是支持非关系型数据库，不过需要使用第三方支持库。官方解释到，如果数据库使用 MongoDB，推荐使用 **Djongo**这个库来做数据库引擎。
 
-我们不用当心 Djongo 不够完善，该库已经有在超过 1 百万人从 pypi 上下载并使用。
+我们不用担心 Djongo 不够完善，该库已经有在超过 1 百万人从 pypi 上下载并使用。
 
 再者，Djongo 没有大刀阔斧地修改，保留 Django ORM 框架，这也算是比较稳。
 

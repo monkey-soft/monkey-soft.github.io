@@ -44,7 +44,7 @@ keywords: [Python,  数据分析, 数据集]
 
 这是一个 GitHub 仓库，其收集的数据所在领域比较广泛，收录政府、金融、计算机网络、软件、体育、气候天气等30个领域的数据。
 
-![收集的数据所在领域比较广泛](https://img.jikehou.cn/img/120_1.png)
+![收集的数据所在领域比较广泛](https://img.jikehou.cn/img/20181120_1.png)
 
 这些数据集的质量都是比较高，大部分都是免费且能直接下载到的数据。
 
@@ -62,9 +62,9 @@ FiveThirtyEight 维护一个名为 data 的 GitHub 仓库，专门存储数据�
 
 所以我们看到的内容如下：
 
-![内容-1](https://img.jikehou.cn/img/120_2.png)
+![内容-1](https://img.jikehou.cn/img/20181120_2.png)
 
-![内容-2](https://img.jikehou.cn/img/120_3.png)
+![内容-2](https://img.jikehou.cn/img/20181120_3.png)
 
 这些数据都保存在 CSV 文件，我们下载之后就能用来做数据分析。
 

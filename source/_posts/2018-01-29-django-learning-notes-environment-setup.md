@@ -60,7 +60,7 @@ python -m venv D://web_dev
 ```
 
 执行创建命令之后，你会发现多出了一个名为 web_dev 文件夹，这说明已经创建成功。进入目录，里面有四个文件夹。
-![web_dev 文件夹](https://img.jikehou.cn/img/61_1.png)
+![web_dev 文件夹](https://img.jikehou.cn/img/20180129_1.png)
 
 创建虚拟环境的完成，只是完成了一半工作。革命还尚未成功，我们还需要激活虚拟环境。
 
@@ -70,7 +70,7 @@ Linux 下没有 `Scripts` 这个目录，取而代之的是 `bin`目录。
 
 而激活脚本名则是`activate`。
 
-![激活脚本](https://img.jikehou.cn/img/61_2.png)
+![激活脚本](https://img.jikehou.cn/img/20180129_2.png)
 
 激活完毕，我们下一步就是安装 Django 库。
 

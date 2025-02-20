@@ -15,7 +15,7 @@ description: 我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么
 
 <!-- more -->
 
-![复仇者联盟3海报](https://img.jikehou.cn/img/84_1.jpg)
+![复仇者联盟3海报](https://img.jikehou.cn/img/20180516_1.jpg)
 
 复联 3 作为漫威 10 年一剑的收官之作。漫威确认下了很多功夫， 给我们奉献一部精彩绝伦的电影。
 
@@ -30,18 +30,18 @@ description: 我爬取豆瓣影评，告诉你《复仇者联盟3》在讲什么
 ## 1.分析
 先通过影评网页确定爬取的内容。我要爬取的是用户名，是否看过，五星评论值，评论时间，有用数以及评论内容。
 
-![先通过影评网页确定爬取的内容](https://img.jikehou.cn/img/84_2.png)
+![先通过影评网页确定爬取的内容](https://img.jikehou.cn/img/20180516_2.png)
 
 
 然后确定每页评论的 url 结构。</br>
 
 第二页 url 地址
 
-![第二页 url 地址](https://img.jikehou.cn/img/84_3.png)
+![第二页 url 地址](https://img.jikehou.cn/img/20180516_3.png)
 
 第三页 url 地址：
 
-![第三页 url 地址](https://img.jikehou.cn/img/84_4.png)
+![第三页 url 地址](https://img.jikehou.cn/img/20180516_4.png)
 
 最后发现其中的规律：除了首页，后面的每页 url 地址中只有 start= 的值逐页递增，其他都是不变的。
 
@@ -209,7 +209,7 @@ def split_word():
 
 最后制作出来的云图效果是：
 
-![最后制作出来的云图效果](https://img.jikehou.cn/img/84_5.png)
+![最后制作出来的云图效果](https://img.jikehou.cn/img/20180516_5.png)
 
 "灭霸"词语出现频率最高，其实这一点不意外。
 

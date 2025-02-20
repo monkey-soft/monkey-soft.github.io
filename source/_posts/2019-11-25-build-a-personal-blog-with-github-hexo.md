@@ -4,8 +4,8 @@ title:  "利用 Github+Hexo 搭建个人博客网站"
 date:   2019-11-25 17:28:07
 urlname: 112
 cover: https://img.jikehou.cn/cover/2019-11-25.jpg
-categories: [建站]
-tags: [建站]
+categories: [个人博客搭建]
+tags: [个人博客搭建]
 keywords: [博客, Hexo, Github, SEO 优化]
 ---
 我之前写过一篇文章《利用Github+Jeklly搭建个人博客网站》，利用 Github 仓库提供的 github pages 来搭建个人博客。
@@ -86,7 +86,7 @@ Jeklly 的中文文档还是广大网友自发组织翻译的。
 
 安装后，分别以下命令来检测 Node.js 和 npm 是否安装成功
 
-![是否安装成功](https://img.jikehou.cn/img/157_1.jpg)
+![是否安装成功](https://img.jikehou.cn/img/20191125_1.jpg)
 
 能看到版本号，说明 Node.js 环境安装成功。然后我们使用 npm 来安装 Hexo。
 ```
@@ -106,7 +106,7 @@ $ npm install # 安装 node 所需模块
 
 执行完命令之后，我们能看到 `Github_blog` 多出一个 `monkey-soft.github.io` 的子文件夹，里面还有 Hexo 默认生成的文件。
 
-![执行完命令](https://img.jikehou.cn/img/157_2.png)
+![执行完命令](https://img.jikehou.cn/img/20191125_2.png)
 
 - deploy_git
 Hexo 借助 Git 推送网站信息到 Github 仓库所生成的文体。
@@ -121,7 +121,7 @@ Hexo 主题存放的文件夹
 - `_config.yml`
 Hexo 项目的配置文件，配置网站的基本信息、网页 URL 路径、时间格式、文章分页、扩展插件等信息。这里的 Site 配置建议都修改下。
 
-![Site 配置建议都修改下](https://img.jikehou.cn/img/157_3.jpg)
+![Site 配置建议都修改下](https://img.jikehou.cn/img/20191125_3.jpg)
 
 ## 4.主题选择
 
@@ -148,11 +148,11 @@ Hexo 项目的配置文件，配置网站的基本信息、网页 URL 路径、�
 
 将从 Github 上下载的主题，复制到 theme 文件夹中。
 
-![更换主题](https://img.jikehou.cn/img/157_4.jpg)
+![更换主题](https://img.jikehou.cn/img/20191125_4.jpg)
 
 最后需要在 `_config.yml` 指定 `Heox` 主题。
 
-![指定主题](https://img.jikehou.cn/img/157_5.jpg)
+![指定主题](https://img.jikehou.cn/img/20191125_5.jpg)
 
 ## 5.开始写作
 
@@ -162,13 +162,13 @@ Hexo 项目的配置文件，配置网站的基本信息、网页 URL 路径、�
 
 如果你想修改这个命名规则，可以在 Hexo 目录下的 _config.yml 文件中，找到 `# Writing 字样`，然后进行修改。
 
-![命名规则](https://img.jikehou.cn/img/157_6.jpg)
+![命名规则](https://img.jikehou.cn/img/20191125_6.jpg)
 
 不过我不建议修改这命名规则，这格式能一目了然。
 
 知道我们创作文章是什么时候？文章的标题是什么？
 
-![不建议修改这命名规则](https://img.jikehou.cn/img/157_7.jpg)
+![不建议修改这命名规则](https://img.jikehou.cn/img/20191125_7.jpg)
 
 创建 md 文件之后，需要在文件头部指定一些信息。
 ```
@@ -205,7 +205,7 @@ tags: [文章标签1, 文章标签2]
 
 Hexo 目录下的 `_config.yml` 文件中，修改永久链接的显示方式。
 
-![修改永久链接的显示方式](https://img.jikehou.cn/img/157_8.jpg)
+![修改永久链接的显示方式](https://img.jikehou.cn/img/20191125_8.jpg)
 
 这里 `:urlname 变量`可以显示为数字或者英文内容。
 
@@ -250,6 +250,6 @@ description: 页面描述(一句话总结文章在讲什么？)
 
 ## 7.个性化优化
 
-Hexo 很多主题可玩性很高， 如果你感兴趣可以感觉个人喜好对主题内容进行一些定制化修改。
+Hexo 很多主题可玩性很高， 如果你感兴趣可以根据个人喜好对主题内容进行一些定制化修改。
 
 这里涉及主题比较多，就是一一讲解。大家可以通过 Github 主题说明文档以及搜索引擎来了解相关信息。

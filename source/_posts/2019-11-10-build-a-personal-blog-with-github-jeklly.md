@@ -4,12 +4,11 @@ title:  "利用 Github+Jeklly 搭建个人博客网站"
 date:   2019-11-10 16:35:28
 urlname: 111
 cover: https://img.jikehou.cn/cover/2019-11-10.jpg
-categories: [建站]
-tags: [建站]
+categories: [个人博客搭建]
+tags: [个人博客搭建]
 keywords: [博客, Jekyll, Github, SEO 优化]
 description: 利用 Github+Jeklly 搭建个人博客网站
 ---
-
 在上篇文章[《个人博客如何选型？》](https://jikehou.cn/posts/how-to-choose-blog-style.html)中讲到，可以利用 Github Pages 来搭建个人博客网站，本文主要讲解其中的各种细节。
 <!-- more -->
 ## 1.评估 Github Pages 方案
@@ -34,23 +33,23 @@ description: 利用 Github+Jeklly 搭建个人博客网站
 
 首先需要注册一个 GitHub 账号，然后到个人主界面里面，创建一个新的 Repository。
 
-![创建 Repository](https://img.jikehou.cn/img/155_1.jpg)
+![创建 Repository](https://img.jikehou.cn/img/20191110_1.jpg)
 
 进入创建新仓库页面后，在 Repository name 的位置填写域名，格式是 `username.GitHub.io`。
 
 我的 Github 的 id 是 monkey-soft，所以域名如下图所示。
 
-![域名](https://img.jikehou.cn/img/155_2.jpg)
+![域名](https://img.jikehou.cn/img/20191110_2.jpg)
 
 创建成功后，点击 `settings` 栏目。
 
-![settings 栏目](https://img.jikehou.cn/img/155_3.jpg)
+![settings 栏目](https://img.jikehou.cn/img/20191110_3.jpg)
 
 接着找到 GitHub Pages，然后随便选择 Github 提供的默认主题。
 
-![默认主题](https://img.jikehou.cn/img/155_4.jpg)
+![默认主题](https://img.jikehou.cn/img/20191110_4.jpg)
 
-![默认主题](https://img.jikehou.cn/img/155_5.jpg)
+![默认主题](https://img.jikehou.cn/img/20191110_5.jpg)
 
 最后，我们通过浏览器访问仓库的域名（monkey.github.io）就能看到系统创建的默认网页。
 
@@ -76,7 +75,7 @@ description: 利用 Github+Jeklly 搭建个人博客网站
 
 你可以根据个人喜好选择适合的主题。我找到一款名为 MatJek 的主题，将主题压缩包下载到本地。
 
-![下载主题](https://img.jikehou.cn/img/155_6.jpg)
+![下载主题](https://img.jikehou.cn/img/20191110_6.jpg)
 
 主题下载之后，我们需要把主题文件同步到我们的网站，也就是远程的 Github 仓库。
 
@@ -88,11 +87,11 @@ description: 利用 Github+Jeklly 搭建个人博客网站
 
 注意的是，存储路径不能有中文。
 
-![将仓库拉取到本地](https://img.jikehou.cn/img/155_7.jpg)
+![将仓库拉取到本地](https://img.jikehou.cn/img/20191110_7.jpg)
 
 找到仓库存放的文件夹，将之前所有文件全部删除，把刚才下载的主题文件复制到当前文件夹中。
 
-![当前文件夹](https://img.jikehou.cn/img/155_8.jpg)
+![当前文件夹](https://img.jikehou.cn/img/20191110_8.jpg)
 
 我们还需要修改配置文件。`_config.yml` 是 Jekyll 的全局配置文件。里面记录着网站的名字，网站的域名，网站的链接格式等等。
 
@@ -102,15 +101,15 @@ description: 利用 Github+Jeklly 搭建个人博客网站
 
 如果你使用其他主题，根据作者的要求，修改 `_config.yml` 的内容即可。
 
-![更换主题](https://img.jikehou.cn/img/155_9.jpg)
+![更换主题](https://img.jikehou.cn/img/20191110_9.jpg)
 
 最后一步，我们将刚才修改的内容同步到 Github 远程仓库。
 
-![](https://img.jikehou.cn/img/155_10.jpg)
+![Github 远程仓库](https://img.jikehou.cn/img/20191110_10.jpg)
 
 完成以上操作，我们可以打开浏览器，输入我们仓库地址访问我们的网站。
 
-![访问我们的网站](https://img.jikehou.cn/img/155_11.jpg)
+![访问我们的网站](https://img.jikehou.cn/img/20191110_11.jpg)
 
 该主题是猴哥基于 MatJek 主题进行修改，同时也修复几个缺陷。
 
@@ -132,11 +131,11 @@ description: 利用 Github+Jeklly 搭建个人博客网站
 
 这里选择`选项 3 `进行安装。
 
-![进行安装](https://img.jikehou.cn/img/155_12.jpg)
+![进行安装](https://img.jikehou.cn/img/20191110_12.jpg)
 
 进入到本地项目文件中，启动终端，依次执行以下命令。
 
-![依次执行命令](https://img.jikehou.cn/img/155_13.jpg)
+![依次执行命令](https://img.jikehou.cn/img/20191110_13.jpg)
 
 ```
 ~ $ gem install jekyll bundler
@@ -159,12 +158,15 @@ description: 利用 Github+Jeklly 搭建个人博客网站
 猴哥总结 URL 地址的 SEO 优化三个原则：
 
 ### 1.日期需要出现在固定链接中。
+
 这基于两个方面的考虑。一是如果数字出现在固定链接里面，等于提醒搜索引擎，这是很旧的内容了，没必要再爬一遍了。另外一个原因是，假如你要修改文章的日期重新发布的话，链接地址就变了，也就是意味着你的反向链接，PR 等等都没有了。
 
 ### 2.链接的层次不要太深
+
 默认的固定链接是` /年/月/日/文章名`。这种层次过深，不方便搜索引擎爬虫的抓取，对搜索引擎的收录不太友好。
 
 ### 3.链接中不要出现中文
+
 虽然现在的搜索引擎已经能识别URL地址里面的中文字符，
 但无论是从美观上，以及中文字符会被转义的角度上看，都是非常差的。
 
@@ -175,17 +177,18 @@ description: 利用 Github+Jeklly 搭建个人博客网站
 这里我进行讲解下。比如一篇文章于 2017-06-25 发布的，Jeklly 会将年前面两位去掉；月份如果是10月之前去掉数字 0，没有则直接保留月份；日跟月份一样会去掉数字 0；因此，最后的  Path 路径是 17625.html。
 
 ## 6.发布文章
+
 网站主题搭建工作完成之后，我们就能往博客上填充内容。文章一般是用 Markdown 语法编写的，存放在 `_posts` 文件夹中。
 
-![_posts文件夹](https://img.jikehou.cn/img/155_14.jpg)
+![_posts文件夹](https://img.jikehou.cn/img/20191110_14.jpg)
 
 文件的命名规则是：`年-月-日-文章标题.md`。
 
-![文件的命名规则](https://img.jikehou.cn/img/155_15.jpg)
+![文件的命名规则](https://img.jikehou.cn/img/20191110_15.jpg)
 
 在 md 文件中，必须带上头部信息才能被识别出来，其中信息有文章标题、编写时间、分类、标签等。
 
-![头部信息](https://img.jikehou.cn/img/155_16.jpg)
+![头部信息](https://img.jikehou.cn/img/20191110_16.jpg)
 
 我的设想是在首先展示文章时会显示封面图片，我在文件中创建一个名为 img 文件夹来存放封面图片，图片命名须方式是以日期的形式。
 

@@ -103,5 +103,5 @@ print(type(now))
 当后来我看到互联网上已经有前辈整理的关系转换图，我意识到自己这种方式不够简洁明了。
 
 所以，我直接献上前辈的宝图。
-![时间类型转换图](https://img.jikehou.cn/img/58_1.jpg)
+![时间类型转换图](https://img.jikehou.cn/img/20180117_1.jpg)
 

@@ -28,7 +28,7 @@ print(numlist.__getitem__)  # 调用__getitem__方法
 ```
 
 运行结果如下：
-![运行结果](https://img.jikehou.cn/img/48_1.png)
+![运行结果](https://img.jikehou.cn/img/20171121_1.png)
 
 根据运行结果，我们可知列表就是个可迭代对象。
 
@@ -42,7 +42,7 @@ isinstance(999, Iterable)
 ```
 
 运行结果为：
-![运行结果](https://img.jikehou.cn/img/48_2.png)
+![运行结果](https://img.jikehou.cn/img/20171121_2.png)
 
 如果我们每次都要使用这个函数来判断一个对象是否为可迭代对象，这样操作有点麻烦。
 
@@ -112,7 +112,7 @@ for i in gen:
 ```
 
 运行结果如下：
-![运行结果](https://img.jikehou.cn/img/48_3.png)
+![运行结果](https://img.jikehou.cn/img/20171121_3.png)
 
 带有 yield 关键字 的例子。重点关注运行结果，这能让你对 yield 有更深的认识。
 ```python
@@ -132,4 +132,4 @@ if __name__ == '__main__':
 ```
 
 运行结果如下：
-![运行结果]https://img.jikehou.cn/img/48_4.png)
+![运行结果](https://img.jikehou.cn/img/20171121_4.png)

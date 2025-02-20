@@ -28,7 +28,7 @@ Python 吸引我的地方不仅仅能用其编写网络爬虫，而且能用于�
 
 我们要爬取的目标是必胜客中国。打开必胜客中国首页，进入“餐厅查询”页面。
 
-![餐厅查询](https://img.jikehou.cn/img/119_1.jpg)
+![餐厅查询](https://img.jikehou.cn/img/20181113_1.jpg)
 
 
 我们要爬取的数据内容有`城市、餐厅名字、餐厅地址以及餐厅联系电话`。
@@ -39,15 +39,16 @@ Python 吸引我的地方不仅仅能用其编写网络爬虫，而且能用于�
 
 至于全国有必胜客餐厅的城市列表，我们可以通过页面的“切换城市”获取。
 
-![切换城市](https://img.jikehou.cn/img/119_2.png)
+![切换城市](https://img.jikehou.cn/img/20181113_2.png)
 
 
 ## 2.分析目标页面
+
 在编写爬虫程序之前，我都是先对页面进行简单分析，然后指定爬取思路。而且对页面结构进行分析往往会有一些意想不到的收获。
 
 我们使用浏览器的开发者工具对页面结构进行简单分析。
 
-![简单分析](https://img.jikehou.cn/img/119_3.png)
+![简单分析](https://img.jikehou.cn/img/20181113_3.png)
 
 我们在 StoreList 页面中能找到我们所需的数据。
 
@@ -59,11 +60,11 @@ StoreList 页面的 Response 内容比较长。
 
 最后，我们找到调用获取餐厅列表信息的 JavaScript 函数代码。
 
-![JavaScript 函数代](https://img.jikehou.cn/img/119_4.png)
+![JavaScript 函数代](https://img.jikehou.cn/img/20181113_4.png)
 
 我们接着搜索下`GetStoreList`函数，看看浏览器如何获取餐厅列表信息的。
 
-![获取餐厅列表信息](https://img.jikehou.cn/img/119_5.png)
+![获取餐厅列表信息](https://img.jikehou.cn/img/20181113_5.png)
 
 从代码中，我们可以了解到页面使用 Ajax 方式来获取数据。
 
@@ -72,25 +73,27 @@ StoreList 页面的 Response 内容比较长。
 同时，请求还携带参数 `pageIndex` 和 `pageSize`。
 
 ## 3.爬取思路
+
 经过一番页面结构分析之后，我们指定爬取思路。首先，我们先获取城市信息。然后将其作为参数，构建 HTTP 请求访问必胜客服务器来获取当前城市中所有餐厅数据。
 
 为了方便数据爬取，我将所有城市全部写入到 cities.txt 中。等要爬取数据时，我们再从文件中读取城市信息。
 
 爬取思路看起来没有错，但是还是有个难题没有搞定。我们每次打开必胜客的官网，页面每次都会自动定位到我们所在的城市。如果无法破解城市定位问题，我们只能抓取一个城市数据。
 
-于是乎，我们再次浏览首页，看看能不能找到一些可用的信息
+于是乎，我们再次浏览首页，看看能不能找到一些可用的信息。
 
-。最终，我们发现页面的 cookies 中有个 `iplocation` 字段。
+最终，我们发现页面的 cookies 中有个 `iplocation` 字段。
 
-![iplocation字段](https://img.jikehou.cn/img/119_6.png)
+![iplocation字段](https://img.jikehou.cn/img/20181113_6.png)
 
 我将其进行 Url 解码，得到 `深圳|0|0` 这样的信息。
 
-![Url 解码结果](https://img.jikehou.cn/img/119_7.png)
+![Url 解码结果](https://img.jikehou.cn/img/20181113_7.png)
 
 看到这信息，我恍然大悟。原来必胜客网站根据我们的 IP 地址来设置初始城市信息。如果我们能伪造出 iplocation 字段信息，那就可以随便修改城市了。
 
 ## 4.代码实现
+
 第一步是从文件中读取城市信息。
 
 ```Python
@@ -191,11 +194,13 @@ with open('results.json', 'w', encoding='UTF-8') as file:
 ```
 
 ## 5.爬取结果
+
 程序运行完之后, 就会在当前目录下生成一个名为`「results.json」`文件。
 
-![results.json](https://img.jikehou.cn/img/119_8.jpg)
+![results.json](https://img.jikehou.cn/img/20181113_8.jpg)
 
 ## 6.源码
+
 如果你想获取项目的源码, 点击按钮进行下载。
 
 {% btn 'https://github.com/monkey-soft/SchweizerMesser/blob/master/Pizzahut/PizzahutCityInformation.py', 源码下载, far fa-hand-point-right,blue larger %}

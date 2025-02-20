@@ -210,11 +210,11 @@ link_extractor既可以自己定义，也可以使用已有LinkExtractor类，�
 
 我以爬取豆瓣电影 Top 250 页面为例子进行讲解如何利用 rules 进行翻页爬取。
 
-![爬取豆瓣电影 Top 250 页面](https://img.jikehou.cn/img/41_1.png)
+![爬取豆瓣电影 Top 250 页面](https://img.jikehou.cn/img/20170915_1.png)
 
 在页面的底部，有这样的分页。我们想通过抓取翻页 url 进行下一个页面爬取。
 
-![通过抓取翻页 url 进行下一个页面爬取](https://img.jikehou.cn/img/41_2.png)
+![通过抓取翻页 url 进行下一个页面爬取](https://img.jikehou.cn/img/20170915_2.png)
 
 通过分析页面可知，链接的规则是
 ```python

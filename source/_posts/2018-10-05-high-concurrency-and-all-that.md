@@ -101,7 +101,7 @@ C10M 并发连接问题指的是单机服务器实现 C10M（即单机千万并�
 ## 5.Django 与高并发的联系
 想弄清楚这个问题，首先要了解下 Django 在服务器中所处的位置。
 
-![Django 与高并发的联系](https://img.jikehou.cn/img/113_1.jpg)
+![Django 与高并发的联系](https://img.jikehou.cn/img/20181005_1.jpg)
 
 上图中讲到 Django 应用服务器可以分为三层：
 - Web 框架层

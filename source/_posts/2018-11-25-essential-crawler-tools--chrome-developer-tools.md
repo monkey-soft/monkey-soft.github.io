@@ -31,24 +31,26 @@ Chrome 开发者工具是一套内置于 Google Chrome 中的 Web 开发和调�
 接下来，我们来看看 Chrome 开发者工具一些比较牛逼的功能。
 
 ## 1.元素面板
+
 通过元素（Element）面板，我们能查看到想抓取页面渲染内容所在的标签、使用什么 CSS 属性（例如：class="middle"）等内容。
 
 例如我想要抓取我知乎主页中的动态标题，在网页页面所在处上右击鼠标，选择“`检查`”，可进入 Chrome 开发者工具的`元素面板`。
 
-![元素面板](https://img.jikehou.cn/img/122_1.png)
+![元素面板](https://img.jikehou.cn/img/20181125_1.png)
 
 通过这种方法，我们能快速定位出页面某个DOM 节点，然后可以提取出相关的解析语句。
 
 鼠标移动到节点，然后右击鼠标，选择 “Copy”，能快速复制出 Xpath 、CSS elector 等内容解析库的解析语句。
 
-![解析语句](https://img.jikehou.cn/img/122_2.png)
+![解析语句](https://img.jikehou.cn/img/20181125_2.png)
 
 ## 2.网络面板
+
 网络（Network）面板记录页面上每个网络操作的相关信息，包括详细的耗时数据、HTTP 请求与响应标头和 Cookie，等等。
 
 这就是我们通常说的抓包。
 
-![网络面板](https://img.jikehou.cn/img/122_3.png)
+![网络面板](https://img.jikehou.cn/img/20181125_3.png)
 
 其中的 `Filters` 窗格，我经常使用其来过滤出一些 HTTP 请求，例如过滤出使用 Ajax 发起的异步请求、图片、视频等。
 
@@ -58,7 +60,7 @@ Chrome 开发者工具是一套内置于 Google Chrome 中的 Web 开发和调�
 
 点击资源的名称可以显示更多信息。
 
-![Requests Table](https://img.jikehou.cn/img/122_4.png)
+![Requests Table](https://img.jikehou.cn/img/20181125_4.png)
 
 * `Headers` 是显示 HTTP 请求的 Headers，我们通过这个能看到请求的方式，以及携带的请求参数等。
 

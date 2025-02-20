@@ -19,6 +19,7 @@ keywords: [Python, 文件遍历]
 本文的主要内容是给大家分享 Python 三种遍历文件的方法。
 <!-- more -->
 ## 1.简单暴力法-递归
+
 假设在 E 盘中，有个名为“Python”的文件夹；
 
 该文件夹中也有两个文件夹，分别是“A”和“B”；
@@ -60,7 +61,7 @@ if __name__ == '__main__':
 
 运行脚本程序后，发现“Python”中的文件和文件夹都被打印出来。
 
-![运行脚本程序](https://img.jikehou.cn/img/118_1.png)
+![运行脚本程序](https://img.jikehou.cn/img/20181105_1.png)
 
 这种遍历方法能否找出隐藏文件？答案是肯定能。
 
@@ -68,16 +69,17 @@ if __name__ == '__main__':
 
 首先，我们在“Python”的文件夹中放入一个“config.txt”的隐藏文件。
 
-![config.txt隐藏文件](https://img.jikehou.cn/img/118_2.png)
+![config.txt隐藏文件](https://img.jikehou.cn/img/20181105_2.png)
 
 然后再运行程序，结果发现“config.txt”被打印出来。
 
-![结果发现“config.txt”被打印出来](https://img.jikehou.cn/img/118_3.png)
+![结果发现“config.txt”被打印出来](https://img.jikehou.cn/img/20181105_3.png)
 
 
 这种办法虽然写起来代码简洁，但是在文件夹的子目录层级过深的情况下，效率会比较低。
 
 ## 2.优雅的 os.walk()
+
 既然递归太暴力，那么使用 `os.walk()` 会让程序显得优雅。
 
 os.walk() 方法是一个简单易用的文件、目录遍历器，可以帮助我们高效的处理文件、目录方面的事情。
@@ -145,4 +147,4 @@ if __name__ == '__main__':
 
 运行结果，同样也是能找出隐藏文件。
 
-![同样也是能找出隐藏文件](https://img.jikehou.cn/img/118_4.png)
+![同样也是能找出隐藏文件](https://img.jikehou.cn/img/20181105_4.png)

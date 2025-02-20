@@ -45,14 +45,14 @@ pyplot 是 matplotlib 一个子模块，主要为底层的面向对象的绘图�
 
 通过这张图，我们对 matplotlib 整体地认识。
 
-![我们对 matplotlib 整体地认识](https://img.jikehou.cn/img/47_1.jpg)
+![我们对 matplotlib 整体地认识](https://img.jikehou.cn/img/20171107_1.jpg)
 
 接下来，我主要讲解 matplotlib 中几个重要的标签。
 
 - Figure
 
 Figure 翻译成中文是图像窗口。Figure 是包裹 Axes、tiles、legends 等组件的最外层窗口。它其实是一个 Windows 应用窗口 。
-![Figure](https://img.jikehou.cn/img/47_2.png)
+![Figure](https://img.jikehou.cn/img/20171107_2.png)
 Figure 中最主要的元素是 Axes（子图）。一个 Figure 中可以有多个子图，但至少要有一个能够显示内容的子图。
 
 -  Axes 
@@ -68,12 +68,12 @@ fig, ax_lst = plt.subplots(2, 2)        # 创建一个以 axes 为单位的 2x2 
 plt.show()
 ```
 根据运行结果图，我们不难看出。左图的 Figure1 中没有 axes，右图的 Figure2 中有 4 个 axes。因此，我们可以将 Axes 理解为面板，而面板是覆在窗口(Figure) 上。 
-![Axes](https://img.jikehou.cn/img/47_3.png)
+![Axes](https://img.jikehou.cn/img/20171107_3.png)
 
 - Axis 
 
 Axis 在中文的意思是轴。官网文档对 Axis 定义解释不清楚，让我们看得云里雾里的。如果你有留意前文的组成说明图，可以看到 X Axis 和 Y Axis 的字样。按照平常人的见识， 观察该图就能明白 Axis 是轴的意思。此外，Axis 和 Axes 以及 Figure 这三者关系，你看完下图，会恍然大悟。
-![Axis](https://img.jikehou.cn/img/47_4.png)
+![Axis](https://img.jikehou.cn/img/20171107_4.png)
 
 ## 2.绘制第一张图
 按照剧本发展，我接下来以绘制曲线并逐步美化它为例子，一步步讲解如何绘制图形。在这过程中，我也会逐一说明各个函数的作用。
@@ -101,7 +101,7 @@ y1 和 y2 则分别是这 50 个值对应曲线的函数值组成的 numpy 数�
 
 最后别忘记调用`show()`函数将图形呈现出来。
 
-![呈现结果](https://img.jikehou.cn/img/47_5.png)
+![呈现结果](https://img.jikehou.cn/img/20171107_5.png)
 
 ### 2-2.简单修饰
 我们已经绘制出两条直线，但样式比较简陋。
@@ -134,7 +134,7 @@ plt.ylim(-2, 10)
 plt.show()
 ```
 
-![简单修饰](https://img.jikehou.cn/img/47_6.png)
+![简单修饰](https://img.jikehou.cn/img/20171107_6.png)
 
 ### 2-3.设置纵横轴标签
 在图像中，我们不能一味地认为横轴就是 X 轴，纵轴就是 Y 轴。图形因内容数据不同，纵横轴标签往往也会不同。这也体现了给纵横轴设置标签说明的重要性。
@@ -148,7 +148,7 @@ plt.ylabel("Y")
 plt.show()
 ```
 
-![设置纵横轴标签](https://img.jikehou.cn/img/47_7.png)
+![设置纵横轴标签](https://img.jikehou.cn/img/20171107_7.png)
 
 ### 2-4.设置精准刻度
 matplotlib 画图设置的刻度是由曲线以及窗口的像素点等因素决定。
@@ -171,7 +171,7 @@ plt.show()
 
 xticks() 和 yticks() 需要传入一个列表作为参数。
 
-![xticks() 和 yticks() 需要传入一个列表作为参数](https://img.jikehou.cn/img/47_8.png)
+![xticks() 和 yticks() 需要传入一个列表作为参数](https://img.jikehou.cn/img/20171107_8.png)
 
 该方法默认是将列表的值来设置刻度标签，如果你想重新设置刻度标签，则需要传入两个列表参数给 xticks() 和 yticks() 。第一个列表的值代表刻度，第二个列表的值代表刻度所显示的标签。
 ```python
@@ -185,7 +185,7 @@ plt.yticks([-2, 0, 2, 4, 6, 8, 10],
 plt.show()
 ```
 
-![重新设置刻度标签](https://img.jikehou.cn/img/47_9.png)
+![重新设置刻度标签](https://img.jikehou.cn/img/20171107_9.png)
 
 ### 2-5.添加图例
 如果需要在图的左上角添加一个图例。我们只需要在 plot() 函数里以「键 - 值」的形式增加一个参数。首先我们需要在绘制曲线的时候，增加一个 label 参数，然后再调用 plt.legend() 绘制出一个图例。plt.legend() 需要传入一个位置值。loc 的值可选如下：
@@ -214,7 +214,7 @@ plt.legend(loc="upper left")
 ...
 ```
 
-![图例](https://img.jikehou.cn/img/47_10.png)
+![图例](https://img.jikehou.cn/img/20171107_10.png)
 
 ### 2-6.注释特殊点位
 有时某些数据点非常关键，需要突显出来。我们需要将改点绘制出来，即绘制散点图，再对其做注释。
@@ -256,7 +256,7 @@ plt.annotate("(3, 0)",
              xycoords='data')    # xycoords='data' 是说基于数据的值来选位置
 ```
 
-![运行结果](https://img.jikehou.cn/img/47_11.png)
+![运行结果](https://img.jikehou.cn/img/20171107_11.png)
 
 点已经被标注出来了，如果你还想给点添加注释。这需要使用`text()`函数。text(x，y，s) 作用是在点(x，y) 上添加文本 s。matplotlib 目前好像对中午支持不是很友好， 中文均显示为乱码。
 
@@ -270,7 +270,7 @@ plt.text(4, -0.5, "this point very important",
          fontdict={'size': 12, 'color': 'green'})  # fontdict设置文本字体
 ```
 
-![运行结果](https://img.jikehou.cn/img/47_12.png)
+![运行结果](https://img.jikehou.cn/img/20171107_12.png)
 
 到此为止，我们基本上完成了绘制直线所有工作。Matplotlib 能绘制种类繁多且绘图功能强大，所以我接下来的文章将单独对每种类型图做分享讲解。
 

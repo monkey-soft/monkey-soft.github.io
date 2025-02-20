@@ -7,7 +7,6 @@ cover: https://img.jikehou.cn/cover/2017-08-29.jpg
 categories: [小白入门Python]
 tags: [Python, 数据结构]
 keywords: [Python, 数据结构, Pygorithm]
-
 ---
 数据结构，我们对它已经是耳熟能详。
 
@@ -31,7 +30,7 @@ keywords: [Python, 数据结构, Pygorithm]
 
 Pygorithm 是由一个热心肠的印度小哥编写的开源项目。
 
-他编写创建该库的初衷是处于教学目的。
+他编写创建该库的初衷是出于教学目的。
 
 我们不仅可以阅读源码的方式学习数据结构，而且可以把它当做现成工具来使用。
 

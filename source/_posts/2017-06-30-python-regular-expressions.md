@@ -25,7 +25,7 @@ keywords: [Python, 网络爬虫, 正则表达式, re]
 ## 1.正则表达式
 下面是一张关于正则表达式字符的图，图片资料来自CSDN。先把图中字符了解清楚，基本上算是入门。
 
-![正则表达式语法](https://img.jikehou.cn/img/30_re.jpg)
+![正则表达式语法](https://img.jikehou.cn/img/20170630_1.jpg)
 
 ## 2.re 模块
 

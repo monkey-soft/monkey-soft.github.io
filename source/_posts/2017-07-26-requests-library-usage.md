@@ -133,6 +133,9 @@ http://httpbin.org/get?name=Good+Time&author=Owl+City&author=Carly+Rae+Jepsen
 ### 3-3.构造请求头
 
 为了将 Requests 发起的 HTTP 请求伪装成浏览器，我们通常是使用`headers`关键字参数。headers 参数同样也是一个字典类型。
+
+具体用法见以下代码：
+
 ```python
 import requests
 
@@ -145,7 +148,7 @@ response = requests.get(url, headers=headers)
 print(response.url)
 print(response.text)
 ```
-具体用法见以下代码：
+
 
 
 #### 3-3-1.使用 data 参数提交数据

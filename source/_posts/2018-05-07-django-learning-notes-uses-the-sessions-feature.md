@@ -75,7 +75,7 @@ MIDDLEWARE = [
 
 我们之后会看到数据库中有个 `django_session` 表：
 
-![看到数据库中有个 django_session 表](https://img.jikehou.cn/img/82_1.png)
+![看到数据库中有个 django_session 表](https://img.jikehou.cn/img/20180507_1.png)
 
 除了上述的基于数据库的会话，Django 还提供另外三种方法：
 

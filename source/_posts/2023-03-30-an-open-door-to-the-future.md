@@ -3,7 +3,7 @@ layout: post
 title:  "一个开放的未来之门"
 date:   2023-03-30 14:41:33
 cover: https://img.jikehou.cn/cover/2023-03-30.png
-categories: [AIGC研究]
+categories: [AI 探索]
 tags: [AI, ChatGPT, AI绘画]
 keywords: [AI, ChatGPT, AI绘画]
 ---
@@ -12,7 +12,7 @@ keywords: [AI, ChatGPT, AI绘画]
 
 AI 发展速度太快，一方面带来焦虑，很多人担心是自己工作会被取代，失业。正如，女装店铺老板，利用 ChatGPT 结合 AI 绘画，能实现半天产出上百张，甚至上千张衣服展示图，而且效果还挺真实。
 
-![AI 绘画](https://img.jikehou.cn/img/170_1.jpg)
+![AI 绘画](https://img.jikehou.cn/img/20230330_1.jpg)
 
 看完图片，那么你觉得摄影师、模特、设计师会不会失业呢？
 

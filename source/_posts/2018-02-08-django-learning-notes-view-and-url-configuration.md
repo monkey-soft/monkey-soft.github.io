@@ -31,7 +31,7 @@ django-admin startproject Django_demo     // Django_demo 为 project 的名称�
 ```
 
 新建 Project 成功之后，你会发现目录下会多出一些文件。这些文件主要跟工程配置有关系，跟具体业务逻辑没啥关系。
-![新建 Project 成功](https://img.jikehou.cn/img/63_1.png)
+![新建 Project 成功](https://img.jikehou.cn/img/20180208_1.png)
 
 **2）新建 application**
 
@@ -47,7 +47,7 @@ python manage.py startapp test    // test 为 application 的名称，你可随�
 ```
 新建成功后，会发现多了一个名为 test 目录。看到里面有些文件，是否心中有种似曾相识的感觉？
 
-![test 目录](https://img.jikehou.cn/img/63_2.png)
+![test 目录](https://img.jikehou.cn/img/20180208_2.png)
 
 **3）配置应用**
 
@@ -74,11 +74,11 @@ INSTALLED_APPS = (
 
 打开 PyCharm IDE 工具，点击 File -> New Project， 左边选择Django。新建如下图所示： 
 
-![建如下图所示](https://img.jikehou.cn/img/63_3.png)
+![建如下图所示](https://img.jikehou.cn/img/20180208_3.png)
 
 新建成功之后会看到这样的目录结构 ，Pycharm 已经帮我们搞定了大部分工作。
 
-![Pycharm 已经帮我们搞定了大部分工作](https://img.jikehou.cn/img/63_4.png)
+![Pycharm 已经帮我们搞定了大部分工作](https://img.jikehou.cn/img/20180208_4.png)
 
 
 ## 2.视图与URL配置
@@ -126,7 +126,7 @@ music 就是前面说的 path，端口号后面第一个 "/" 符号后面的字�
 
 index 比较特殊，我们通常把 index 设定为首页，所以访问首页的时候，path 不用填写。
 
-如果你还不很了解，我们等会运行下程序，你就会涣然大悟。
+如果你还不很了解，我们等会运行下程序，你就会恍然大悟。
 
 在创建视图函数之后，我们需要在 urls.py 中配置好 url 匹配规则。
 ```python
@@ -144,7 +144,7 @@ urlpatterns = [
 
 如果你访问的地址是 **http://127.0.0.1:8000/**，同样也是能正常看到页面内容。
 
-![浏览器访问地址看到的内容](https://img.jikehou.cn/img/63_5.png)
+![浏览器访问地址看到的内容](https://img.jikehou.cn/img/20180208_5.png)
 
 pycharm 能启动一个 web 服务器，内部是使用到 manage.py 脚本。因此，我们也可以使用命令行的形式来启动一个 web 本地测试服务器。在最外层的 Django_demo 目录下，打开终端命令行工具，执行 `python manage.py runserver` 即可启动服务器。
 
@@ -197,10 +197,10 @@ urlpatterns = [
 
 最后一步，使用浏览器浏览 content 的页面。
 
-![使用浏览器浏览 content 的页面。](https://img.jikehou.cn/img/63_6.png)
+![使用浏览器浏览 content 的页面。](https://img.jikehou.cn/img/20180208_6.png)
 
 ### 2-3.url 路由的命名组
-url 路由有另种命名组，一种是无名名组，另一种是有名分组。 无名分组是使用简单的、没有命名的正则表达式组（通过圆括号）来捕获 URL 中的值。上述两个例子和以下的一些都是都是无命名分组。
+url 路由有两种命名组，一种是无名名组，另一种是有名分组。 无名分组是使用简单的、没有命名的正则表达式组（通过圆括号）来捕获 URL 中的值。上述两个例子和以下的一些都是都是无命名分组。
 ```python
 from django.conf.urls import url
 from demo import views

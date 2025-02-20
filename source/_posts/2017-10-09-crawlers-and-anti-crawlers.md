@@ -37,7 +37,7 @@ keywords: [Python, 网络爬虫, 反爬虫]
 
 `攻`：只要在 http 请求的 headers 中带上对于的字段即可。下图中的七个字段被大多数浏览器用来初始化所有网络请求。建议将以下所有字段都带上。
 
-![建议将以下所有字段都带上](https://img.jikehou.cn/img/44_1.png)
+![建议将以下所有字段都带上](https://img.jikehou.cn/img/20171009_1.png)
 
 ### 3-2.场景二
 

@@ -8,7 +8,7 @@ categories: [从零学Django]
 tags: [Python, Web, Django]
 keywords: [Python, web, Django]
 ---
-上片文章讲解模板。
+上篇文章讲解模板。
 
 你本文将讲解 “MTV” 中 M 层次，即模型层（数据存取层）。
 
@@ -189,7 +189,7 @@ python manage.py makemigrations
 
 运行成功效果图如下：
 
-![运行成功效果图](https://img.jikehou.cn/img/65_1.png)
+![运行成功效果图](https://img.jikehou.cn/img/20180214_1.png)
 
 这一步相当于 在该app下建立 migrations目录，并记录下你所有的关于modes.py的改动，比如0001_initial.py， 但是这个改动还没有作用到数据库文件
 
@@ -201,13 +201,13 @@ python manage.py migrate
 ```
 
 运行成功效果图如下：
-![运行成功效果图](https://img.jikehou.cn/img/65_2.png)
+![运行成功效果图](https://img.jikehou.cn/img/20180214_2.png)
 
 这一步表示将该改动（当makemigrations之后产生了0001_initial.py 文件）作用到数据库文件，比如 create table 之类。
 
 
 如果你用到 Pycharm 的 Database 功能，你会看到我们刚才创建的定义的几个模型。
-![运行成功效果图](https://img.jikehou.cn/img/65_3.png)
+![运行成功效果图](https://img.jikehou.cn/img/20180214_3.png)
 
 
 ### 4-3.字段类型
@@ -312,7 +312,7 @@ class Person(models.Model):
     shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
 ```
 
-下篇文章，我们将讲解如果对这些模型（表）进行操作。
+下篇文章，我们将讲解如何对这些模型（表）进行操作。
 
 ## 5.源码
 

@@ -8,7 +8,7 @@ categories: [小白入门Python]
 tags: [Python]
 keywords: [Python, os.path, 标准库]
 ---
-总所周知，Windows 操作系统和 Linux 系统存在很多不兼容的地方。
+众所周知，Windows 操作系统和 Linux 系统存在很多不兼容的地方。
 
 文件路径就是一个明显的例子。
 

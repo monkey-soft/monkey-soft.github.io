@@ -14,7 +14,7 @@ keywords: [网络爬虫, 抓包, 抓包工具]
 
 例如微信以及其生态（微信公众号、小程序）、抖音等。
 
-这也说明人们对于手机的依赖心更强。
+这也说明人们对于手机的依赖性更强。
 
 那抓取 App 的数据显得更加有意义。
 
@@ -76,11 +76,11 @@ keywords: [网络爬虫, 抓包, 抓包工具]
 
 我的电脑的 IP 地址是：
 
-![我的电脑的 IP 地址](https://img.jikehou.cn/img/102_1.png)
+![我的电脑的 IP 地址](https://img.jikehou.cn/img/20180729_1.png)
 
 我的手机的 IP 地址是：
 
-![我的手机的 IP 地址](https://img.jikehou.cn/img/102_2.jpg)
+![我的手机的 IP 地址](https://img.jikehou.cn/img/20180729_2.jpg)
 
 上面两张图说明位于同一网段。
 
@@ -94,7 +94,7 @@ keywords: [网络爬虫, 抓包, 抓包工具]
 
 首先，先下载猎豹免费 WIFI。安装成功之后，开启 WIFI， 并让手机连接到刚才创建的 WIFI。
 
-![创建的 WIFI](https://img.jikehou.cn/img/102_3.png)
+![创建的 WIFI](https://img.jikehou.cn/img/20180729_3.png)
 
 然后到 Fiddler 的官网下载安装包。Fiddler 官网毕竟是国外网站，访问有时候很慢。
 
@@ -104,13 +104,13 @@ keywords: [网络爬虫, 抓包, 抓包工具]
 
 左边是抓取到的数据包，右边是数据包分析界面。
 
-![界面](https://img.jikehou.cn/img/102_4.png)
+![界面](https://img.jikehou.cn/img/20180729_4.png)
 
 接着将`是否允许远程设备连接`选项开启。
 
 `Tools -> Fiddler Options -> Connections`，勾选 `Allow remote computers to connect`。
 
-![是否允许远程设备连接](https://img.jikehou.cn/img/102_5.png)
+![是否允许远程设备连接](https://img.jikehou.cn/img/20180729_5.png)
 
 另外，我们可以看到 Fildder 监听着的 8888 端口号。
 
@@ -126,15 +126,15 @@ keywords: [网络爬虫, 抓包, 抓包工具]
 
 IP 地址要重新查看一遍。
 
-![IP 地址](https://img.jikehou.cn/img/102_6.png)
+![IP 地址](https://img.jikehou.cn/img/20180729_6.png)
 
 再将刚才的获取的 IP 地址和端口填写到 WIFI 的代理配置中。
 
-![代理配置](https://img.jikehou.cn/img/102_7.jpg)
+![代理配置](https://img.jikehou.cn/img/20180729_7.jpg)
 
 现在谷歌和苹果都强推使用 HTTPS 协议，所以我们也要配置下抓取 HTTPS 的包。
 
-![抓取 HTTPS 的包](https://img.jikehou.cn/img/102_8.png)
+![抓取 HTTPS 的包](https://img.jikehou.cn/img/20180729_8.png)
 
 最后，用手机浏览器访问代理服务器地址安装证书。
 

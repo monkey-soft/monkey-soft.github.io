@@ -24,7 +24,7 @@ keywords: [Python, 编程入门, 开发进阶, 书籍]
 
 我个人也是买了一些书籍，坚持持续学习。
 <!-- more -->
-![买了一些书籍](https://img.jikehou.cn/img/88_1.jpg)
+![买了一些书籍](https://img.jikehou.cn/img/20180530_1.jpg)
 
 我推荐一些个人觉得不错的书籍。这些书籍基本上要么已经购买了，要么已经囤在购物车中。
 
@@ -34,74 +34,74 @@ keywords: [Python, 编程入门, 开发进阶, 书籍]
 比较适合零基础，想入门的小伙伴。书籍用到的都是 Python 3.x 版本
 
 ---
-![《笨办法学 Python》](https://img.jikehou.cn/img/88_2.jpg)
+![《笨办法学 Python》](https://img.jikehou.cn/img/20180530_2.jpg)
 
 
 ---
-![《Python 基础教程（第3版·修订版）》](https://img.jikehou.cn/img/88_3.jpg)
+![《Python 基础教程（第3版·修订版）》](https://img.jikehou.cn/img/20180530_3.jpg)
 
 
 ---
-![《Head First Python (第2版)》](https://img.jikehou.cn/img/88_4.jpg)
+![《Head First Python (第2版)》](https://img.jikehou.cn/img/20180530_4.jpg)
 
 
 ---
-![《Python 编程：入门到实践》](https://img.jikehou.cn/img/88_5.jpg)
+![《Python 编程：入门到实践》](https://img.jikehou.cn/img/20180530_5.jpg)
 
 
 ## 2.Python 开发进阶
 如果小伙伴已经把基础知识学得差不多了，想进一步提高自己的能力。可以阅读进阶书籍。同样，书籍用到的都是 Python 3.x 版本。
 
 ---
-![《Python 项目开发实战（第2版）》](https://img.jikehou.cn/img/88_6.jpg)
+![《Python 项目开发实战（第2版）》](https://img.jikehou.cn/img/20180530_6.jpg)
 
 
 ---
-![《精通 Python 设计模式》](https://img.jikehou.cn/img/88_7.jpg)
+![《精通 Python 设计模式》](https://img.jikehou.cn/img/20180530_7.jpg)
 
 
 ---
-![《Python 核心编程第3版》](https://img.jikehou.cn/img/88_8.jpg)
+![《Python 核心编程第3版》](https://img.jikehou.cn/img/20180530_8.jpg)
 
 
 ---
-![《Python 源码剖析》](https://img.jikehou.cn/img/88_9.jpg)
+![《Python 源码剖析》](https://img.jikehou.cn/img/20180530_9.jpg)
 
 
 ---
-![《Python 学习手册（第4版）》](https://img.jikehou.cn/img/88_10.jpg)
+![《Python 学习手册（第4版）》](https://img.jikehou.cn/img/20180530_10.jpg)
 
 
 ---
-![《Python 3 网络爬虫开发实战》](https://img.jikehou.cn/img/88_11.jpg)
+![《Python 3 网络爬虫开发实战》](https://img.jikehou.cn/img/20180530_11.jpg)
 
 
 ## 3.数据分析
 单独把数据分析拎出来说，是因为数据分析挺有分量的。
 
 ---
-![《Python 数据科学手册》](https://img.jikehou.cn/img/88_12.jpg)
+![《Python 数据科学手册》](https://img.jikehou.cn/img/20180530_12.jpg)
 
 
 ## 4.算法
 通过阅读代码方式来学习算法是一个枯燥，痛苦的过程。因为需要很强的想象能力。我们换一种方式来，通过图片形式来学习算法或许更有有趣些。
 
 ---
-![《算法图解》](https://img.jikehou.cn/img/88_13.jpg)
+![《算法图解》](https://img.jikehou.cn/img/20180530_13.jpg)
 
 
 ## 5.数据库
 后台开发基本上跟数据库打交道，所以数据库知识挺重要的。同时，MySQL 数据库是使用最广泛的数据库。推荐一本 MySQL 基础的书籍。
 
 ---
-![《MySQL必知必会》](https://img.jikehou.cn/img/88_14.jpg)
+![《MySQL必知必会》](https://img.jikehou.cn/img/20180530_14.jpg)
 
 
 ## 6.计算机网络
 这本书很详细，很系统地阐述网络基础知识。可以算是一本很棒的计算机网络科普读物。
 
 ---
-![《网络是怎样连接的》](https://img.jikehou.cn/img/88_15.jpg)
+![《网络是怎样连接的》](https://img.jikehou.cn/img/20180530_15.jpg)
 
 
 
@@ -120,7 +120,7 @@ keywords: [Python, 编程入门, 开发进阶, 书籍]
 
 注意：
 1）以上优惠码一个用户只能用一个。
-2）优惠码只支持『计算机类书籍』，其他书籍不支持。如果你出现『没有使用此优惠码的商品』，那书单你一定是有不合规的书。
+2）优惠码只支持『计算机类书籍』，其他书籍不支持。如果你出现『没有使用此优惠码的商品』，那书单里一定是有不合规的书。
 3）具体使用是在当当页面结算之后，可以输入优惠码兑换。
 
 

@@ -17,7 +17,7 @@ keywords: [Python, 网络爬虫, beautifulSoup, 内容提取, bs]
 
 俗话说得好，条条道路通罗马。
 
-目前还两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。
+目前有两种代替其的办法，一种是使用 Xpath 神器，另一种就是本文要讲的 BeautifulSoup。
 <!-- more -->
 
 ## 1.BeautifulSoup 简介
@@ -300,7 +300,7 @@ print(soup.select("p > .sister"))
 `.parents`属性，也是返回所有子孙节点的迭代器
 
 ### 5-5.获取兄弟节点
-兄弟节点可以理解为和本节点处在统一级的节点，`.next_sibling`属性获取了该节点的下一个兄弟节点，`.previous_sibling`则与之相反，如果节点不存在，则返回 None
+兄弟节点可以理解为和本节点处在同一级的节点，`.next_sibling`属性获取了该节点的下一个兄弟节点，`.previous_sibling`则与之相反，如果节点不存在，则返回 None
 
 注意：实际 HTML 中的 tag 的`.next_sibling`和 `.previous_sibling`属性通常是字符串或空白，因为空白或者换行也可以被视作一个节点，所以得到的结果可能是空白或者换行
 

@@ -14,7 +14,7 @@ keywords: [Python, web, Django]
 
 它大概是这样子：
 <!-- more -->
-![它大概是这样子](https://img.jikehou.cn/img/81_Bootstrap-Paginator.jpg)
+![它大概是这样子](https://img.jikehou.cn/img/20180505_Bootstrap-Paginator.jpg)
 
 这样的实现不仅提高了用户体验，还是减轻数据库读取数据的压力。
 
@@ -166,11 +166,11 @@ def paginator_view(request):
 
 所以使用浏览器访问地址 `http://127.0.0.1:8000/paginator/`， 看到访问结果如下：
 
-![看到访问结果-1](https://img.jikehou.cn/img/81_1.png)
+![看到访问结果-1](https://img.jikehou.cn/img/20180505_1.png)
 
-![看到访问结果-2](https://img.jikehou.cn/img/81_2.png)
+![看到访问结果-2](https://img.jikehou.cn/img/20180505_2.png)
 
-![看到访问结果-3](https://img.jikehou.cn/img/81_3.png)
+![看到访问结果-3](https://img.jikehou.cn/img/20180505_3.png)
 
 ## 4.源码
 

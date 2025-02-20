@@ -38,7 +38,7 @@ scrapyd
 ```
 启动服务结果如下：
 
-![启动服务结果如下](https://img.jikehou.cn/img/43_1.png)
+![启动服务结果如下](https://img.jikehou.cn/img/20171002_1.png)
 
 scrapyd 也提供了 web 的接口。方便我们查看和管理爬虫程序。
 
@@ -46,7 +46,7 @@ scrapyd 也提供了 web 的接口。方便我们查看和管理爬虫程序。
 
 在本机上使用浏览器访问 `http://localhost:6800/`地址即可查看到当前可以运行的项目。
 
-![浏览器访问](https://img.jikehou.cn/img/43_2.png)
+![浏览器访问](https://img.jikehou.cn/img/20171002_2.png)
 
 
 ## 3.项目部署

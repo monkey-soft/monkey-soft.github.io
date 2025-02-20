@@ -3,7 +3,7 @@ layout: post
 title:  "ChatGPT 4.0，AI 创造未来的无限可能"
 date:   2023-03-15 19:08:33
 cover: https://img.jikehou.cn/cover/2023-03-15.png
-categories: [AIGC研究]
+categories: [AI 探索]
 tags: [AI, ChatGPT]
 keywords: [AI, ChatGPT]
 ---
@@ -18,11 +18,11 @@ keywords: [AI, ChatGPT]
 
 我剪辑视频，视频标题一般是在网上搜索，自己再优化。现在我利用 ChatGPT 给我写标题，一分钟就搞定，而且质量还不错。
 
-![ChatGPT 给我写标题](https://img.jikehou.cn/img/169_1.png)
+![ChatGPT 给我写标题](https://img.jikehou.cn/img/20230315_1.png)
 
 同样写短视频内容文案，ChatGPT 也是信手拈来。
 
-![ChatGPT 写短视频内容文案](https://img.jikehou.cn/img/169_2.png)
+![ChatGPT 写短视频内容文案](https://img.jikehou.cn/img/20230315_2.png)
 
 有时候晚上用 Python 写小工具，我可以思考程序架构和逻辑，利用 ChatGPT 帮我写代码。
 
@@ -32,7 +32,7 @@ keywords: [AI, ChatGPT]
 
 它还温馨提醒我可以复制粘贴到编辑器中，哈哈哈，当时笑死我了。
 
-![ChatGPT 写代码](https://img.jikehou.cn/img/169_3.png)
+![ChatGPT 写代码](https://img.jikehou.cn/img/20230315_3.png)
 
 当然还有很多有趣的事，调教案例，有时间再来分享。
 
@@ -58,15 +58,15 @@ ChatGPT 4.0 发布，带来新的特性，甚至比 3.5 版本还要逆天。
 
 假如我想在深圳南山区找房子，可以利用 ChatGPT 找出大概方位，缩小范围。
 
-![ChatGPT 在深圳南山区找房子](https://img.jikehou.cn/img/169_4.png)
+![ChatGPT 在深圳南山区找房子](https://img.jikehou.cn/img/20230315_4.png)
 
 再比如 2 月美国火车脱轨的事情真让人惊悚，我突发奇想，想去了解最近 10 年来，美国每年火车的脱轨数据情况。
 
-![ChatGPT 找美国最近10年火车的脱轨数据情况](https://img.jikehou.cn/img/169_5.png)
+![ChatGPT 找美国最近10年火车的脱轨数据情况](https://img.jikehou.cn/img/20230315_5.png)
 
 当然 ChatGPT 不是万能，这玩意也会跟我们一顿胡编乱造。我试过问苏轼相关的信息，我差点被忽悠了。
 
-![ChatGPT 不是万能](https://img.jikehou.cn/img/169_6.png)
+![ChatGPT 不是万能](https://img.jikehou.cn/img/20230315_6.png)
 
 建议大家都去体验下 ChatGPT，学会并利用 ChatGPT 提高工作效率。
 

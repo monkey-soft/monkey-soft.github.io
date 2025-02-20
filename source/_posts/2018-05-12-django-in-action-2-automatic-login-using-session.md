@@ -24,11 +24,11 @@ keywords: [Python, web, Django, session, 项目实战]
 
 我新建的应用是 `demo_session`。
 
-![我新建的应用是 demo_session](https://img.jikehou.cn/img/83_1.png)
+![我新建的应用是 demo_session](https://img.jikehou.cn/img/20180512_1.png)
 
 然后在 setting.py 中启动请用，并检查 sessions 组件是否启动。
 
-![检查 sessions 组件是否启动](https://img.jikehou.cn/img/83_2.png)
+![检查 sessions 组件是否启动](https://img.jikehou.cn/img/20180512_2.png)
 
 因为需要 Cookie 功能，所以同样需要在 settings.py 增加一些配置。
 ```python
@@ -48,7 +48,7 @@ SESSION_COOKIE_AT_BROWSER_CLOSE = False  # 是否每次请求都保存Session，
 
 应用中会涉及到 3 个页面，所以我绘制流程图帮助理解。
 
-![绘制流程图帮助理解](https://img.jikehou.cn/img/83_3.png)
+![绘制流程图帮助理解](https://img.jikehou.cn/img/20180512_3.png)
 
 ## 3.实现
 ### 3-1.新建 model
@@ -205,17 +205,17 @@ urlpatterns = [
 ## 4.实现效果
 用户访问 `http://127.0.0.1/login` 进行登录操作。
 
-![进行登录操作](https://img.jikehou.cn/img/83_4.png)
+![进行登录操作](https://img.jikehou.cn/img/20180512_4.png)
 
 当点击 **login** 成功之后，会跳转到首页，首页会显示用户名。
 
 同时，Cookie 中多了一个 **sessionid** 的字段。这字段名就是我们在 setttings.py 定义的。
 
-![这字段名就是我们在 setttings.py 定义的](https://img.jikehou.cn/img/83_5.png)
+![这字段名就是我们在 setttings.py 定义的](https://img.jikehou.cn/img/20180512_5.png)
 
 查询数据库 django_session 表的内容，会多出一条数据。
 
-![会多出一条数据](https://img.jikehou.cn/img/83_6.png)
+![会多出一条数据](https://img.jikehou.cn/img/20180512_6.png)
 
 表中的字段含义如下：
 - session_key: 就是服务器给用户返回的id。在浏览器当中，这个值是保存为sessionid
@@ -226,13 +226,13 @@ urlpatterns = [
 
 这证明能自动登录。
 
-![这证明能自动登录](https://img.jikehou.cn/img/83_7.png)
+![这证明能自动登录](https://img.jikehou.cn/img/20180512_7.png)
 
 如果用户退出登录，再访问首页。
 
 这时会发现看不到了 username 信息了。
 
-![这时会发现看不到了 username 信息了](https://img.jikehou.cn/img/83_8.png)
+![这时会发现看不到了 username 信息了](https://img.jikehou.cn/img/20180512_8.png)
 
 ## 5.小结
 实现自动登录功能其实不难，只需要在 Django 的 Sessions 组件。

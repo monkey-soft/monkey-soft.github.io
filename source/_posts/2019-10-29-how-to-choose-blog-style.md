@@ -4,9 +4,9 @@ title:  "个人博客如何选型？"
 date:   2019-10-29 23:05:08
 urlname: 110
 cover: https://img.jikehou.cn/cover/2019-10-29.jpg
-categories: [建站]
-tags: [建站]
-keywords: [博客, Hexo, Jekyll, Github, WordPress]
+categories: [个人博客搭建]
+tags: [个人博客搭建]
+keywords: [博客, 个人博客, Hexo, Jekyll, Github, WordPress]
 ---
 当看到别人比自己优秀的时候，有时候会自嘲一句：“同九年，汝何秀”。
 
@@ -47,6 +47,7 @@ keywords: [博客, Hexo, Jekyll, Github, WordPress]
 我自己写文章不知不觉也有两年多了，这中间我深有体会。
 
 ## 2.去哪里写作呢？
+
 现在很多网络社区众多，如知乎，简书以及微信公众号等。
 
 搭建个人博客网站也是一个平台。
@@ -57,7 +58,7 @@ keywords: [博客, Hexo, Jekyll, Github, WordPress]
 
 前面聊了这么多，主要是自己一些心得体会吧。
 
-有些人喜欢或者想要搭建个人博客网站，我把博客网站方案分类两大类，大家根据自己喜好去选择。
+有些人喜欢或者想要搭建个人博客网站，我把博客网站方案分为两大类，大家根据自己喜好去选择。
 
 ### 3-1.动态网站
 

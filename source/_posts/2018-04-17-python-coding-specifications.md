@@ -33,7 +33,7 @@ PEP 8 可以算是 Python 官方的标准编码规范。
 
 ## Google 的 Python 风格指南
 
-总所周知，Google 是开源大户。Google 会将项目托管到 Github 上面，任何人都可以 fork、 修改、提交。
+众所周知，Google 是开源大户。Google 会将项目托管到 Github 上面，任何人都可以 fork、 修改、提交。
 
 如果代码贡献者的编程风格与 Google 的不一致, 会给代码阅读者和其他代码提交者造成不小的困扰。
 
@@ -63,21 +63,21 @@ PyCharm 目前开发 Python 的主流 IDE 工具，我介绍下如何在 PyCharm
 ## 1.配置 PEP 8 代码提示
 一般安装 PyCharm 都默认配置了规范提示。直接在右下角调整 Highlighting Level 为 Inspections 就能自动 PEP 8 提示。
 
-![动 PEP 8 提示](https://img.jikehou.cn/img/75_1.png)
+![动 PEP 8 提示](https://img.jikehou.cn/img/20180417_1.png)
 
 在我之前 Django 学习笔记系列的第一个 demo 中，有不符合规范的地方。
 
 在代码编辑框的右边会有一个浅黄色的标记，你将鼠标悬停在光标上，PyCharm 会发现有提示。
 
-![PyCharm 会发现有提示](https://img.jikehou.cn/img/75_2.png)
+![PyCharm 会发现有提示](https://img.jikehou.cn/img/20180417_2.png)
 
 对于这种提示，只要在第 7 行增加一个回车就搞定了，之后PyCharm 也没有提示。
 
-![之后PyCharm 也没有提示](https://img.jikehou.cn/img/75_3.png)
+![之后PyCharm 也没有提示](https://img.jikehou.cn/img/20180417_3.png)
 
 当然，你也可以修改提示框的配色。
 
-![修改提示框的配色](https://img.jikehou.cn/img/75_4.png)
+![修改提示框的配色](https://img.jikehou.cn/img/20180417_4.png)
 
 ## 2.将代码格式化符合 PEP 8 规范
 
@@ -101,11 +101,11 @@ Pycharm 配置 Autopep8 方法如下：
 
 **1）选择菜单「File」–>「Settings」–>「Tools」–>「External Tools」–>点击加号添加工具**
 
-![Pycharm 配置 Autopep8 方法](https://img.jikehou.cn/img/75_5.png)
+![Pycharm 配置 Autopep8 方法](https://img.jikehou.cn/img/20180417_5.png)
 
 **2）填写如下配置项，点击「OK」保存**
 
-![填写如下配置项，点击「OK」保存](https://img.jikehou.cn/img/75_6.png)
+![填写如下配置项，点击「OK」保存](https://img.jikehou.cn/img/20180417_6.png)
 
 图片中需要配置信息
 Name：Autopep8 (可随意填写)
@@ -117,10 +117,10 @@ Tools settings:
 
 **3）选择菜单「Tool」–>「Extern Tools」–>「Autopep8」或在某个文件中右键选择「Extern Tools」–>「Autopep8」，即可使用autopep8自动格式化你的python代码了。**
 
-![使用autopep8自动格式化你的python代码了](https://img.jikehou.cn/img/75_7.png)
+![使用autopep8自动格式化你的python代码了](https://img.jikehou.cn/img/20180417_7.png)
 
 或
 
-![使用autopep8自动格式化你的python代码了](https://img.jikehou.cn/img/75_8.png)
+![使用autopep8自动格式化你的python代码了](https://img.jikehou.cn/img/20180417_8.png)
 
 

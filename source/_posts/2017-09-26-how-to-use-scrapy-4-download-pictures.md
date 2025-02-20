@@ -168,12 +168,12 @@ pip --proxy http://代理ip:端口 install pillow
 
 安装之后，重新运行爬虫程序。Scrapy 会运行结果中显示我们定义的`image_urls` 和` images_path`字段。
 
-![重新运行爬虫程序，运行结果](https://img.jikehou.cn/img/42_1.png)
+![重新运行爬虫程序，运行结果](https://img.jikehou.cn/img/20170926_1.png)
 
 ### 2-6.运行结果
 我们会发现在 D 盘有个名为`freebuf`的文件夹。在该文件夹中有个`full`文件夹，里面存放我们刚才爬取到的图片。
 
-![运行结果](https://img.jikehou.cn/img/42_2.png)
+![运行结果](https://img.jikehou.cn/img/20170926_2.png)
 
 如果有在 setting.py 文件中设置生成缩略图。
 ```python

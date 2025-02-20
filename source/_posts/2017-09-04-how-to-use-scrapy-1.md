@@ -82,7 +82,7 @@ Failed to build Twisted
 
 安装成功之后如下图：
 
-![安装成功](https://img.jikehou.cn/img/39_2.png)
+![安装成功](https://img.jikehou.cn/img/20170904_2.png)
 
 
 ## 2.初探 Scrapy
@@ -93,11 +93,11 @@ scrapy  startproject  项目的名字
 ```
 我新建一个名为 scrapy_demo，执行结果如下。
 
-![scrapy_demo](https://img.jikehou.cn/img/39_3.png)
+![scrapy_demo](https://img.jikehou.cn/img/20170904_3.png)
 
 使用 Pycharm 打开该项目，我们会发现项目的层级架构以及文件。
 
-![项目的层级架构以及文件](https://img.jikehou.cn/img/39_4.png)
+![项目的层级架构以及文件](https://img.jikehou.cn/img/20170904_4.png)
  
 这些文件的作用是：
 - ` scrapy.cfg`：项目的配置文件，开发无需用到。
@@ -122,7 +122,7 @@ scrapy  startproject  项目的名字
 
 下图是 Scrapy 的架构图，它能让我们对 Scrapy 有了大体地认识。后续的文章会逐个介绍其组件用法。
 
-![Scrapy 的架构图](https://img.jikehou.cn/img/39_5.png)
+![Scrapy 的架构图](https://img.jikehou.cn/img/20170904_5.png)
 
 我按照从上而下，从左往右的顺序阐述各组件的作用。
 - `Scheduler`：调度器。负责接受 Engine 发送过来的 Requests 请求，并将其队列化；
@@ -138,7 +138,7 @@ scrapy  startproject  项目的名字
 
 同样先放出一张图，然后我再细细讲解。
 
-![Scrapy 工作机制](https://img.jikehou.cn/img/39_6.png)
+![Scrapy 工作机制](https://img.jikehou.cn/img/20170904_6.png)
 
 1. 当引擎(Engine) 收到 Spider 发送过来的 url 主入口地址（其实是一个 Request 对象, 因为 Scrapy 内部是用到 Requests 请求库），Engine 会进行初始化操作。
 

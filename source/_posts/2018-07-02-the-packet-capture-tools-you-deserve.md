@@ -23,7 +23,7 @@ Fiddler 是一个使用 C# 编写的 http 抓包工具。
 
 所以 Fiddler 经常被运用在网络爬虫抓包、HTTP API 测试、手机抓包等场景。
 
-![Fiddler](https://img.jikehou.cn/img/96_1.png)
+![Fiddler](https://img.jikehou.cn/img/20180702_1.png)
 
 {% btn 'https://www.telerik.com/fiddler', 下载地址, far fa-hand-point-right,blue larger %}
 
@@ -43,7 +43,7 @@ Charles 是 Fiddler 在 Mac 系统上的代替品。目前 Charles 算是 Mac �
 
 它使用 Java 语言开发的，所以安装以及使用之前，要事先安装好 Java 环境。另外，它还支持 Windows、Linux 等操作系统。
 
-![Charles](https://img.jikehou.cn/img/96_2.png)
+![Charles](https://img.jikehou.cn/img/20180702_2.png)
 
 
 不过 Charles 是一款收费的软件，当 30 天的免费体验期过后，就需要花费 30 刀购买一个 License。
@@ -64,7 +64,7 @@ Charles 是 Fiddler 在 Mac 系统上的代替品。目前 Charles 算是 Mac �
 ## 3.Appium
 Appium 是移动端自动化测试框架。它跟 Selenium 有点类似，使用驱动程序在 Android、iOS 设备上执行模拟点击、滑动等操作。
 
-![Appium](https://img.jikehou.cn/img/96_3.jpg)
+![Appium](https://img.jikehou.cn/img/20180702_3.jpg)
 
 Appium 的核心是一个公开 REST API 的 Web Server。
 
@@ -89,7 +89,7 @@ Wireshark 是一款非常优秀、支持 Unix 和 Windows 平台的网络协议�
 
 网络安全工程师可以利用其监控 TCP 网络动态、分析 DDos 数据等。
 
-![Wireshark](https://img.jikehou.cn/img/96_4.png)
+![Wireshark](https://img.jikehou.cn/img/20180702_4.png)
 
 {% btn 'https://www.wireshark.org/', 下载地址, far fa-hand-point-right,blue larger %}
 

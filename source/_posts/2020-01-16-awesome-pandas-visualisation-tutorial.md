@@ -16,7 +16,7 @@ Pandas 是一个开源、能用于数据操作和分析的 Python 库。
 
 加载数据最方便、最简单的办法是我们能一次性把表格(CSV 文件或者 EXCEL 文件)导入。然后我们能用多种方式对它们进行切片和裁剪。
 
-![加载数据](https://img.jikehou.cn/img/160_1.jpg)
+![加载数据](https://img.jikehou.cn/img/20200116_1.jpg)
 
 Pandas 可以说是我们加载数据的完美选择。Pandas 不仅允许我们加载电子表格，而且支持对加载内容进行预处理。
 
@@ -35,7 +35,7 @@ df = pandas.read_csv('music.csv')
 
 其中变量 DF 是 Pandas 的 DataFrame 类型。
 
-![DataFrame](https://img.jikehou.cn/img/160_2.jpg)
+![DataFrame](https://img.jikehou.cn/img/20200116_2.jpg)
 
 Pandas 同样支持操作 Excel 文件，使用 `pd.read_excel()` 接口能从 EXCEL 文件中读取数据。
 
@@ -49,13 +49,13 @@ df = pandas.read_csv('music.xls')
 
 比如，我们想获取 Artist 所在的整列数据, 可以将 artists 当做下标来获取。
 
-![使用列标签来选择列数据](https://img.jikehou.cn/img/160_3.jpg)
+![使用列标签来选择列数据](https://img.jikehou.cn/img/20200116_3.jpg)
 
 同样，我们可以使用行标签来获取一列或者多列数据。
 
 表格中的下标是数字，比如我们想获取第 1、2 行数据，可以使用 df[1:3] 来拿到数据。
 
-![使用行标签来获取一列或者多列数据](https://img.jikehou.cn/img/160_4.jpg)
+![使用行标签来获取一列或者多列数据](https://img.jikehou.cn/img/20200116_4.jpg)
 
 Pandas 的利器之一是索引和数据选择器。
 
@@ -70,7 +70,7 @@ df.loc[1:3, ['Artist']]
 # loc(这里会包含两个边界的行号所在的值)
 ```
 
-![随意搭配列标签和行标签来进行切片](https://img.jikehou.cn/img/160_5.jpg)
+![随意搭配列标签和行标签来进行切片](https://img.jikehou.cn/img/20200116_5.jpg)
 
 
 ## 3.过滤数据
@@ -79,11 +79,11 @@ df.loc[1:3, ['Artist']]
 
 比如我们想获取音乐类型(Genre)为值为 Jazz 行。
 
-![过滤数据](https://img.jikehou.cn/img/160_6.jpg)
+![过滤数据](https://img.jikehou.cn/img/20200116_6.jpg)
 
 再比如获取超过 180万听众的 艺术家。
 
-![获取超过 180万听众的 艺术家](https://img.jikehou.cn/img/160_7.jpg)
+![获取超过 180万听众的 艺术家](https://img.jikehou.cn/img/20200116_7.jpg)
 
 
 ## 4.处理空值
@@ -101,11 +101,11 @@ print(df.isnull())
 
 假设我们之前的音乐数据集中 有空值(NaN)的行。
 
-![有空值(NaN)的行](https://img.jikehou.cn/img/160_8.jpg)
+![有空值(NaN)的行](https://img.jikehou.cn/img/20200116_8.jpg)
 
 我们对之前的音乐.csv 文件进行判断，得到结果如下:
 
-![结果](https://img.jikehou.cn/img/160_9.jpg)
+![结果](https://img.jikehou.cn/img/20200116_9.jpg)
 
 如果我想知道哪列存在空值，可以使用 **df.isnull().any()**
 
@@ -118,11 +118,10 @@ print(df.isnull().any())
 
 结果如下：
 
-![知道哪列存在空值](https://img.jikehou.cn/img/160_10.jpg)
+![知道哪列存在空值](https://img.jikehou.cn/img/20200116_10.jpg)
 
 处理空值，Pandas 库提供很多方式。最简单的办法就是删除空值的行。
 
-![处理空值](https://img.jikehou.cn/img/160_11.jpg)
 
 除此之外，还可以使用取其他数值的平均值，使用出现频率高的值进行填充缺失值。
 
@@ -137,7 +136,7 @@ pd.fillna(0)
 
 我们使用特定条件进行分组并聚它们的数据，也是很有意思的操作。比如，我们需要将数据集以音乐类型进行分组，以便我们能更加方便、清晰了解每个音乐类型有多少听众和播放量。
 
-![分组](https://img.jikehou.cn/img/160_12.jpg)
+![分组](https://img.jikehou.cn/img/20200116_11.jpg)
 
 
 上述代码的的执行过程是：Pandas 会将 Jazz 音乐类型的两行数据聚合一组；我们调用了 sum() 函数，Pandas 还会将这两行数据端的 Listeners(听众)和 Plays (播放量) 相加在一起，然后组合在 Jazz 列中显示总和。
@@ -148,7 +147,7 @@ pd.fillna(0)
 
 通常在数据分析过程中，我们发现自己需要从现有列中创建新列，使用 Pandas 也是能轻而易举搞定。
 
-![从现有列中创建新列](https://img.jikehou.cn/img/160_13.jpg)
+![从现有列中创建新列](https://img.jikehou.cn/img/20200116_12.jpg)
 
 
 > 原作者：jalammar

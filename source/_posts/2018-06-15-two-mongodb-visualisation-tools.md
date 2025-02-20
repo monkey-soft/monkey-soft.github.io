@@ -36,15 +36,15 @@ Pycharm 工具自带支持 MySQL、SQLite 等数据库的可视化工具。
 
 安装该插件也很方便，直接在 Pycharm 的【settings】-【Plugin】选项中搜索 mongo 即可安装。
 
-![安装](https://img.jikehou.cn/img/92_1.png)
+![安装](https://img.jikehou.cn/img/20180615_1.png)
 
 然后在【settings】中找到【Mongo Servers】，在配置下 MongoDB 的安装路径。
 
 然后填写连接的数据库配置信息，就可以操作数据库了。
 
-![配置安装路径](https://img.jikehou.cn/img/92_2.png)
+![配置安装路径](https://img.jikehou.cn/img/20180615_2.png)
 
-![操作数据库](https://img.jikehou.cn/img/92_3.png)
+![操作数据库](https://img.jikehou.cn/img/20180615_3.png)
 
 成功连接数据库之后，就可以对 mongo 的 Collections（相当于 MySQL 的 表）进行操作。
 
@@ -52,7 +52,7 @@ Pycharm 工具自带支持 MySQL、SQLite 等数据库的可视化工具。
 
 我们也可以直接对数据进行修改或者删除。
 
-![数据是以 Key-Value 形式展示](https://img.jikehou.cn/img/92_4.png)
+![数据是以 Key-Value 形式展示](https://img.jikehou.cn/img/20180615_4.png)
 
 **推荐原因**：
 - 它是 Pycharm 的插件。所以我们可以直接在 Pycharm 操作，方便快捷。
@@ -77,19 +77,19 @@ Nosqlclient 是一个跨平台的免费的 MongoDB 管理工具。
 
 数据库监控界面，可以监控当前内存使用情况，数据读写情况
 
-![数据库监控界面](https://img.jikehou.cn/img/92_5.png)
+![数据库监控界面](https://img.jikehou.cn/img/20180615_5.png)
 
 数据库管理界面，支持管理用户，导出/导入数据等
 
-![数据库管理界面](https://img.jikehou.cn/img/92_6.png)
+![数据库管理界面](https://img.jikehou.cn/img/20180615_6.png)
 
 工具界面，直接命令行操作数据库，分析 Collections（相当于 MySQL 的 表）的情况等。我最喜欢这个功能。
 
-![直接命令行操作数据库](https://img.jikehou.cn/img/92_7.png)
+![直接命令行操作数据库](https://img.jikehou.cn/img/20180615_7.png)
 
 数据管理，对数据进行增删改查操作。
 
-![数据管理](https://img.jikehou.cn/img/92_8.png)
+![数据管理](https://img.jikehou.cn/img/20180615_8.png)
 
 **推荐原因：**
 - 界面友好、直观，同时操作方便

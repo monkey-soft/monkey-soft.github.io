@@ -22,29 +22,29 @@ keywords: [数据分析, 可视化, 数据集, Python, Github]
 
 几经寻觅之后，我发现 GitHub 有个开源项目 **COVID-19**。这是美国约翰·霍普金斯大学系统科学与工程中心（JHU CSSE）收集各国卫生机构公开 2019 年新型冠状病毒的数据存储项目。
 
-项目是处于教育和学术研究目的而开源，还提供了可视仪表板 Web 界面。不得不说是一个很良心的项目。
+项目是出于教育和学术研究目的而开源，还提供了可视仪表板 Web 界面。不得不说是一个很良心的项目。
 <!-- more -->
 截止文章发布前半个小时，我们通过仪表盘数据可知，全球有 18 万人确诊，7155 人死亡，79433 人治愈。
 
-![全球有 18 万人确诊](https://img.jikehou.cn/img/161_1.jpg)
+![全球有 18 万人确诊](https://img.jikehou.cn/img/20200317_1.jpg)
 
 意大利也是重灾区，伊朗、西班牙、韩国、德国、法国等也有超过 6 千人确证。
 
-![意大利](https://img.jikehou.cn/img/161_2.jpg)
+![意大利](https://img.jikehou.cn/img/20200317_2.jpg)
 
 通过全球疫情总览图，我们可以知道新型冠状病毒已经席卷全球。
 
-![全球疫情总览图](https://img.jikehou.cn/img/161_3.jpg)
+![全球疫情总览图](https://img.jikehou.cn/img/20200317_3.jpg)
 
 但可喜的是，国内的疫情已经得到控制。
 
 橙色的线条可以看出，2月14号开始确诊人数出现平缓趋势；2月28号以后就显示为平滑的曲线，说明疫情暂时得到控制。
 
-![曲线](https://img.jikehou.cn/img/161_4.jpg)
+![曲线](https://img.jikehou.cn/img/20200317_4.jpg)
 
 关于这个项目，一共有三个数据集，分别是 `archived_data`、`csse_cvoid_19_data`、`who_covid_19_situation_reposts`。
 
-![一共有三个数据集](https://img.jikehou.cn/img/161_5.jpg)
+![一共有三个数据集](https://img.jikehou.cn/img/20200317_5.jpg)
 
 - archived_data 是2020年1月21日至2月14日有关冠状病毒COVID-19（以前称为2019-nCoV）的仪表板案例报告。其中 archived_time_series 目录是经过清洗之后的数据。
 - csse_cvoid_19_data 是每日病例数据数据集，每隔24小时更新一次。其中 csse_covid_19_daily_reports 目录下有从1月22号至今每天的病例数据，而csse_covid_19_time_series 是经过清洗的数据集。如果我们想利用 Python 对疫情数据做可视化处理，可以直接选用该数据集。

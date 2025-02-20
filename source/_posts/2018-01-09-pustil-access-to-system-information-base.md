@@ -127,7 +127,7 @@ import psutil
 psutil.swap_memory()
 >>  sswap(total=17016451072, used=7407996928, free=9608454144, percent=43.5, sin=0, sout=0)
 ```
-**swap_memory()** 获取的是系统的交换内存的信息，也就是我们常说的虚拟内存。前面四个字段跟物理内存含义一样。而 `sin` 表示从磁盘调入是 swap 的大小， `sout` 表示从swap调出到 disk 的大小。这两个字段在 Windows 系统下是没有意义。因此，获取结果为 0。
+**swap_memory()** 获取的是系统的交换内存的信息，也就是我们常说的虚拟内存。前面四个字段跟物理内存含义一样。而 `sin` 表示从磁盘调入时 swap 的大小， `sout` 表示从swap调出到 disk 的大小。这两个字段在 Windows 系统下是没有意义。因此，获取结果为 0。
 
 
 ### 3-3.获取磁盘信息
@@ -143,7 +143,7 @@ sdiskpart(device='D:\\', mountpoint='D:\\', fstype='NTFS', opts='rw,fixed'),
 sdiskpart(device='E:\\', mountpoint='E:\\', fstype='NTFS', opts='rw,fixed'), 
 sdiskpart(device='F:\\', mountpoint='F:\\', fstype='NTFS', opts='rw,fixed')]
 ```
-**disk_partitions(all=False)** 返回所有挂载磁盘分区信息的列表。有点类似 Linux 的 `df` 命令。各个字段的含有分别为：
+**disk_partitions(all=False)** 返回所有挂载磁盘分区信息的列表。有点类似 Linux 的 `df` 命令。各个字段的含义分别为：
 - device：分区
 - mountpoint：挂载点
 - fstype：文件系统格式
@@ -231,7 +231,7 @@ id=None)]
 ```
 **users()** 是返回当前登录用户的信息。例如用户的名称 `name`、运行的终端 `terminal`， 在 Windows 系统下就是我们常说的 CMD 窗口、登录的 IP 地址 `host`、登录的时长 `started`以及登录的进程 `pid`，在 Windows 和 OpenBSD 系统中，该字段为 None。
 
-2）获取系统启动时间
+2) 获取系统启动时间
 `psutil.boot_time()` 获取的是系统启动的时间点，而不会启动消耗时长。
 
 
