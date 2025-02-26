@@ -21,7 +21,7 @@ flink_url: '/link/friends.json'
   "name": "猴哥的博客",
   "link": "https://jikehou.cn",
   "avatar": "https://img.jikehou.cn/config/avatar.png",
-  "descr": "把读书当做事业来做的前程序员。"
+  "descr": "技术极客, 创业者, 探索『一人企业』, 写作是为了记录自己的思考和成长。"
 }
 ```
 
