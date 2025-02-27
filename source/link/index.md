@@ -18,7 +18,7 @@ flink_url: '/link/friends.json'
 
 ```json
 {
-  "name": "猴哥的博客",
+  "name": "极客猴",
   "link": "https://jikehou.cn",
   "avatar": "https://img.jikehou.cn/config/avatar.png",
   "descr": "技术极客, 创业者, 探索『一人企业』, 写作是为了记录自己的思考和成长。"

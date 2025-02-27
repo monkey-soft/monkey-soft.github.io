@@ -4,21 +4,16 @@ menu:
     专栏: /categories/ || anzhiyu-icon-shapes
     标签: /tags/ || anzhiyu-icon-tags
 
-  友链:
-    友人帐: /link/ || anzhiyu-icon-link
-    #朋友圈: /fcircle/ || anzhiyu-icon-artstation
-    留言板: /comments/ || anzhiyu-icon-envelope
+  友链: /link/ || anzhiyu-icon-link
 
+  留言板: /comments/ || anzhiyu-icon-envelope
+
+  关于我: /about/ || anzhiyu-icon-paper-plane
   # 我的:
   #   音乐馆: /music/ || anzhiyu-icon-music
   #   追番页: /bangumis/ || anzhiyu-icon-bilibili
   #   相册集: /album/ || anzhiyu-icon-images
   #   小空调: /air-conditioner/ || anzhiyu-icon-fan
-
-  关于:
-    关于我: /about/ || anzhiyu-icon-paper-plane
-  #   闲言碎语: /essay/ || anzhiyu-icon-lightbulb
-    随便.逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
 
 # nav相关配置
 nav:
@@ -40,7 +35,7 @@ nav:
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示
 mourn:
-  enable: false
+  enable: true
   days: [4-5, 5-12, 7-7, 9-18, 12-13]
 
 # Code Blocks (代码相关)
@@ -211,7 +206,7 @@ mainTone:
 # wordcount (字数统计)
 # see https://blog.anheyu.com/posts/c27d.html#字数统计
 wordcount:
-  enable: false
+  enable: true
   post_wordcount: true
   min2read: true
   total_wordcount: true
@@ -269,12 +264,13 @@ post_copyright:
 # 文章打赏
 # Sponsor/reward
 reward:
-  enable: false
+  enable: true
+  coinAudio: https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a
   QR_code:
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png
+    - img: https://img.jikehou.cn/config/reward_weixin_qrcode.png
       link:
       text: 微信
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png
+    - img: https://img.jikehou.cn/config/reward_alipay_qrcode.png
       link:
       text: 支付宝
 
@@ -472,13 +468,19 @@ footer:
     list:
       - link: https://hexo.io/ #徽标指向网站链接
         shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
-        message: 博客框架为Hexo_v6.3.0 #徽标提示语
-      - link: https://blog.anheyu.com/
+        message: 博客框架为Hexo_v7.2.0 #徽标提示语
+      - link: https://docs.anheyu.com/
         shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
         message: 本站使用AnZhiYu主题
+      - link: https://www.cloudflare.com/zh-cn/
+        shields: https://img.shields.io/badge/CDN-CloudFlare-F6821F
+        message: 本站由CloudFlare提供CDN加速
       # - link: https://www.dogecloud.com/
       #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
-      #   message: 本站使用多吉云为静态资源提供CDN加速
+      #   message: 本站使用为静态资源提供CDN加速
+      - link: https://www.backblaze.com/
+        shields: https://img.shields.io/badge/%E4%BA%91%E5%AD%98%E5%82%A8-Backblaze-E21E29
+        message: 本站由Backblaze提供云存储服务
       - link: https://github.com/
         shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
         message: 本站项目由Github托管
@@ -557,12 +559,12 @@ footer:
       enable: false
       link: /copyright
     linkList:
+      - link: https://beian.miit.gov.cn/
+        text: 萌ICP备20251855号      
       - link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
         text: 主题
       # - link: https://image.anheyu.com
       #   text: 图床
-      # - link: https://beian.miit.gov.cn/
-      #   text: 湘ICP备-xxxxxxx号
     subTitle:
       enable: false
       # Typewriter Effect (打字效果)
@@ -593,7 +595,7 @@ baidu_analytics:
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
-google_analytics:
+google_analytics: G-5WWWTQNVZ8
 
 # CNZZ Analytics
 # https://www.umeng.com/
@@ -634,8 +636,8 @@ site_verification:
   #   content: xxx
   # Baidu Webmaster tools verification.
   # See: https://ziyuan.baidu.com/site    
-  - name: baidu-site-verification
-    content: TRltKAayjDsxQ7dA
+  # - name: baidu-site-verification
+  #   content: xxx
 
 
 # Beautify/Effect (美化/效果)
@@ -646,7 +648,7 @@ site_verification:
 
 theme_color:
   enable: true
-  main: "#425AEF"
+  main: "#31AEFE"
   dark_main: "#f2b94b"
   paginator: "#425AEF"
   #   button_hover: "#FF7242"
@@ -678,7 +680,7 @@ sidebar:
 h2Divider: false
 
 # 表格隔行变色
-table_interlaced_discoloration: false
+table_interlaced_discoloration: true
 
 
 # The top_img settings of home page
@@ -846,7 +848,8 @@ aside:
   card_weixin:
     enable: true
     face: https://bu.dusays.com/2023/01/13/63c02edf44033.png
-    backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
+    backFace: https://img.jikehou.cn/config/weixin_backface.png
+    #backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -1090,8 +1093,8 @@ inject:
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 生活明朗
-  subTitle: 万物可爱。
+  title: 不日进
+  subTitle: 则日退
   siteText: 极客猴
   category:
     - name: AI 探索
@@ -1196,7 +1199,7 @@ ptool:
 
 # 欢迎语配置
 greetingBox:
-  enable: true #开启后必须配置下面的list对应的时间段，不然会出现小白条
+  enable: false #开启后必须配置下面的list对应的时间段，不然会出现小白条
   default: 晚上好👋
   list:
     - greeting: 晚安😴
