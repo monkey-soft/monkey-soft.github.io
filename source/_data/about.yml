@@ -1,0 +1,102 @@
+- class_name: 关于页
+  subtitle: 不日进则日退🚀
+  avatarImg: https://img.jikehou.cn/config/avatar.png
+  avatarSkills:
+    left:
+      - 💻🚀 代码创客·AI创业者
+      - ✍️📝 笔耕不辍的思考者
+      - 📖🧭 书海漫游指南针
+      - ⏳⚔️ 十年磨剑·静待锋芒
+    right:
+      - 易经演算·红尘修行 ☯️🧘
+      - 商业系统架构师 💰⚙️
+      - 复利增长信徒 📈⏩
+      - 极客精神布道者 🤖🐒
+  name: 极客猴
+  description: 是一名 技术极客、AI创业者、自媒体博主、修行者
+  aboutsiteTips:
+    tips: 追求
+    title1: 做时间的朋友🌱
+    title2: 只工作不上班💻
+    word:
+      - 多看多读
+      - 认真思考
+      - 写作记录
+  helloAbout: 厚积薄发
+  skillsTips:
+    tips: 技能
+    title: 开启创造力
+  careers:
+    tips: 生涯
+    title: 梦藏于心, 行大于辩
+    list:
+      - desc: zhbit,软件工程专业
+        color: "#357ef5"
+      - desc: 腾讯视频云终端团队
+        color: "#357ef5"
+      - desc: 自由职业
+        color: "#357ef5"
+    img: 
+  statistic:
+    link: /archives
+    text: 文章隧道
+    cover: https://bu.dusays.com/2023/05/01/644f4b037b930.jpg
+  map:
+    title: 我现在住在
+    StrengthenTitle: 中国，广东省
+  selfInfo:
+    selfInfoTips1: 生于
+    selfInfoContentYear: 中国
+    selfInfoTips2: 大学专业
+    selfInfoContent2: 软件工程
+    selfInfoTips3: 现在职业
+    selfInfoContent3: 自由职业🕊️💻🚀
+  personalities:
+    author_name: 执政官
+    personality_type: ESFJ-A
+    photo_url: https://img.jikehou.cn/config/about.png
+    personality_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/ESFJ-A.svg
+    name_url: https://www.16personalities.com/ch/esfj-%E4%BA%BA%E6%A0%BC
+  maxim:
+    maxim_tips: 座右铭
+    maxim_top: 不日进
+    maxim_bottom: 则日退
+  buff:
+    buff_tips: 爱好
+    buff_top: 赚钱
+    buff_bottom: 读书
+  game:
+    game_tips: 爱好游戏
+    game_title: 
+    game_uid: ""
+    game_bg: https://bu.dusays.com/2023/04/22/64433bf26e25d.webp
+  comic:
+    comic_tips: 动漫
+    comic_title: 国产动漫
+    comic_list:
+      - name: 凡人修仙传
+        href: https://www.bilibili.com/bangumi/play/ep1231540
+        cover: https://img2.baidu.com/it/u=2242033132,64830780&fm=253&fmt=auto&app=138&f=JPEG
+      - name: 天行九歌
+        href: https://v.qq.com/x/cover/rm3tmmat4li8uul/w0019k37ecc.html
+        cover: https://img2.baidu.com/it/u=2029363947,3418301205&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1067
+      - name: 画江湖之天罡传
+        href: https://v.qq.com/x/cover/mzc00200385oxkg/s0030vjzysz.html
+        cover: https://img1.baidu.com/it/u=545122886,2243803332&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1067
+      - name: 不良人第六季
+        href: https://v.qq.com/x/cover/mzc00200cgo4wcc/r00454x3b5p.html
+        cover: https://picx.zhimg.com/v2-1e69fbbe7963d9e622636ddf2052ddbd_r.jpg
+      - name: 秦时明月
+        href: https://v.qq.com/x/cover/eesxmg0jorrcjby/h0033lwsz5l.html
+        cover: https://img2.baidu.com/it/u=567366232,2696290068&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=633
+  like:
+    like_tips: 关注偏好
+    like_title: 赚钱、创业、科技
+    like_bg: https://bu.dusays.com/2022/12/06/638f5f05ce1f7.jpg
+    like_bottom: 易经八卦、修行
+  music:
+    music_tips: 喜好的音乐
+    music_title: 8090年代经典老歌
+    music_bg: https://img0.baidu.com/it/u=1350059013,3983202455&fm=253&fmt=auto&app=138&f=JPEG
+    music_link: /
+  reward_list:
