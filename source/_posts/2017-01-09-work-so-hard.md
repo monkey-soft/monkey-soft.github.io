@@ -5,8 +5,8 @@ date:   2017-01-09 11:01:27
 urlname: 5
 cover: https://img.jikehou.cn/cover/2017-01-09.jpg
 categories: [个人成长]
-tags: [个人成长]
-keywords: [思考, 个人成长, 奋斗, 认知, 思维]
+tags: [感悟]
+keywords: [思考, 个人成长, 感悟, 奋斗, 认知, 思维]
 ---
 
 很多人往往有这样的状态，当完成一个目标之后，就守着这收获的成果沾沾自喜。

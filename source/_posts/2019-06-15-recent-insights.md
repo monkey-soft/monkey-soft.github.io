@@ -5,7 +5,7 @@ date:   2019-06-15 16:43:46
 urlname: 101
 cover: https://img.jikehou.cn/cover/2019-06-15.jpg
 categories: [个人成长]
-tags: []
+tags: [感悟]
 keywords: [感悟, 总结]
 ---
 四月中旬，我更新一篇自己的总结，之后就没心没肺的断更了两个月。

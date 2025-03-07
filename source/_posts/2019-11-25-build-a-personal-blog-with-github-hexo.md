@@ -5,7 +5,7 @@ date:   2019-11-25 17:28:07
 urlname: 112
 cover: https://img.jikehou.cn/cover/2019-11-25.jpg
 categories: [博客相关]
-tags: [博客]
+tags: [博客, Hexo]
 keywords: [博客, Hexo, Github, SEO优化]
 ---
 我之前写过一篇文章《利用Github+Jeklly搭建个人博客网站》，利用 Github 仓库提供的 github pages 来搭建个人博客。
