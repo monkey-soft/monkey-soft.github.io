@@ -4,8 +4,8 @@ title:  "个人博客如何选型？"
 date:   2019-10-29 23:05:08
 urlname: 110
 cover: https://img.jikehou.cn/cover/2019-10-29.jpg
-categories: [个人博客搭建]
-tags: [个人博客搭建]
+categories: [博客相关]
+tags: [博客]
 keywords: [博客, 个人博客, Hexo, Jekyll, Github, WordPress]
 ---
 当看到别人比自己优秀的时候，有时候会自嘲一句：“同九年，汝何秀”。

@@ -4,9 +4,9 @@ title:  "利用 Github+Jeklly 搭建个人博客网站"
 date:   2019-11-10 16:35:28
 urlname: 111
 cover: https://img.jikehou.cn/cover/2019-11-10.jpg
-categories: [个人博客搭建]
-tags: [个人博客搭建]
-keywords: [博客, Jekyll, Github, SEO 优化]
+categories: [博客相关]
+tags: [博客]
+keywords: [博客, Jekyll, Github, SEO优化]
 description: 利用 Github+Jeklly 搭建个人博客网站
 ---
 在上篇文章[《个人博客如何选型？》](https://jikehou.cn/posts/how-to-choose-blog-style.html)中讲到，可以利用 Github Pages 来搭建个人博客网站，本文主要讲解其中的各种细节。

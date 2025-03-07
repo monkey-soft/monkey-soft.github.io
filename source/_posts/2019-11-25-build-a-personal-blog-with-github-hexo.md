@@ -4,9 +4,9 @@ title:  "利用 Github+Hexo 搭建个人博客网站"
 date:   2019-11-25 17:28:07
 urlname: 112
 cover: https://img.jikehou.cn/cover/2019-11-25.jpg
-categories: [个人博客搭建]
-tags: [个人博客搭建]
-keywords: [博客, Hexo, Github, SEO 优化]
+categories: [博客相关]
+tags: [博客]
+keywords: [博客, Hexo, Github, SEO优化]
 ---
 我之前写过一篇文章《利用Github+Jeklly搭建个人博客网站》，利用 Github 仓库提供的 github pages 来搭建个人博客。
 
