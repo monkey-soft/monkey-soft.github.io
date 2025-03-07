@@ -4,7 +4,7 @@ title:  "os.path 模块用法详解"
 date:   2018-07-11 22:08:16
 urlname: 66
 cover: https://img.jikehou.cn/cover/2018-07-11.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, os.path, 标准库]
 ---

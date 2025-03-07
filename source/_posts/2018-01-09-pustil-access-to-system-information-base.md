@@ -4,7 +4,7 @@ title:  "pustil-获取系统信息库"
 date:   2018-01-09 17:38:18
 urlname: 31
 cover: https://img.jikehou.cn/cover/2018-01-09.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, pustil, 系统信息]
 ---

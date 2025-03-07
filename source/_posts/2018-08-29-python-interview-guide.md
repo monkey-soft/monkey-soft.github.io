@@ -4,7 +4,7 @@ title:  "Python 面试宝典"
 date:   2018-08-29 22:22:53
 urlname: 77
 cover: https://img.jikehou.cn/cover/2018-08-29.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, 面试]
 ---

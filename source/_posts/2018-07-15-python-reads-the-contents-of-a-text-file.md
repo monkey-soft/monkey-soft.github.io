@@ -4,7 +4,7 @@ title:  "Python 读取文本文件的内容"
 date:   2018-07-15 15:43:50
 urlname: 67
 cover: https://img.jikehou.cn/cover/2018-07-15.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python, 文本操作]
 keywords: [Python, 文本操作]
 ---

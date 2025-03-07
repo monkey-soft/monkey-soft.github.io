@@ -4,7 +4,7 @@ title:  "Python 中各种时间类型的转换"
 date:   2018-01-17 11:18:23
 urlname: 32
 cover: https://img.jikehou.cn/cover/2018-01-17.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, 时间转换]
 ---

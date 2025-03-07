@@ -4,7 +4,7 @@ title:  "几个Python编程小技巧"
 date:   2018-01-23 15:29:44
 urlname: 33
 cover: https://img.jikehou.cn/cover/2018-01-23.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, python编程技巧]
 ---

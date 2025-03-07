@@ -4,7 +4,7 @@ title:  "Python 三种遍历目录的方法，轻松帮你找出隐藏文件"
 date:   2018-11-05 10:54:01
 urlname: 85
 cover: https://img.jikehou.cn/cover/2018-11-05.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, 文件遍历]
 ---

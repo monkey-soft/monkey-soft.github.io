@@ -4,7 +4,7 @@ title:  "Python 创建二维数组的正确姿势"
 date:   2019-10-20 23:48:31
 urlname: 109
 cover: https://img.jikehou.cn/cover/2019-10-20.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, 数组]
 ---

@@ -4,7 +4,7 @@ title:  "Python 代码性能优化技巧"
 date:   2018-12-13 20:20:28
 urlname: 91
 cover: https://img.jikehou.cn/cover/2018-12-13.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, 性能优化]
 ---

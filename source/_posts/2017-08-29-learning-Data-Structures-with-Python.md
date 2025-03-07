@@ -4,8 +4,8 @@ title:  "用 Python 学习数据结构, 有它就不用愁"
 date:   2017-08-29 21:36:17
 urlname: 15
 cover: https://img.jikehou.cn/cover/2017-08-29.jpg
-categories: [小白入门Python]
-tags: [Python, 数据结构]
+categories: [Python编程]
+tags: [Python]
 keywords: [Python, 数据结构, Pygorithm]
 ---
 数据结构，我们对它已经是耳熟能详。

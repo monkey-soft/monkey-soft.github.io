@@ -4,7 +4,7 @@ title:  "彻底理解 Iterable、Iterator、generator"
 date:   2017-11-21 15:06:17
 urlname: 24
 cover: https://img.jikehou.cn/cover/2017-11-21.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, generator, iterator, iterable]
 ---

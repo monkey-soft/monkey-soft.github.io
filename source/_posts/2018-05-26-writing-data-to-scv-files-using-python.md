@@ -4,8 +4,8 @@ title:  "使用 Python 将数据写到 CSV 文件"
 date:   2018-05-26 01:19:49
 urlname: 56
 cover: https://img.jikehou.cn/cover/2018-05-26.jpg
-categories: [小白入门Python]
-tags: [Python, pandas]
+categories: [Python编程]
+tags: [Python, pandas, 文本操作]
 keywords: [Python, Unicode , csv, codecs, pandas]
 ---
 我们从网上爬取数据，最后一步会考虑如何存储数据。

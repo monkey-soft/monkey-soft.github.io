@@ -4,7 +4,7 @@ title:  "常用 Python 标准库"
 date:   2016-12-05 03:47:47
 urlname: 3
 cover: https://img.jikehou.cn/cover/2016-12-05.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, Python 标准库，re, csv, time, io, thread, json, datetime]
 ---

@@ -4,7 +4,7 @@ title:  "如何将 Pycharm 打造得更称手"
 date:   2019-10-12 09:38:02
 urlname: 108
 cover: https://img.jikehou.cn/cover/2019-10-12.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, Pycharm]
 ---

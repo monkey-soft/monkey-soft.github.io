@@ -4,9 +4,9 @@ title:  "该如何学习 Python？"
 date:   2018-04-15 16:09:41
 urlname: 46
 cover: https://img.jikehou.cn/cover/2018-04-15.jpg
-categories: [小白入门Python]
-tags: [Python, 自学]
-keywords: [Python, 方法论, 自学]
+categories: [Python编程]
+tags: [Python,感悟]
+keywords: [Python, 感悟, 方法论, 自学]
 description: 该如何学习 Python？
 ---
 在我的 QQ 学习交流群中，有位读者问我一个很有代表性的问题，在这里和大家分享下。

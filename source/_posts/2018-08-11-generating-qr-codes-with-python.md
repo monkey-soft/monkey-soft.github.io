@@ -4,7 +4,7 @@ title:  "使用 Python 生成二维码"
 date:   2018-08-11 16:19:16
 urlname: 74
 cover: https://img.jikehou.cn/cover/2018-08-11.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, 二维码]
 ---

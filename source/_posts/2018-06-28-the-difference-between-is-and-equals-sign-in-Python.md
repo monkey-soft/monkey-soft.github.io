@@ -4,7 +4,7 @@ title:  "Python 中“is”和“==”的区别"
 date:   2018-06-28 21:05:19
 urlname: 64
 cover: https://img.jikehou.cn/cover/2018-06-28.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python]
 ---

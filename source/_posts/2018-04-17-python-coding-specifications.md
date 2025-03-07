@@ -4,7 +4,7 @@ title:  "Python 编码规范"
 date:   2018-04-17 22:31:25
 urlname: 47
 cover: https://img.jikehou.cn/cover/2018-04-17.jpg
-categories: [小白入门Python]
+categories: [Python编程]
 tags: [Python]
 keywords: [Python, 编码规范, PEP]
 description: Python编码规范
