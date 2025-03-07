@@ -3,8 +3,8 @@ layout: post
 title:  "一个开放的未来之门"
 date:   2023-03-30 14:41:33
 cover: https://img.jikehou.cn/cover/2023-03-30.png
-categories: [AI 探索]
-tags: [AI, ChatGPT, AI绘画]
+categories: [AIGC研究]
+tags: [AIGC, AI绘画]
 keywords: [AI, ChatGPT, AI绘画]
 ---
 

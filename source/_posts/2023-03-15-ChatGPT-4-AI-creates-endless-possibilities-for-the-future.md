@@ -3,9 +3,9 @@ layout: post
 title:  "ChatGPT 4.0，AI 创造未来的无限可能"
 date:   2023-03-15 19:08:33
 cover: https://img.jikehou.cn/cover/2023-03-15.png
-categories: [AI 探索]
-tags: [AI, ChatGPT]
-keywords: [AI, ChatGPT]
+categories: [AIGC研究]
+tags: [AIGC, ChatGPT]
+keywords: [AI, AIGC, ChatGPT]
 ---
 
 今天早上，打开手机，铺天盖地的都是 ChatGPT 4.0 版本的消息。
