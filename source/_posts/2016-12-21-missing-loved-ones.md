@@ -4,9 +4,9 @@ title:  "每逢佳节倍思亲"
 date:   2016-12-21 08:14:01
 urlname: 4
 cover: https://img.jikehou.cn/cover/2016-12-21.jpg
-categories: [随笔]
-tags: [随笔]
-keywords: [随笔, 思念, 冬至]
+categories: [苔痕絮语]
+tags: [絮语]
+keywords: [絮语, 思念, 冬至]
 description: 思念家乡的亲人
 ---
 {% note red 'fas fa-fan' simple%}

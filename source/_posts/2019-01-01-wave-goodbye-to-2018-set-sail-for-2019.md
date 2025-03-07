@@ -4,9 +4,9 @@ title:  "挥别2018，起航2019"
 date:   2019-01-01 22:36:16
 urlname: 93
 cover: https://img.jikehou.cn/cover/2019-01-01.jpg
-categories: [随笔]
-tags: []
-keywords: [年总结]
+categories: [苔痕絮语]
+tags: [年终总结, 絮语]
+keywords: [年终总结]
 ---
 我的 2018 年总结。
 

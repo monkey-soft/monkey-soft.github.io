@@ -4,8 +4,8 @@ title:  "开发一个操作系统有多难？"
 date:   2019-08-16 12:45:34
 urlname: 103
 cover: https://img.jikehou.cn/cover/2019-08-16.jpg
-categories: [随笔]
-tags: []
+categories: [苔痕絮语]
+tags: [絮语]
 keywords: [操作系统]
 ---
 今年上半年，谷歌因为遵循美国政府命令，需要中断与华为的业务往来，不再给华为提供 Android 服务。

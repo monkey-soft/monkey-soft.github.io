@@ -4,8 +4,8 @@ title:  "618 购物节买什么？当然是书"
 date:   2018-05-30 22:24:33
 urlname: 58
 cover: https://img.jikehou.cn/cover/2018-05-30.jpg
-categories: [随笔]
-tags: [阅读]
+categories: [苔痕絮语]
+tags: [阅读, 絮语]
 keywords: [Python, 编程入门, 开发进阶, 书籍]
 ---
 时光荏苒，2018年已经过半。

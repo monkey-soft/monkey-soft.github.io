@@ -4,8 +4,8 @@ title:  "中秋佳节，不妨读一本好书"
 date:   2018-09-19 23:17:31
 urlname: 79
 cover: https://img.jikehou.cn/cover/2018-09-19.jpg
-categories: [随笔]
-tags: [阅读]
+categories: [苔痕絮语]
+tags: [阅读, 絮语]
 keywords: [阅读]
 ---
 时光荏苒，又值中秋佳节。因为中秋节是我国重要的传统节日，又是非常古老的节日。

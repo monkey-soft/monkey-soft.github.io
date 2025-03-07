@@ -4,9 +4,9 @@ title:  "爱自己多一点，对自己健康负责"
 date:   2019-11-27 23:39:55
 urlname: 113
 cover: https://img.jikehou.cn/cover/2019-11-27.jpg
-categories: [随笔]
-tags: [随笔]
-keywords: [认知, 感悟]
+categories: [苔痕絮语]
+tags: [感悟, 絮语]
+keywords: [身体健康, 感悟]
 ---
 近期关于身体健康的热点新闻颇多的，前有“网易裁员，让保安把身患绝症的我感触公司。
 

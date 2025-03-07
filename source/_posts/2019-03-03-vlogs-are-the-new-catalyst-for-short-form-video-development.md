@@ -4,8 +4,8 @@ title:  "Vlog 是短视频发展的新催化剂？"
 date:   2019-03-03 10:46:00
 urlname: 98
 cover: https://img.jikehou.cn/cover/2019-03-03.jpg
-categories: [随笔]
-tags: []
+categories: [苔痕絮语]
+tags: [絮语]
 keywords: [Vlog, 短视频, 商业]
 ---
 上周末，我逛下 B站，偶然发现 B 站打出“在 B 站，用 vlog 记录不平凡”的活动。

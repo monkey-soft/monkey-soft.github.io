@@ -4,8 +4,8 @@ title:  "程序员应该懂点产品知识——竞品分析"
 date:   2018-08-08 12:27:52
 urlname: 73
 cover: https://img.jikehou.cn/cover/2018-08-08.jpg
-categories: [随笔]
-tags: []
+categories: [苔痕絮语]
+tags: [絮语]
 keywords: [产品, 竞品分析]
 ---
 最近产品经理和程序员打架的事件闹得满城风雨。

@@ -4,8 +4,8 @@ title:  "程序员该如何过七夕？"
 date:   2018-08-17 15:01:02
 urlname: 75
 cover: https://img.jikehou.cn/cover/2018-08-17.jpg
-categories: [随笔]
-tags: [随笔]
+categories: [苔痕絮语]
+tags: [絮语]
 keywords: [七夕]
 description: 程序员该如何过七夕？
 ---

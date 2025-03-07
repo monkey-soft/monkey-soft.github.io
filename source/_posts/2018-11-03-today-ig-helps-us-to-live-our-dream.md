@@ -4,8 +4,8 @@ title:  "今天， IG 帮我们圆梦"
 date:   2018-11-03 21:38:18
 urlname: 84
 cover: https://img.jikehou.cn/cover/2018-11-03.jpg
-categories: [随笔]
-tags: []
+categories: [苔痕絮语]
+tags: [絮语]
 keywords: [IG]
 description: 今天，IG 帮我们圆梦
 ---

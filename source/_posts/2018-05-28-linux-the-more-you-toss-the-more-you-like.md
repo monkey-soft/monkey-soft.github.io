@@ -4,8 +4,8 @@ title:  "Linux，越折腾越喜欢"
 date:   2018-05-28 22:20:38
 urlname: 57
 cover: https://img.jikehou.cn/cover/2018-05-28.jpg
-categories: [随笔]
-tags: [Linux]
+categories: [苔痕絮语]
+tags: [Linux, 絮语]
 keywords: [Linux, 操作系统, Ubuntu, Debian, 鸟哥的私房菜]
 description: Linux，越折腾越喜欢
 ---
@@ -13,7 +13,7 @@ description: Linux，越折腾越喜欢
 
 起因是自己收到某个问答社区小秘的问题邀请。
 
-问题是**《谁能给我推荐几本linux的书？从基础到进阶提高的linux书？》。**
+问题是 **《谁能给我推荐几本linux的书？从基础到进阶提高的linux书？》。**
 
 自己挺怀念大学那段折腾 Linux 的时光，所以就忍不住评论一波。
 

@@ -4,8 +4,8 @@ title:  "假期的所见所闻"
 date:   2019-10-02 22:11:37
 urlname: 107
 cover: https://img.jikehou.cn/cover/2019-10-02.jpg
-categories: [随笔]
-tags: []
+categories: [苔痕絮语]
+tags: [感悟, 絮语]
 keywords: [认知, 感悟]
 ---
 国庆假期是难得的休息时间，也是难得拥有完整的时间块。
