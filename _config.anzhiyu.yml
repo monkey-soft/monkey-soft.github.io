@@ -1,11 +1,17 @@
 menu:
-  文章:
+  文库:
     时间轴: /archives/ || anzhiyu-icon-box-archive
-    专栏: /categories/ || anzhiyu-icon-shapes
+    分类: /categories/ || anzhiyu-icon-shapes
     标签: /tags/ || anzhiyu-icon-tags
 
+  专栏: 
+    Python编程: /categories/Python编程/ || anzhiyu-icon-fan
+    爬虫入门: /categories/Python爬虫入门/ || anzhiyu-icon-fan
+    爬虫实战: /categories/Python爬虫实战/ || anzhiyu-icon-fan
+    数据分析: /categories/数据分析/  || anzhiyu-icon-fan
+
   友链: 
-    友链: /link/ || anzhiyu-icon-link
+    友情链接: /link/ || anzhiyu-icon-link
     留言板: /comments/ || anzhiyu-icon-envelope
 
   关于:
@@ -66,18 +72,18 @@ social:
 
 # 作者卡片 状态
 author_status:
-  enable: false
+  enable: true
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
-  statusImg: "https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png"
+  statusImg: #"https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png"
   skills:
-    # - 🤖️ 数码科技爱好者
-    # - 🔍 分享与热心帮助
-    # - 🏠 智能家居小能手
-    # - 🔨 设计开发一条龙
-    # - 🤝 专修交互与设计
-    # - 🏃 脚踏实地行动派
-    # - 🧱 团队小组发动机
-    # - 💢 壮汉人狠话不多
+      - 💻🚀 代码创客·AI创业者
+      - ✍️📝 笔耕不辍的思考者
+      - 📖🧭 书海漫游指南针
+      - ⏳⚔️ 十年磨剑·静待锋芒
+      - 易经演算·红尘修行 ☯️🧘
+      - 商业系统架构师 💰⚙️
+      - 复利增长信徒 📈⏩
+      - 极客精神布道者 🤖🐒
 
 # 中控台
 centerConsole:
@@ -529,6 +535,26 @@ footer:
       #       link: https://www.foreverblog.cn/
           - title: 开往
             link: https://github.com/travellings-link/travellings
+      - title: Python专栏
+        links: 
+          - title: Python编程
+            link: /categories/Python编程/
+          - title: Python爬虫入门
+            link: /categories/Python爬虫入门/
+          - title: Python爬虫实战
+            link: /categories/Python爬虫实战/
+          - title: 数据分析
+            link: /categories/数据分析/  
+      - title: 沉淀
+        links:
+          - title: AIGC研究
+            link: /categories/AIGC研究/
+          - title: 博客相关
+            link: /categories/博客相关/
+          - title: 个人成长
+            link: /categories/个人成长/
+          - title: 苔痕絮语
+            link: /categories/苔痕絮语/   
       # - title: 主题
       #   links:
       #     - title: 文档
@@ -867,7 +893,7 @@ aside:
     color: false
     sort_order: # Don't modify the setting unless you know how it works
     highlightTags:
-      - AI
+      - AIGC
       - Python
       - 个人成长
       - 网络爬虫
@@ -1003,6 +1029,9 @@ icons:
 # --------------------------------------
 
 # Pjax
+# 当用户点击链接，通过 ajax 更新页面需要变化的部分，
+# 然后使用 HTML5 的 pushState 修改浏览器的 URL 地址。
+# 这样可以不用重复加载相同的资源（css/js）， 从而提升网页的加载速度。
 # It may contain bugs and unstable, give feedback when you find the bugs.
 # https://github.com/MoOx/pjax
 pjax:
@@ -1098,8 +1127,8 @@ home_top:
   subTitle: 则日退
   siteText: 极客猴
   category:
-    - name: AI 探索
-      path: /categories/AI-探索/
+    - name: AIGC研究
+      path: /categories/AIGC研究/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
