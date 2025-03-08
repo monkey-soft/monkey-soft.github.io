@@ -1,0 +1,64 @@
+- class_name: 侠客榜
+  class_desc: 溯光而行——在搭建博客的日子里，我从每位优秀博主身上拆解出光的形状。
+  flink_style: telescopic
+  hundredSuffix: ""
+  link_list:
+    - name: 安知鱼
+      link: https://blog.anheyu.com/
+      avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
+      descr: 生活明朗，万物可爱
+      siteshot:   https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/anzhiy.cn.jpg
+      color: vip
+      tag: 技术
+    - name: 张洪Heo
+      link: https://blog.zhheo.com/
+      avatar: https://img02.anheyu.com/adminuploads/1/2022/09/02/6311fc38f1465.webp
+      descr: 分享设计与科技生活
+      siteshot: https://img02.anheyu.com/adminuploads/1/2022/09/02/6311fc3959f82.webp
+      color: speed
+      tag: 设计/技术
+    - name: Leonus
+      link: https://blog.leonus.cn/
+      avatar: https://img02.anheyu.com/adminuploads/1/2022/09/16/6324505c9890a.jpeg
+      descr: 进一寸有进一寸的欢喜。
+      siteshot: https://img02.anheyu.com/adminuploads/1/2022/09/16/6324505c98fae.jpg
+      color: vip
+      tag: 技术
+    - name: 瓦解的生活记事
+      avatar: https://cravatar.cn/avatar/8def0c8c73b56dc0e18744a9a43d70f4
+      link: https://hin.cool
+      descr: 总是偏爱不务正业
+      tag: 技术/生活   
+    - name: 张时贰
+      link: https://zhsher.cn/
+      avatar: https://img02.anheyu.com/adminuploads/1/2022/11/12/636ef2c1632a5.webp
+      descr: 环转码，爱敲代码的小张！
+      siteshot: https://img02.anheyu.com/adminuploads/1/2023/02/03/63dc8d606e61a.webp
+      color: speed
+      tag: 技术 
+
+- class_name: 萍踪聚
+  class_desc: 江湖萍水相逢，却成莫逆之交🍻
+  flink_style: anzhiyu
+  hundredSuffix: ""
+  link_list:
+    - name: 咸鱼学Python
+      link: http://www.xianyucoder.cn
+      avatar: https://avatars.githubusercontent.com/u/38454239
+      recommend: true
+      descr: 擅长JS逆向的Python大佬  
+    - name: 王炳明
+      link: https://iswbm.com/
+      avatar: http://image.iswbm.com/20200925130928.png
+      descr: Python和GO双修的云计算工程师
+      recommend: true
+    - name: 安知鱼
+      link: https://blog.anheyu.com/
+      avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
+      descr: 生活明朗，万物可爱
+      recommend: true
+    - name: 刘洪亮Leo
+      link: https://lhliang.com
+      avatar: https://lhliang.com/img/avatar.webp
+      descr: 不忘初心，方得始终
+      recommend: true
