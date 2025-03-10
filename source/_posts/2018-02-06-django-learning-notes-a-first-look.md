@@ -4,8 +4,8 @@ title:  "Django 学习笔记之初识"
 date:   2018-02-06 12:52:36
 urlname: 36
 cover: https://img.jikehou.cn/cover/2018-02-06.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 上篇文章讲述 Django 环境搭建， 在文章最后部分还有 6 篇 Django 简单入门的文章。

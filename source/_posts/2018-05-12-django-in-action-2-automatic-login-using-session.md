@@ -4,8 +4,8 @@ title:  "Django 实战2：利用 Session 实现自动登录"
 date:   2018-05-12 20:51:31
 urlname: 53
 cover: https://img.jikehou.cn/cover/2018-05-12.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django, session, 项目实战]
 ---
 上篇文章中讲到 Django 如何启动以及配置 sessions 功能。sessions 功能用是跟踪用户的状态，经常结合 Cookie 功能实现自动登录功能。 

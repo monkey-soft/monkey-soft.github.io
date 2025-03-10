@@ -4,8 +4,8 @@ title:  "Django 学习笔记之模板"
 date:   2018-02-13 14:48:08
 urlname: 38
 cover: https://img.jikehou.cn/cover/2018-02-13.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 本文是自己 Django 学习笔记系列的第四篇原创文章。

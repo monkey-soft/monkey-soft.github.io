@@ -4,8 +4,8 @@ title:  "Django 使用会话(sessions)功能"
 date:   2018-05-07 22:49:58
 urlname: 52
 cover: https://img.jikehou.cn/cover/2018-05-07.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django, session]
 ---
 淘宝、天猫、京东等电商网站的出现，让我们足不出户就能购物。

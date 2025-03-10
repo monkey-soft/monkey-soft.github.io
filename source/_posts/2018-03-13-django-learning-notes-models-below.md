@@ -4,8 +4,8 @@ title:  "Django 学习笔记之模型(下)"
 date:   2018-03-13 20:12:44
 urlname: 40
 cover: https://img.jikehou.cn/cover/2018-03-13.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 上篇文章讲解了 Django 如何创建模型，本文将继续讲解如何对模型进行增删改查操作。

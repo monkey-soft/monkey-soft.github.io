@@ -4,8 +4,8 @@ title:  "Django 学习笔记之模型(上)"
 date:   2018-02-14 14:48:41
 urlname: 39
 cover: https://img.jikehou.cn/cover/2018-02-14.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 上篇文章讲解模板。

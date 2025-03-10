@@ -4,8 +4,8 @@ title:  "Django 学习笔记之后台管理"
 date:   2018-03-20 20:49:34
 urlname: 41
 cover: https://img.jikehou.cn/cover/2018-03-20.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 本文是 Django 学习笔记系列的第七篇。前面 6 篇文章，我们已经了解了 Django MTV 模型中三个层的内容。

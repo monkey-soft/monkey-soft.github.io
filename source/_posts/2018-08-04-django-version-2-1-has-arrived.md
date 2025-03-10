@@ -4,8 +4,8 @@ title:  "Django 2.1 版本已经来袭"
 date:   2018-08-04 16:18:59
 urlname: 72
 cover: https://img.jikehou.cn/cover/2018-08-04.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 一个备受关注、很多人都在使用的软件，软件开发团队会定期发布新版本。

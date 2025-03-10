@@ -4,8 +4,8 @@ title:  "Django 学习笔记之视图与URL配置"
 date:   2018-02-08 18:34:54
 urlname: 37
 cover: https://img.jikehou.cn/cover/2018-02-08.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 本文章是自己学习 Django 框架的第三篇。前面两篇文章主要记录 Django 理论相关知识。

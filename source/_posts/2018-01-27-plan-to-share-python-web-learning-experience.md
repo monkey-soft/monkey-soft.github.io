@@ -4,8 +4,8 @@ title:  "计划分享Python Web学习心得"
 date:   2018-01-27 15:29:44
 urlname: 34
 cover: https://img.jikehou.cn/cover/2018-01-27.jpg
-categories: [从零学Django]
-tags: [Python, Web]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web]
 ---
 前段时间，有个读者留言跟我说，有空出使用 Python 实现 RESTful API 的教程。我一看，这正合我意。

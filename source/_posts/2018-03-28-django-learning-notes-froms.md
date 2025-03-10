@@ -4,8 +4,8 @@ title:  "Django 学习笔记之表单"
 date:   2018-03-28 11:29:46
 urlname: 42
 cover: https://img.jikehou.cn/cover/2018-03-28.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 本文是自己 Django 学习笔记系列中第 8 篇，算是基础知识篇章中最后一篇笔记。

@@ -4,8 +4,8 @@ title:  "Django 学习笔记之环境搭建"
 date:   2018-01-29 11:23:53
 urlname: 35
 cover: https://img.jikehou.cn/cover/2018-01-29.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 古人云：功遇善其事，必先利其器。在正式学习 Django Web 框架之前，我们要把准备工作做好。

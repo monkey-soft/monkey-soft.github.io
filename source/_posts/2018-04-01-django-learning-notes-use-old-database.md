@@ -4,8 +4,8 @@ title:  "Django 学习笔记之使用旧数据库"
 date:   2018-04-01 17:24:36
 urlname: 43
 cover: https://img.jikehou.cn/cover/2018-04-01.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django, 数据库]
+categories: [Python编程]
+tags: [Python, Web开发, 数据库]
 keywords: [Python, web, Django, 数据库]
 ---
 如果你按照顺序，从第一篇文章读到本文。恭喜你，你已经将 Django 大部分基础知识掌握了。

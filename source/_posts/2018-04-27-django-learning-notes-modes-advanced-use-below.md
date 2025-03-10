@@ -4,8 +4,8 @@ title:  "Django 学习笔记之模型高级用法(下)"
 date:   2018-04-27 17:17:56
 urlname: 50
 cover: https://img.jikehou.cn/cover/2018-04-27.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 接着上篇文章内容，本文分享自己对模型一些用法的总结。

@@ -4,8 +4,8 @@ title:  "Django 实现分页功能"
 date:   2018-05-05 14:10:03
 urlname: 51
 cover: https://img.jikehou.cn/cover/2018-05-05.jpg
-categories: [从零学Django]
-tags: [Python, Web, Django]
+categories: [Python编程]
+tags: [Python, Web开发]
 keywords: [Python, web, Django]
 ---
 当页面因需要展示的数据条目过多，导致无法在一个页面全部显示。

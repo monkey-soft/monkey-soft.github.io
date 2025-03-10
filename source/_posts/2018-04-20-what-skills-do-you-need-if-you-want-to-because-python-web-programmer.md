@@ -5,7 +5,7 @@ date:   2018-04-20 21:27:38
 urlname: 48
 cover: https://img.jikehou.cn/cover/2018-04-20.jpg
 categories: [Python编程]
-tags: [Python, Web]
+tags: [Python, Web开发]
 keywords: [Python, Web, Django, Linux, 后台]
 description: 想做 Python Web 开发，需要掌握哪些技能？
 ---
