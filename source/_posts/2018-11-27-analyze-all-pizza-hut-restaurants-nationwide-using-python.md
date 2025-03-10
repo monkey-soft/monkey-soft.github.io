@@ -5,7 +5,7 @@ date:   2018-11-27 21:51:42
 urlname: 89
 cover: https://img.jikehou.cn/cover/2018-11-27.jpg
 categories: [数据分析]
-tags: [Python, 数据分析, pyecharts]
+tags: [热门, Python, 数据分析, pyecharts]
 keywords: [Python, 数据分析, pyecharts, 必胜客]
 ---
 在之前的一篇文章中，我讲到如何爬取必胜客官网中全国各大城市餐厅的信息。

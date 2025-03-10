@@ -5,7 +5,7 @@ date:   2019-10-20 23:48:31
 urlname: 109
 cover: https://img.jikehou.cn/cover/2019-10-20.jpg
 categories: [Python编程]
-tags: [Python]
+tags: [热门, Python]
 keywords: [Python, 数组]
 ---
 List （列表）是 Python 中最基本的数据结构。

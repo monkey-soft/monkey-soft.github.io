@@ -5,7 +5,7 @@ date:   2018-11-13 10:54:01
 urlname: 86
 cover: https://img.jikehou.cn/cover/2018-11-13.jpg
 categories: [Python爬虫实战]
-tags: [Python, 网络爬虫, 爬虫实战]
+tags: [热门, Python, 网络爬虫, 爬虫实战]
 keywords: [Python, 网络爬虫, 爬虫实战, 项目实战, 必胜客]
 ---
 当我刚接触 Python 时，我已经被 Python 深深所吸引。
@@ -204,8 +204,4 @@ with open('results.json', 'w', encoding='UTF-8') as file:
 如果你想获取项目的源码, 点击按钮进行下载。
 
 {% btn 'https://github.com/monkey-soft/SchweizerMesser/blob/master/Pizzahut/PizzahutCityInformation.py', 源码下载, far fa-hand-point-right,blue larger %}
-
-
-
-
 

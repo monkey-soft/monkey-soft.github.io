@@ -4,8 +4,8 @@ title:  "说说 Django 如何优雅地对接 Mongodb"
 date:   2020-04-02 16:23:34
 urlname: 116
 cover: https://img.jikehou.cn/cover/2020-04-02.jpg
-categories: [从零学Django]
-tags: [Python, 数据库]
+categories: [Python编程]
+tags: [Python, 数据库, MongoDB, Web开发]
 keywords: [Django, Python, Djongo, MongoDB]
 ---
 大家好，我是猴哥。

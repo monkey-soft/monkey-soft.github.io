@@ -5,7 +5,7 @@ date:   2020-01-16 17:28:07
 urlname: 114
 cover: https://img.jikehou.cn/cover/2020-01-16.jpg
 categories: [数据分析]
-tags: [数据分析, pandas]
+tags: [热门, 数据分析, pandas]
 keywords: [数据分析, Pandas, Python]
 ---
 如果读者们计划学习数据分析、机器学习、或者用 Python 做数据科学的研究，你会经常接触到 Pandas 库。

@@ -5,8 +5,8 @@ date:   2018-06-15 21:53:08
 urlname: 61
 cover: https://img.jikehou.cn/cover/2018-06-15.jpg
 categories: [数据库]
-tags: [数据库, MangoDB]
-keywords: [数据库, MangoDB, Nosqlclient, Mongo Plugin]
+tags: [数据库, MongoDB]
+keywords: [数据库, MongoDB, Nosqlclient, Mongo Plugin]
 ---
 MongoDB 是一种 NoSQL 数据库。
 

@@ -5,7 +5,7 @@ date:   2018-08-11 16:19:16
 urlname: 74
 cover: https://img.jikehou.cn/cover/2018-08-11.jpg
 categories: [Python编程]
-tags: [Python]
+tags: [热门, Python]
 keywords: [Python, 二维码]
 ---
 新时代，人们有人信新的追求，自然而然会有新发明的诞生。

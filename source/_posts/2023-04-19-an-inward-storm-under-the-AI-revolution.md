@@ -4,7 +4,7 @@ title:  "AI 革命下的内卷风暴"
 date:   2023-04-19 19:08:33
 cover: https://img.jikehou.cn/cover/2023-04-19.png
 categories: [AIGC研究]
-tags: [AIGC]
+tags: [AIGC, ChatGPT]
 keywords: [AI, ChatGPT, Claude]
 ---
 

@@ -5,7 +5,7 @@ date:   2017-10-31 11:04:54
 urlname: 22
 cover: https://img.jikehou.cn/cover/2017-10-31.jpg
 categories: [数据分析]
-tags: [Python, 数据分析, Matplotlib]
+tags: [热门, Python, 数据分析, Matplotlib]
 keywords: [Python, 数据分析, Matplotlib, 数据可视化]
 ---
 > 当我们的爬虫程序已经完成使命，帮我们抓取大量的数据。你内心也许会空落落的。或许你会疑惑，自己抓取这些数据有啥用？如果要拿去分析，那要怎么分析呢？

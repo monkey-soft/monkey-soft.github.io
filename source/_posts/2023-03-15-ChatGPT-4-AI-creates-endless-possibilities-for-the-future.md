@@ -4,7 +4,7 @@ title:  "ChatGPT 4.0，AI 创造未来的无限可能"
 date:   2023-03-15 19:08:33
 cover: https://img.jikehou.cn/cover/2023-03-15.png
 categories: [AIGC研究]
-tags: [AIGC, ChatGPT]
+tags: [热门, AIGC, ChatGPT]
 keywords: [AI, AIGC, ChatGPT]
 ---
 

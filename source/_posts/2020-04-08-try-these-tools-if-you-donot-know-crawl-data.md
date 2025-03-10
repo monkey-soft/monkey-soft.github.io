@@ -5,7 +5,7 @@ date:   2020-04-08 18:28:17
 urlname: 117
 cover: https://img.jikehou.cn/cover/2020-04-08.jpg
 categories: [Python爬虫入门]
-tags: [数据采集, 网络爬虫]
+tags: [热门, 数据采集, 网络爬虫]
 keywords: [数据采集器, 网络爬虫, 火车头, 八爪鱼, GooSeeker 集搜客, Scrapinghub, WebScraper]
 ---
 前天，有个同学加我微信来咨询我：
