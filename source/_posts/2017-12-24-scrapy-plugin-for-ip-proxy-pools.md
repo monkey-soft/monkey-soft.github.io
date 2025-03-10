@@ -5,8 +5,8 @@ date:   2017-12-24 21:06:41
 urlname: 29
 cover: https://img.jikehou.cn/cover/2017-12-24.jpg
 categories: [Python爬虫实战]
-tags: [Python, Scrapy, IP代理池]
-keywords: [Python, Scrapy, IP代理池, 网络爬虫]
+tags: [Python, Scrapy, IP代理]
+keywords: [Python, Scrapy, IP代理, 网络爬虫]
 ---
 现在很多网站都是对单个 IP 地址有访问次数限制，如果你在短时间内访问过于频繁。该网站会封掉你 IP，让你在一段时间内无法正常该网站。
 

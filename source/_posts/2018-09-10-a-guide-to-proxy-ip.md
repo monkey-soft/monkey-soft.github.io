@@ -5,7 +5,7 @@ date:   2018-09-10 22:22:53
 urlname: 78
 cover: https://img.jikehou.cn/cover/2018-09-10.jpg
 categories: [Python爬虫入门]
-tags: [反爬虫, 代理]
+tags: [反爬虫, IP代理]
 keywords: [网络爬虫, 反爬虫, 代理]
 ---
 因为 Python 语法简介以及强大的第三方库，所以我们使用它来制作网络爬虫程序。
