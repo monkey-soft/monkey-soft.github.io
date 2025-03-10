@@ -4,7 +4,7 @@ title:  "账号认证那些事"
 date:   2018-12-20 20:20:28
 urlname: 92
 cover: https://img.jikehou.cn/cover/2018-12-20.jpg
-categories: [网络基础]
+categories: [计算机网络]
 tags: []
 keywords: [账号认证, Request, Session, Token, OAuth]
 ---

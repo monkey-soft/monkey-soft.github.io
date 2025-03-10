@@ -4,7 +4,7 @@ title:  "深入理解HTTP"
 date:   2016-11-20 22:35:13
 urlname: 1
 cover: https://img.jikehou.cn/cover/2016-11-20.jpg
-categories: [网络基础]
+categories: [计算机网络]
 tags: []
 keywords: [HTTP, HTTP协议, Headers, User-Agent, 计算机网络]
 ---

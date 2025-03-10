@@ -4,8 +4,8 @@ title:  "高并发的那些事"
 date:   2018-10-05 19:44:01
 urlname: 80
 cover: https://img.jikehou.cn/cover/2018-10-05.jpg
-categories: [网络基础]
-tags: [高并发]
+categories: [计算机网络]
+tags: [热门, 高并发]
 keywords: [高并发]
 ---
 "高并发"对后台开发同学来说，既熟悉又陌生。

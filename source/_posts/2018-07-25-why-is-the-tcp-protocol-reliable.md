@@ -4,7 +4,7 @@ title:  "为什么说 TCP 协议是可靠的？"
 date:   2018-07-25 12:16:03
 urlname: 69
 cover: https://img.jikehou.cn/cover/2018-07-25.jpg
-categories: [网络基础]
+categories: [计算机网络]
 tags: []
 keywords: [TCP, TCP可靠, 可靠协议]
 ---

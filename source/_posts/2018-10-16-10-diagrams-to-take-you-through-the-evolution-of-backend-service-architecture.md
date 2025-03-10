@@ -4,8 +4,8 @@ title:  "10 张图带你了解后台服务架构演变"
 date:   2018-10-16 12:16:33
 urlname: 81
 cover: https://img.jikehou.cn/cover/2018-10-16.jpg
-categories: [网络基础]
-tags: []
+categories: [计算机网络]
+tags: [高并发]
 keywords: [高并发, 后台架构]
 ---
 上篇文章讲了一些高并发相关的知识，相信大家对高并发有些简单的认识。

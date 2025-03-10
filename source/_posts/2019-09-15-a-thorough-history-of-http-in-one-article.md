@@ -4,7 +4,7 @@ title:  "一篇文章彻底了解HTTP发展史"
 date:   2019-09-15 21:14:01
 urlname: 106
 cover: https://img.jikehou.cn/cover/2019-09-15.jpg
-categories: [网络基础]
+categories: [计算机网络]
 tags: []
 keywords: [HTTP, HTTP协议， 计算机网络]
 ---
