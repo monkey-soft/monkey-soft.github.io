@@ -344,13 +344,13 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Valine/Waline/Twikoo/Artalk
-  use: # Twikoo/Waline
+  use: Twikoo
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
   lazyload: false
   count: true # 是否在文章顶部显示评论数
-  card_post_count: false # 是否在首页文章卡片显示评论数
+  card_post_count: true # 是否在首页文章卡片显示评论数
 
 # valine
 # https://valine.js.org
@@ -390,9 +390,9 @@ waline:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId:
+  envId: https://twikoo.jikehou.cn/
   region:
-  visitor: false
+  visitor: true #false # 是否显示文章阅读数
   option:
 
 # Artalk
@@ -535,13 +535,13 @@ footer:
       #       link: https://www.foreverblog.cn/
           - title: 开往
             link: https://github.com/travellings-link/travellings
-      - title: Python专栏
+      - title: Python
         links: 
           - title: Python编程
             link: /categories/Python编程/
-          - title: Python爬虫入门
+          - title: 爬虫入门
             link: /categories/Python爬虫入门/
-          - title: Python爬虫实战
+          - title: 爬虫实战
             link: /categories/Python爬虫实战/
           - title: 数据分析
             link: /categories/数据分析/  
