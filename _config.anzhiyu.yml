@@ -350,7 +350,7 @@ comments:
   # If you set it to true, the comment count will be invalid
   lazyload: false
   count: true # 是否在文章顶部显示评论数
-  card_post_count: true # 是否在首页文章卡片显示评论数
+  card_post_count: false # 是否在首页文章卡片显示评论数
 
 # valine
 # https://valine.js.org
