@@ -15,6 +15,7 @@ menu:
     留言板: /comments/ || anzhiyu-icon-envelope
 
   关于:
+    随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
     关于我: /about/ || anzhiyu-icon-paper-plane
   # 我的:
   #   音乐馆: /music/ || anzhiyu-icon-music
@@ -221,7 +222,7 @@ wordcount:
 # Replace Broken Images (替换无法显示的图片)
 error_img:
   flink: /img/friend_404.gif
-  post_page: /img/404.jpg
+  post_page: #/img/404.jpg
 
 # A simple 404 page
 error_404:
@@ -507,9 +508,9 @@ footer:
       # - title: facebook
       #   link: https://www.facebook.com/profile.php?id=100092208016287&sk=about
       #   icon: anzhiyu-icon-facebook1
-      - title: RSS
-        link: atom.xml
-        icon: anzhiyu-icon-rss
+      # - title: RSS
+      #   link: atom.xml
+      #   icon: anzhiyu-icon-rss
     right:
       - title: Github
         link: https://github.com/monkey-soft
@@ -520,9 +521,9 @@ footer:
       # - title: 抖音
       #   link: https://v.douyin.com/DwCpMEy/
       #   icon: anzhiyu-icon-tiktok
-      - title: CC
-        link: /copyright
-        icon: anzhiyu-icon-copyright-line
+      # - title: CC
+      #   link: /copyright
+      #   icon: anzhiyu-icon-copyright-line
   list:
     enable: true
     randomFriends: 3
@@ -867,7 +868,7 @@ aside:
     category: true
   card_author:
     enable: true
-    description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">嗨~我是极客猴</br>一名<b style="color:#FA9394">技术极客, AI创业者, 修行者</b></br>探索<b style="color:#6BDF8F">『一人企业，复利商业化，资产化』</b></br><b style="color:#FA9394">写作</b>为了记录自己的思考和成长</br><b style="color:#6BDF8F">真诚・利他</b>分享！</div>
+    description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">嗨~我是极客猴</br>一名<b style="color:#FA9394">技术极客, 探索利用AI赚点小钱</b></br>践行<b style="color:#6BDF8F">『一人企业，复利商业化，资产化』</b></br><b style="color:#FA9394">写作</b>记录自己的思考和成长</div>
     name_link: /about
   card_announcement:
     enable: false
