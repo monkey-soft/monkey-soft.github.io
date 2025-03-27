@@ -19,7 +19,7 @@ description: '极客猴的好友门'
 - name: 极客猴
   link: https://jikehou.cn
   avatar: https://img.jikehou.cn/config/avatar.png
-  descr: 技术极客, 创业者, 探索『一人企业』, 写作是为了记录自己的思考和成长。
+  descr: 技术极客, 创业者, 践行『一人公司』, 写作是为了记录自己的思考和成长。
 ```
 
 <!-- endtab -->
@@ -30,7 +30,7 @@ description: '极客猴的好友门'
 - name: 极客猴
   link: https://jikehou.cn
   avatar: https://img.jikehou.cn/config/avatar.png
-  descr: 技术极客, 创业者, 探索『一人企业』, 写作是为了记录自己的思考和成长。
+  descr: 技术极客, 创业者, 践行『一人公司』, 写作是为了记录自己的思考和成长。
 ```
 
 <!-- endtab -->
@@ -42,7 +42,7 @@ description: '极客猴的好友门'
   "name": "极客猴",
   "link": "https://jikehou.cn",
   "avatar": "https://img.jikehou.cn/config/avatar.png",
-  "descr": "技术极客, 创业者, 探索『一人企业』, 写作是为了记录自己的思考和成长。"
+  "descr": "技术极客, 创业者, 践行『一人公司』, 写作是为了记录自己的思考和成长。"
 }
 ```
 
@@ -111,7 +111,7 @@ description: '极客猴的好友门'
 1. 昵称: `极客猴`
 2. 网站地址: `https://jikehou.cn`
 3. 头像图片: `https://img.jikehou.cn/config/avatar.png`
-4. 描述: `技术极客, 创业者, 探索『一人企业』, 写作是为了记录自己的思考和成长。`
+4. 描述: `技术极客, 创业者, 践行『一人公司』, 写作是为了记录自己的思考和成长。`
 
 参照以下格式留言 📋 即可。
 
@@ -128,7 +128,7 @@ description: '极客猴的好友门'
 - name: 极客猴
   link: https://jikehou.cn
   avatar: https://img.jikehou.cn/config/avatar.png
-  descr: 技术极客, 创业者, 探索『一人企业』, 写作是为了记录自己的思考和成长。
+  descr: 技术极客, 创业者, 践行『一人公司』, 写作是为了记录自己的思考和成长。
 ```
 
 {% endhideToggle %}
